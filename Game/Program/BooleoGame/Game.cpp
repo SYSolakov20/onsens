@@ -41,6 +41,8 @@ void game::pollEvents()
 
 void game::setBackground()
 {
+	sf::Image backgroundImg;
+	backgroundImg.loadFromFile("assets/menu.png");
 	this->backgroundTexture.loadFromFile("assets/menu.png");
 	this->backgroundSprite.setTexture(backgroundTexture);
 }
@@ -59,19 +61,26 @@ void game::update()
 }
 
 sf::Window newWindow(sf::VideoMode(1545, 810), "", sf::Style::Close);
+
 bool game::getMousePos(float x, float y, int a)
 {
 	sf::Vector2i mousepos = sf::Mouse::getPosition(newWindow);
 	switch (a)
 	{
 	case 1: // checking for hovering buttons
-		if ((mousepos.x >= x && mousepos.x <= x + 295) && (mousepos.y >= y && mousepos.y <= y + 75))
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 295) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 75))
 		{
 			return 1;
 		}
 		break;
 	}
 	return 0;
+}
+
+void game::posWindow()
+{
+	newWindow.setVisible(false);
+	newWindow.setPosition(sf::Vector2i(190, 80));
 }
 
 void game::menu()
@@ -90,6 +99,20 @@ void game::menu()
 	this->button4.setFillColor(sf::Color(80, 255, 0));
 }
 
+void game::customCursor()
+{
+	sf::Image cursorImg;
+	cursorImg.loadFromFile("assets/Cursor.png");
+	this->cursor.loadFromPixels(cursorImg.getPixelsPtr(), cursorImg.getSize(), sf::Vector2u(0, 0));
+	this->window->setMouseCursor(cursor);
+}
+
+void game::setReady()
+{
+	game::posWindow();
+	game::customCursor();
+}
+
 game::game()
 {
 	init_window();
@@ -105,10 +128,12 @@ game::~game()
 	
 void game::Start()
 {
-	newWindow.setVisible(false);
-
+	game::setReady();
+	
 	while (running())
 	{
+		sf::Vector2i cursorpos = sf::Mouse::getPosition(newWindow);
+
 		if (ready) // Play
 		{
 			this->backgroundTexture.loadFromFile("assets/white.png");
@@ -118,7 +143,7 @@ void game::Start()
 		}
 		else { // Game Menu
 			pollEvents();
-			if (game::getMousePos(625, 307, 1))
+			if (game::getMousePos(625, 307, 1)) // Button Play:
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -127,7 +152,7 @@ void game::Start()
 					ready = 1;
 				}
 			}
-			else if (game::getMousePos(625, 412, 1))
+			else if (game::getMousePos(625, 412, 1)) // Button Options
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverOptions.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -137,7 +162,7 @@ void game::Start()
 					this->backgroundSprite.setTexture(backgroundTexture);
 				}
 			}
-			else if (game::getMousePos(625, 516, 1))
+			else if (game::getMousePos(625, 516, 1)) // Button Rules
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverRules.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -147,14 +172,13 @@ void game::Start()
 					this->backgroundSprite.setTexture(backgroundTexture);
 				}
 			}
-			else if (game::getMousePos(625, 620, 1))
+			else if (game::getMousePos(625, 620, 1)) // Button Quit
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverQuit.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					this->backgroundTexture.loadFromFile("assets/Options.png");
-					this->backgroundSprite.setTexture(backgroundTexture);
+					window->close();
 				}
 			}
 			else
@@ -162,6 +186,7 @@ void game::Start()
 				game::setBackground();
 			}
 			menu();
+			this->window->setPosition(sf::Vector2i(190, 80));
 			this->window->draw(this->backgroundSprite);
 			this->window->display();
 			clock.restart();
