@@ -3,7 +3,7 @@
 int main()
 {
     game game;
-    game.Start();
+    game.start();
     return 0;
 }
 

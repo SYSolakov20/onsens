@@ -99,6 +99,12 @@ void game::menu()
 	this->button4.setFillColor(sf::Color(80, 255, 0));
 }
 
+void game::setTheIcon()
+{
+	this->icon.loadFromFile("assets/Icon.png");
+	this->window->setIcon(77, 77, icon.getPixelsPtr());
+}
+
 void game::customCursor()
 {
 	sf::Image cursorImg;
@@ -107,11 +113,10 @@ void game::customCursor()
 	this->window->setMouseCursor(cursor);
 }
 
-
-
 void game::setReady()
 {
 	posWindow();
+	setTheIcon();
 	customCursor();
 }
 
@@ -129,7 +134,7 @@ game::~game()
 	delete this->window;
 }
 	
-void game::Start()
+void game::start()
 {
 	
 	while (running())

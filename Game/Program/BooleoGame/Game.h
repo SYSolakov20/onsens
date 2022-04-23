@@ -19,6 +19,8 @@ private:
 	const int window_h = 810;
 	sf::RenderWindow* window; // window object
 	sf::Cursor cursor; // cursor object
+	sf::Image icon; // icon
+
 
 	sf::Event sfmlEvent;
 
@@ -47,12 +49,12 @@ public:
 	game(); // Constructor for initializing different values
 	~game(); // Deconstructor for deleting values
 
-	void pollEvents(); // Function to close window
+	void pollEvents(); // Function for getting events
 	bool running(); // Function to check whether game is running
-	void Start(); // Function to start game
+	void start(); // Function to start game
 	void menu(); // Setting the game menu
 	void customCursor(); // Setting the custom cursor
-	void icon(); // Icon for the window
+	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
 	void posWindow(); // Window for getting the mouse pos
 	bool getMousePos(float x, float y, int a); // Getting the mouse position
