@@ -136,7 +136,7 @@ void game::Start()
 
 		if (ready) // Play
 		{
-			this->backgroundTexture.loadFromFile("assets/white.png");
+			this->backgroundTexture.loadFromFile("assets/Play.png");
 			this->backgroundSprite.setTexture(backgroundTexture);
 			update();
 			render();
