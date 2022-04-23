@@ -15,8 +15,8 @@ class game
 
 private:
 	// Set width and height of window
-	const int window_w = 1030;
-	const int window_h = 540;
+	const int window_w = 1545;
+	const int window_h = 810;
 	sf::RenderWindow* window; // window object
 
 	sf::Event sfmlEvent;
@@ -34,6 +34,7 @@ private:
 	sf::RectangleShape button1;
 	sf::RectangleShape button2;
 	sf::RectangleShape button3;
+	sf::RectangleShape button4;
 
 	void init_window();
 	void initPLayer();
