@@ -107,16 +107,19 @@ void game::customCursor()
 	this->window->setMouseCursor(cursor);
 }
 
+
+
 void game::setReady()
 {
-	game::posWindow();
-	game::customCursor();
+	posWindow();
+	customCursor();
 }
 
 game::game()
 {
 	init_window();
 	setBackground();
+	setReady();
 	this->backgroundSprite.setScale(window_w / backgroundSprite.getGlobalBounds().width, window_h / backgroundSprite.getGlobalBounds().height);
 
 }
@@ -128,7 +131,6 @@ game::~game()
 	
 void game::Start()
 {
-	game::setReady();
 	
 	while (running())
 	{
@@ -143,7 +145,7 @@ void game::Start()
 		}
 		else { // Game Menu
 			pollEvents();
-			if (game::getMousePos(625, 307, 1)) // Button Play:
+			if (getMousePos(625, 307, 1)) // Button Play:
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -152,7 +154,7 @@ void game::Start()
 					ready = 1;
 				}
 			}
-			else if (game::getMousePos(625, 412, 1)) // Button Options
+			else if (getMousePos(625, 412, 1)) // Button Options
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverOptions.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -162,7 +164,7 @@ void game::Start()
 					this->backgroundSprite.setTexture(backgroundTexture);
 				}
 			}
-			else if (game::getMousePos(625, 516, 1)) // Button Rules
+			else if (getMousePos(625, 516, 1)) // Button Rules
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverRules.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -172,7 +174,7 @@ void game::Start()
 					this->backgroundSprite.setTexture(backgroundTexture);
 				}
 			}
-			else if (game::getMousePos(625, 620, 1)) // Button Quit
+			else if (getMousePos(625, 620, 1)) // Button Quit
 			{
 				this->backgroundTexture.loadFromFile("assets/HoverQuit.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
@@ -183,7 +185,7 @@ void game::Start()
 			}
 			else
 			{
-				game::setBackground();
+				setBackground();
 			}
 			menu();
 			this->window->setPosition(sf::Vector2i(190, 80));

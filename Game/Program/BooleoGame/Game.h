@@ -52,6 +52,7 @@ public:
 	void Start(); // Function to start game
 	void menu(); // Setting the game menu
 	void customCursor(); // Setting the custom cursor
+	void icon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
 	void posWindow(); // Window for getting the mouse pos
 	bool getMousePos(float x, float y, int a); // Getting the mouse position
