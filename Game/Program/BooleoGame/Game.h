@@ -1,6 +1,5 @@
 #pragma once
 // Including all necessary libraries
-#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -19,7 +18,7 @@ private:
 	const int window_h = 810;
 	sf::RenderWindow* window; // window object
 	sf::Cursor cursor; // cursor object
-	sf::Image icon; // icon
+	sf::Image icon; // image for custom icon
 
 
 	sf::Event sfmlEvent;
@@ -43,6 +42,7 @@ private:
 	void initPLayer();
 
 	bool ready = 0;
+	bool gameMode = 0;
 
 public:
 
@@ -53,6 +53,7 @@ public:
 	bool running(); // Function to check whether game is running
 	void start(); // Function to start game
 	void menu(); // Setting the game menu
+	void modes(); // Modes menu function
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game

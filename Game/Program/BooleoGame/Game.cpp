@@ -32,7 +32,7 @@ void game::pollEvents()
 		case sf::Event::KeyPressed:
 			if (this->sfmlEvent.key.code == sf::Keyboard::Escape)
 			{
-				this->window->close();
+				gameMode = 0;
 			}
 			break;
 		}
@@ -41,9 +41,8 @@ void game::pollEvents()
 
 void game::setBackground()
 {
-	sf::Image backgroundImg;
-	backgroundImg.loadFromFile("assets/menu.png");
 	this->backgroundTexture.loadFromFile("assets/menu.png");
+	backgroundTexture.setSmooth(true);
 	this->backgroundSprite.setTexture(backgroundTexture);
 }
 
@@ -73,6 +72,12 @@ bool game::getMousePos(float x, float y, int a)
 			return 1;
 		}
 		break;
+	case 2:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 310) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 470))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -85,6 +90,7 @@ void game::posWindow()
 
 void game::menu()
 {
+	pollEvents();
 	this->button1.setSize(sf::Vector2f(295, 75));
 	this->button1.setPosition(625, 307);
 	this->button1.setFillColor(sf::Color(0, 255, 0));
@@ -97,6 +103,118 @@ void game::menu()
 	this->button4.setSize(sf::Vector2f(295, 75));
 	this->button4.setPosition(625, 620);
 	this->button4.setFillColor(sf::Color(80, 255, 0));
+	if (getMousePos(625, 307, 1)) // Button Play:
+	{
+		this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			gameMode = 1;
+		}
+	}
+	else if (getMousePos(625, 412, 1)) // Button Options
+	{
+		this->backgroundTexture.loadFromFile("assets/HoverOptions.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			this->backgroundTexture.loadFromFile("assets/Options.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	else if (getMousePos(625, 516, 1)) // Button Rules
+	{
+		this->backgroundTexture.loadFromFile("assets/HoverRules.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			this->backgroundTexture.loadFromFile("assets/Rules.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	else if (getMousePos(625, 620, 1)) // Button Quit
+	{
+		this->backgroundTexture.loadFromFile("assets/HoverQuit.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			window->close();
+		}
+	}
+	else
+	{
+		setBackground();
+	}
+	this->window->setPosition(sf::Vector2i(190, 80));
+	this->window->draw(this->backgroundSprite);
+	this->window->display();
+}
+
+void game::modes()
+{
+	pollEvents();
+	this->button1.setSize(sf::Vector2f(310, 470));
+	this->button1.setPosition(95, 170);
+	this->button1.setFillColor(sf::Color(0, 255, 0));
+	this->button2.setSize(sf::Vector2f(310, 470));
+	this->button2.setPosition(445, 170);
+	this->button2.setFillColor(sf::Color(30, 255, 0));
+	this->button3.setSize(sf::Vector2f(310, 470));
+	this->button3.setPosition(795, 170);
+	this->button3.setFillColor(sf::Color(80, 255, 0));
+	this->button4.setSize(sf::Vector2f(310, 470));
+	this->button4.setPosition(1145, 170);
+	this->button4.setFillColor(sf::Color(80, 255, 0));
+	Sleep(100);
+	if (getMousePos(95, 170, 2)) // First mode:
+	{
+		this->backgroundTexture.loadFromFile("");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			ready = 1;
+		}
+	}
+	else if (getMousePos(445, 170, 2)) // Second mode:
+	{
+		this->backgroundTexture.loadFromFile("");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			this->backgroundTexture.loadFromFile("");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	else if (getMousePos(795, 170, 2)) // Third mode:
+	{
+		this->backgroundTexture.loadFromFile("");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			this->backgroundTexture.loadFromFile("");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	else if (getMousePos(1145, 170, 2)) // Fourth mode:
+	{
+		this->backgroundTexture.loadFromFile("");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			this->backgroundTexture.loadFromFile("");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	else
+	{
+		setBackground();
+	}
+
+
+	this->backgroundTexture.loadFromFile("assets/GameMode.png");
+	this->backgroundSprite.setTexture(backgroundTexture);
+	this->window->draw(this->backgroundSprite);
+	this->window->display();
 }
 
 void game::setTheIcon()
@@ -148,57 +266,15 @@ void game::start()
 			update();
 			render();
 		}
-		else { // Game Menu
-			pollEvents();
-			if (getMousePos(625, 307, 1)) // Button Play:
-			{
-				this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
-				this->backgroundSprite.setTexture(backgroundTexture);
-				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{ 
-					ready = 1;
-				}
-			}
-			else if (getMousePos(625, 412, 1)) // Button Options
-			{
-				this->backgroundTexture.loadFromFile("assets/HoverOptions.png");
-				this->backgroundSprite.setTexture(backgroundTexture);
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					this->backgroundTexture.loadFromFile("assets/Options.png");
-					this->backgroundSprite.setTexture(backgroundTexture);
-				}
-			}
-			else if (getMousePos(625, 516, 1)) // Button Rules
-			{
-				this->backgroundTexture.loadFromFile("assets/HoverRules.png");
-				this->backgroundSprite.setTexture(backgroundTexture);
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					this->backgroundTexture.loadFromFile("assets/Rules.png");
-					this->backgroundSprite.setTexture(backgroundTexture);
-				}
-			}
-			else if (getMousePos(625, 620, 1)) // Button Quit
-			{
-				this->backgroundTexture.loadFromFile("assets/HoverQuit.png");
-				this->backgroundSprite.setTexture(backgroundTexture);
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					window->close();
-				}
-			}
-			else
-			{
-				setBackground();
-			}
-			menu();
-			this->window->setPosition(sf::Vector2i(190, 80));
-			this->window->draw(this->backgroundSprite);
-			this->window->display();
+		else if (gameMode) // Modes menu
+		{
+			modes();
 			clock.restart();
 		}
-
+		else // Game Menu
+		{ 
+			menu();
+			clock.restart();
+		}
 	}
-
 };
