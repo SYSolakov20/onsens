@@ -46,21 +46,21 @@ private:
 
 public:
 
-	game(); // Constructor for initializing different values
+	game(sf::Window& newWindow); // Constructor for initializing different values
 	~game(); // Deconstructor for deleting values
 
 	void pollEvents(); // Function for getting events
 	bool running(); // Function to check whether game is running
-	void start(); // Function to start game
-	void menu(); // Setting the game menu
-	void modes(); // Modes menu function
+	void start(sf::Window& newWindow); // Function to start game
+	void menu(sf::Window& newWindow); // Setting the game menu
+	void modes(sf::Window& newWindow); // Modes menu function
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
-	void setReady(); // Config everything before the start of the game
-	void posWindow(); // Window for getting the mouse pos
-	bool getMousePos(float x, float y, int a); // Getting the mouse position
+	void setReady(sf::Window& newWindow); // Config everything before the start of the game
+	void posWindow(sf::Window& newWindow); // Window for getting the mouse pos
+	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration
 	void setBackground(); // Function to display background

@@ -60,8 +60,8 @@ void game::update()
 	pollEvents();
 }
 
-sf::Window newWindow(sf::VideoMode(1545, 810), "", sf::Style::Close);
-bool game::getMousePos(float x, float y, int a)
+
+bool game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 {
 	sf::Vector2i mousepos = sf::Mouse::getPosition(newWindow);
 	switch (a)
@@ -82,7 +82,7 @@ bool game::getMousePos(float x, float y, int a)
 	return 0;
 }
 
-void game::posWindow()
+void game::posWindow(sf::Window &newWindow)
 {
 	newWindow.setVisible(false);
 	this->window->setPosition(sf::Vector2i(190, 80));
@@ -104,9 +104,9 @@ void game::menuButtons()
 	this->button4.setFillColor(sf::Color(80, 255, 0));
 }
 
-void game::menu()
+void game::menu(sf::Window &newWindow)
 {
-	if (getMousePos(625, 307, 1)) // Button Play:
+	if (getMousePos(625, 307, 1, newWindow)) // Button Play:
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -116,7 +116,7 @@ void game::menu()
 			modesButtons();
 		}
 	}
-	else if (getMousePos(625, 412, 1)) // Button Options
+	else if (getMousePos(625, 412, 1, newWindow)) // Button Options
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverOptions.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -126,7 +126,7 @@ void game::menu()
 			this->backgroundSprite.setTexture(backgroundTexture);
 		}
 	}
-	else if (getMousePos(625, 516, 1)) // Button Rules
+	else if (getMousePos(625, 516, 1, newWindow)) // Button Rules
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverRules.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -136,7 +136,7 @@ void game::menu()
 			this->backgroundSprite.setTexture(backgroundTexture);
 		}
 	}
-	else if (getMousePos(625, 620, 1)) // Button Quit
+	else if (getMousePos(625, 620, 1, newWindow)) // Button Quit
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverQuit.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -156,7 +156,6 @@ void game::menu()
 
 void game::modesButtons()
 {
-	Sleep(200);
 	this->button1.setSize(sf::Vector2f(310, 470));
 	this->button1.setPosition(95, 170);
 	this->button1.setFillColor(sf::Color(0, 255, 0));
@@ -171,9 +170,9 @@ void game::modesButtons()
 	this->button4.setFillColor(sf::Color(80, 255, 0));
 }
 
-void game::modes()
+void game::modes(sf::Window& newWindow)
 {
-	if (getMousePos(95, 170, 2)) // First mode:
+	if (getMousePos(95, 170, 2, newWindow)) // First mode:
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode1.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -182,7 +181,7 @@ void game::modes()
 			ready = 1;
 		}
 	}
-	else if (getMousePos(445, 170, 2)) // Second mode:
+	else if (getMousePos(445, 170, 2, newWindow)) // Second mode:
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode2.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -192,7 +191,7 @@ void game::modes()
 			this->backgroundSprite.setTexture(backgroundTexture);
 		}
 	}
-	else if (getMousePos(795, 170, 2)) // Third mode:
+	else if (getMousePos(795, 170, 2, newWindow)) // Third mode:
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode3.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -202,7 +201,7 @@ void game::modes()
 			this->backgroundSprite.setTexture(backgroundTexture);
 		}
 	}
-	else if (getMousePos(1145, 170, 2)) // Fourth mode:
+	else if (getMousePos(1145, 170, 2, newWindow)) // Fourth mode:
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode4.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
@@ -237,18 +236,18 @@ void game::customCursor()
 	this->window->setMouseCursor(cursor);
 }
 
-void game::setReady()
+void game::setReady(sf::Window& newWindow)
 {
-	posWindow();
+	posWindow(newWindow);
 	setTheIcon();
 	customCursor();
 }
 
-game::game()
+game::game(sf::Window& newWindow)
 {
 	init_window();
 	setBackground();
-	setReady();
+	setReady(newWindow);
 	this->backgroundSprite.setScale(window_w / backgroundSprite.getGlobalBounds().width, window_h / backgroundSprite.getGlobalBounds().height);
 
 }
@@ -258,9 +257,8 @@ game::~game()
 	delete this->window;
 }
 	
-void game::start()
+void game::start(sf::Window& newWindow)
 {
-	
 	while (running())
 	{
 		sf::Vector2i cursorpos = sf::Mouse::getPosition(newWindow);
@@ -276,14 +274,14 @@ void game::start()
 		else if (gameMode) // Modes menu
 		{
 			pollEvents();
-			modes();
+			modes(newWindow);
 			clock.restart();
 		}
 		else // Game Menu
 		{ 
 			pollEvents();
 			menuButtons();
-			menu();
+			menu(newWindow);
 			clock.restart();
 		}
 	}
