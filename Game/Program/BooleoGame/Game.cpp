@@ -85,7 +85,7 @@ bool game::getMousePos(float x, float y, int a)
 void game::posWindow()
 {
 	newWindow.setVisible(false);
-	newWindow.setPosition(sf::Vector2i(190, 80));
+	this->window->setPosition(sf::Vector2i(190, 80));
 }
 
 void game::menu()
@@ -145,7 +145,6 @@ void game::menu()
 	{
 		setBackground();
 	}
-	this->window->setPosition(sf::Vector2i(190, 80));
 	this->window->draw(this->backgroundSprite);
 	this->window->display();
 }
@@ -258,6 +257,7 @@ void game::start()
 	while (running())
 	{
 		sf::Vector2i cursorpos = sf::Mouse::getPosition(newWindow);
+		newWindow.setPosition(this->window->getPosition());
 
 		if (ready) // Play
 		{
