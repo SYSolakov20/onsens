@@ -88,9 +88,8 @@ void game::posWindow()
 	this->window->setPosition(sf::Vector2i(190, 80));
 }
 
-void game::menu()
+void game::menuButtons()
 {
-	pollEvents();
 	this->button1.setSize(sf::Vector2f(295, 75));
 	this->button1.setPosition(625, 307);
 	this->button1.setFillColor(sf::Color(0, 255, 0));
@@ -103,6 +102,11 @@ void game::menu()
 	this->button4.setSize(sf::Vector2f(295, 75));
 	this->button4.setPosition(625, 620);
 	this->button4.setFillColor(sf::Color(80, 255, 0));
+}
+
+void game::menu()
+{
+	pollEvents();
 	if (getMousePos(625, 307, 1)) // Button Play:
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
@@ -110,6 +114,7 @@ void game::menu()
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			gameMode = 1;
+			modesButtons();
 		}
 	}
 	else if (getMousePos(625, 412, 1)) // Button Options
@@ -149,9 +154,10 @@ void game::menu()
 	this->window->display();
 }
 
-void game::modes()
+
+void game::modesButtons()
 {
-	pollEvents();
+	Sleep(200);
 	this->button1.setSize(sf::Vector2f(310, 470));
 	this->button1.setPosition(95, 170);
 	this->button1.setFillColor(sf::Color(0, 255, 0));
@@ -164,7 +170,11 @@ void game::modes()
 	this->button4.setSize(sf::Vector2f(310, 470));
 	this->button4.setPosition(1145, 170);
 	this->button4.setFillColor(sf::Color(80, 255, 0));
-	Sleep(100);
+}
+
+void game::modes()
+{
+	pollEvents();
 	if (getMousePos(95, 170, 2)) // First mode:
 	{
 		this->backgroundTexture.loadFromFile("");
@@ -273,6 +283,7 @@ void game::start()
 		}
 		else // Game Menu
 		{ 
+			menuButtons();
 			menu();
 			clock.restart();
 		}

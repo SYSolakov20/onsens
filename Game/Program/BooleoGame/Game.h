@@ -54,6 +54,8 @@ public:
 	void start(); // Function to start game
 	void menu(); // Setting the game menu
 	void modes(); // Modes menu function
+	void menuButtons(); // Setting the buttons
+	void modesButtons(); // Setting the buttons
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
