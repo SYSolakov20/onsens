@@ -2,8 +2,7 @@
 
 int main()
 {
-    sf::Window newWindow(sf::VideoMode(1545, 810), "", sf::Style::Close);
-    game game(newWindow);
-    game.start(newWindow);
+    Game* game = new Game();
+    game->start();
     return 0;
 }

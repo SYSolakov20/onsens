@@ -9,7 +9,7 @@
 #include <random>
 #include <windows.h>
 
-class game
+class Game
 {
 
 private:
@@ -39,27 +39,25 @@ private:
 	sf::RectangleShape button4;
 
 	void init_window();
-	void initPLayer();
 
 	bool ready = 0;
 	bool gameMode = 0;
 
 public:
 
-	game(sf::Window& newWindow); // Constructor for initializing different values
-	~game(); // Deconstructor for deleting values
+	Game(); // Constructor for initializing different values
+	~Game(); // Deconstructor for deleting values
 
 	void pollEvents(); // Function for getting events
 	bool running(); // Function to check whether game is running
-	void start(sf::Window& newWindow); // Function to start game
+	void start(); // Function to start game
 	void menu(sf::Window& newWindow); // Setting the game menu
 	void modes(sf::Window& newWindow); // Modes menu function
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
-	void setReady(sf::Window& newWindow); // Config everything before the start of the game
-	void posWindow(sf::Window& newWindow); // Window for getting the mouse pos
+	void setReady(); // Config everything before the start of the game
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration

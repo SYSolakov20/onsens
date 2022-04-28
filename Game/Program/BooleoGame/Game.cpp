@@ -1,13 +1,13 @@
 #include "game.h"
 
 
-void game::init_window()
+void Game::init_window()
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(window_w, window_h), "Booleo", sf::Style::Close);
 	this->window->setFramerateLimit(80);
 }
 
-int game::randomNum(int n)
+int Game::randomNum(int n)
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -15,12 +15,12 @@ int game::randomNum(int n)
 	return dis(gen);
 }
 
-bool game::running()
+bool Game::running()
 {
 	return this->window->isOpen();
 }
 
-void game::pollEvents()
+void Game::pollEvents()
 {
 	while (this->window->pollEvent(this->sfmlEvent))
 	{
@@ -31,7 +31,7 @@ void game::pollEvents()
 			break;
 
 		case sf::Event::KeyPressed:
-			if (this->sfmlEvent.key.code == sf::Keyboard::Escape)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			{
 				this->window->close();
 			}
@@ -40,7 +40,7 @@ void game::pollEvents()
 	}
 }
 
-void game::setBackground()
+void Game::setBackground()
 {
 	this->backgroundTexture.loadFromFile("assets/menu.png");
 	backgroundTexture.setSmooth(true);
@@ -48,20 +48,20 @@ void game::setBackground()
 }
 
 
-void game::render()
+void Game::render()
 {
 	this->window->clear();
 	this->window->draw(this->backgroundSprite);
 	this->window->display();
 }
 
-void game::update()
+void Game::update()
 {
 	pollEvents();
 }
 
 
-bool game::getMousePos(float x, float y, int a, sf::Window &newWindow)
+bool Game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 {
 	sf::Vector2i mousepos = sf::Mouse::getPosition(newWindow);
 	switch (a)
@@ -82,13 +82,7 @@ bool game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 	return 0;
 }
 
-void game::posWindow(sf::Window &newWindow)
-{
-	newWindow.setVisible(false);
-	this->window->setPosition(sf::Vector2i(190, 80));
-}
-
-void game::menuButtons()
+void Game::menuButtons()
 {
 	this->button1.setSize(sf::Vector2f(295, 75));
 	this->button1.setPosition(625, 307);
@@ -104,7 +98,7 @@ void game::menuButtons()
 	this->button4.setFillColor(sf::Color(80, 255, 0));
 }
 
-void game::menu(sf::Window &newWindow)
+void Game::menu(sf::Window &newWindow)
 {
 	if (getMousePos(625, 307, 1, newWindow)) // Button Play:
 	{
@@ -154,7 +148,7 @@ void game::menu(sf::Window &newWindow)
 }
 
 
-void game::modesButtons()
+void Game::modesButtons()
 {
 	this->button1.setSize(sf::Vector2f(310, 470));
 	this->button1.setPosition(95, 170);
@@ -170,7 +164,7 @@ void game::modesButtons()
 	this->button4.setFillColor(sf::Color(80, 255, 0));
 }
 
-void game::modes(sf::Window& newWindow)
+void Game::modes(sf::Window& newWindow)
 {
 	if (getMousePos(95, 170, 2, newWindow)) // First mode:
 	{
@@ -222,13 +216,13 @@ void game::modes(sf::Window& newWindow)
 	this->window->display();
 }
 
-void game::setTheIcon()
+void Game::setTheIcon()
 {
 	this->icon.loadFromFile("assets/Icon.png");
 	this->window->setIcon(77, 77, icon.getPixelsPtr());
 }
 
-void game::customCursor()
+void Game::customCursor()
 {
 	sf::Image cursorImg;
 	cursorImg.loadFromFile("assets/Cursor.png");
@@ -236,33 +230,32 @@ void game::customCursor()
 	this->window->setMouseCursor(cursor);
 }
 
-void game::setReady(sf::Window& newWindow)
+void Game::setReady()
 {
-	posWindow(newWindow);
+	this->window->setPosition(sf::Vector2i(190, 80));
 	setTheIcon();
 	customCursor();
 }
 
-game::game(sf::Window& newWindow)
+Game::Game()
 {
 	init_window();
 	setBackground();
-	setReady(newWindow);
+	setReady();
 	this->backgroundSprite.setScale(window_w / backgroundSprite.getGlobalBounds().width, window_h / backgroundSprite.getGlobalBounds().height);
 
 }
 
-game::~game()
+Game::~Game()
 {
 	delete this->window;
 }
 	
-void game::start(sf::Window& newWindow)
+void Game::start()
 {
 	while (running())
 	{
-		sf::Vector2i cursorpos = sf::Mouse::getPosition(newWindow);
-		newWindow.setPosition(this->window->getPosition());
+		sf::Vector2i cursorpos = sf::Mouse::getPosition(*this->window);
 
 		if (ready) // Play
 		{
@@ -274,14 +267,14 @@ void game::start(sf::Window& newWindow)
 		else if (gameMode) // Modes menu
 		{
 			pollEvents();
-			modes(newWindow);
+			modes(*this->window);
 			clock.restart();
 		}
 		else // Game Menu
 		{ 
 			pollEvents();
 			menuButtons();
-			menu(newWindow);
+			menu(*this->window);
 			clock.restart();
 		}
 	}
