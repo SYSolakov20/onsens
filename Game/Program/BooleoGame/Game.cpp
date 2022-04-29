@@ -7,14 +7,6 @@ void Game::init_window()
 	this->window->setFramerateLimit(80);
 }
 
-int Game::randomNum(int n)
-{
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(0, n);
-	return dis(gen);
-}
-
 bool Game::running()
 {
 	return this->window->isOpen();
@@ -33,7 +25,18 @@ void Game::pollEvents()
 		case sf::Event::KeyPressed:
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			{
-				this->window->close();
+				if (ready)
+				{
+					ready = 0;
+				}
+				else if (gameMode)
+				{
+					gameMode = 0;
+				}
+				else
+				{
+					this->window->close();
+				}
 			}
 			break;
 		}
@@ -173,6 +176,9 @@ void Game::modes(sf::Window& newWindow)
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			ready = 1;
+			gamemodeNum = 1;
+			this->backgroundTexture.loadFromFile("assets/GameField.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
 		}
 	}
 	else if (getMousePos(445, 170, 2, newWindow)) // Second mode:
@@ -181,8 +187,8 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			this->backgroundTexture.loadFromFile("assets/HoverMode2.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
+			ready = 1;
+			gamemodeNum = 2;
 		}
 	}
 	else if (getMousePos(795, 170, 2, newWindow)) // Third mode:
@@ -191,8 +197,8 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			this->backgroundTexture.loadFromFile("assets/HoverMode3.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
+			ready = 1;
+			gamemodeNum = 3;
 		}
 	}
 	else if (getMousePos(1145, 170, 2, newWindow)) // Fourth mode:
@@ -201,8 +207,8 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			this->backgroundTexture.loadFromFile("assets/HoverMode4.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
+			ready = 1;
+			gamemodeNum = 4;
 		}
 	}
 	else
@@ -259,10 +265,43 @@ void Game::start()
 
 		if (ready) // Play
 		{
-			this->backgroundTexture.loadFromFile("assets/Play.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
-			update();
-			render();
+			if (gamemodeNum == 1)
+			{
+
+
+
+
+
+
+
+
+
+
+				update();
+				render();
+			}
+			else if (gamemodeNum == 2)
+			{
+				this->backgroundTexture.loadFromFile("assets/Play.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+				update();
+				render();
+			}
+			else if (gamemodeNum == 3)
+			{
+				this->backgroundTexture.loadFromFile("assets/Play.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+				update();
+				render();
+			}
+			else if (gamemodeNum == 4)
+			{
+				this->backgroundTexture.loadFromFile("assets/Play.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+				update();
+				render();
+			}
+			
 		}
 		else if (gameMode) // Modes menu
 		{

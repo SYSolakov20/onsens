@@ -42,6 +42,7 @@ private:
 
 	bool ready = 0;
 	bool gameMode = 0;
+	int gamemodeNum = 0;
 
 public:
 
@@ -62,5 +63,4 @@ public:
 	void update(); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration
 	void setBackground(); // Function to display background
-	int randomNum(int n); // Function for returning random value
 };
