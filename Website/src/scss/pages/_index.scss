@@ -1,0 +1,9 @@
+@use '../base/baseForward' as *;
+@use '../utilities/utilForward' as *;
+
+.starter-image{
+    position: absolute;
+    top:0;
+    right:0px;
+    z-index: -1;
+}

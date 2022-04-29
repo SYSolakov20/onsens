@@ -1,9 +1,12 @@
 /*All font sizes that are used*/
-$smallestFontSize:24px;
-$smallFontSize:27px;
-$normalFontSize:32px;
-$smallTitleFontSize:64px;
-$bigTitleFontSize:128px;
+$smallestFontSize:24;
+$smallFontSize:27;
+$normalFontSize:32;
+$smallTitleFontSize:64;
+$bigTitleFontSize:128;
+
+/*Letter spacing*/
+$normalLetterSpacing:0.2em;
 
 /*Font family*/
 $specialFont: 'OmegaCentauri';
