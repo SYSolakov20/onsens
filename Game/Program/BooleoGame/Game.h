@@ -38,11 +38,24 @@ private:
 	sf::RectangleShape button3;
 	sf::RectangleShape button4;
 
+
 	void init_window();
 
+
+	// Some more game realeted stuff :P
 	bool ready = 0;
 	bool gameMode = 0;
 	int gamemodeNum = 0;
+	int counter = 0;
+	int tableNum = 0;
+	bool pressed = false;
+	sf::Texture player1TextTexture;
+	sf::Sprite player1Text;
+	sf::Texture player2TextTexture;
+	sf::Sprite player2Text;
+	sf::RectangleShape buttonTable;
+	sf::Texture TruthTableTexture;
+	sf::Sprite TruthTable;
 
 public:
 
@@ -59,8 +72,9 @@ public:
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
+	void setPlay(); // Config the game before playing
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
-	void update(); // Main function to change values every iteration
+	void update(sf::Window& newWindow); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration
 	void setBackground(); // Function to display background
 };

@@ -58,8 +58,27 @@ void Game::render()
 	this->window->display();
 }
 
-void Game::update()
+void Game::update(sf::Window& newWindow)
 {
+	if (getMousePos(1394, 191, 3, newWindow)) // Table Button:
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			if (!pressed) 
+			{
+				tableNum++;
+				if (tableNum == 3)
+				{
+					tableNum = 0;
+				}
+				pressed = true;
+				}
+			}
+			else 
+			{
+				pressed = false;
+			}
+		}
 	pollEvents();
 }
 
@@ -77,6 +96,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 		break;
 	case 2:
 		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 310) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 470))
+		{
+			return 1;
+		}
+		break;
+	case 3:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 114) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 37))
 		{
 			return 1;
 		}
@@ -177,8 +202,7 @@ void Game::modes(sf::Window& newWindow)
 		{
 			ready = 1;
 			gamemodeNum = 1;
-			this->backgroundTexture.loadFromFile("assets/GameField.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
+			setPlay();
 		}
 	}
 	else if (getMousePos(445, 170, 2, newWindow)) // Second mode:
@@ -236,6 +260,23 @@ void Game::customCursor()
 	this->window->setMouseCursor(cursor);
 }
 
+void Game::setPlay()
+{
+	this->backgroundTexture.loadFromFile("assets/GameField.png");
+	this->backgroundSprite.setTexture(backgroundTexture);
+	player1TextTexture.loadFromFile("assets/Player1Text.png");
+	this->player1TextTexture.setSmooth(true);
+	player1Text.setTexture(player1TextTexture);
+	player1Text.setPosition(15, 12);
+	player2TextTexture.loadFromFile("assets/Player2Text.png");
+	this->player2TextTexture.setSmooth(true);
+	player2Text.setTexture(player2TextTexture);
+	player2Text.setPosition(15, 12);
+	this->buttonTable.setSize(sf::Vector2f(114, 37));
+	this->buttonTable.setPosition(1394, 191);
+	this->buttonTable.setFillColor(sf::Color(80, 255, 0));
+}
+
 void Game::setReady()
 {
 	this->window->setPosition(sf::Vector2i(190, 80));
@@ -267,38 +308,77 @@ void Game::start()
 		{
 			if (gamemodeNum == 1)
 			{
+				if (counter == 0)
+				{
+					counter++;
+				}
+				else if (counter == 1) // Player 1 round
+				{
+
+
+					
+					
 
 
 
 
 
+					this->window->clear();
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(this->player1Text);
+					if (tableNum == 0)
+					{
+						TruthTableTexture.loadFromFile("assets/AndTable.png");
+						this->TruthTableTexture.setSmooth(true);
+						TruthTable.setTexture(TruthTableTexture);
+						TruthTable.setPosition(1390, 240);
+						this->window->draw(this->TruthTable);
+					}
+					else if (tableNum == 1)
+					{
+
+					}
+					else if (tableNum == 2)
+					{
+
+					}
+					this->window->display();
+					update(*this->window);
+				}
+				else if (counter == 2) // Player 2 round
+				{
 
 
 
 
-
-				update();
-				render();
+					counter++;
+					update(*this->window);
+					render();
+				}
+				else
+				{
+					counter = 1;
+				}
 			}
 			else if (gamemodeNum == 2)
 			{
 				this->backgroundTexture.loadFromFile("assets/Play.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
-				update();
+				update(*this->window);
 				render();
 			}
 			else if (gamemodeNum == 3)
 			{
 				this->backgroundTexture.loadFromFile("assets/Play.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
-				update();
+				update(*this->window);
 				render();
 			}
 			else if (gamemodeNum == 4)
 			{
 				this->backgroundTexture.loadFromFile("assets/Play.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
-				update();
+				update(*this->window);
 				render();
 			}
 			
