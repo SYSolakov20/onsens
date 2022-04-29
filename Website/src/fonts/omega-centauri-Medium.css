@@ -1,0 +1,8 @@
+@font-face
+{
+    font-family: 'omega-centauri-Medium';
+  src: url('omega-centauri-Medium.eot');
+  src: url('omega-centauri-Medium.eot?#') format('embedded-opentype'),
+      url('omega-centauri-Medium.woff') format('woff'),
+      url('omega-centauri-Medium.ttf') format('truetype');
+}

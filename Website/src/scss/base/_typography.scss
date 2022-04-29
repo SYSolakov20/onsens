@@ -1,0 +1,16 @@
+@use '../utilities/utilForward' as *;
+/*Reset the default font*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'TeX Gyre Adventor Bold';
+    color:$mainTextColor;
+}
+a, p, label, input{
+    font-family: 'sf_pro_displaythin';
+    text-decoration: none;
+    color:$mainTextColor;
+}

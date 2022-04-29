@@ -1,0 +1,6 @@
+@use "sass:math";
+
+@function rem($pixels, $context: 16) {
+	@return (math.div($pixels, $context)) * 1rem;
+}
+// Source: https://css-tricks.com/snippets/sass/px-to-em-functions/
