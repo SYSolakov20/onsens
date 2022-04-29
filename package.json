@@ -1,0 +1,31 @@
+{
+  "name": "onsens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp",
+    "default": "gulp default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SYSolakov20/onsens.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SYSolakov20/onsens/issues"
+  },
+  "homepage": "https://github.com/SYSolakov20/onsens#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.5",
+    "browser-sync": "^2.27.9",
+    "cssnano": "^5.1.7",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "postcss": "^8.4.12",
+    "sass": "^1.51.0"
+  }
+}
