@@ -56,6 +56,8 @@ private:
 	sf::RectangleShape buttonTable;
 	sf::Texture TruthTableTexture;
 	sf::Sprite TruthTable;
+	sf::Texture TableHeaderTexture;
+	sf::Sprite TableHeader;
 
 public:
 

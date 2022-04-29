@@ -69,16 +69,16 @@ void Game::update(sf::Window& newWindow)
 				tableNum++;
 				if (tableNum == 3)
 				{
-					tableNum = 0;
+						tableNum = 0;
 				}
 				pressed = true;
-				}
-			}
-			else 
-			{
-				pressed = false;
 			}
 		}
+		else 
+		{
+				pressed = false;
+		}
+	}
 	pollEvents();
 }
 
@@ -134,8 +134,16 @@ void Game::menu(sf::Window &newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			gameMode = 1;
-			modesButtons();
+			if (!pressed)
+			{
+				gameMode = 1;
+				modesButtons();
+				pressed = true;
+			}
+		}
+		else
+		{
+			pressed = false;
 		}
 	}
 	else if (getMousePos(625, 412, 1, newWindow)) // Button Options
@@ -200,9 +208,17 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			ready = 1;
-			gamemodeNum = 1;
-			setPlay();
+			if (!pressed)
+			{
+				ready = 1;
+				gamemodeNum = 1;
+				setPlay();
+				pressed = true;
+			}
+		}
+		else
+		{
+			pressed = false;
 		}
 	}
 	else if (getMousePos(445, 170, 2, newWindow)) // Second mode:
@@ -211,8 +227,16 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			ready = 1;
-			gamemodeNum = 2;
+			if (!pressed)
+			{
+				ready = 1;
+				gamemodeNum = 2;
+				pressed = true;
+			}
+		}
+		else
+		{
+			pressed = false;
 		}
 	}
 	else if (getMousePos(795, 170, 2, newWindow)) // Third mode:
@@ -221,8 +245,16 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			ready = 1;
-			gamemodeNum = 3;
+			if (!pressed)
+			{
+				ready = 1;
+				gamemodeNum = 3;
+				pressed = true;
+			}
+		}
+		else
+		{
+			pressed = false;
 		}
 	}
 	else if (getMousePos(1145, 170, 2, newWindow)) // Fourth mode:
@@ -231,8 +263,16 @@ void Game::modes(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			ready = 1;
-			gamemodeNum = 4;
+			if (!pressed)
+			{
+				ready = 1;
+				gamemodeNum = 4;
+				pressed = true;
+			}
+		}
+		else
+		{
+			pressed = false;
 		}
 	}
 	else
@@ -275,6 +315,11 @@ void Game::setPlay()
 	this->buttonTable.setSize(sf::Vector2f(114, 37));
 	this->buttonTable.setPosition(1394, 191);
 	this->buttonTable.setFillColor(sf::Color(80, 255, 0));
+	TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+	this->TableHeaderTexture.setSmooth(true);
+	TableHeader.setTexture(TableHeaderTexture);
+	TableHeader.setPosition(1394, 188);
+	clock.restart();
 }
 
 void Game::setReady()
@@ -308,13 +353,14 @@ void Game::start()
 		{
 			if (gamemodeNum == 1)
 			{
+				sf::Time elapsed1 = clock.getElapsedTime();
 				if (counter == 0)
 				{
 					counter++;
 				}
 				else if (counter == 1) // Player 1 round
 				{
-
+					std::cout << elapsed1.asSeconds() << std::endl;
 
 					
 					
@@ -328,6 +374,11 @@ void Game::start()
 					this->window->draw(this->player1Text);
 					if (tableNum == 0)
 					{
+						if (!(getMousePos(1394, 188, 3, *this->window)))
+						{
+							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+							this->window->draw(this->TableHeader);
+						}
 						TruthTableTexture.loadFromFile("assets/AndTable.png");
 						this->TruthTableTexture.setSmooth(true);
 						TruthTable.setTexture(TruthTableTexture);
@@ -336,11 +387,29 @@ void Game::start()
 					}
 					else if (tableNum == 1)
 					{
-
+						if (!(getMousePos(1394, 188, 3, *this->window)))
+						{
+							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+							this->window->draw(this->TableHeader);
+						}
+						TruthTableTexture.loadFromFile("assets/OrTable.png");
+						this->TruthTableTexture.setSmooth(true);
+						TruthTable.setTexture(TruthTableTexture);
+						TruthTable.setPosition(1390, 240);
+						this->window->draw(this->TruthTable);
 					}
 					else if (tableNum == 2)
 					{
-
+						if (!(getMousePos(1394, 188, 3, *this->window)))
+						{
+							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+							this->window->draw(this->TableHeader);
+						}
+						TruthTableTexture.loadFromFile("assets/XorTable.png");
+						this->TruthTableTexture.setSmooth(true);
+						TruthTable.setTexture(TruthTableTexture);
+						TruthTable.setPosition(1390, 240);
+						this->window->draw(this->TruthTable);
 					}
 					this->window->display();
 					update(*this->window);
