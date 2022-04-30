@@ -1,0 +1,31 @@
+@use '../base/baseForward' as *;
+@use '../utilities/_utilForward.scss' as *;
+
+/*Buttons default style*/
+.button{
+    width: 285px;
+    height: 76px;
+    border-style: none;
+    border-radius: 25px;
+    cursor:pointer;
+}
+.button__text{
+    font-size:rem($smallFontSize);
+    letter-spacing: $smallLetterSpacing;
+}
+
+/*Index page - download button*/
+.button--download{
+    @include flex(row, space-evenly, center);
+    background-image: $accentGradientColor;
+}
+.button__text--download{
+    color:white;
+}
+
+/*Index page - progress button*/
+.button--in-progress{
+    @include flex(row, center, center);
+    border-style:solid;
+    border-width:1px;
+}

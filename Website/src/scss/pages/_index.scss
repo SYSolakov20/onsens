@@ -1,9 +1,36 @@
-@use '../base/baseForward' as *;
-@use '../utilities/utilForward' as *;
+@use '../base/baseForward'as *;
+@use '../utilities/utilForward'as *;
 
-.starter-image{
+.starter-image {
     position: absolute;
-    top:0;
-    right:0px;
+    top: 0;
+    right: 0px;
     z-index: -1;
+}
+
+.begging {
+    @include flex(column, space-between, flex-start);
+    width: 620px;
+    height: 380px;
+    margin-top: 150px;
+    margin-left: 210px;
+}
+.begging__heading {
+    font-size: rem($bigTitleFontSize);
+    letter-spacing: $normalLetterSpacing;
+    line-height: 0.7;
+}
+.begging__text {
+    font-size: rem($normalFontSize);
+    letter-spacing: $normalLetterSpacing;
+    line-height: 0.7;
+    margin-left: 10px;
+    line-height: 1.2;
+    letter-spacing: $smallLetterSpacing;
+}
+
+.button-wrapper {
+    @include flex(row, space-between, center);
+    width: 100%;
+    height: unset;
 }
