@@ -8,6 +8,8 @@
 #include <iostream>
 #include <random>
 #include <windows.h>
+#include <cstdlib>
+#include <ctime>
 
 class Game
 {
@@ -61,6 +63,29 @@ private:
 	sf::Texture TableHoverTexture;
 	sf::Sprite TableHover;
 
+	// Cards struct
+	struct card
+	{
+		int num = 0; // Pos
+		int value = 0; // 0 or 1
+		char type = 0; // and / or / xor
+
+		bool display1 = 0;
+		bool display2 = 0;
+		int player = 0; // 1 or 2
+
+		// image of the card
+		sf::Texture imgTexture; 
+		sf::Sprite img; 
+	};
+
+	card startDeck[100];
+	int temp;
+	int deckI = 1;
+	card deck[100];
+	int cardGet = 1;
+	int player1Cards = 0;
+	int player2Cards = 0;
 
 public:
 
@@ -78,6 +103,9 @@ public:
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
 	void setPlay(); // Config the game before playing
+	void setDeck(); // Setting a deck and cards
+	void sortDeck(); // Radomising the Deck cards
+	void setCardImages(); // Loads cards images
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration

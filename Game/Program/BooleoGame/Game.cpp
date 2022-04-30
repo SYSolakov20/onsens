@@ -286,6 +286,137 @@ void Game::modes(sf::Window& newWindow)
 	this->window->display();
 }
 
+void Game::setDeck()
+{
+	int numCounter = 1;
+
+	startDeck[0].num = 0;
+	for (int i = 1; i < 49; i++)
+	{
+		if (i <= 16)
+		{
+			startDeck[i].type = 'a';
+			startDeck[i].num = numCounter;
+			if (i <= 8)
+			{
+				startDeck[i].value = 0;
+				startDeck->imgTexture.loadFromFile("assets/AndCard0.png");
+				this->startDeck[i].imgTexture.setSmooth(true);
+				startDeck[i].img.setTexture(startDeck[i].imgTexture);
+			}
+			else
+			{
+				startDeck[i].value = 1;
+			}
+		}
+		else if (i <= 32)
+		{
+			startDeck[i].type = 'o';
+			startDeck[i].num = numCounter;
+			if (i <= 24)
+			{
+				startDeck[i].value = 1;
+			}
+			else
+			{
+				startDeck[i].value = 0;
+			}
+		}
+		else if (i <= 48)
+		{
+			startDeck[i].type = 'x';
+			startDeck[i].num = numCounter;
+			if (i <= 40)
+			{
+				startDeck[i].value = 0;
+			}
+			else
+			{
+				startDeck[i].value = 1;
+			}
+		}
+		numCounter++;
+	}
+}
+
+void Game::sortDeck()
+{
+	srand((unsigned)time(0));
+
+	while (deckI < 49)
+	{
+		temp = rand() % 48 + 1;
+		if (startDeck[temp].num != 0)
+		{
+			deck[deckI].type = startDeck[temp].type;
+			deck[deckI].num = deckI;
+			deck[deckI].value = startDeck[temp].value;
+			startDeck[temp].num = 0;
+			deckI++;
+		}
+	}
+}
+void Game::setCardImages()
+{
+	int numCounter = 1;
+
+	for (int i = 1; i < 49; i++)
+	{
+		if (deck[i].display1 == 1 && counter == 1)
+		{
+			if (deck[i].value == 0)
+			{
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+			}
+			else if (deck[i].value == 1)
+			{
+
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+			}
+		}
+	}
+}
+
 void Game::setTheIcon()
 {
 	this->icon.loadFromFile("assets/Icon.png");
@@ -323,6 +454,13 @@ void Game::setPlay()
 	this->TableHoverTexture.setSmooth(true);
 	TableHover.setTexture(TableHoverTexture);
 	TableHover.setPosition(1394, 190);
+
+
+
+
+	setDeck();
+	sortDeck();
+	setCardImages();
 	clock.restart();
 }
 
@@ -362,20 +500,31 @@ void Game::start()
 				{
 					counter++;
 				}
-				else if (counter == 1) // Player 1 round
+				else if (counter == 1) // Player1 round
 				{
-					std::cout << elapsed1.asSeconds() << std::endl;
-
+					//std::cout << elapsed1.asSeconds() << std::endl;
+					for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
+					{
+						deck[cardGet].player = 1;
+					}
 					
-					
-
-
+					for (int i = 0; i < 49; i++)
+					{
+						if (deck[i].player == 1)
+						{
+							std::cout << deck[i].num << std::endl;
+							std::cout << deck[i].value << std::endl;
+							std::cout << deck[i].type << std::endl;
+							std::cout << deck[i].player << std::endl;
+						}
+					}
 
 
 
 					this->window->clear();
 					this->window->draw(this->backgroundSprite);
 					this->window->draw(this->player1Text);
+					setCardImages();
 					if (tableNum == 0)
 					{
 						if (!(getMousePos(1394, 188, 3, *this->window)))
