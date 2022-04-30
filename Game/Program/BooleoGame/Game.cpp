@@ -289,7 +289,7 @@ void Game::modes(sf::Window& newWindow)
 void Game::setTheIcon()
 {
 	this->icon.loadFromFile("assets/Icon.png");
-	this->window->setIcon(77, 77, icon.getPixelsPtr());
+	this->window->setIcon(69, 69, icon.getPixelsPtr());
 }
 
 void Game::customCursor()
@@ -319,6 +319,10 @@ void Game::setPlay()
 	this->TableHeaderTexture.setSmooth(true);
 	TableHeader.setTexture(TableHeaderTexture);
 	TableHeader.setPosition(1394, 188);
+	TableHoverTexture.loadFromFile("assets/AndTableHeader.png");
+	this->TableHoverTexture.setSmooth(true);
+	TableHover.setTexture(TableHoverTexture);
+	TableHover.setPosition(1394, 190);
 	clock.restart();
 }
 
@@ -379,18 +383,29 @@ void Game::start()
 							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
 							this->window->draw(this->TableHeader);
 						}
+						else
+						{
+							TableHoverTexture.loadFromFile("assets/AndTableHeader.png");
+							this->window->draw(this->TableHover);
+						}
 						TruthTableTexture.loadFromFile("assets/AndTable.png");
 						this->TruthTableTexture.setSmooth(true);
 						TruthTable.setTexture(TruthTableTexture);
 						TruthTable.setPosition(1390, 240);
 						this->window->draw(this->TruthTable);
+						//counter++;
 					}
 					else if (tableNum == 1)
 					{
 						if (!(getMousePos(1394, 188, 3, *this->window)))
 						{
-							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+							TableHeaderTexture.loadFromFile("assets/OrTableHover.png");
 							this->window->draw(this->TableHeader);
+						}
+						else
+						{
+							TableHoverTexture.loadFromFile("assets/OrTableHeader.png");
+							this->window->draw(this->TableHover);
 						}
 						TruthTableTexture.loadFromFile("assets/OrTable.png");
 						this->TruthTableTexture.setSmooth(true);
@@ -402,8 +417,13 @@ void Game::start()
 					{
 						if (!(getMousePos(1394, 188, 3, *this->window)))
 						{
-							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+							TableHeaderTexture.loadFromFile("assets/XorTableHover.png");
 							this->window->draw(this->TableHeader);
+						}
+						else
+						{
+							TableHoverTexture.loadFromFile("assets/XorTableHeader.png");
+							this->window->draw(this->TableHover);
 						}
 						TruthTableTexture.loadFromFile("assets/XorTable.png");
 						this->TruthTableTexture.setSmooth(true);

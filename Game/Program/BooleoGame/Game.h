@@ -58,6 +58,9 @@ private:
 	sf::Sprite TruthTable;
 	sf::Texture TableHeaderTexture;
 	sf::Sprite TableHeader;
+	sf::Texture TableHoverTexture;
+	sf::Sprite TableHover;
+
 
 public:
 
