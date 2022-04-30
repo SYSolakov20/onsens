@@ -118,6 +118,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 			return 1;
 		}
 		break;
+	case 6:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 1300) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 1000))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -422,10 +428,25 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					}
 					if (deck[i].drag)
 					{
-						int x = cursorpos.x + 70;
-						int y = cursorpos.y - 50;
+						int x = cursorpos.x + 50;
+						int y = cursorpos.y - 52;
 
+						if (getMousePos(300, 0, 6, *this->window))
+						{
+							x = cursorpos.x + 69;
+							y = cursorpos.y + 50;
+							deck[i].img.setRotation(180.f);
+						}
+						else
+						{
+
+							deck[i].img.setRotation(90.f);
+						}
 						deck[i].img.setPosition(x, y);
+					}
+					else
+					{
+						deck[i].img.setRotation(90.f);
 					}
 				}
 				else if (player1Pos2 == i && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging)) // Display and drag The second card
@@ -473,10 +494,25 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					}
 					if (deck[i].drag)
 					{
-						int x = cursorpos.x + 70;
-						int y = cursorpos.y - 50;
+						int x = cursorpos.x + 50;
+						int y = cursorpos.y - 52;
 
+						if (getMousePos(300, 0, 6, *this->window))
+						{
+							x = cursorpos.x + 69;
+							y = cursorpos.y + 50;
+							deck[i].img.setRotation(180.f);
+						}
+						else
+						{
+
+							deck[i].img.setRotation(90.f);
+						}
 						deck[i].img.setPosition(x, y);
+					}
+					else
+					{
+						deck[i].img.setRotation(90.f);
 					}
 				}
 				else if (player1Pos3 == i && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging)) // Display and drag The third card
@@ -523,10 +559,25 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (deck[i].drag)
 				{
-					int x = cursorpos.x + 70;
-					int y = cursorpos.y - 50;
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
 
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+					}
+					else
+					{
+
+						deck[i].img.setRotation(90.f);
+					}
 					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					deck[i].img.setRotation(90.f);
 				}
 				}
 				else if (player1Pos4 == i && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging)) // Display and drag The fourth card
@@ -573,10 +624,25 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (deck[i].drag)
 				{
-					int x = cursorpos.x + 70;
-					int y = cursorpos.y - 50;
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
 
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+					}
+					else
+					{
+						
+						deck[i].img.setRotation(90.f);
+					}
 					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					deck[i].img.setRotation(90.f);
 				}
 				}
 				else if (player1Pos5 == i && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging)) // Display and drag The fifth card
@@ -623,12 +689,29 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (deck[i].drag)
 				{
-					int x = cursorpos.x + 70;
-					int y = cursorpos.y - 50;
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
 
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+					}
+					else
+					{
+						
+						deck[i].img.setRotation(90.f);
+					}
 					deck[i].img.setPosition(x, y);
 				}
+				else
+				{
+					deck[i].img.setRotation(90.f);
 				}
+				}
+
+
 				// Displaying by type
 			}
 			if (deck[i].value == 0)
@@ -772,6 +855,65 @@ void Game::cardsInHand()
 	}
 }
 
+void Game::tableOfTruth()
+{
+	if (tableNum == 0)
+	{
+		if (!(getMousePos(1394, 188, 3, *this->window)))
+		{
+			TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
+			this->window->draw(this->TableHeader);
+		}
+		else
+		{
+			TableHoverTexture.loadFromFile("assets/AndTableHeader.png");
+			this->window->draw(this->TableHover);
+		}
+		TruthTableTexture.loadFromFile("assets/AndTable.png");
+		this->TruthTableTexture.setSmooth(true);
+		TruthTable.setTexture(TruthTableTexture);
+		TruthTable.setPosition(1390, 240);
+		this->window->draw(this->TruthTable);
+		//counter++;
+	}
+	else if (tableNum == 1)
+	{
+		if (!(getMousePos(1394, 188, 3, *this->window)))
+		{
+			TableHeaderTexture.loadFromFile("assets/OrTableHover.png");
+			this->window->draw(this->TableHeader);
+		}
+		else
+		{
+			TableHoverTexture.loadFromFile("assets/OrTableHeader.png");
+			this->window->draw(this->TableHover);
+		}
+		TruthTableTexture.loadFromFile("assets/OrTable.png");
+		this->TruthTableTexture.setSmooth(true);
+		TruthTable.setTexture(TruthTableTexture);
+		TruthTable.setPosition(1390, 240);
+		this->window->draw(this->TruthTable);
+	}
+	else if (tableNum == 2)
+	{
+		if (!(getMousePos(1394, 188, 3, *this->window)))
+		{
+			TableHeaderTexture.loadFromFile("assets/XorTableHover.png");
+			this->window->draw(this->TableHeader);
+		}
+		else
+		{
+			TableHoverTexture.loadFromFile("assets/XorTableHeader.png");
+			this->window->draw(this->TableHover);
+		}
+		TruthTableTexture.loadFromFile("assets/XorTable.png");
+		this->TruthTableTexture.setSmooth(true);
+		TruthTable.setTexture(TruthTableTexture);
+		TruthTable.setPosition(1390, 240);
+		this->window->draw(this->TruthTable);
+	}
+}
+
 void Game::setPlay()
 {
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
@@ -863,61 +1005,7 @@ void Game::start()
 					this->window->draw(baseCards[3].BaseCardImg);
 					this->window->draw(baseCards[4].BaseCardImg);
 					this->window->draw(baseCards[5].BaseCardImg);
-					if (tableNum == 0)
-					{
-						if (!(getMousePos(1394, 188, 3, *this->window)))
-						{
-							TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
-							this->window->draw(this->TableHeader);
-						}
-						else
-						{
-							TableHoverTexture.loadFromFile("assets/AndTableHeader.png");
-							this->window->draw(this->TableHover);
-						}
-						TruthTableTexture.loadFromFile("assets/AndTable.png");
-						this->TruthTableTexture.setSmooth(true);
-						TruthTable.setTexture(TruthTableTexture);
-						TruthTable.setPosition(1390, 240);
-						this->window->draw(this->TruthTable);
-						//counter++;
-					}
-					else if (tableNum == 1)
-					{
-						if (!(getMousePos(1394, 188, 3, *this->window)))
-						{
-							TableHeaderTexture.loadFromFile("assets/OrTableHover.png");
-							this->window->draw(this->TableHeader);
-						}
-						else
-						{
-							TableHoverTexture.loadFromFile("assets/OrTableHeader.png");
-							this->window->draw(this->TableHover);
-						}
-						TruthTableTexture.loadFromFile("assets/OrTable.png");
-						this->TruthTableTexture.setSmooth(true);
-						TruthTable.setTexture(TruthTableTexture);
-						TruthTable.setPosition(1390, 240);
-						this->window->draw(this->TruthTable);
-					}
-					else if (tableNum == 2)
-					{
-						if (!(getMousePos(1394, 188, 3, *this->window)))
-						{
-							TableHeaderTexture.loadFromFile("assets/XorTableHover.png");
-							this->window->draw(this->TableHeader);
-						}
-						else
-						{
-							TableHoverTexture.loadFromFile("assets/XorTableHeader.png");
-							this->window->draw(this->TableHover);
-						}
-						TruthTableTexture.loadFromFile("assets/XorTable.png");
-						this->TruthTableTexture.setSmooth(true);
-						TruthTable.setTexture(TruthTableTexture);
-						TruthTable.setPosition(1390, 240);
-						this->window->draw(this->TruthTable);
-					}
+					tableOfTruth();
 					setCardImages(cursorpos);
 					this->window->display();
 					update(*this->window);

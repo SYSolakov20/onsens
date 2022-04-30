@@ -166,6 +166,7 @@ public:
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
 	void cardsInHand(); // Sets the cards that the player has
+	void tableOfTruth(); // Help table display
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
