@@ -63,6 +63,18 @@ private:
 	sf::Texture TableHoverTexture;
 	sf::Sprite TableHover;
 
+	// Base Cards
+	struct baseCard
+	{
+		bool value = 0;
+
+		// image of the base card
+		sf::Texture BaseCardImgTexture;
+		sf::Sprite BaseCardImg;
+	};
+	
+	baseCard baseCards[6];
+
 	// Cards struct
 	struct card
 	{
@@ -70,6 +82,7 @@ private:
 		int value = 0; // 0 or 1
 		char type = 0; // and / or / xor
 
+		// some properties
 		bool display1 = 0;
 		bool display2 = 0;
 		int player = 0; // 1 or 2
@@ -81,6 +94,7 @@ private:
 
 	card startDeck[100];
 	int temp;
+	int randNum;
 	int deckI = 1;
 	card deck[100];
 	int cardGet = 1;
@@ -103,6 +117,7 @@ public:
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
 	void setPlay(); // Config the game before playing
+	void setBaseCards(); // Setting the positions and the type of the base cards
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
 	void setCardImages(); // Loads cards images

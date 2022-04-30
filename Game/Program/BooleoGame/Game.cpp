@@ -431,6 +431,35 @@ void Game::customCursor()
 	this->window->setMouseCursor(cursor);
 }
 
+void Game::setBaseCards()
+{
+	srand((unsigned)time(0));
+	for (int i = 0; i < 6; i++)
+	{
+		randNum = rand() % 2 + 1;
+		if (randNum == 1)
+		{
+			baseCards[i].value = 0;
+			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
+			baseCards[i].BaseCardImgTexture.setSmooth(true);
+			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+		}
+		else
+		{
+			baseCards[i].value = 1;
+			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
+			baseCards[i].BaseCardImgTexture.setSmooth(true);
+			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+		}
+	}
+	baseCards[0].BaseCardImg.setPosition(334, -98);
+	baseCards[1].BaseCardImg.setPosition(497, -98);
+	baseCards[2].BaseCardImg.setPosition(660, -98);
+	baseCards[3].BaseCardImg.setPosition(823, -98);
+	baseCards[4].BaseCardImg.setPosition(986, -98);
+	baseCards[5].BaseCardImg.setPosition(1149, -98);
+}
+
 void Game::setPlay()
 {
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
@@ -455,8 +484,10 @@ void Game::setPlay()
 	TableHover.setTexture(TableHoverTexture);
 	TableHover.setPosition(1394, 190);
 
-
-
+	if (gamemodeNum == 1)
+	{
+		setBaseCards();
+	}
 
 	setDeck();
 	sortDeck();
@@ -507,23 +538,19 @@ void Game::start()
 					{
 						deck[cardGet].player = 1;
 					}
-					
-					for (int i = 0; i < 49; i++)
-					{
-						if (deck[i].player == 1)
-						{
-							std::cout << deck[i].num << std::endl;
-							std::cout << deck[i].value << std::endl;
-							std::cout << deck[i].type << std::endl;
-							std::cout << deck[i].player << std::endl;
-						}
-					}
+
 
 
 
 					this->window->clear();
 					this->window->draw(this->backgroundSprite);
 					this->window->draw(this->player1Text);
+					this->window->draw(baseCards[0].BaseCardImg);
+					this->window->draw(baseCards[1].BaseCardImg);
+					this->window->draw(baseCards[2].BaseCardImg);
+					this->window->draw(baseCards[3].BaseCardImg);
+					this->window->draw(baseCards[4].BaseCardImg);
+					this->window->draw(baseCards[5].BaseCardImg);
 					setCardImages();
 					if (tableNum == 0)
 					{
