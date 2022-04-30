@@ -1,0 +1,25 @@
+@use '../base/baseForward' as *;
+@use '../utilities/_utilForward.scss' as *;
+
+.info-card{
+    @include flex(column, space-evenly, center);
+    width: 313px;
+    height: 313px;
+    background-color: $infoCardsColor;
+    border-style: solid;
+    border-color: $infoCardsBorderColor;
+    border-width:2px;
+    border-radius: 20px;
+}
+.info-card__title{
+    font-size: rem($smallTitleFontSize);
+    letter-spacing: $normalLetterSpacing;
+    line-height: 0.5;
+}
+.info-card__text{
+    font-size: rem($smallFontSize - 4);
+    width:240px;
+    letter-spacing: $normalLetterSpacing;
+    text-align: center;
+    line-height: 1.3;
+}
