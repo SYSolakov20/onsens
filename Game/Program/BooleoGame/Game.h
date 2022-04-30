@@ -51,6 +51,10 @@ private:
 	int counter = 0;
 	int tableNum = 0;
 	bool pressed = false;
+	bool pressed1 = false;
+	bool pressed2 = false;
+	bool pressed3 = false;
+	bool pressed4 = false;
 	sf::Texture player1TextTexture;
 	sf::Sprite player1Text;
 	sf::Texture player2TextTexture;
@@ -88,11 +92,32 @@ private:
 		int player = 0; // 1 or 2
 		bool player1pos = 0;
 		bool player2pos = 0;
+		bool drag = 0;
 
 		// image of the card
 		sf::Texture imgTexture; 
 		sf::Sprite img; 
 	};
+
+	// Field Positions struct
+	struct fieldPos
+	{
+		int cardNum = 0;
+		int cardValue = 0;
+
+
+		// some properties
+		bool showPos = 0;
+		bool cardOnIt = 0;
+
+
+		// image
+		sf::Texture imgTexture;
+		sf::Sprite img;
+	};
+
+
+	fieldPos fPositions[40];
 
 	card startDeck[100];
 	int temp;
@@ -102,6 +127,11 @@ private:
 	int cardGet = 1;
 	int player1Cards = 0;
 	int player2Cards = 0;
+	bool card1Dragging = 0;
+	bool card2Dragging = 0;
+	bool card3Dragging = 0;
+	bool card4Dragging = 0;
+	bool card5Dragging = 0;
 
 	int player1Pos1 = 0;
 	int player1Pos2 = 0;
@@ -136,7 +166,7 @@ public:
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
 	void cardsInHand(); // Sets the cards that the player has
-	void setCardImages(); // Loads cards images
+	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration
