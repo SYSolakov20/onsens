@@ -86,6 +86,8 @@ private:
 		bool display1 = 0;
 		bool display2 = 0;
 		int player = 0; // 1 or 2
+		bool player1pos = 0;
+		bool player2pos = 0;
 
 		// image of the card
 		sf::Texture imgTexture; 
@@ -100,6 +102,19 @@ private:
 	int cardGet = 1;
 	int player1Cards = 0;
 	int player2Cards = 0;
+
+	int player1Pos1 = 0;
+	int player1Pos2 = 0;
+	int player1Pos3 = 0;
+	int player1Pos4 = 0;
+	int player1Pos5 = 0;
+
+	int player2Pos1 = 0;
+	int player2Pos2 = 0;
+	int player2Pos3 = 0;
+	int player2Pos4 = 0;
+	int player2Pos5 = 0;
+
 
 public:
 
@@ -120,6 +135,7 @@ public:
 	void setBaseCards(); // Setting the positions and the type of the base cards
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
+	void cardsInHand(); // Sets the cards that the player has
 	void setCardImages(); // Loads cards images
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration

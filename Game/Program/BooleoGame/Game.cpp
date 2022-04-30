@@ -460,6 +460,56 @@ void Game::setBaseCards()
 	baseCards[5].BaseCardImg.setPosition(1149, -98);
 }
 
+void Game::cardsInHand()
+{
+	for (int i = 0; i < 49; i++)
+	{
+		if (deck[i].player == 1 && deck[i].player1pos == 0)
+		{
+			if (player1Pos1 == 0)
+			{
+				player1Pos1 = deck[i].num;
+				deck[i].player1pos = 1;
+				deck[player1Pos1].img.setPosition(180, 110);
+				deck[i].img.setRotation(90.f);
+				deck[i].display1 = true;
+			}
+			else if (player1Pos2 == 0)
+			{
+				player1Pos2 = deck[i].num;
+				deck[i].player1pos = 1;
+				deck[player1Pos2].img.setPosition(180, 245);
+				deck[i].img.setRotation(90.f);
+				deck[i].display1 = true;
+			}
+			else if (player1Pos3 == 0)
+			{
+				player1Pos3 = deck[i].num;
+				deck[i].player1pos = 1;
+				deck[player1Pos3].img.setPosition(180, 380);
+				deck[i].img.setRotation(90.f);
+				deck[i].display1 = true;
+			}
+			else if (player1Pos4 == 0)
+			{
+				player1Pos4 = deck[i].num;
+				deck[i].player1pos = 1;
+				deck[player1Pos4].img.setPosition(180, 515);
+				deck[i].img.setRotation(90.f);
+				deck[i].display1 = true;
+			}
+			else if (player1Pos5 == 0)
+			{
+				player1Pos5 = deck[i].num;
+				deck[i].player1pos = 1;
+				deck[player1Pos5].img.setPosition(180, 650);
+				deck[i].img.setRotation(90.f);
+				deck[i].display1 = true;
+			}
+		}
+	}
+}
+
 void Game::setPlay()
 {
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
@@ -538,6 +588,7 @@ void Game::start()
 					{
 						deck[cardGet].player = 1;
 					}
+					cardsInHand();
 
 
 
