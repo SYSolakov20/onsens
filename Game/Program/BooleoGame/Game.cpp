@@ -106,6 +106,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 			return 1;
 		}
 		break;
+	case 4:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 172) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 120))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -364,6 +370,64 @@ void Game::setCardImages()
 	{
 		if (deck[i].display1 == 1 && counter == 1)
 		{
+			if (deck[i].player1pos == 1)
+			{
+				if (player1Pos1 == i)
+				{
+					if (getMousePos(0, 110, 4, *this->window))
+					{
+						deck[player1Pos1].img.setPosition(183, 110);
+					}
+					else
+					{
+						deck[player1Pos1].img.setPosition(170, 110);
+					}	
+				}
+				else if (player1Pos2 == i)
+				{
+					if (getMousePos(0, 245, 4, *this->window))
+					{
+						deck[player1Pos2].img.setPosition(183, 245);
+					}
+					else
+					{
+						deck[player1Pos2].img.setPosition(170, 245);
+					}
+				}
+				else if (player1Pos3 == i)
+				{
+					if (getMousePos(0, 380, 4, *this->window))
+					{
+						deck[player1Pos3].img.setPosition(183, 380);
+					}
+					else
+					{
+						deck[player1Pos3].img.setPosition(170, 380);
+					}
+				}
+				else if (player1Pos4 == i)
+				{
+					if (getMousePos(0, 515, 4, *this->window))
+					{
+						deck[player1Pos4].img.setPosition(183, 515);
+					}
+					else
+					{
+						deck[player1Pos4].img.setPosition(170, 515);
+					}
+				}
+				else if (player1Pos5 == i)
+				{
+					if (getMousePos(0, 650, 4, *this->window))
+					{
+						deck[player1Pos5].img.setPosition(183, 650);
+					}
+					else
+					{
+						deck[player1Pos5].img.setPosition(170, 650);
+					}
+				}
+			}
 			if (deck[i].value == 0)
 			{
 				if (deck[i].type == 'a')
@@ -413,6 +477,12 @@ void Game::setCardImages()
 					this->window->draw(deck[i].img);
 				}
 			}
+			this->window->draw(baseCards[0].BaseCardImg);
+			this->window->draw(baseCards[1].BaseCardImg);
+			this->window->draw(baseCards[2].BaseCardImg);
+			this->window->draw(baseCards[3].BaseCardImg);
+			this->window->draw(baseCards[4].BaseCardImg);
+			this->window->draw(baseCards[5].BaseCardImg);
 		}
 	}
 }
@@ -470,7 +540,6 @@ void Game::cardsInHand()
 			{
 				player1Pos1 = deck[i].num;
 				deck[i].player1pos = 1;
-				deck[player1Pos1].img.setPosition(180, 110);
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
 			}
@@ -478,7 +547,6 @@ void Game::cardsInHand()
 			{
 				player1Pos2 = deck[i].num;
 				deck[i].player1pos = 1;
-				deck[player1Pos2].img.setPosition(180, 245);
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
 			}
@@ -486,7 +554,6 @@ void Game::cardsInHand()
 			{
 				player1Pos3 = deck[i].num;
 				deck[i].player1pos = 1;
-				deck[player1Pos3].img.setPosition(180, 380);
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
 			}
@@ -494,7 +561,6 @@ void Game::cardsInHand()
 			{
 				player1Pos4 = deck[i].num;
 				deck[i].player1pos = 1;
-				deck[player1Pos4].img.setPosition(180, 515);
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
 			}
@@ -502,7 +568,6 @@ void Game::cardsInHand()
 			{
 				player1Pos5 = deck[i].num;
 				deck[i].player1pos = 1;
-				deck[player1Pos5].img.setPosition(180, 650);
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
 			}
@@ -596,12 +661,6 @@ void Game::start()
 					this->window->clear();
 					this->window->draw(this->backgroundSprite);
 					this->window->draw(this->player1Text);
-					this->window->draw(baseCards[0].BaseCardImg);
-					this->window->draw(baseCards[1].BaseCardImg);
-					this->window->draw(baseCards[2].BaseCardImg);
-					this->window->draw(baseCards[3].BaseCardImg);
-					this->window->draw(baseCards[4].BaseCardImg);
-					this->window->draw(baseCards[5].BaseCardImg);
 					setCardImages();
 					if (tableNum == 0)
 					{
