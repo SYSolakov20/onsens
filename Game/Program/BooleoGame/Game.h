@@ -92,7 +92,10 @@ private:
 		int player = 0; // 1 or 2
 		bool player1pos = 0;
 		bool player2pos = 0;
+		bool x = 0;
+		bool y = 0;
 		bool drag = 0;
+		bool placed = 0;
 
 		// image of the card
 		sf::Texture imgTexture; 
@@ -102,13 +105,16 @@ private:
 	// Field Positions struct
 	struct fieldPos
 	{
-		int cardNum = 0;
-		int cardValue = 0;
+		int cardNum = 0; // The number of the card that's on this pos
+		int cardValue = 0; // The value of the card that's on this pos
 
 
 		// some properties
 		bool showPos = 0;
 		bool cardOnIt = 0;
+		int pos = 0; // 1 to 15
+		int x = 0;
+		int y = 0;
 
 
 		// image
@@ -127,6 +133,8 @@ private:
 	int cardGet = 1;
 	int player1Cards = 0;
 	int player2Cards = 0;
+	bool showA = 0;
+	bool roundPlayed = 0;
 	bool card1Dragging = 0;
 	bool card2Dragging = 0;
 	bool card3Dragging = 0;
