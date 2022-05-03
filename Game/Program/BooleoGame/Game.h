@@ -132,6 +132,7 @@ private:
 	int randNum;
 	int deckI = 1;
 	card deck[150];
+	bool canPlace1 = 0;
 	int cardGet = 1;
 	int counterCards = 1;
 	int counterCards2 = 49;
@@ -183,6 +184,7 @@ public:
 	void tableOfTruth(); // Helps table display
 	void placingCardsPos(); // Sets the possible positions
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
+	bool checkPlacedCards(int jj); // Checks if the operation is possible
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration
