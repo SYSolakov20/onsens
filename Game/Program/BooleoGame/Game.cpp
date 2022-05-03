@@ -64,19 +64,19 @@ void Game::update(sf::Window& newWindow)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			if (!pressed) 
+			if (!pressed0) 
 			{
 				tableNum++;
 				if (tableNum == 3)
 				{
 						tableNum = 0;
 				}
-				pressed = true;
+				pressed0 = true;
 			}
 		}
 		else 
 		{
-				pressed = false;
+				pressed0 = false;
 		}
 	}
 	pollEvents();
@@ -384,7 +384,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 {
 	int numCounter = 1;
 
-	for (int i = 1; i < 49; i++)
+	for (int i = 1; i <= 48; i++)
 	{
 		if (deck[i].display1 == 1 && counter == 1)
 		{
@@ -442,9 +442,11 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											{
 												deck[i].drag = 0;
 												deck[i].placed = 1;
+												deck[i].secondNum = deck[i].num;
 												deck[i].num = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
+												deck[i].again = 1;
 											}
 											else
 											{
@@ -551,9 +553,11 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											{
 												deck[i].drag = 0;
 												deck[i].placed = 1;
+												deck[i].secondNum = deck[i].num;
 												deck[i].num = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
+												deck[i].again = 1;
 											}
 											else
 											{
@@ -659,9 +663,11 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 										{
 											deck[i].drag = 0;
 											deck[i].placed = 1;
+											deck[i].secondNum = deck[i].num;
 											deck[i].num = 0;
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
+											deck[i].again = 1;
 										}
 										else
 										{
@@ -767,9 +773,11 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 										{
 											deck[i].drag = 0;
 											deck[i].placed = 1;
+											deck[i].secondNum = deck[i].num;
 											deck[i].num = 0;
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
+											deck[i].again = 1;
 										}
 										else
 										{
@@ -875,9 +883,11 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 										{
 											deck[i].drag = 0;
 											deck[i].placed = 1;
+											deck[i].secondNum = deck[i].num;
 											deck[i].num = 0;
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
+											deck[i].again = 1;
 										}
 										else
 										{
@@ -1031,9 +1041,9 @@ void Game::setBaseCards()
 
 void Game::cardsInHand()
 {
-	for (int i = 0; i < 49; i++)
+	for (int i = 1; i <= 48; i++)
 	{
-		if (deck[i].player == 1 && deck[i].player1pos == 0)
+		if (deck[i].player == 1 && deck[i].player1pos == 0 && deck[i].placed == 0)
 		{
 			if (player1Pos1 == 0)
 			{
@@ -1041,6 +1051,7 @@ void Game::cardsInHand()
 				deck[i].player1pos = 1;
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
+				player1Cards++;
 			}
 			else if (player1Pos2 == 0)
 			{
@@ -1048,6 +1059,7 @@ void Game::cardsInHand()
 				deck[i].player1pos = 1;
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
+				player1Cards++;
 			}
 			else if (player1Pos3 == 0)
 			{
@@ -1055,6 +1067,7 @@ void Game::cardsInHand()
 				deck[i].player1pos = 1;
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
+				player1Cards++;
 			}
 			else if (player1Pos4 == 0)
 			{
@@ -1062,6 +1075,7 @@ void Game::cardsInHand()
 				deck[i].player1pos = 1;
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
+				player1Cards++;
 			}
 			else if (player1Pos5 == 0)
 			{
@@ -1069,6 +1083,7 @@ void Game::cardsInHand()
 				deck[i].player1pos = 1;
 				deck[i].img.setRotation(90.f);
 				deck[i].display1 = true;
+				player1Cards++;
 			}
 		}
 	}
@@ -1440,11 +1455,33 @@ void Game::start()
 				else if (counter == 1) // Player1 round
 				{
 					//std::cout << elapsed1.asSeconds() << std::endl;
-					for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
+					for (cardGet; player1Cards < 5; cardGet++)
 					{
-						deck[cardGet].player = 1;
+						if (cardGet == 49)
+						{
+							for (int i = 1; i <= 48; i++)
+							{
+								if (deck[i].secondNum != 0)
+								{
+									deck[i].num = deck[i].secondNum;
+									deck[i].placed = 0;
+								}
+							}
+							cardAgain = 1;
+							cardGet = 1;
+						}
+						if (cardAgain == 0 && deck[cardGet].again == 0)
+						{
+							
+							deck[cardGet].player = 1;
+							cardsInHand();
+						}
+						else if (cardAgain == 1 && deck[cardGet].again == 1)
+						{
+							deck[cardGet].player = 1;
+							cardsInHand();
+						}
 					}
-					cardsInHand();
 
 
 					this->window->clear();
@@ -1457,17 +1494,23 @@ void Game::start()
 					this->window->draw(baseCards[4].BaseCardImg);
 					this->window->draw(baseCards[5].BaseCardImg);
 					tableOfTruth();
+					setCardImages(cursorpos);
 					if (showA == 1)
 					{
 						placingCardsPos();
 					}
-					setCardImages(cursorpos);
+					for (int i = 0; i <= 48; i++)
+					{
+						if (deck[i].drag == 1)
+						{
+							this->window->draw(deck[i].img);
+						}
+					}
 					this->window->display();
 					update(*this->window);
 				}
 				else if (counter == 2) // Player 2 round
 				{
-
 
 
 

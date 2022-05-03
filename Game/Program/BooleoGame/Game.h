@@ -51,6 +51,7 @@ private:
 	int counter = 0;
 	int tableNum = 0;
 	bool pressed = false;
+	bool pressed0 = false;
 	bool pressed1 = false;
 	bool pressed2 = false;
 	bool pressed3 = false;
@@ -90,12 +91,15 @@ private:
 		bool display1 = 0;
 		bool display2 = 0;
 		int player = 0; // 1 or 2
+		int secondNum = 0;;
 		bool player1pos = 0;
 		bool player2pos = 0;
 		bool x = 0;
 		bool y = 0;
 		bool drag = 0;
+		bool displayFirst = 0;
 		bool placed = 0;
+		bool again = 0;
 
 		// image of the card
 		sf::Texture imgTexture; 
@@ -131,9 +135,13 @@ private:
 	int deckI = 1;
 	card deck[100];
 	int cardGet = 1;
+	int counterCards = 1;
+	int counterCards2 = 49;
+	int counterCards3 = 48;
 	int player1Cards = 0;
 	int player2Cards = 0;
 	bool showA = 0;
+	bool cardAgain = 0;
 	bool roundPlayed = 0;
 	bool card1Dragging = 0;
 	bool card2Dragging = 0;
