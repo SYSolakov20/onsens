@@ -10,6 +10,10 @@
 #include <windows.h>
 #include <cstdlib>
 #include <ctime>
+#include <sstream>
+#include <string>
+#include <iomanip>
+
 
 class Game
 {
@@ -32,7 +36,13 @@ private:
 	// Initial games clock
 	sf::Clock clock;
 	sf::Time elapsed;
+	sf::Font font;
+	sf::Text timer;
+	int sec;
+	int min;
+	int hour;
 	int timeCount = 1;
+	int intSecondsCounted;
 
 	//Initial buttons for the game menu
 	sf::RectangleShape button1;
@@ -56,6 +66,7 @@ private:
 	bool pressed2 = false;
 	bool pressed3 = false;
 	bool pressed4 = false;
+	std::stringstream ss;
 	sf::Texture player1TextTexture;
 	sf::Sprite player1Text;
 	sf::Texture player2TextTexture;
@@ -177,6 +188,7 @@ public:
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
 	void setPlay(); // Config the game before playing
+	void setTimer(); // Setting a timer in game
 	void setBaseCards(); // Setting the positions and the type of the base cards
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards

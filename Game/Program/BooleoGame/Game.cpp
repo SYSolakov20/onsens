@@ -1963,6 +1963,34 @@ void Game::tableOfTruth()
 	}
 }
 
+void Game::setTimer()
+{
+	sf::Time elapsed1 = clock.getElapsedTime();
+	ss.str("");
+	sec = elapsed1.asSeconds();
+	hour = sec / 3600;
+	min = (sec - (hour * 3600)) / 60;
+	sec = sec - (hour * 3600 + min * 60);
+
+	if (min < 10)
+	{
+		ss << "0" << min;
+	}
+	else
+	{
+		ss << ":" << min;
+	}
+	if (sec < 10)
+	{
+		ss << ":" << "0" << sec;
+	}
+	else
+	{
+		ss << ":" << sec;
+	}
+	timer.setString(ss.str());
+}
+
 void Game::setPlay()
 {
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
@@ -1986,6 +2014,10 @@ void Game::setPlay()
 	this->TableHoverTexture.setSmooth(true);
 	TableHover.setTexture(TableHoverTexture);
 	TableHover.setPosition(1394, 190);
+	timer.setFont(font);
+	timer.setPosition(1386, 12);
+	timer.setCharacterSize(51);
+	timer.setFillColor(sf::Color::White);
 
 	if (gamemodeNum == 1)
 	{
@@ -2100,6 +2132,7 @@ void Game::setPlay()
 void Game::setReady()
 {
 	this->window->setPosition(sf::Vector2i(190, 80));
+	font.loadFromFile("assets/tex-gyre-adventor.bold.otf");
 	setTheIcon();
 	customCursor();
 }
@@ -2112,7 +2145,7 @@ Game::Game()
 	this->backgroundSprite.setScale(window_w / backgroundSprite.getGlobalBounds().width, window_h / backgroundSprite.getGlobalBounds().height);
 
 }
-
+																																								
 Game::~Game()
 {
 	delete this->window;
@@ -2128,7 +2161,8 @@ void Game::start()
 		{
 			if (gamemodeNum == 1)
 			{
-				sf::Time elapsed1 = clock.getElapsedTime();
+				setTimer();
+
 				if (counter == 0)
 				{
 					counter++;
@@ -2145,6 +2179,7 @@ void Game::start()
 
 					this->window->clear();
 					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
 					this->window->draw(this->player1Text);
 					this->window->draw(baseCards[0].BaseCardImg);
 					this->window->draw(baseCards[1].BaseCardImg);
