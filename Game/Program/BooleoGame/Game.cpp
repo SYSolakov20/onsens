@@ -384,7 +384,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 {
 	int numCounter = 1;
 
-	for (int i = 1; i <= 48; i++)
+	for (int i = 1; i <= counterCards3; i++)
 	{
 		if (deck[i].display1 == 1 && counter == 1)
 		{
@@ -442,11 +442,14 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											{
 												deck[i].drag = 0;
 												deck[i].placed = 1;
-												deck[i].secondNum = deck[i].num;
 												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
-												deck[i].again = 1;
+												counterCards3++;
 											}
 											else
 											{
@@ -553,11 +556,14 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											{
 												deck[i].drag = 0;
 												deck[i].placed = 1;
-												deck[i].secondNum = deck[i].num;
 												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
-												deck[i].again = 1;
+												counterCards3++;
 											}
 											else
 											{
@@ -663,11 +669,14 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 										{
 											deck[i].drag = 0;
 											deck[i].placed = 1;
-											deck[i].secondNum = deck[i].num;
 											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player1pos = 0;
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
-											deck[i].again = 1;
+											counterCards3++;
 										}
 										else
 										{
@@ -773,11 +782,14 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 										{
 											deck[i].drag = 0;
 											deck[i].placed = 1;
-											deck[i].secondNum = deck[i].num;
 											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player1pos = 0;
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
-											deck[i].again = 1;
+											counterCards3++;
 										}
 										else
 										{
@@ -883,11 +895,14 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 										{
 											deck[i].drag = 0;
 											deck[i].placed = 1;
-											deck[i].secondNum = deck[i].num;
 											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player1pos = 0;
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
-											deck[i].again = 1;
+											counterCards3++;
 										}
 										else
 										{
@@ -1041,49 +1056,54 @@ void Game::setBaseCards()
 
 void Game::cardsInHand()
 {
-	for (int i = 1; i <= 48; i++)
+	for (int i = counterCards; i < counterCards2; i++)
 	{
-		if (deck[i].player == 1 && deck[i].player1pos == 0 && deck[i].placed == 0)
+		if (deck[counterCards].player == 1 && deck[counterCards].player1pos == 0)
 		{
 			if (player1Pos1 == 0)
 			{
-				player1Pos1 = deck[i].num;
-				deck[i].player1pos = 1;
-				deck[i].img.setRotation(90.f);
-				deck[i].display1 = true;
-				player1Cards++;
+				player1Pos1 = deck[counterCards].num;
+				deck[counterCards].player1pos = 1;
+				deck[counterCards].img.setRotation(90.f);
+				deck[counterCards].display1 = true;
+				counterCards++;
+				counterCards2++;
 			}
 			else if (player1Pos2 == 0)
 			{
-				player1Pos2 = deck[i].num;
-				deck[i].player1pos = 1;
-				deck[i].img.setRotation(90.f);
-				deck[i].display1 = true;
-				player1Cards++;
+				player1Pos2 = deck[counterCards].num;
+				deck[counterCards].player1pos = 1;
+				deck[counterCards].img.setRotation(90.f);
+				deck[counterCards].display1 = true;
+				counterCards++;
+				counterCards2++;
 			}
 			else if (player1Pos3 == 0)
 			{
-				player1Pos3 = deck[i].num;
-				deck[i].player1pos = 1;
-				deck[i].img.setRotation(90.f);
-				deck[i].display1 = true;
-				player1Cards++;
+				player1Pos3 = deck[counterCards].num;
+				deck[counterCards].player1pos = 1;
+				deck[counterCards].img.setRotation(90.f);
+				deck[counterCards].display1 = true;
+				counterCards++;
+				counterCards2++;
 			}
 			else if (player1Pos4 == 0)
 			{
-				player1Pos4 = deck[i].num;
-				deck[i].player1pos = 1;
-				deck[i].img.setRotation(90.f);
-				deck[i].display1 = true;
-				player1Cards++;
+				player1Pos4 = deck[counterCards].num;
+				deck[counterCards].player1pos = 1;
+				deck[counterCards].img.setRotation(90.f);
+				deck[counterCards].display1 = true;
+				counterCards++;
+				counterCards2++;
 			}
 			else if (player1Pos5 == 0)
 			{
-				player1Pos5 = deck[i].num;
-				deck[i].player1pos = 1;
-				deck[i].img.setRotation(90.f);
-				deck[i].display1 = true;
-				player1Cards++;
+				player1Pos5 = deck[counterCards].num;
+				deck[counterCards].player1pos = 1;
+				deck[counterCards].img.setRotation(90.f);
+				deck[counterCards].display1 = true;
+				counterCards++;
+				counterCards2++;
 			}
 		}
 	}
@@ -1455,33 +1475,11 @@ void Game::start()
 				else if (counter == 1) // Player1 round
 				{
 					//std::cout << elapsed1.asSeconds() << std::endl;
-					for (cardGet; player1Cards < 5; cardGet++)
+					for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
 					{
-						if (cardGet == 49)
-						{
-							for (int i = 1; i <= 48; i++)
-							{
-								if (deck[i].secondNum != 0)
-								{
-									deck[i].num = deck[i].secondNum;
-									deck[i].placed = 0;
-								}
-							}
-							cardAgain = 1;
-							cardGet = 1;
-						}
-						if (cardAgain == 0 && deck[cardGet].again == 0)
-						{
-							
-							deck[cardGet].player = 1;
-							cardsInHand();
-						}
-						else if (cardAgain == 1 && deck[cardGet].again == 1)
-						{
-							deck[cardGet].player = 1;
-							cardsInHand();
-						}
+						deck[cardGet].player = 1;
 					}
+					cardsInHand();
 
 
 					this->window->clear();
@@ -1499,7 +1497,7 @@ void Game::start()
 					{
 						placingCardsPos();
 					}
-					for (int i = 0; i <= 48; i++)
+					for (int i = 1; i < counterCards2; i++)
 					{
 						if (deck[i].drag == 1)
 						{

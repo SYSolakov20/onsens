@@ -97,9 +97,7 @@ private:
 		bool x = 0;
 		bool y = 0;
 		bool drag = 0;
-		bool displayFirst = 0;
 		bool placed = 0;
-		bool again = 0;
 
 		// image of the card
 		sf::Texture imgTexture; 
@@ -133,7 +131,7 @@ private:
 	int temp;
 	int randNum;
 	int deckI = 1;
-	card deck[100];
+	card deck[150];
 	int cardGet = 1;
 	int counterCards = 1;
 	int counterCards2 = 49;
