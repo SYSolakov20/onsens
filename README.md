@@ -5,6 +5,8 @@
   <img src="Website/dist/img/Frame_1.png#gh-dark-mode-only"/>
 </p>
 
+<br>
+
 <p align = "center">
     <img alt="GitHub milestones" src="https://img.shields.io/github/milestones/all/SYSolakov20/onsens?style=flat-square">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SYSolakov20/onsens?style=flat-square">
