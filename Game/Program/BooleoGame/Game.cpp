@@ -1146,10 +1146,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1157,10 +1154,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1168,10 +1162,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 2:
@@ -1181,10 +1172,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1192,10 +1180,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1203,10 +1188,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 3:
@@ -1216,10 +1198,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1227,10 +1206,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1238,10 +1214,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 4:
@@ -1251,10 +1224,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1262,10 +1232,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1273,10 +1240,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 5:
@@ -1286,10 +1250,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1297,10 +1258,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1308,10 +1266,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 6:
@@ -1321,10 +1276,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1332,10 +1284,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1343,10 +1292,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 7:
@@ -1356,10 +1302,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1367,10 +1310,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1378,10 +1318,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 8:
@@ -1391,10 +1328,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1402,10 +1336,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1413,10 +1344,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 9:
@@ -1426,10 +1354,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1437,10 +1362,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1448,10 +1370,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 10:
@@ -1461,10 +1380,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1472,10 +1388,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1483,10 +1396,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 11:
@@ -1496,10 +1406,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1507,10 +1414,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1518,10 +1422,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 12:
@@ -1531,10 +1432,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1542,10 +1440,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1553,10 +1448,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 13:
@@ -1566,10 +1458,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1577,10 +1466,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1588,10 +1474,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 14:
@@ -1601,10 +1484,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1612,10 +1492,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1623,10 +1500,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			case 15:
@@ -1636,10 +1510,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
@@ -1647,10 +1518,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
@@ -1658,10 +1526,7 @@ bool Game::checkPlacedCards(int jj)
 					{
 						return 1;
 					}
-					else
-					{
-						return 0;
-					}
+					return 0;
 				}
 				break;
 			default:
@@ -2017,7 +1882,7 @@ void Game::setPlay()
 	timer.setFont(font);
 	timer.setPosition(1386, 12);
 	timer.setCharacterSize(51);
-	timer.setFillColor(sf::Color::White);
+	timer.setFillColor(sf::Color(87, 87, 87));
 
 	if (gamemodeNum == 1)
 	{
