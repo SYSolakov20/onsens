@@ -78,6 +78,8 @@ private:
 	sf::Sprite TableHeader;
 	sf::Texture TableHoverTexture;
 	sf::Sprite TableHover;
+	sf::Texture transitionTexture;
+	sf::Sprite transitionImg;
 
 	// Base Cards
 	struct baseCard
@@ -191,6 +193,7 @@ public:
 	void setPlay(); // Config the game before playing
 	void setTimer(); // Setting a timer in game
 	void setBaseCards(); // Setting the positions and the type of the base cards
+	void transition(); // animations / transition for the game
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
 	void cardsInHand(); // Sets the cards that the player has

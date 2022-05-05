@@ -1143,6 +1143,763 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 			}
 		}
+		else if (deck[i].display2 == 1 && counter == 2)
+		{
+		if (deck[i].player2pos == 1)
+		{
+			if (player2Pos1 == i && !(card2Dragging || card3Dragging || card4Dragging || card5Dragging))  // Display and drag The first card
+			{
+				if (getMousePos(0, 110, 4, *this->window))
+				{
+					deck[player2Pos1].img.setPosition(183, 110);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card2Dragging || card3Dragging || card4Dragging || card5Dragging))
+					{
+						if (deck[i].drag && !pressed)
+						{
+							deck[i].drag = 0;
+							card1Dragging = 0;
+							pressed = true;
+						}
+						else if (!pressed)
+						{
+							card1Dragging = 1;
+							deck[i].drag = 1;
+							pressed = true;
+						}
+					}
+					else
+					{
+						pressed = false;
+					}
+				}
+				else
+				{
+					deck[player2Pos1].img.setPosition(170, 110);
+				}
+				if (deck[i].drag)
+				{
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
+					showA = 1;
+
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+						for (int j = 1; j < 17; j++)
+						{
+							if (getMousePos(fPositions[j].x, fPositions[j].y, 7, *this->window) && fPositions[j].showPos == 1)
+							{
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (!pressed)
+									{
+										if (j == 16)
+										{
+											deck[i].drag = 0;
+											deck[i].placed = 1;
+											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player2pos = 0;
+											deck[i].display1 = 0;
+											deck[i].display2 = 0;
+											counterCards3++;
+											card1Dragging = 0;
+											player2Pos1 = 0;
+											player2Cards--;
+											pressed = true;
+											roundPlayed = 1;
+										}
+										else
+										{
+											if (checkPlacedCards(j))
+											{
+
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												fPositions[j].cardOnIt = 1;
+												fPositions[j].cardNum = deck[i].num;
+												fPositions[j].cardValue = deck[i].value;
+												deck[i].num = 0;
+												deck[i].x = fPositions[j].x;
+												deck[i].y = fPositions[j].y;
+												deck[i].img.setPosition(fPositions[j].x, fPositions[j].y);
+												card1Dragging = 0;
+												player2Pos1 = 0;
+												player2Cards--;
+												pressed = true;
+												roundPlayed = 1;
+											}
+											else
+											{
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player2pos = 0;
+												deck[i].display1 = 0;
+												deck[i].display2 = 0;
+												counterCards3++;
+												card1Dragging = 0;
+												player2Pos1 = 0;
+												player2Cards--;
+												pressed = true;
+												roundPlayed = 1;
+											}
+										}
+									}
+								}
+								else
+								{
+									pressed = false;
+								}
+							}
+						}
+					}
+					else
+					{
+
+						deck[i].img.setRotation(90.f);
+					}
+					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					showA = 0;
+					deck[i].img.setRotation(90.f);
+				}
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed)
+					{
+						deck[i].drag = 0;
+						card1Dragging = 0;
+						pressed = true;
+					}
+				}
+				else
+				{
+					pressed = false;
+				}
+			}
+			else if (player2Pos2 == i && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging)) // Display and drag The second card
+			{
+				if (getMousePos(0, 245, 4, *this->window))
+				{
+					deck[player2Pos2].img.setPosition(183, 245);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging))
+					{
+						if (deck[i].drag && !pressed1)
+						{
+							deck[i].drag = 0;
+							card2Dragging = 0;
+							pressed1 = true;
+						}
+						else if (!pressed1)
+						{
+							card2Dragging = 1;
+							deck[i].drag = 1;
+							pressed1 = true;
+						}
+
+					}
+					else
+					{
+						pressed1 = false;
+					}
+				}
+				else
+				{
+					deck[player2Pos2].img.setPosition(170, 245);
+				}
+				if (deck[i].drag)
+				{
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
+					showA = 1;
+
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+						for (int j = 1; j < 17; j++)
+						{
+							if (getMousePos(fPositions[j].x, fPositions[j].y, 7, *this->window) && fPositions[j].showPos == 1)
+							{
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (!pressed1)
+									{
+										if (j == 16)
+										{
+											deck[i].drag = 0;
+											deck[i].placed = 1;
+											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player2pos = 0;
+											deck[i].display1 = 0;
+											deck[i].display2 = 0;
+											counterCards3++;
+											card2Dragging = 0;
+											player2Pos2 = 0;
+											player2Cards--;
+											pressed1 = true;
+											roundPlayed = 1;
+										}
+										else
+										{
+											if (checkPlacedCards(j))
+											{
+
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												fPositions[j].cardOnIt = 1;
+												fPositions[j].cardNum = deck[i].num;
+												fPositions[j].cardValue = deck[i].value;
+												deck[i].num = 0;
+												deck[i].x = fPositions[j].x;
+												deck[i].y = fPositions[j].y;
+												deck[i].img.setPosition(fPositions[j].x, fPositions[j].y);
+												card2Dragging = 0;
+												player2Pos2 = 0;
+												player2Cards--;
+												pressed1 = true;
+												roundPlayed = 1;
+											}
+											else
+											{
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player2pos = 0;
+												deck[i].display1 = 0;
+												deck[i].display2 = 0;
+												counterCards3++;
+												card2Dragging = 0;
+												player2Pos2 = 0;
+												player2Cards--;
+												pressed1 = true;
+												roundPlayed = 1;
+											}
+										}
+									}
+								}
+								else
+								{
+									pressed1 = false;
+								}
+							}
+						}
+					}
+					else
+					{
+
+						deck[i].img.setRotation(90.f);
+					}
+					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					showA = 0;
+					deck[i].img.setRotation(90.f);
+				}
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed1)
+					{
+						deck[i].drag = 0;
+						card2Dragging = 0;
+						pressed1 = true;
+					}
+				}
+				else
+				{
+					pressed1 = false;
+				}
+			}
+			else if (player2Pos3 == i && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging)) // Display and drag The third card
+			{
+				if (getMousePos(0, 380, 4, *this->window))
+				{
+					deck[player2Pos3].img.setPosition(183, 380);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging))
+					{
+						if (deck[i].drag && !pressed2)
+						{
+							deck[i].drag = 0;
+							card3Dragging = 0;
+							pressed2 = true;
+						}
+						else if (!pressed2)
+						{
+							card3Dragging = 1;
+							deck[i].drag = 1;
+							pressed2 = true;
+						}
+					}
+					else
+					{
+						pressed2 = false;
+					}
+				}
+				else
+				{
+					deck[player2Pos3].img.setPosition(170, 380);
+				}
+				if (deck[i].drag)
+				{
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
+					showA = 1;
+
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+						for (int j = 1; j < 17; j++)
+						{
+							if (getMousePos(fPositions[j].x, fPositions[j].y, 7, *this->window) && fPositions[j].showPos == 1)
+							{
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (!pressed2)
+									{
+										if (j == 16)
+										{
+											deck[i].drag = 0;
+											deck[i].placed = 1;
+											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player2pos = 0;
+											deck[i].display1 = 0;
+											deck[i].display2 = 0;
+											counterCards3++;
+											card3Dragging = 0;
+											player2Pos3 = 0;
+											player2Cards--;
+											pressed2 = true;
+											roundPlayed = 1;
+										}
+										else
+										{
+											if (checkPlacedCards(j))
+											{
+
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												fPositions[j].cardOnIt = 1;
+												fPositions[j].cardNum = deck[i].num;
+												fPositions[j].cardValue = deck[i].value;
+												deck[i].num = 0;
+												deck[i].x = fPositions[j].x;
+												deck[i].y = fPositions[j].y;
+												deck[i].img.setPosition(fPositions[j].x, fPositions[j].y);
+												card3Dragging = 0;
+												player2Pos3 = 0;
+												player2Cards--;
+												pressed2 = true;
+												roundPlayed = 1;
+											}
+											else
+											{
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player2pos = 0;
+												deck[i].display1 = 0;
+												deck[i].display2 = 0;
+												counterCards3++;
+												card3Dragging = 0;
+												player2Pos3 = 0;
+												player2Cards--;
+												pressed2 = true;
+												roundPlayed = 1;
+											}
+										}
+									}
+								}
+								else
+								{
+									pressed2 = false;
+								}
+							}
+						}
+					}
+					else
+					{
+
+						deck[i].img.setRotation(90.f);
+					}
+					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					showA = 0;
+					deck[i].img.setRotation(90.f);
+				}
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed2)
+					{
+						deck[i].drag = 0;
+						card3Dragging = 0;
+						pressed2 = true;
+					}
+				}
+				else
+				{
+					pressed2 = false;
+				}
+			}
+			else if (player2Pos4 == i && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging)) // Display and drag The fourth card
+			{
+				if (getMousePos(0, 515, 4, *this->window))
+				{
+					deck[player2Pos4].img.setPosition(183, 515);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging))
+					{
+						if (deck[i].drag && !pressed3)
+						{
+							deck[i].drag = 0;
+							card4Dragging = 0;
+							pressed3 = true;
+						}
+						else if (!pressed3)
+						{
+							card4Dragging = 1;
+							deck[i].drag = 1;
+							pressed3 = true;
+						}
+					}
+					else
+					{
+						pressed3 = false;
+					}
+				}
+				else
+				{
+					deck[player2Pos4].img.setPosition(170, 515);
+				}
+				if (deck[i].drag)
+				{
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
+					showA = 1;
+
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+						for (int j = 1; j < 17; j++)
+						{
+							if (getMousePos(fPositions[j].x, fPositions[j].y, 7, *this->window) && fPositions[j].showPos == 1)
+							{
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (!pressed3)
+									{
+										if (j == 16)
+										{
+											deck[i].drag = 0;
+											deck[i].placed = 1;
+											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player2pos = 0;
+											deck[i].display1 = 0;
+											deck[i].display2 = 0;
+											counterCards3++;
+											card4Dragging = 0;
+											player2Pos4 = 0;
+											player2Cards--;
+											pressed3 = true;
+											roundPlayed = 1;
+										}
+										else
+										{
+											if (checkPlacedCards(j))
+											{
+
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												fPositions[j].cardOnIt = 1;
+												fPositions[j].cardNum = deck[i].num;
+												fPositions[j].cardValue = deck[i].value;
+												deck[i].num = 0;
+												deck[i].x = fPositions[j].x;
+												deck[i].y = fPositions[j].y;
+												deck[i].img.setPosition(fPositions[j].x, fPositions[j].y);
+												card4Dragging = 0;
+												player2Pos4 = 0;
+												player2Cards--;
+												pressed3 = true;
+												roundPlayed = 1;
+											}
+											else
+											{
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player2pos = 0;
+												deck[i].display1 = 0;
+												deck[i].display2 = 0;
+												counterCards3++;
+												card4Dragging = 0;
+												player2Pos4 = 0;
+												player2Cards--;
+												pressed3 = true;
+												roundPlayed = 1;
+											}
+										}
+									}
+								}
+								else
+								{
+									pressed3 = false;
+								}
+							}
+						}
+					}
+					else
+					{
+
+						deck[i].img.setRotation(90.f);
+					}
+					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					showA = 0;
+					deck[i].img.setRotation(90.f);
+				}
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed3)
+					{
+						deck[i].drag = 0;
+						card4Dragging = 0;
+						pressed3 = true;
+					}
+				}
+				else
+				{
+					pressed3 = false;
+				}
+			}
+			else if (player2Pos5 == i && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging)) // Display and drag The fifth card
+			{
+				if (getMousePos(0, 650, 4, *this->window))
+				{
+					deck[player2Pos5].img.setPosition(183, 650);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging))
+					{
+						if (deck[i].drag && !pressed4)
+						{
+							deck[i].drag = 0;
+							card5Dragging = 0;
+							pressed4 = true;
+						}
+						else if (!pressed4)
+						{
+							card5Dragging = 1;
+							deck[i].drag = 1;
+							pressed4 = true;
+						}
+					}
+					else
+					{
+						pressed4 = false;
+					}
+				}
+				else
+				{
+					deck[player2Pos5].img.setPosition(170, 650);
+				}
+				if (deck[i].drag)
+				{
+					int x = cursorpos.x + 50;
+					int y = cursorpos.y - 52;
+					showA = 1;
+
+					if (getMousePos(300, 0, 6, *this->window))
+					{
+						x = cursorpos.x + 69;
+						y = cursorpos.y + 50;
+						deck[i].img.setRotation(180.f);
+						for (int j = 1; j < 17; j++)
+						{
+							if (getMousePos(fPositions[j].x, fPositions[j].y, 7, *this->window) && fPositions[j].showPos == 1)
+							{
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (!pressed4)
+									{
+										if (j == 16)
+										{
+											deck[i].drag = 0;
+											deck[i].placed = 1;
+											deck[i].num = 0;
+											deck[counterCards3].type = deck[i].type;
+											deck[counterCards3].value = deck[i].value;
+											deck[counterCards3].num = counterCards3;
+											deck[i].player2pos = 0;
+											deck[i].display1 = 0;
+											deck[i].display2 = 0;
+											counterCards3++;
+											card5Dragging = 0;
+											player2Pos5 = 0;
+											player2Cards--;
+											pressed4 = true;
+											roundPlayed = 1;
+										}
+										else
+										{
+											if (checkPlacedCards(j))
+											{
+
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												fPositions[j].cardOnIt = 1;
+												fPositions[j].cardNum = deck[i].num;
+												fPositions[j].cardValue = deck[i].value;
+												deck[i].num = 0;
+												deck[i].x = fPositions[j].x;
+												deck[i].y = fPositions[j].y;
+												deck[i].img.setPosition(fPositions[j].x, fPositions[j].y);
+												card5Dragging = 0;
+												player2Pos5 = 0;
+												player2Cards--;
+												pressed4 = true;
+												roundPlayed = 1;
+											}
+											else
+											{
+												deck[i].drag = 0;
+												deck[i].placed = 1;
+												deck[i].num = 0;
+												deck[counterCards3].type = deck[i].type;
+												deck[counterCards3].value = deck[i].value;
+												deck[counterCards3].num = counterCards3;
+												deck[i].player2pos = 0;
+												deck[i].display1 = 0;
+												deck[i].display2 = 0;
+												counterCards3++;
+												card5Dragging = 0;
+												player2Pos5 = 0;
+												player2Cards--;
+												pressed4 = true;
+												roundPlayed = 1;
+											}
+										}
+									}
+								}
+								else
+								{
+									pressed4 = false;
+								}
+							}
+						}
+					}
+					else
+					{
+
+						deck[i].img.setRotation(90.f);
+					}
+					deck[i].img.setPosition(x, y);
+				}
+				else
+				{
+					showA = 0;
+					deck[i].img.setRotation(90.f);
+				}
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed4)
+					{
+						deck[i].drag = 0;
+						card5Dragging = 0;
+						pressed4 = true;
+					}
+				}
+				else
+				{
+					pressed4 = false;
+				}
+			}
+			// Displaying by type
+		}
+		if (deck[i].value == 0)
+		{
+			if (deck[i].type == 'a')
+			{
+				deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
+				this->deck[i].imgTexture.setSmooth(true);
+				deck[i].img.setTexture(deck[i].imgTexture);
+				this->window->draw(deck[i].img);
+			}
+			else if (deck[i].type == 'o')
+			{
+				deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
+				this->deck[i].imgTexture.setSmooth(true);
+				deck[i].img.setTexture(deck[i].imgTexture);
+				this->window->draw(deck[i].img);
+			}
+			else if (deck[i].type == 'x')
+			{
+				deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
+				this->deck[i].imgTexture.setSmooth(true);
+				deck[i].img.setTexture(deck[i].imgTexture);
+				this->window->draw(deck[i].img);
+			}
+		}
+		else if (deck[i].value == 1)
+		{
+
+			if (deck[i].type == 'a')
+			{
+				deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
+				this->deck[i].imgTexture.setSmooth(true);
+				deck[i].img.setTexture(deck[i].imgTexture);
+				this->window->draw(deck[i].img);
+			}
+			else if (deck[i].type == 'o')
+			{
+				deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
+				this->deck[i].imgTexture.setSmooth(true);
+				deck[i].img.setTexture(deck[i].imgTexture);
+				this->window->draw(deck[i].img);
+			}
+			else if (deck[i].type == 'x')
+			{
+				deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
+				this->deck[i].imgTexture.setSmooth(true);
+				deck[i].img.setTexture(deck[i].imgTexture);
+				this->window->draw(deck[i].img);
+			}
+		}
+		}
 	}
 }
 
@@ -1613,52 +2370,106 @@ void Game::cardsInHand()
 {
 	for (int i = counterCards; i < counterCards2; i++)
 	{
-		if (deck[counterCards].player == 1 && deck[counterCards].player1pos == 0)
+		if (counter == 1)
 		{
-			if (player1Pos1 == 0)
+			if (deck[i].player == 1 && deck[i].player1pos == 0)
 			{
-				player1Pos1 = deck[counterCards].num;
-				deck[counterCards].player1pos = 1;
-				deck[counterCards].img.setRotation(90.f);
-				deck[counterCards].display1 = true;
-				counterCards++;
-				counterCards2++;
+				if (player1Pos1 == 0)
+				{
+					player1Pos1 = deck[i].num;
+					deck[i].player1pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display1 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player1Pos2 == 0)
+				{
+					player1Pos2 = deck[i].num;
+					deck[i].player1pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display1 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player1Pos3 == 0)
+				{
+					player1Pos3 = deck[i].num;
+					deck[i].player1pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display1 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player1Pos4 == 0)
+				{
+					player1Pos4 = deck[i].num;
+					deck[i].player1pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display1 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player1Pos5 == 0)
+				{
+					player1Pos5 = deck[i].num;
+					deck[i].player1pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display1 = true;
+					counterCards++;
+					counterCards2++;
+				}
 			}
-			else if (player1Pos2 == 0)
+		}
+		else if (counter == 2)
+		{
+			if (deck[i].player == 2 && deck[i].player2pos == 0)
 			{
-				player1Pos2 = deck[counterCards].num;
-				deck[counterCards].player1pos = 1;
-				deck[counterCards].img.setRotation(90.f);
-				deck[counterCards].display1 = true;
-				counterCards++;
-				counterCards2++;
-			}
-			else if (player1Pos3 == 0)
-			{
-				player1Pos3 = deck[counterCards].num;
-				deck[counterCards].player1pos = 1;
-				deck[counterCards].img.setRotation(90.f);
-				deck[counterCards].display1 = true;
-				counterCards++;
-				counterCards2++;
-			}
-			else if (player1Pos4 == 0)
-			{
-				player1Pos4 = deck[counterCards].num;
-				deck[counterCards].player1pos = 1;
-				deck[counterCards].img.setRotation(90.f);
-				deck[counterCards].display1 = true;
-				counterCards++;
-				counterCards2++;
-			}
-			else if (player1Pos5 == 0)
-			{
-				player1Pos5 = deck[counterCards].num;
-				deck[counterCards].player1pos = 1;
-				deck[counterCards].img.setRotation(90.f);
-				deck[counterCards].display1 = true;
-				counterCards++;
-				counterCards2++;
+				if (player2Pos1 == 0)
+				{
+					player2Pos1 = deck[i].num;
+					deck[i].player2pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display2 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player2Pos2 == 0)
+				{
+					player2Pos2 = deck[i].num;
+					deck[i].player2pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display2 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player2Pos3 == 0)
+				{
+					player2Pos3 = deck[i].num;
+					deck[i].player2pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display2 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player2Pos4 == 0)
+				{
+					player2Pos4 = deck[i].num;
+					deck[i].player2pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display2 = true;
+					counterCards++;
+					counterCards2++;
+				}
+				else if (player2Pos5 == 0)
+				{
+					player2Pos5 = deck[i].num;
+					deck[i].player2pos = 1;
+					deck[i].img.setRotation(90.f);
+					deck[i].display2 = true;
+					counterCards++;
+					counterCards2++;
+				}
 			}
 		}
 	}
@@ -1666,134 +2477,137 @@ void Game::cardsInHand()
 
 void Game::placingCardsPos()
 {
-	for (int i = 1; i < 17; i++)
+	if (counter == 1)
 	{
-		if (fPositions[i].showPos == 1)
+		for (int i = 1; i < 17; i++)
 		{
-			this->window->draw(fPositions[i].img);
+			if (fPositions[i].showPos == 1)
+			{
+				this->window->draw(fPositions[i].img);
+			}
 		}
-	}
-	for (int i = 1; i < 17; i++)
-	{
-		switch (fPositions[i].pos)
+		for (int i = 1; i < 17; i++)
 		{
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-			if (fPositions[i].cardOnIt == 0)
+			switch (fPositions[i].pos)
 			{
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+				if (fPositions[i].cardOnIt == 0)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 6:
+				if (fPositions[i].cardOnIt == 0 && fPositions[1].cardOnIt == 1 && fPositions[2].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 7:
+				if (fPositions[i].cardOnIt == 0 && fPositions[2].cardOnIt == 1 && fPositions[3].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 8:
+				if (fPositions[i].cardOnIt == 0 && fPositions[3].cardOnIt == 1 && fPositions[4].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 9:
+				if (fPositions[i].cardOnIt == 0 && fPositions[4].cardOnIt == 1 && fPositions[5].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 10:
+				if (fPositions[i].cardOnIt == 0 && fPositions[6].cardOnIt == 1 && fPositions[7].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 11:
+				if (fPositions[i].cardOnIt == 0 && fPositions[7].cardOnIt == 1 && fPositions[8].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 12:
+				if (fPositions[i].cardOnIt == 0 && fPositions[8].cardOnIt == 1 && fPositions[9].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 13:
+				if (fPositions[i].cardOnIt == 0 && fPositions[10].cardOnIt == 1 && fPositions[11].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 14:
+				if (fPositions[i].cardOnIt == 0 && fPositions[11].cardOnIt == 1 && fPositions[12].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 15:
+				if (fPositions[i].cardOnIt == 0 && fPositions[13].cardOnIt == 1 && fPositions[14].cardOnIt == 1)
+				{
+					fPositions[i].showPos = 1;
+				}
+				else
+				{
+					fPositions[i].showPos = 0;
+				}
+				break;
+			case 16:
 				fPositions[i].showPos = 1;
+				break;
 			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 6:
-			if (fPositions[i].cardOnIt == 0 && fPositions[1].cardOnIt == 1 && fPositions[2].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 7:
-			if (fPositions[i].cardOnIt == 0 && fPositions[2].cardOnIt == 1 && fPositions[3].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 8:
-			if (fPositions[i].cardOnIt == 0 && fPositions[3].cardOnIt == 1 && fPositions[4].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 9:
-			if (fPositions[i].cardOnIt == 0 && fPositions[4].cardOnIt == 1 && fPositions[5].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 10:
-			if (fPositions[i].cardOnIt == 0 && fPositions[6].cardOnIt == 1 && fPositions[7].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 11:
-			if (fPositions[i].cardOnIt == 0 && fPositions[7].cardOnIt == 1 && fPositions[8].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 12:
-			if (fPositions[i].cardOnIt == 0 && fPositions[8].cardOnIt == 1 && fPositions[9].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 13:
-			if (fPositions[i].cardOnIt == 0 && fPositions[10].cardOnIt == 1 && fPositions[11].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 14:
-			if (fPositions[i].cardOnIt == 0 && fPositions[11].cardOnIt == 1 && fPositions[12].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 15:
-			if (fPositions[i].cardOnIt == 0 && fPositions[13].cardOnIt == 1 && fPositions[14].cardOnIt == 1)
-			{
-				fPositions[i].showPos = 1;
-			}
-			else
-			{
-				fPositions[i].showPos = 0;
-			}
-			break;
-		case 16:
-			fPositions[i].showPos = 1;
-			break;
 		}
 	}
 }
@@ -1885,6 +2699,12 @@ void Game::setTimer()
 	timer.setString(ss.str());
 }
 
+void Game::transition()
+{
+	// A tramsition
+}
+
+
 void Game::setPlay()
 {
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
@@ -1908,6 +2728,9 @@ void Game::setPlay()
 	this->TableHoverTexture.setSmooth(true);
 	TableHover.setTexture(TableHoverTexture);
 	TableHover.setPosition(1394, 190);
+	transitionTexture.loadFromFile("assets/Play.png");
+	this->transitionTexture.setSmooth(true);
+	transitionImg.setTexture(transitionTexture);
 	timer.setFont(font);
 	timer.setPosition(1386, 12);
 	timer.setCharacterSize(51);
@@ -2100,12 +2923,16 @@ void Game::start()
 					{
 						roundPlayed = 0;
 						counter++;
+						// transition();
 					}
 				}
 				else if (counter == 2) // Player 2 round
 				{
-
-
+					for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
+					{
+						deck[cardGet].player = 2;
+					}
+					cardsInHand();
 
 
 
@@ -2121,17 +2948,26 @@ void Game::start()
 					this->window->draw(baseCards2[4].BaseCardImg);
 					this->window->draw(baseCards2[5].BaseCardImg);
 					tableOfTruth();
+					setCardImages(cursorpos);
+					for (int i = 1; i < counterCards2; i++)
+					{
+						if (deck[i].drag == 1)
+						{
+							this->window->draw(deck[i].img);
+						}
+					}
 					this->window->display();
 					update(*this->window);
 					if (roundPlayed)
 					{
 						roundPlayed = 0;
-						//counter;
+						counter++;
 					}
 				}
 				else
 				{
 					counter = 1;
+					// transition();
 				}
 			}
 			else if (gamemodeNum == 2)
