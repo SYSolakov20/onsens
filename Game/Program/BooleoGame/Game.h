@@ -140,6 +140,7 @@ private:
 
 
 	fieldPos fPositions[40];
+	fieldPos fPositions2[40];
 
 	card startDeck[100];
 	int temp;
@@ -154,6 +155,7 @@ private:
 	int player1Cards = 0;
 	int player2Cards = 0;
 	bool showA = 0;
+	bool showA2 = 0;
 	bool cardAgain = 0;
 	bool roundPlayed = 0;
 	bool card1Dragging = 0;
