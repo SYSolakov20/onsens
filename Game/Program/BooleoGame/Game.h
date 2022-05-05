@@ -89,7 +89,8 @@ private:
 		sf::Sprite BaseCardImg;
 	};
 	
-	baseCard baseCards[6];
+	baseCard baseCards[6];  // Base cards for player 1
+	baseCard baseCards2[6]; // Base cards for player 2
 
 	// Cards struct
 	struct card

@@ -454,6 +454,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos1 = 0;
 												player1Cards--;
 												pressed = true;
+												roundPlayed = 1;
 											}
 											else
 											{
@@ -473,6 +474,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													player1Pos1 = 0;
 													player1Cards--;
 													pressed = true;
+													roundPlayed = 1;
 												}
 												else
 												{
@@ -490,6 +492,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													player1Pos1 = 0;
 													player1Cards--;
 													pressed = true;
+													roundPlayed = 1;
 												}
 											}
 										}
@@ -592,6 +595,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos2 = 0;
 												player1Cards--;
 												pressed1 = true;
+												roundPlayed = 1;
 											}
 											else
 											{
@@ -611,6 +615,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													player1Pos2 = 0;
 													player1Cards--;
 													pressed1 = true;
+													roundPlayed = 1;
 												}
 												else
 												{
@@ -628,6 +633,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													player1Pos2 = 0;
 													player1Cards--;
 													pressed1 = true;
+													roundPlayed = 1;
 												}
 											}
 										}
@@ -729,6 +735,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											player1Pos3 = 0;
 											player1Cards--;
 											pressed2 = true;
+											roundPlayed = 1;
 										}
 										else
 										{
@@ -748,6 +755,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos3 = 0;
 												player1Cards--;
 												pressed2 = true;
+												roundPlayed = 1;
 											}
 											else
 											{
@@ -765,6 +773,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos3 = 0;
 												player1Cards--;
 												pressed2 = true;
+												roundPlayed = 1;
 											}
 										}
 									}
@@ -866,6 +875,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											player1Pos4 = 0;
 											player1Cards--;
 											pressed3 = true;
+											roundPlayed = 1;
 										}
 										else
 										{
@@ -885,6 +895,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos4 = 0;
 												player1Cards--;
 												pressed3 = true;
+												roundPlayed = 1;
 											}
 											else
 											{
@@ -902,6 +913,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos4 = 0;
 												player1Cards--;
 												pressed3 = true;
+												roundPlayed = 1;
 											}
 										}
 									}
@@ -1003,6 +1015,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											player1Pos5 = 0;
 											player1Cards--;
 											pressed4 = true;
+											roundPlayed = 1;
 										}
 										else
 										{
@@ -1022,6 +1035,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos5 = 0;
 												player1Cards--;
 												pressed4 = true;
+												roundPlayed = 1;
 											}
 											else
 											{
@@ -1039,6 +1053,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												player1Pos5 = 0;
 												player1Cards--;
 												pressed4 = true;
+												roundPlayed = 1;
 											}
 										}
 									}
@@ -1563,6 +1578,10 @@ void Game::setBaseCards()
 			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
 			baseCards[i].BaseCardImgTexture.setSmooth(true);
 			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			baseCards2[i].value = 1;
+			baseCards2[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
+			baseCards2[i].BaseCardImgTexture.setSmooth(true);
+			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
 		}
 		else
 		{
@@ -1570,6 +1589,10 @@ void Game::setBaseCards()
 			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
 			baseCards[i].BaseCardImgTexture.setSmooth(true);
 			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			baseCards2[i].value = 0;
+			baseCards2[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
+			baseCards2[i].BaseCardImgTexture.setSmooth(true);
+			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
 		}
 	}
 	baseCards[0].BaseCardImg.setPosition(334, -98);
@@ -1578,6 +1601,12 @@ void Game::setBaseCards()
 	baseCards[3].BaseCardImg.setPosition(823, -98);
 	baseCards[4].BaseCardImg.setPosition(986, -98);
 	baseCards[5].BaseCardImg.setPosition(1149, -98);
+	baseCards2[0].BaseCardImg.setPosition(334, -98);
+	baseCards2[1].BaseCardImg.setPosition(497, -98);
+	baseCards2[2].BaseCardImg.setPosition(660, -98);
+	baseCards2[3].BaseCardImg.setPosition(823, -98);
+	baseCards2[4].BaseCardImg.setPosition(986, -98);
+	baseCards2[5].BaseCardImg.setPosition(1149, -98);
 }
 
 void Game::cardsInHand()
@@ -2067,15 +2096,38 @@ void Game::start()
 					}
 					this->window->display();
 					update(*this->window);
+					if (roundPlayed)
+					{
+						roundPlayed = 0;
+						counter++;
+					}
 				}
 				else if (counter == 2) // Player 2 round
 				{
 
 
 
-					counter++;
+
+
+
+					this->window->clear();
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
+					this->window->draw(this->player2Text);
+					this->window->draw(baseCards2[0].BaseCardImg);
+					this->window->draw(baseCards2[1].BaseCardImg);
+					this->window->draw(baseCards2[2].BaseCardImg);
+					this->window->draw(baseCards2[3].BaseCardImg);
+					this->window->draw(baseCards2[4].BaseCardImg);
+					this->window->draw(baseCards2[5].BaseCardImg);
+					tableOfTruth();
+					this->window->display();
 					update(*this->window);
-					render();
+					if (roundPlayed)
+					{
+						roundPlayed = 0;
+						//counter;
+					}
 				}
 				else
 				{
