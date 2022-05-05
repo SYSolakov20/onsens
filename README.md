@@ -22,9 +22,11 @@
 ## 🚀 Languages 
   <p align="left"> 
     <img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"/>
+    <img src="https://cdn.discordapp.com/attachments/895221336006332427/971795038596108318/1200px-SFML_Logo_1.png"/>
     <img src="https://img.icons8.com/color/48/000000/html-5.png"/> 
     <img src="https://img.icons8.com/color/48/000000/sass.png"/>
     <img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
+ 
   </p>
 
 ## 🔧 Tools 
