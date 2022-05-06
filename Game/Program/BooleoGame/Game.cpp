@@ -1907,6 +1907,413 @@ bool Game::checkPlacedCards(int jj)
 {
 	for (int i = 0; i < counterCards3; i++)
 	{
+		if (counter == 1)
+		{
+			if (deck[i].drag == 1)
+			{
+				switch (jj)
+				{
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						if ((baseCards[0].value && baseCards[1].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((baseCards[0].value || baseCards[1].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((baseCards[0].value ^ baseCards[1].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						if ((baseCards[1].value && baseCards[2].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((baseCards[1].value || baseCards[2].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((baseCards[1].value ^ baseCards[2].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						if ((baseCards[2].value && baseCards[3].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((baseCards[2].value || baseCards[3].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((baseCards[2].value ^ baseCards[3].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						if ((baseCards[3].value && baseCards[4].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((baseCards[3].value || baseCards[4].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((baseCards[3].value ^ baseCards[4].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						if ((baseCards[4].value && baseCards[5].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((baseCards[4].value || baseCards[5].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((baseCards[4].value ^ baseCards[5].value) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 6:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[1].cardValue && fPositions[2].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[1].cardValue || fPositions[2].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[1].cardValue ^ fPositions[2].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 7:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[2].cardValue && fPositions[3].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[2].cardValue || fPositions[3].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[2].cardValue ^ fPositions[3].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 8:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[3].cardValue && fPositions[4].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[3].cardValue || fPositions[4].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[3].cardValue ^ fPositions[4].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 9:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[4].cardValue && fPositions[5].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[4].cardValue || fPositions[5].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[4].cardValue ^ fPositions[5].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 10:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[6].cardValue && fPositions[7].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[6].cardValue || fPositions[7].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[6].cardValue ^ fPositions[7].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 11:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[7].cardValue && fPositions[8].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[7].cardValue || fPositions[8].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[7].cardValue ^ fPositions[8].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 12:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[8].cardValue && fPositions[9].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[8].cardValue || fPositions[9].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[8].cardValue ^ fPositions[9].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 13:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[10].cardValue && fPositions[11].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[10].cardValue || fPositions[11].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[10].cardValue ^ fPositions[11].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 14:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[11].cardValue && fPositions[12].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[11].cardValue || fPositions[12].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[11].cardValue ^ fPositions[12].cardValue) == deck[i].value)
+						{
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				case 15:
+					if (deck[i].type == 'a')
+					{
+						if ((fPositions[13].cardValue && fPositions[14].cardValue) == deck[i].value)
+						{
+							win = 1;
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'o')
+					{
+						if ((fPositions[13].cardValue || fPositions[14].cardValue) == deck[i].value)
+						{
+							win = 1;
+							return 1;
+						}
+						return 0;
+					}
+					else if (deck[i].type == 'x')
+					{
+						if ((fPositions[13].cardValue ^ fPositions[14].cardValue) == deck[i].value)
+						{
+							win = 1;
+							return 1;
+						}
+						return 0;
+					}
+					break;
+				default:
+					return 0;
+					break;
+				}
+			}
+		}
+		else if (counter == 2)
+		{
 		if (deck[i].drag == 1)
 		{
 			switch (jj)
@@ -1914,7 +2321,7 @@ bool Game::checkPlacedCards(int jj)
 			case 1:
 				if (deck[i].type == 'a')
 				{
-					if ((baseCards[0].value && baseCards[1].value) == deck[i].value)
+					if ((baseCards2[0].value && baseCards2[1].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1922,7 +2329,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((baseCards[0].value || baseCards[1].value) == deck[i].value)
+					if ((baseCards2[0].value || baseCards2[1].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1930,7 +2337,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((baseCards[0].value ^ baseCards[1].value) == deck[i].value)
+					if ((baseCards2[0].value ^ baseCards2[1].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1940,7 +2347,7 @@ bool Game::checkPlacedCards(int jj)
 			case 2:
 				if (deck[i].type == 'a')
 				{
-					if ((baseCards[1].value && baseCards[2].value) == deck[i].value)
+					if ((baseCards2[1].value && baseCards2[2].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1948,7 +2355,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((baseCards[1].value || baseCards[2].value) == deck[i].value)
+					if ((baseCards2[1].value || baseCards2[2].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1956,7 +2363,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((baseCards[1].value ^ baseCards[2].value) == deck[i].value)
+					if ((baseCards2[1].value ^ baseCards2[2].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1966,7 +2373,7 @@ bool Game::checkPlacedCards(int jj)
 			case 3:
 				if (deck[i].type == 'a')
 				{
-					if ((baseCards[2].value && baseCards[3].value) == deck[i].value)
+					if ((baseCards2[2].value && baseCards2[3].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1974,7 +2381,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((baseCards[2].value || baseCards[3].value) == deck[i].value)
+					if ((baseCards2[2].value || baseCards2[3].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1982,7 +2389,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((baseCards[2].value ^ baseCards[3].value) == deck[i].value)
+					if ((baseCards2[2].value ^ baseCards2[3].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -1992,7 +2399,7 @@ bool Game::checkPlacedCards(int jj)
 			case 4:
 				if (deck[i].type == 'a')
 				{
-					if ((baseCards[3].value && baseCards[4].value) == deck[i].value)
+					if ((baseCards2[3].value && baseCards2[4].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2000,7 +2407,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((baseCards[3].value || baseCards[4].value) == deck[i].value)
+					if ((baseCards2[3].value || baseCards2[4].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2008,7 +2415,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((baseCards[3].value ^ baseCards[4].value) == deck[i].value)
+					if ((baseCards2[3].value ^ baseCards2[4].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2018,7 +2425,7 @@ bool Game::checkPlacedCards(int jj)
 			case 5:
 				if (deck[i].type == 'a')
 				{
-					if ((baseCards[4].value && baseCards[5].value) == deck[i].value)
+					if ((baseCards2[4].value && baseCards2[5].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2026,7 +2433,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((baseCards[4].value || baseCards[5].value) == deck[i].value)
+					if ((baseCards2[4].value || baseCards2[5].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2034,7 +2441,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((baseCards[4].value ^ baseCards[5].value) == deck[i].value)
+					if ((baseCards2[4].value ^ baseCards2[5].value) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2044,7 +2451,7 @@ bool Game::checkPlacedCards(int jj)
 			case 6:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[1].cardValue && fPositions[2].cardValue) == deck[i].value)
+					if ((fPositions2[1].cardValue && fPositions2[2].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2052,7 +2459,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[1].cardValue || fPositions[2].cardValue) == deck[i].value)
+					if ((fPositions2[1].cardValue || fPositions2[2].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2060,7 +2467,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[1].cardValue ^ fPositions[2].cardValue) == deck[i].value)
+					if ((fPositions2[1].cardValue ^ fPositions2[2].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2070,7 +2477,7 @@ bool Game::checkPlacedCards(int jj)
 			case 7:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[2].cardValue && fPositions[3].cardValue) == deck[i].value)
+					if ((fPositions2[2].cardValue && fPositions2[3].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2078,7 +2485,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[2].cardValue || fPositions[3].cardValue) == deck[i].value)
+					if ((fPositions2[2].cardValue || fPositions2[3].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2086,7 +2493,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[2].cardValue ^ fPositions[3].cardValue) == deck[i].value)
+					if ((fPositions2[2].cardValue ^ fPositions2[3].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2096,7 +2503,7 @@ bool Game::checkPlacedCards(int jj)
 			case 8:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[3].cardValue && fPositions[4].cardValue) == deck[i].value)
+					if ((fPositions2[3].cardValue && fPositions2[4].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2104,7 +2511,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[3].cardValue || fPositions[4].cardValue) == deck[i].value)
+					if ((fPositions2[3].cardValue || fPositions2[4].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2112,7 +2519,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[3].cardValue ^ fPositions[4].cardValue) == deck[i].value)
+					if ((fPositions2[3].cardValue ^ fPositions2[4].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2122,7 +2529,7 @@ bool Game::checkPlacedCards(int jj)
 			case 9:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[4].cardValue && fPositions[5].cardValue) == deck[i].value)
+					if ((fPositions2[4].cardValue && fPositions2[5].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2130,7 +2537,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[4].cardValue || fPositions[5].cardValue) == deck[i].value)
+					if ((fPositions2[4].cardValue || fPositions2[5].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2138,7 +2545,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[4].cardValue ^ fPositions[5].cardValue) == deck[i].value)
+					if ((fPositions2[4].cardValue ^ fPositions2[5].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2148,7 +2555,7 @@ bool Game::checkPlacedCards(int jj)
 			case 10:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[6].cardValue && fPositions[7].cardValue) == deck[i].value)
+					if ((fPositions2[6].cardValue && fPositions2[7].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2156,7 +2563,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[6].cardValue || fPositions[7].cardValue) == deck[i].value)
+					if ((fPositions2[6].cardValue || fPositions2[7].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2164,7 +2571,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[6].cardValue ^ fPositions[7].cardValue) == deck[i].value)
+					if ((fPositions2[6].cardValue ^ fPositions2[7].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2174,7 +2581,7 @@ bool Game::checkPlacedCards(int jj)
 			case 11:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[7].cardValue && fPositions[8].cardValue) == deck[i].value)
+					if ((fPositions2[7].cardValue && fPositions2[8].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2182,7 +2589,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[7].cardValue || fPositions[8].cardValue) == deck[i].value)
+					if ((fPositions2[7].cardValue || fPositions2[8].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2190,7 +2597,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[7].cardValue ^ fPositions[8].cardValue) == deck[i].value)
+					if ((fPositions2[7].cardValue ^ fPositions2[8].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2200,7 +2607,7 @@ bool Game::checkPlacedCards(int jj)
 			case 12:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[8].cardValue && fPositions[9].cardValue) == deck[i].value)
+					if ((fPositions2[8].cardValue && fPositions2[9].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2208,7 +2615,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[8].cardValue || fPositions[9].cardValue) == deck[i].value)
+					if ((fPositions2[8].cardValue || fPositions2[9].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2216,7 +2623,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[8].cardValue ^ fPositions[9].cardValue) == deck[i].value)
+					if ((fPositions2[8].cardValue ^ fPositions2[9].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2226,7 +2633,7 @@ bool Game::checkPlacedCards(int jj)
 			case 13:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[10].cardValue && fPositions[11].cardValue) == deck[i].value)
+					if ((fPositions2[10].cardValue && fPositions2[11].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2234,7 +2641,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[10].cardValue || fPositions[11].cardValue) == deck[i].value)
+					if ((fPositions2[10].cardValue || fPositions2[11].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2242,7 +2649,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[10].cardValue ^ fPositions[11].cardValue) == deck[i].value)
+					if ((fPositions2[10].cardValue ^ fPositions2[11].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2252,7 +2659,7 @@ bool Game::checkPlacedCards(int jj)
 			case 14:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[11].cardValue && fPositions[12].cardValue) == deck[i].value)
+					if ((fPositions2[11].cardValue && fPositions2[12].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2260,7 +2667,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[11].cardValue || fPositions[12].cardValue) == deck[i].value)
+					if ((fPositions2[11].cardValue || fPositions2[12].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2268,7 +2675,7 @@ bool Game::checkPlacedCards(int jj)
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[11].cardValue ^ fPositions[12].cardValue) == deck[i].value)
+					if ((fPositions2[11].cardValue ^ fPositions2[12].cardValue) == deck[i].value)
 					{
 						return 1;
 					}
@@ -2278,24 +2685,27 @@ bool Game::checkPlacedCards(int jj)
 			case 15:
 				if (deck[i].type == 'a')
 				{
-					if ((fPositions[13].cardValue && fPositions[14].cardValue) == deck[i].value)
+					if ((fPositions2[13].cardValue && fPositions2[14].cardValue) == deck[i].value)
 					{
+						win = 2;
 						return 1;
 					}
 					return 0;
 				}
 				else if (deck[i].type == 'o')
 				{
-					if ((fPositions[13].cardValue || fPositions[14].cardValue) == deck[i].value)
+					if ((fPositions2[13].cardValue || fPositions2[14].cardValue) == deck[i].value)
 					{
+						win = 2;
 						return 1;
 					}
 					return 0;
 				}
 				else if (deck[i].type == 'x')
 				{
-					if ((fPositions[13].cardValue ^ fPositions[14].cardValue) == deck[i].value)
+					if ((fPositions2[13].cardValue ^ fPositions2[14].cardValue) == deck[i].value)
 					{
+						win = 2;
 						return 1;
 					}
 					return 0;
@@ -2305,6 +2715,7 @@ bool Game::checkPlacedCards(int jj)
 				return 0;
 				break;
 			}
+		}
 		}
 	}
 }
@@ -3067,7 +3478,12 @@ void Game::start()
 			if (gamemodeNum == 1)
 			{
 				setTimer();
-
+				if (win != 0)
+				{
+					std::cout << "Player" << win << "won!" << std::endl;
+					ready = 0;
+					gameMode = 1;
+				}
 				if (counter == 0)
 				{
 					counter++;

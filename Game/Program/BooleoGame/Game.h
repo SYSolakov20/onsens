@@ -154,6 +154,7 @@ private:
 	int counterCards3 = 48;
 	int player1Cards = 0;
 	int player2Cards = 0;
+	int win = 0;
 	bool showA = 0;
 	bool showA2 = 0;
 	bool cardAgain = 0;
