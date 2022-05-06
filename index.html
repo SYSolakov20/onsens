@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Website/dist/img/logo.png">
     <title>Home</title>
     <link rel="stylesheet" href="Website/dist/css/app.css">
     <!--For the custom fonts-->
@@ -12,46 +13,77 @@
        <link rel="stylesheet" type="text/css" href="Website/src/fonts/omega-centauri-Medium.css"/>
 </head>
 <body>
-
     <!--Home section-->
-    <section class="home">
-        <nav class="main-nav">
-            <div class="main-nav__logo">
-                <a href="#" class="main-nav__logo-link">onsens</a>
+        <section class="home">
+            <nav class="main-nav">
+                <div class="main-nav__logo">
+                    <a href="#" class="main-nav__logo-link">onsens</a>
+                </div>
+                <div class="main-nav__menu">
+                    <a href="#" class="main-nav__menu-link">Home</a>
+                    <a href="#" class="main-nav__menu-link">Card Designs</a>
+                    <a href="#" class="main-nav__menu-link">Packs</a>
+                </div>
+            </nav>
+            <img class="home-wave-img" src="Website/dist/img/StarterWave.png" alt="wave image">
+            <div class="home-menu-wrapper">
+                <div class="home-menu">
+                    <h1 class="home-menu__heading">Booleo</h1>
+                    <p class="home-menu__text">
+                        A simple, but effective card game that makes you think
+                    </p>
+                    <div class="home-menu-button-wrapper">
+                        <a href="#">
+                            <div class="button button--download">
+                                <img src="Website/dist/img/downloadButtonIcon.png" alt="triangle image">
+                                <h1 class="button__text button__text--download">
+                                    DOWNLOAD
+                                </h1>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="button button--in-progress">
+                                <h1 class="button__text">
+                                    IN PROGRESS
+                                </h1>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="main-nav__menu">
-                <a href="#" class="main-nav__menu-link">Home</a>
-                <a href="#" class="main-nav__menu-link">Card Designs</a>
-                <a href="#" class="main-nav__menu-link">Packs</a>
-            </div>
-        </nav>
-        <img class="home-wave-img" src="Website/dist/img/StarterWave.png" alt="wave img">
-        <div class="home-menu-wrapper">
-            <div class="home-menu">
-                <h1 class="home-menu__heading">Booleo</h1>
-                <p class="home-menu__text">
-                    A simple, but effective card game that makes you think
-                </p>
-                <div class="home-menu-button-wrapper">
-                    <a href="#">
-                        <div class="button button--download">
-                            <img src="Website/dist/img/downloadButtonIcon.png" alt="triangle image">
-                            <h1 class="button__text button__text--download">
-                                DOWNLOAD
-                            </h1>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="button button--in-progress">
-                            <h1 class="button__text">
-                                IN PROGRESS
-                            </h1>
-                        </div>
-                    </a>
+        </section>
+
+    <!--Stats section-->
+    <section class="stats">
+        <img class="stats-wave-img" src="Website/dist/img/SecondWave.png" alt="wave image">
+        <div class="stats-cards-wrapper-outer">
+            <div class="stats-cards-wrapper">
+                <div class="stats-card stats-card--down">
+                    <h1 class="stats-card__title">
+                        300+
+                    </h1>
+                    <p class="stats-card__text">
+                        Downloads every month
+                    </p>
+                </div>
+                <div class="stats-card stats-card--up">
+                    <h1 class="stats-card__title">
+                        10+
+                    </h1>
+                    <p class="stats-card__text">
+                        Decks to choosefrom
+                    </p>
+                </div>
+                <div class="stats-card stats-card--down">
+                    <h1 class="stats-card__title">
+                        100%
+                    </h1>
+                    <p class="stats-card__text">
+                        Simple, and easy to understand
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-
 </body>
 </html>

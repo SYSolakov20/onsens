@@ -13,8 +13,6 @@
     font-size:rem($smallFontSize);
     letter-spacing: $smallLetterSpacing;
 }
-
-/*Download button*/
 .button--download{
     @include flex(row, space-evenly, center);
     background-image: $accentGradientColor;
@@ -22,8 +20,6 @@
 .button__text--download{
     color:white;
 }
-
-/*Progress button*/
 .button--in-progress{
     @include flex(row, center, center);
     border-style:solid;
