@@ -1,56 +1,42 @@
 @use '../base/baseForward'as *;
 @use '../utilities/utilForward'as *;
 
-.starter-wavy-image {
+/*Home section*/
+.home-wave-img{
     position: absolute;
-    top: 0;
-    right: 0px;
+    top:0;
+    right:0;
     z-index: -1;
 }
 
-.begging {
-    @include flex(column, space-between, flex-start);
-    width: 620px;
-    height: 380px;
-    margin-top: 150px;
-    margin-left: 210px;
+.home-menu-wrapper{
+    @include flex(row, flex-end, flex-end);
+    width: 43%;
+    height: 550px;
 }
-.begging__heading {
+.home-menu{
+    @include flex(column, space-between, flex-start);
+    width: unset;
+    height: 380px;
+}
+.home-menu__heading {
     font-size: rem($bigTitleFontSize);
     letter-spacing: $normalLetterSpacing;
     line-height: 0.7;
+    width: 593px;
 }
-.begging__text {
+.home-menu__text {
     font-size: rem($normalFontSize);
     letter-spacing: $normalLetterSpacing;
     line-height: 0.7;
     margin-left: 10px;
     line-height: 1.2;
     letter-spacing: $smallLetterSpacing;
+    width: 593px;
 }
 
-.button-wrapper {
+.home-menu-button-wrapper{
     @include flex(row, space-between, center);
-    width: 100%;
-    height: unset;
-}
-
-.info-card-section{
-    @include flex(row, flex-end, flex-end);
-    position: relative;
     width:100%;
-    height:1000px;
-}
-.second-wavy-image{
-    position: absolute;
-    left:0;
-    top:0;
-}
-.info-card-wrapper{
-    @include flex(row, space-around, center);
-    width:70%;
-    height: 90%;
-}
-.info-card--up{
-    margin-bottom:200px;
+    height:unset;
 }

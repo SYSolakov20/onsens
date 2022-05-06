@@ -3,10 +3,10 @@
 
 .main-nav{
     @include flex(row, space-between, flex-start);
-    width:730px;
+    width:780px;
     height:100px;
-    margin-top:40px;
-    margin-left:120px;
+    margin-top:20px;
+    margin-left:90px;
 }
 .main-nav__logo{
     @include flex(row, center, center);
@@ -25,5 +25,5 @@
 }
 .main-nav__menu-link{
     font-size:rem($normalFontSize);     
-    letter-spacing: $normalLetterSpacing - 0.11;
+    letter-spacing: $smallLetterSpacing ;
 }

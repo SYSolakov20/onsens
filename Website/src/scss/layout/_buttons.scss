@@ -1,7 +1,7 @@
 @use '../base/baseForward' as *;
 @use '../utilities/_utilForward.scss' as *;
 
-/*Buttons default style*/
+/*Home section*/
 .button{
     width: 285px;
     height: 76px;
@@ -14,7 +14,7 @@
     letter-spacing: $smallLetterSpacing;
 }
 
-/*Index page - download button*/
+/*Download button*/
 .button--download{
     @include flex(row, space-evenly, center);
     background-image: $accentGradientColor;
@@ -23,7 +23,7 @@
     color:white;
 }
 
-/*Index page - progress button*/
+/*Progress button*/
 .button--in-progress{
     @include flex(row, center, center);
     border-style:solid;
