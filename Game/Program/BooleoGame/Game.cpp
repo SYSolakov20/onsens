@@ -1147,22 +1147,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 		{
 		if (deck[i].player2pos == 1)
 		{
-			if (player2Pos1 == i && !(card2Dragging || card3Dragging || card4Dragging || card5Dragging))  // Display and drag The first card P2
+			if (player2Pos1 == i && !(card2Dragging2 || card3Dragging2 || card4Dragging2 || card5Dragging2))  // Display and drag The first card P2
 			{
 				if (getMousePos(0, 110, 4, *this->window))
 				{
 					deck[player2Pos1].img.setPosition(183, 110);
-					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card2Dragging || card3Dragging || card4Dragging || card5Dragging))
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card2Dragging2 || card3Dragging2 || card4Dragging2 || card5Dragging2))
 					{
 						if (deck[i].drag && !pressed20)
 						{
 							deck[i].drag = 0;
-							card1Dragging = 0;
+							card1Dragging2 = 0;
 							pressed20 = true;
 						}
 						else if (!pressed20)
 						{
-							card1Dragging = 1;
+							card1Dragging2 = 1;
 							deck[i].drag = 1;
 							pressed20 = true;
 						}
@@ -1207,7 +1207,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
 											counterCards3++;
-											card1Dragging = 0;
+											card1Dragging2 = 0;
 											player2Pos1 = 0;
 											player2Cards--;
 											pressed20 = true;
@@ -1227,7 +1227,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].x = fPositions2[j].x;
 												deck[i].y = fPositions2[j].y;
 												deck[i].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-												card1Dragging = 0;
+												card1Dragging2 = 0;
 												player2Pos1 = 0;
 												player2Cards--;
 												pressed20 = true;
@@ -1245,7 +1245,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
 												counterCards3++;
-												card1Dragging = 0;
+												card1Dragging2 = 0;
 												player2Pos1 = 0;
 												player2Cards--;
 												pressed20 = true;
@@ -1278,7 +1278,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					if (!pressed20)
 					{
 						deck[i].drag = 0;
-						card1Dragging = 0;
+						card1Dragging2 = 0;
 						pressed20 = true;
 					}
 				}
@@ -1287,22 +1287,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					pressed20 = false;
 				}
 			}
-			else if (player2Pos2 == i && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging)) // Display and drag The second card P2
+			else if (player2Pos2 == i && !(card1Dragging2 || card3Dragging2 || card4Dragging2 || card5Dragging2)) // Display and drag The second card P2
 			{
 				if (getMousePos(0, 245, 4, *this->window))
 				{
 					deck[player2Pos2].img.setPosition(183, 245);
-					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging))
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging2 || card3Dragging2 || card4Dragging2 || card5Dragging2))
 					{
 						if (deck[i].drag && !pressed21)
 						{
 							deck[i].drag = 0;
-							card2Dragging = 0;
+							card2Dragging2 = 0;
 							pressed21 = true;
 						}
 						else if (!pressed21)
 						{
-							card2Dragging = 1;
+							card2Dragging2 = 1;
 							deck[i].drag = 1;
 							pressed21 = true;
 						}
@@ -1348,7 +1348,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
 											counterCards3++;
-											card2Dragging = 0;
+											card2Dragging2 = 0;
 											player2Pos2 = 0;
 											player2Cards--;
 											pressed21 = true;
@@ -1368,7 +1368,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].x = fPositions2[j].x;
 												deck[i].y = fPositions2[j].y;
 												deck[i].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-												card2Dragging = 0;
+												card2Dragging2 = 0;
 												player2Pos2 = 0;
 												player2Cards--;
 												pressed21 = true;
@@ -1386,7 +1386,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
 												counterCards3++;
-												card2Dragging = 0;
+												card2Dragging2 = 0;
 												player2Pos2 = 0;
 												player2Cards--;
 												pressed21 = true;
@@ -1419,7 +1419,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					if (!pressed21)
 					{
 						deck[i].drag = 0;
-						card2Dragging = 0;
+						card2Dragging2 = 0;
 						pressed21 = true;
 					}
 				}
@@ -1428,22 +1428,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					pressed21 = false;
 				}
 			}
-			else if (player2Pos3 == i && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging)) // Display and drag The third card P2
+			else if (player2Pos3 == i && !(card1Dragging2 || card2Dragging2 || card4Dragging2 || card5Dragging2)) // Display and drag The third card P2
 			{
 				if (getMousePos(0, 380, 4, *this->window))
 				{
 					deck[player2Pos3].img.setPosition(183, 380);
-					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging))
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging2 || card2Dragging2 || card4Dragging2 || card5Dragging2))
 					{
 						if (deck[i].drag && !pressed22)
 						{
 							deck[i].drag = 0;
-							card3Dragging = 0;
+							card3Dragging2 = 0;
 							pressed22 = true;
 						}
 						else if (!pressed22)
 						{
-							card3Dragging = 1;
+							card3Dragging2 = 1;
 							deck[i].drag = 1;
 							pressed22 = true;
 						}
@@ -1488,7 +1488,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
 											counterCards3++;
-											card3Dragging = 0;
+											card3Dragging2 = 0;
 											player2Pos3 = 0;
 											player2Cards--;
 											pressed22 = true;
@@ -1508,7 +1508,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].x = fPositions2[j].x;
 												deck[i].y = fPositions2[j].y;
 												deck[i].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-												card3Dragging = 0;
+												card3Dragging2 = 0;
 												player2Pos3 = 0;
 												player2Cards--;
 												pressed22 = true;
@@ -1526,7 +1526,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
 												counterCards3++;
-												card3Dragging = 0;
+												card3Dragging2 = 0;
 												player2Pos3 = 0;
 												player2Cards--;
 												pressed22 = true;
@@ -1559,7 +1559,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					if (!pressed22)
 					{
 						deck[i].drag = 0;
-						card3Dragging = 0;
+						card3Dragging2 = 0;
 						pressed22 = true;
 					}
 				}
@@ -1568,22 +1568,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					pressed22 = false;
 				}
 			}
-			else if (player2Pos4 == i && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging)) // Display and drag The fourth card P2
+			else if (player2Pos4 == i && !(card1Dragging2 || card2Dragging2 || card3Dragging2 || card5Dragging2)) // Display and drag The fourth card P2
 			{
 				if (getMousePos(0, 515, 4, *this->window))
 				{
 					deck[player2Pos4].img.setPosition(183, 515);
-					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging))
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging2 || card2Dragging2 || card3Dragging2 || card5Dragging2))
 					{
 						if (deck[i].drag && !pressed23)
 						{
 							deck[i].drag = 0;
-							card4Dragging = 0;
+							card4Dragging2 = 0;
 							pressed23 = true;
 						}
 						else if (!pressed23)
 						{
-							card4Dragging = 1;
+							card4Dragging2 = 1;
 							deck[i].drag = 1;
 							pressed23 = true;
 						}
@@ -1628,7 +1628,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
 											counterCards3++;
-											card4Dragging = 0;
+											card4Dragging2 = 0;
 											player2Pos4 = 0;
 											player2Cards--;
 											pressed23 = true;
@@ -1648,7 +1648,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].x = fPositions2[j].x;
 												deck[i].y = fPositions2[j].y;
 												deck[i].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-												card4Dragging = 0;
+												card4Dragging2 = 0;
 												player2Pos4 = 0;
 												player2Cards--;
 												pressed23 = true;
@@ -1666,7 +1666,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
 												counterCards3++;
-												card4Dragging = 0;
+												card4Dragging2 = 0;
 												player2Pos4 = 0;
 												player2Cards--;
 												pressed23 = true;
@@ -1699,7 +1699,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					if (!pressed23)
 					{
 						deck[i].drag = 0;
-						card4Dragging = 0;
+						card4Dragging2 = 0;
 						pressed23 = true;
 					}
 				}
@@ -1708,22 +1708,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					pressed23 = false;
 				}
 			}
-			else if (player2Pos5 == i && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging)) // Display and drag The fifth card P2
+			else if (player2Pos5 == i && !(card1Dragging2 || card2Dragging2 || card3Dragging2 || card4Dragging2)) // Display and drag The fifth card P2
 			{
 				if (getMousePos(0, 650, 4, *this->window))
 				{
 					deck[player2Pos5].img.setPosition(183, 650);
-					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging))
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging2 || card2Dragging2 || card3Dragging2 || card4Dragging2))
 					{
 						if (deck[i].drag && !pressed24)
 						{
 							deck[i].drag = 0;
-							card5Dragging = 0;
+							card5Dragging2 = 0;
 							pressed24 = true;
 						}
 						else if (!pressed24)
 						{
-							card5Dragging = 1;
+							card5Dragging2 = 1;
 							deck[i].drag = 1;
 							pressed24 = true;
 						}
@@ -1768,7 +1768,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											deck[i].display1 = 0;
 											deck[i].display2 = 0;
 											counterCards3++;
-											card5Dragging = 0;
+											card5Dragging2 = 0;
 											player2Pos5 = 0;
 											player2Cards--;
 											pressed24 = true;
@@ -1788,7 +1788,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].x = fPositions2[j].x;
 												deck[i].y = fPositions2[j].y;
 												deck[i].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-												card5Dragging = 0;
+												card5Dragging2 = 0;
 												player2Pos5 = 0;
 												player2Cards--;
 												pressed24 = true;
@@ -1806,7 +1806,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
 												counterCards3++;
-												card5Dragging = 0;
+												card5Dragging2 = 0;
 												player2Pos5 = 0;
 												player2Cards--;
 												pressed24 = true;
@@ -1839,7 +1839,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					if (!pressed24)
 					{
 						deck[i].drag = 0;
-						card5Dragging = 0;
+						card5Dragging2 = 0;
 						pressed24 = true;
 					}
 				}

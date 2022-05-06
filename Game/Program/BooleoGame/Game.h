@@ -169,6 +169,11 @@ private:
 	bool card3Dragging = 0;
 	bool card4Dragging = 0;
 	bool card5Dragging = 0;
+	bool card1Dragging2 = 0;
+	bool card2Dragging2 = 0;
+	bool card3Dragging2 = 0;
+	bool card4Dragging2 = 0;
+	bool card5Dragging2 = 0;
 
 	int player1Pos1 = 0;
 	int player1Pos2 = 0;
