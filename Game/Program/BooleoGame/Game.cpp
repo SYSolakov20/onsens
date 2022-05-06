@@ -1154,22 +1154,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					deck[player2Pos1].img.setPosition(183, 110);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card2Dragging || card3Dragging || card4Dragging || card5Dragging))
 					{
-						if (deck[i].drag && !pressed)
+						if (deck[i].drag && !pressed20)
 						{
 							deck[i].drag = 0;
 							card1Dragging = 0;
-							pressed = true;
+							pressed20 = true;
 						}
-						else if (!pressed)
+						else if (!pressed20)
 						{
 							card1Dragging = 1;
 							deck[i].drag = 1;
-							pressed = true;
+							pressed20 = true;
 						}
 					}
 					else
 					{
-						pressed = false;
+						pressed20 = false;
 					}
 				}
 				else
@@ -1193,7 +1193,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							{
 								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 								{
-									if (!pressed)
+									if (!pressed20)
 									{
 										if (j == 16)
 										{
@@ -1210,7 +1210,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											card1Dragging = 0;
 											player2Pos1 = 0;
 											player2Cards--;
-											pressed = true;
+											pressed20 = true;
 											roundPlayed = 1;
 										}
 										else
@@ -1230,7 +1230,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card1Dragging = 0;
 												player2Pos1 = 0;
 												player2Cards--;
-												pressed = true;
+												pressed20 = true;
 												roundPlayed = 1;
 											}
 											else
@@ -1248,7 +1248,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card1Dragging = 0;
 												player2Pos1 = 0;
 												player2Cards--;
-												pressed = true;
+												pressed20 = true;
 												roundPlayed = 1;
 											}
 										}
@@ -1256,7 +1256,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 								}
 								else
 								{
-									pressed = false;
+									pressed20 = false;
 								}
 							}
 						}
@@ -1275,16 +1275,16 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					if (!pressed)
+					if (!pressed20)
 					{
 						deck[i].drag = 0;
 						card1Dragging = 0;
-						pressed = true;
+						pressed20 = true;
 					}
 				}
 				else
 				{
-					pressed = false;
+					pressed20 = false;
 				}
 			}
 			else if (player2Pos2 == i && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging)) // Display and drag The second card P2
@@ -1294,23 +1294,23 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					deck[player2Pos2].img.setPosition(183, 245);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging))
 					{
-						if (deck[i].drag && !pressed1)
+						if (deck[i].drag && !pressed21)
 						{
 							deck[i].drag = 0;
 							card2Dragging = 0;
-							pressed1 = true;
+							pressed21 = true;
 						}
-						else if (!pressed1)
+						else if (!pressed21)
 						{
 							card2Dragging = 1;
 							deck[i].drag = 1;
-							pressed1 = true;
+							pressed21 = true;
 						}
 
 					}
 					else
 					{
-						pressed1 = false;
+						pressed21 = false;
 					}
 				}
 				else
@@ -1334,7 +1334,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							{
 								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 								{
-									if (!pressed1)
+									if (!pressed21)
 									{
 										if (j == 16)
 										{
@@ -1351,7 +1351,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											card2Dragging = 0;
 											player2Pos2 = 0;
 											player2Cards--;
-											pressed1 = true;
+											pressed21 = true;
 											roundPlayed = 1;
 										}
 										else
@@ -1371,7 +1371,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card2Dragging = 0;
 												player2Pos2 = 0;
 												player2Cards--;
-												pressed1 = true;
+												pressed21 = true;
 												roundPlayed = 1;
 											}
 											else
@@ -1389,7 +1389,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card2Dragging = 0;
 												player2Pos2 = 0;
 												player2Cards--;
-												pressed1 = true;
+												pressed21 = true;
 												roundPlayed = 1;
 											}
 										}
@@ -1397,7 +1397,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 								}
 								else
 								{
-									pressed1 = false;
+									pressed21 = false;
 								}
 							}
 						}
@@ -1416,16 +1416,16 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					if (!pressed1)
+					if (!pressed21)
 					{
 						deck[i].drag = 0;
 						card2Dragging = 0;
-						pressed1 = true;
+						pressed21 = true;
 					}
 				}
 				else
 				{
-					pressed1 = false;
+					pressed21 = false;
 				}
 			}
 			else if (player2Pos3 == i && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging)) // Display and drag The third card P2
@@ -1435,22 +1435,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					deck[player2Pos3].img.setPosition(183, 380);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card4Dragging || card5Dragging))
 					{
-						if (deck[i].drag && !pressed2)
+						if (deck[i].drag && !pressed22)
 						{
 							deck[i].drag = 0;
 							card3Dragging = 0;
-							pressed2 = true;
+							pressed22 = true;
 						}
-						else if (!pressed2)
+						else if (!pressed22)
 						{
 							card3Dragging = 1;
 							deck[i].drag = 1;
-							pressed2 = true;
+							pressed22 = true;
 						}
 					}
 					else
 					{
-						pressed2 = false;
+						pressed22 = false;
 					}
 				}
 				else
@@ -1474,7 +1474,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							{
 								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 								{
-									if (!pressed2)
+									if (!pressed22)
 									{
 										if (j == 16)
 										{
@@ -1491,7 +1491,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											card3Dragging = 0;
 											player2Pos3 = 0;
 											player2Cards--;
-											pressed2 = true;
+											pressed22 = true;
 											roundPlayed = 1;
 										}
 										else
@@ -1511,7 +1511,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card3Dragging = 0;
 												player2Pos3 = 0;
 												player2Cards--;
-												pressed2 = true;
+												pressed22 = true;
 												roundPlayed = 1;
 											}
 											else
@@ -1529,7 +1529,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card3Dragging = 0;
 												player2Pos3 = 0;
 												player2Cards--;
-												pressed2 = true;
+												pressed22 = true;
 												roundPlayed = 1;
 											}
 										}
@@ -1537,7 +1537,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 								}
 								else
 								{
-									pressed2 = false;
+									pressed22 = false;
 								}
 							}
 						}
@@ -1556,16 +1556,16 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					if (!pressed2)
+					if (!pressed22)
 					{
 						deck[i].drag = 0;
 						card3Dragging = 0;
-						pressed2 = true;
+						pressed22 = true;
 					}
 				}
 				else
 				{
-					pressed2 = false;
+					pressed22 = false;
 				}
 			}
 			else if (player2Pos4 == i && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging)) // Display and drag The fourth card P2
@@ -1575,22 +1575,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					deck[player2Pos4].img.setPosition(183, 515);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card3Dragging || card5Dragging))
 					{
-						if (deck[i].drag && !pressed3)
+						if (deck[i].drag && !pressed23)
 						{
 							deck[i].drag = 0;
 							card4Dragging = 0;
-							pressed3 = true;
+							pressed23 = true;
 						}
-						else if (!pressed3)
+						else if (!pressed23)
 						{
 							card4Dragging = 1;
 							deck[i].drag = 1;
-							pressed3 = true;
+							pressed23 = true;
 						}
 					}
 					else
 					{
-						pressed3 = false;
+						pressed23 = false;
 					}
 				}
 				else
@@ -1614,7 +1614,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							{
 								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 								{
-									if (!pressed3)
+									if (!pressed23)
 									{
 										if (j == 16)
 										{
@@ -1631,7 +1631,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											card4Dragging = 0;
 											player2Pos4 = 0;
 											player2Cards--;
-											pressed3 = true;
+											pressed23 = true;
 											roundPlayed = 1;
 										}
 										else
@@ -1651,7 +1651,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card4Dragging = 0;
 												player2Pos4 = 0;
 												player2Cards--;
-												pressed3 = true;
+												pressed23 = true;
 												roundPlayed = 1;
 											}
 											else
@@ -1669,7 +1669,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card4Dragging = 0;
 												player2Pos4 = 0;
 												player2Cards--;
-												pressed3 = true;
+												pressed23 = true;
 												roundPlayed = 1;
 											}
 										}
@@ -1677,7 +1677,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 								}
 								else
 								{
-									pressed3 = false;
+									pressed23 = false;
 								}
 							}
 						}
@@ -1696,16 +1696,16 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					if (!pressed3)
+					if (!pressed23)
 					{
 						deck[i].drag = 0;
 						card4Dragging = 0;
-						pressed3 = true;
+						pressed23 = true;
 					}
 				}
 				else
 				{
-					pressed3 = false;
+					pressed23 = false;
 				}
 			}
 			else if (player2Pos5 == i && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging)) // Display and drag The fifth card P2
@@ -1715,22 +1715,22 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					deck[player2Pos5].img.setPosition(183, 650);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !(card1Dragging || card2Dragging || card3Dragging || card4Dragging))
 					{
-						if (deck[i].drag && !pressed4)
+						if (deck[i].drag && !pressed24)
 						{
 							deck[i].drag = 0;
 							card5Dragging = 0;
-							pressed4 = true;
+							pressed24 = true;
 						}
-						else if (!pressed4)
+						else if (!pressed24)
 						{
 							card5Dragging = 1;
 							deck[i].drag = 1;
-							pressed4 = true;
+							pressed24 = true;
 						}
 					}
 					else
 					{
-						pressed4 = false;
+						pressed24 = false;
 					}
 				}
 				else
@@ -1754,7 +1754,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							{
 								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 								{
-									if (!pressed4)
+									if (!pressed24)
 									{
 										if (j == 16)
 										{
@@ -1771,7 +1771,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 											card5Dragging = 0;
 											player2Pos5 = 0;
 											player2Cards--;
-											pressed4 = true;
+											pressed24 = true;
 											roundPlayed = 1;
 										}
 										else
@@ -1791,7 +1791,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card5Dragging = 0;
 												player2Pos5 = 0;
 												player2Cards--;
-												pressed4 = true;
+												pressed24 = true;
 												roundPlayed = 1;
 											}
 											else
@@ -1809,7 +1809,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												card5Dragging = 0;
 												player2Pos5 = 0;
 												player2Cards--;
-												pressed4 = true;
+												pressed24 = true;
 												roundPlayed = 1;
 											}
 										}
@@ -1817,7 +1817,7 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 								}
 								else
 								{
-									pressed4 = false;
+									pressed24 = false;
 								}
 							}
 						}
@@ -1836,16 +1836,16 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					if (!pressed4)
+					if (!pressed24)
 					{
 						deck[i].drag = 0;
 						card5Dragging = 0;
-						pressed4 = true;
+						pressed24 = true;
 					}
 				}
 				else
 				{
-					pressed4 = false;
+					pressed24 = false;
 				}
 			}
 			// Displaying by type P2
@@ -3480,7 +3480,7 @@ void Game::start()
 				setTimer();
 				if (win != 0)
 				{
-					std::cout << "Player" << win << "won!" << std::endl;
+					std::cout << "Player " << win << " won!" << std::endl;
 					ready = 0;
 					gameMode = 1;
 				}
