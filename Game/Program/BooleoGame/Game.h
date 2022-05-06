@@ -66,6 +66,11 @@ private:
 	bool pressed2 = false;
 	bool pressed3 = false;
 	bool pressed4 = false;
+	bool pressed20 = false;
+	bool pressed21 = false;
+	bool pressed22 = false;
+	bool pressed23 = false;
+	bool pressed24 = false;
 	std::stringstream ss;
 	sf::Texture player1TextTexture;
 	sf::Sprite player1Text;
