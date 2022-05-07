@@ -57,6 +57,7 @@ private:
 	// Some more game realeted stuff :P
 	bool ready = 0;
 	bool gameMode = 0;
+	bool rules = 0;
 	int gamemodeNum = 0;
 	int counter = 0;
 	int tableNum = 0;
@@ -66,6 +67,14 @@ private:
 	bool pressed2 = false;
 	bool pressed3 = false;
 	bool pressed4 = false;
+	bool pressed5 = false;
+	bool pressed6 = false;
+	bool pressed7 = false;
+	bool pressed8 = false;
+	bool pressed9 = false;
+	bool pressed10 = false;
+	bool pressed11 = false;
+	bool pressed12 = false;
 	bool pressed20 = false;
 	bool pressed21 = false;
 	bool pressed22 = false;
@@ -151,6 +160,7 @@ private:
 	int temp;
 	int randNum;
 	int deckI = 1;
+	int nextPage = 0;
 	card deck[150];
 	bool canPlace1 = 0;
 	int cardGet = 1;

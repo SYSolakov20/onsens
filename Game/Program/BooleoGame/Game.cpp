@@ -33,6 +33,11 @@ void Game::pollEvents()
 				{
 					gameMode = 0;
 				}
+				else if (rules)
+				{
+					rules = 0;
+					nextPage = 0;
+				}
 				else
 				{
 					this->window->close();
@@ -130,6 +135,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window &newWindow)
 			return 1;
 		}
 		break;
+	case 8:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 80) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 80))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -186,8 +197,11 @@ void Game::menu(sf::Window &newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			this->backgroundTexture.loadFromFile("assets/Rules.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+				rules = 1;
+				pressed = true;
+			}
 		}
 	}
 	else if (getMousePos(625, 620, 1, newWindow)) // Button Quit
@@ -3606,6 +3620,232 @@ void Game::start()
 			pollEvents();
 			modes(*this->window);
 			clock.restart();
+		}
+		else if (rules) // Rules
+		{
+		pollEvents();
+		this->window->clear();
+		if (nextPage == 0)
+		{
+			this->backgroundTexture.loadFromFile("assets/RulesPage1.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+			if (getMousePos(1419, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage2.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage++;
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+		}
+		else if (nextPage == 1)
+		{
+			if (getMousePos(1419, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage3.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage++;
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			else if (getMousePos(48, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed6)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage2.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage--;
+						pressed6 = true;
+					}
+				}
+				else
+				{
+					pressed6 = false;
+				}
+			}
+		}
+		else if (nextPage == 2)
+		{
+			if (getMousePos(1419, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage4.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage++;
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			else if (getMousePos(48, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed6)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage3.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage--;
+						pressed6 = true;
+					}
+				}
+				else
+				{
+					pressed6 = false;
+				}
+			}
+		}
+		else if (nextPage == 3)
+		{
+			if (getMousePos(1419, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage5.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage++;
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			else if (getMousePos(48, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed6)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage4.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage--;
+						pressed6 = true;
+					}
+				}
+				else
+				{
+					pressed6 = false;
+				}
+			}
+		}
+		else if (nextPage == 4)
+		{
+			if (getMousePos(1419, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage6.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage++;
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			else if (getMousePos(48, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed6)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage5.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage--;
+						pressed6 = true;
+					}
+				}
+				else
+				{
+					pressed6 = false;
+				}
+			}
+		}
+		else if (nextPage == 5)
+		{
+			if (getMousePos(1419, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage7.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						if (getMousePos(1419, 35, 8, *this->window))
+						{
+							if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+							{
+								rules = 0;
+								nextPage = 0;
+							}
+						}
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			else if (getMousePos(48, 371, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed6)
+					{
+						this->backgroundTexture.loadFromFile("assets/RulesPage6.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+						nextPage--;
+						pressed6 = true;
+					}
+				}
+				else
+				{
+					pressed6 = false;
+				}
+			}
+		}
+		else
+		{
+			this->backgroundTexture.loadFromFile("assets/RulesPage1.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+		this->window->draw(this->backgroundSprite);
+		this->window->display();
 		}
 		else // Game Menu
 		{ 
