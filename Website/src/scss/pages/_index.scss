@@ -1,8 +1,11 @@
 @use '../base/baseForward'as *;
 @use '../utilities/utilForward'as *;
 
+body{
+    background-color: #E5E5E5;
+}
 /*Home section*/
-.home-wave-img{
+.home__wave-img{
     position: absolute;
     top:0;
     right:0;
@@ -42,7 +45,7 @@
 }
 
 /*Stats section*/
-.stats-wave-img{
+.stats__wave-img{
     position: absolute;
     top:0;
     left:0;
@@ -58,4 +61,48 @@
     @include flex(row, space-around, center);
     width:71%;
     height: 90%;
+}
+
+/*Card designs section*/
+.card-designs{
+    margin-top:130px;
+}
+.card-designs__text-wrapper{
+    @include flex(column, space-around, center);
+    width:100%;
+    height:250px;
+    margin-bottom:120px;
+}
+.card-designs__line{
+    background-image: $lineGradient;
+    width: 192px;
+    height: 15px;
+    border-radius: 25px;
+}
+.card-designs__title{
+    font-size: rem($smallTitleFontSize);
+    letter-spacing: $normalLetterSpacing - 0.13;
+}
+.card-designs__text{
+    font-size: rem($normalFontSize);
+    letter-spacing: $normalLetterSpacing - 0.09;
+    width: 877px;
+    text-align: center;
+}
+
+.playing-cards-wrapper{
+    @include flex(row, space-evenly, center);
+    width: 1450px;
+    height:unset;
+    margin: auto;
+}
+
+.card-designs__wave-img{
+    position: absolute;
+    top:60px;
+    right:0;
+    z-index: -1;
+}
+.playing-cards-wrapper__img--down{
+    margin-top:46px;
 }
