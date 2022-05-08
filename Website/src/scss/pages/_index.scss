@@ -99,10 +99,20 @@ body{
 
 .card-designs__wave-img{
     position: absolute;
-    top:60px;
+    top:130px;
     right:0;
     z-index: -1;
 }
 .playing-cards-wrapper__img--down{
     margin-top:46px;
+}
+
+/*Packs section*/
+.packs-wrapper{
+    @include flex(row, center, center);
+    width:100%;
+    height:800px;
+}
+.button--procced-down{
+    margin-top:60px;
 }
