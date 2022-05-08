@@ -701,19 +701,6 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							x = cursorpos.x + 69;
 							y = cursorpos.y + 50;
 							deck[i].img.setRotation(180.f);
-							if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-							{
-								if (!pressed)
-								{
-									deck[i].drag = 0;
-									pressed = true;
-									card1Dragging = 0;
-								}
-							}
-							else
-							{
-								pressed = false;
-							}
 							for (int j = 1; j < 17; j++)
 							{
 								if (getMousePos(fPositions[j].x, fPositions[j].y, 7, *this->window) && fPositions[j].showPos == 1)
@@ -762,7 +749,6 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												}
 												else
 												{
-													std::cout << "Problem" << std::endl;
 													deck[i].drag = 0;
 													deck[i].placed = 1;
 													deck[i].num = 0;
@@ -795,6 +781,19 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							deck[i].img.setRotation(90.f);
 						}
 						deck[i].img.setPosition(float(x), float(y));
+						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							if (!pressed)
+							{
+								deck[i].drag = 0;
+								card1Dragging = 0;
+								pressed = true;
+							}
+						}
+						else
+						{
+							pressed = false;
+						}
 					}
 					else
 					{
