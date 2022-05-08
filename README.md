@@ -39,10 +39,8 @@
   </p> 
 
 ## 💼 Documents
-  ### 📃 Documentation
   - [JS doc](https://smtashev20.github.io/geonomy_doc/)
   - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/smtashev20_codingburgas_bg/Eb6RxmhRkqFPjjX_xYeTpGcBKGulfa7NCfsfkUiqM1LS1w?e=h2yg7g)
-  ### 📝 Presenting
   - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/smtashev20_codingburgas_bg/ER6Hd9Nt42hGibt_eDeklo4BDm4nrc6-MYHQ8KMagPX7GQ?e=aS3dg4)
       
 ## ⚙ Website Access
