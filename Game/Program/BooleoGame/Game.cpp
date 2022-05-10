@@ -36,7 +36,7 @@ void Game::pollEvents()
 				else if (rules)
 				{
 					rules = 0;
-					nextPage = 0;
+					nextPage = -1;
 				}
 				else
 				{
@@ -203,11 +203,15 @@ void Game::menu(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			if (!pressed24)
 			{
 				rules = 1;
-				pressed = true;
+				pressed24 = true;
 			}
+		}
+		else
+		{
+			pressed24 = false;
 		}
 	}
 	else if (getMousePos(625, 620, 1, newWindow)) // Button Quit
@@ -3890,26 +3894,37 @@ void Game::start()
 			{
 				this->backgroundTexture.loadFromFile("assets/Player1WinScreen.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
+				if (getMousePos(598, 506, 9, *this->window))
+				{
+					this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
+					this->backgroundSprite.setTexture(backgroundTexture);
+				}
 			}
 			else
 			{
 				this->backgroundTexture.loadFromFile("assets/Player2WinScreen.png");
 				this->backgroundSprite.setTexture(backgroundTexture);
+				if (getMousePos(598, 506, 9, *this->window))
+				{
+					this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
+					this->backgroundSprite.setTexture(backgroundTexture);
+				}
 			}
 			if (getMousePos(598, 506, 9, *this->window))
 			{
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					if (!pressed)
+					if (!pressed24)
 					{
 						win = 0;
 						gameMode = 0;
-						pressed = true;
+						rules = 0;
+						pressed24 = true;
 					}
 				}
 				else
 				{
-					pressed = false;
+					pressed24 = false;
 				}
 			}
 			this->window->draw(this->backgroundSprite);

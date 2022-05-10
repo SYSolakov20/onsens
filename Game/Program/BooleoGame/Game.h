@@ -80,6 +80,7 @@ private:
 	bool pressed22 = false;
 	bool pressed23 = false;
 	bool pressed24 = false;
+	bool pressed25 = false;
 	std::stringstream ss;
 	sf::Texture player1TextTexture;
 	sf::Sprite player1Text;
