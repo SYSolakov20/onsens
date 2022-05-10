@@ -13,11 +13,6 @@
     height:100%;
     width:200px;
 }
-.main-nav__logo-link{
-    font-size:rem($normalFontSize + 4);
-    font-family: $specialFont;
-    letter-spacing: $normalLetterSpacing;
-}
 .main-nav__menu{
     @include flex(row, space-around, center);
     width:67%;

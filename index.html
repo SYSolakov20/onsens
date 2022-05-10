@@ -14,15 +14,17 @@
 </head>
 <body>
     <!--Home section-->
-    <section class="home">
+    <section class="home" id="home">
         <nav class="main-nav">
             <div class="main-nav__logo">
-                <a href="#" class="main-nav__logo-link">onsens</a>
+                <a href="index.html">
+                    <img src="Website/dist/img/Onsens_logo.png" alt="Onsens">
+                </a>
             </div>
             <div class="main-nav__menu">
-                <a href="#" class="main-nav__menu-link">Home</a>
-                <a href="#" class="main-nav__menu-link">Card Designs</a>
-                <a href="#" class="main-nav__menu-link">Packs</a>
+                <a href="#home" class="main-nav__menu-link">Home</a>
+                <a href="#card-designs" class="main-nav__menu-link">Card Designs</a>
+                <a href="#packs" class="main-nav__menu-link">Packs</a>
             </div>
         </nav>
         <img class="home__wave-img" src="Website/dist/img/Starter_wave.png" alt="wave image">
@@ -87,7 +89,7 @@
     </section>
 
     <!--Card designs-->
-    <section class="card-designs">
+    <section class="card-designs" id="card-designs">
         <div class="card-designs__text-wrapper">
             <div class="card-designs__line"></div>
             <h1 class="card-designs__title">
@@ -106,7 +108,7 @@
     </section>
 
     <!--Packs-->
-    <section class="packs">
+    <section class="packs" id="packs">
         <div class="packs-wrapper">
             <div class="packs-card">
                 <div class="packs-card__text-wrapper">
@@ -130,7 +132,25 @@
                     <img src="Website/dist/img/Drawing_card.png" alt="Hand that draw">
                 </div>
             </div>
+            <img class="packs__img-background" src="Website/dist/img/Footer_background.png" alt="Cool waves">    
         </div>
+        <footer class="footer footer--index-page">
+            <div class="footer__content-wrapper">
+                <div class="footer__line"></div>
+                <div class="footer__left-side">
+                    <img src="Website/dist/img/Onsens_logo.png" alt="Onsens">
+                    <p class="footer__text">2022 © onsens | All rights reserved</p>
+                </div>
+                <div class="footer__right-side">
+                    <a href="#">
+                        <img src="Website/dist/img/Facebook_icon.png" alt="facebook icon">
+                    </a>
+                    <a href="#">
+                          <img src="Website/dist/img/Instagram_icon.png" alt="instagram icon">
+                    </a>
+                </div>
+            </div>  
+        </footer>
     </section>
 </body>
 </html>
