@@ -39,11 +39,7 @@
   </p> 
 
 ## 💼 Documents
-<<<<<<< HEAD
   - [Doxygen](https://smtashev20.github.io/geonomy_doc/)
-=======
-  - [JS doc](https://smtashev20.github.io/geonomy_doc/)
->>>>>>> 109864381238d94d6da856a72d75569cd5869601
   - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/smtashev20_codingburgas_bg/Eb6RxmhRkqFPjjX_xYeTpGcBKGulfa7NCfsfkUiqM1LS1w?e=h2yg7g)
   - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/smtashev20_codingburgas_bg/ER6Hd9Nt42hGibt_eDeklo4BDm4nrc6-MYHQ8KMagPX7GQ?e=aS3dg4)
 
