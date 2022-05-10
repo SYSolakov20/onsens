@@ -727,6 +727,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[counterCards3].type = deck[i].type;
 												deck[counterCards3].value = deck[i].value;
 												deck[counterCards3].num = counterCards3;
+												deck[i].type = 0;
+												deck[i].value = 0;
 												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
@@ -765,6 +767,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													deck[counterCards3].type = deck[i].type;
 													deck[counterCards3].value = deck[i].value;
 													deck[counterCards3].num = counterCards3;
+													deck[i].type = 0;
+													deck[i].value = 0;
 													deck[i].player1pos = 0;
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
@@ -868,6 +872,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[counterCards3].type = deck[i].type;
 												deck[counterCards3].value = deck[i].value;
 												deck[counterCards3].num = counterCards3;
+												deck[i].type = 0;
+												deck[i].value = 0;
 												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
@@ -906,6 +912,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													deck[counterCards3].type = deck[i].type;
 													deck[counterCards3].value = deck[i].value;
 													deck[counterCards3].num = counterCards3;
+													deck[i].type = 0;
+													deck[i].value = 0;
 													deck[i].player1pos = 0;
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
@@ -1008,6 +1016,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[counterCards3].type = deck[i].type;
 												deck[counterCards3].value = deck[i].value;
 												deck[counterCards3].num = counterCards3;
+												deck[i].type = 0;
+												deck[i].value = 0;
 												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
@@ -1046,6 +1056,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													deck[counterCards3].type = deck[i].type;
 													deck[counterCards3].value = deck[i].value;
 													deck[counterCards3].num = counterCards3;
+													deck[i].type = 0;
+													deck[i].value = 0;
 													deck[i].player1pos = 0;
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
@@ -1148,6 +1160,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[counterCards3].type = deck[i].type;
 												deck[counterCards3].value = deck[i].value;
 												deck[counterCards3].num = counterCards3;
+												deck[i].type = 0;
+												deck[i].value = 0;
 												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
@@ -1186,6 +1200,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													deck[counterCards3].type = deck[i].type;
 													deck[counterCards3].value = deck[i].value;
 													deck[counterCards3].num = counterCards3;
+													deck[i].type = 0;
+													deck[i].value = 0;
 													deck[i].player1pos = 0;
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
@@ -1288,6 +1304,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 												deck[counterCards3].type = deck[i].type;
 												deck[counterCards3].value = deck[i].value;
 												deck[counterCards3].num = counterCards3;
+												deck[i].type = 0;
+												deck[i].value = 0;
 												deck[i].player1pos = 0;
 												deck[i].display1 = 0;
 												deck[i].display2 = 0;
@@ -1326,6 +1344,8 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 													deck[counterCards3].type = deck[i].type;
 													deck[counterCards3].value = deck[i].value;
 													deck[counterCards3].num = counterCards3;
+													deck[i].type = 0;
+													deck[i].value = 0;
 													deck[i].player1pos = 0;
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
