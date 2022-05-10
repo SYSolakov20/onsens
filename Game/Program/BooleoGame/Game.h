@@ -1,4 +1,5 @@
 #pragma once
+
 // Including all necessary libraries
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -54,7 +55,7 @@ private:
 	void init_window();
 
 
-	// Some more game realeted stuff :P
+	// Some more game realeted stuff 
 	bool ready = 0;
 	bool gameMode = 0;
 	bool rules = 0;

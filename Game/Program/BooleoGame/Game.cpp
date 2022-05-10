@@ -394,6 +394,7 @@ void Game::sortDeck()
 		}
 	}
 }
+
 void Game::setCardImages(sf::Vector2i cursorpos)
 {
 	int numCounter = 1;
@@ -3551,9 +3552,6 @@ void Game::start()
 						deck[cardGet].player = 2;
 					}
 					cardsInHand();
-
-
-
 
 					this->window->clear();
 					this->window->draw(this->backgroundSprite);
