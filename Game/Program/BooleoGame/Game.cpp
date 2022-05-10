@@ -590,6 +590,50 @@ void Game::rulestab(sf::Window& newWindow)
 	this->window->display();
 }
 
+
+void Game::winScreen(sf::Window& newWindow)
+{
+	if (win == 1)
+	{
+		this->backgroundTexture.loadFromFile("assets/Player1WinScreen.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (getMousePos(598, 506, 9, *this->window))
+		{
+			this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	else
+	{
+		this->backgroundTexture.loadFromFile("assets/Player2WinScreen.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+		if (getMousePos(598, 506, 9, *this->window))
+		{
+			this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
+	}
+	if (getMousePos(598, 506, 9, *this->window))
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			if (!pressed24)
+			{
+				win = 0;
+				gameMode = 0;
+				rules = 0;
+				pressed24 = true;
+			}
+		}
+		else
+		{
+			pressed24 = false;
+		}
+	}
+	this->window->draw(this->backgroundSprite);
+	this->window->display();
+}
+
 void Game::setDeck()
 {
 	int numCounter = 1;
@@ -3809,6 +3853,13 @@ void Game::start()
 					{
 						placingCardsPos();
 					}
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions[i].cardNum].img);
+						}
+					}
 					for (int i = 1; i < counterCards2; i++)
 					{
 						if (deck[i].drag == 1)
@@ -3851,6 +3902,13 @@ void Game::start()
 					if (showA2 == 1)
 					{
 						placingCardsPos();
+					}
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions2[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions2[i].cardNum].img);
+						}
 					}
 					for (int i = 1; i < counterCards2; i++)
 					{
@@ -3910,45 +3968,7 @@ void Game::start()
 		else if (win != 0)
 		{
 			pollEvents();
-			if (win == 1)
-			{
-				this->backgroundTexture.loadFromFile("assets/Player1WinScreen.png");
-				this->backgroundSprite.setTexture(backgroundTexture);
-				if (getMousePos(598, 506, 9, *this->window))
-				{
-					this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
-					this->backgroundSprite.setTexture(backgroundTexture);
-				}
-			}
-			else
-			{
-				this->backgroundTexture.loadFromFile("assets/Player2WinScreen.png");
-				this->backgroundSprite.setTexture(backgroundTexture);
-				if (getMousePos(598, 506, 9, *this->window))
-				{
-					this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
-					this->backgroundSprite.setTexture(backgroundTexture);
-				}
-			}
-			if (getMousePos(598, 506, 9, *this->window))
-			{
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					if (!pressed24)
-					{
-						win = 0;
-						gameMode = 0;
-						rules = 0;
-						pressed24 = true;
-					}
-				}
-				else
-				{
-					pressed24 = false;
-				}
-			}
-			this->window->draw(this->backgroundSprite);
-			this->window->display();
+			winScreen(*this->window);
 		}
 		else // Game Menu
 		{
