@@ -81,6 +81,7 @@ private:
 	bool pressed22 = false;
 	bool pressed23 = false;
 	bool pressed24 = false;
+	bool pressed25 = false;
 	std::stringstream ss;
 	sf::Texture player1TextTexture;
 	sf::Sprite player1Text;
@@ -161,7 +162,7 @@ private:
 	int temp;
 	int randNum;
 	int deckI = 1;
-	int nextPage = 0;
+	int nextPage = -1;
 	card deck[150];
 	bool canPlace1 = 0;
 	int cardGet = 1;
@@ -209,8 +210,10 @@ public:
 	void start(); // Function to start game
 	void menu(sf::Window& newWindow); // Setting the game menu
 	void modes(sf::Window& newWindow); // Modes menu function
+	void rulestab(sf::Window& newWindow); // Rules
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
+	void winScreen(sf::Window& newWindow); // Displays the victory window
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game

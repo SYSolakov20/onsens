@@ -109,10 +109,17 @@ body{
 
 /*Packs section*/
 .packs-wrapper{
+    position: relative;
     @include flex(row, center, center);
     width:100%;
     height:800px;
 }
 .button--procced-down{
     margin-top:60px;
+}
+.packs__img-background{
+    position: absolute;
+    left:0;
+    bottom:-440px;
+    z-index: -1;
 }
