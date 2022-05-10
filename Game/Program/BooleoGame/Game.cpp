@@ -141,6 +141,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window& newWindow)
 			return 1;
 		}
 		break;
+	case 9: 
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 348) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 92))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -3746,9 +3752,8 @@ void Game::start()
 				setTimer();
 				if (win != 0)
 				{
-					std::cout << "Player " << win << " won!" << std::endl;
 					ready = 0;
-					gameMode = 1;
+					gameMode = 0;
 				}
 				if (counter == 0)
 				{
@@ -3877,6 +3882,38 @@ void Game::start()
 		{
 			pollEvents();
 			rulestab(*this->window);
+		}
+		else if (win != 0)
+		{
+			pollEvents();
+			if (win == 1)
+			{
+				this->backgroundTexture.loadFromFile("assets/Player1WinScreen.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+			}
+			else
+			{
+				this->backgroundTexture.loadFromFile("assets/Player2WinScreen.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+			}
+			if (getMousePos(598, 506, 9, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed)
+					{
+						win = 0;
+						gameMode = 0;
+						pressed = true;
+					}
+				}
+				else
+				{
+					pressed = false;
+				}
+			}
+			this->window->draw(this->backgroundSprite);
+			this->window->display();
 		}
 		else // Game Menu
 		{

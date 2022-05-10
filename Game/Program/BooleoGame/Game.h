@@ -211,6 +211,7 @@ public:
 	void rulestab(sf::Window& newWindow); // Rules
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
+	void winScreen(sf::Window& newWindow); // Displays the victory window
 	void customCursor(); // Setting the custom cursor
 	void setTheIcon(); // Icon for the window
 	void setReady(); // Config everything before the start of the game
