@@ -781,24 +781,24 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 							deck[i].img.setRotation(90.f);
 						}
 						deck[i].img.setPosition(float(x), float(y));
-						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-						{
-							if (!pressed)
-							{
-								deck[i].drag = 0;
-								card1Dragging = 0;
-								pressed = true;
-							}
-						}
-						else
-						{
-							pressed = false;
-						}
 					}
 					else
 					{
 						showA = 0;
 						deck[i].img.setRotation(90.f);
+					}
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					{
+						if (!pressed)
+						{
+							deck[i].drag = 0;
+							card1Dragging = 0;
+							pressed = true;
+						}
+					}
+					else
+					{
+						pressed = false;
 					}
 				}
 				else if (player1Pos2 == i && !(card1Dragging || card3Dragging || card4Dragging || card5Dragging)) // Display and drag The second card
@@ -3498,10 +3498,6 @@ void Game::setTimer()
 	if (min < 10)
 	{
 		ss << "0" << min;
-	}
-	else
-	{
-		ss << ":" << min;
 	}
 	if (sec < 10)
 	{
