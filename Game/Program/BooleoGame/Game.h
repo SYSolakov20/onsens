@@ -241,6 +241,7 @@ public:
 	void sortDeck(); // Radomising the Deck cards
 	void cardsInHand(); // Sets the cards that the player has
 	void tableOfTruth(); // Helps table display
+	void setPlacingCards(); // Sets the default positions of the cards
 	void placingCardsPos(); // Sets the possible positions
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
 	bool checkPlacedCards(int jj); // Checks if the operation is possible

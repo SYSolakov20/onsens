@@ -130,6 +130,7 @@ void Game::pollEvents()
 								if (!pressed0)
 								{
 									pressed0 = true;
+									counter = 1;
 									pause = 0;
 									deckI = 1;
 									cardGet = 1;
@@ -201,19 +202,16 @@ void Game::pollEvents()
 										fPositions[i].showPos = 0;
 										fPositions[i].cardOnIt = 0;
 										fPositions[i].pos = 0;
-										fPositions[i].x = 0;
-										fPositions[i].y = 0;
 										fPositions2[i].cardNum = 0;
 										fPositions2[i].cardValue = 0;
 										fPositions2[i].showPos = 0;
 										fPositions2[i].cardOnIt = 0;
 										fPositions2[i].pos = 0;
-										fPositions2[i].x = 0;
-										fPositions2[i].y = 0;
 									}
 									firstGamemode2 = 1;
 									firstGamemode3 = 1;
 									firstGamemode4 = 1;
+									setPlacingCards();
 									setDeck();
 									setBaseCards();
 									sortDeck();
@@ -832,7 +830,7 @@ void Game::winScreen(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (getMousePos(598, 506, 9, *this->window))
 		{
-			this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
+			this->backgroundTexture.loadFromFile("assets/Player1WinScreenHover.png");
 			this->backgroundSprite.setTexture(backgroundTexture);
 		}
 	}
@@ -2512,6 +2510,165 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 	}
 }
 
+void Game::setPlacingCards()
+{
+	for (int i = 1; i < 17; i++)
+	{
+		fPositions[i].pos = i;
+		fPositions2[i].pos = i;
+		if (i == 16)
+		{
+			fPositions[i].imgTexture.loadFromFile("assets/UnderTheDeck.png");
+			fPositions[i].imgTexture.setSmooth(true);
+			fPositions[i].img.setTexture(fPositions[i].imgTexture);
+			fPositions2[i].imgTexture.loadFromFile("assets/UnderTheDeck.png");
+			fPositions2[i].imgTexture.setSmooth(true);
+			fPositions2[i].img.setTexture(fPositions[i].imgTexture);
+
+		}
+		else
+		{
+			fPositions[i].imgTexture.loadFromFile("assets/PositionsA.png");
+			fPositions[i].imgTexture.setSmooth(true);
+			fPositions[i].img.setTexture(fPositions[i].imgTexture);
+			fPositions2[i].imgTexture.loadFromFile("assets/PositionsA.png");
+			fPositions2[i].imgTexture.setSmooth(true);
+			fPositions2[i].img.setTexture(fPositions[i].imgTexture);
+		}
+		switch (fPositions[i].pos)
+		{
+		case 1:
+			fPositions[i].img.setPosition(414, 60);
+			fPositions[i].x = 414;
+			fPositions[i].y = 60;
+			fPositions2[i].img.setPosition(414, 60);
+			fPositions2[i].x = 414;
+			fPositions2[i].y = 60;
+			break;
+		case 2:
+			fPositions[i].img.setPosition(576, 60);
+			fPositions[i].x = 576;
+			fPositions[i].y = 60;
+			fPositions2[i].img.setPosition(576, 60);
+			fPositions2[i].x = 576;
+			fPositions2[i].y = 60;
+			break;
+		case 3:
+			fPositions[i].img.setPosition(738, 60);
+			fPositions[i].x = 738;
+			fPositions[i].y = 60;
+			fPositions2[i].img.setPosition(738, 60);
+			fPositions2[i].x = 738;
+			fPositions2[i].y = 60;
+			break;
+		case 4:
+			fPositions[i].img.setPosition(906, 60);
+			fPositions[i].x = 906;
+			fPositions[i].y = 60;
+			fPositions2[i].img.setPosition(906, 60);
+			fPositions2[i].x = 906;
+			fPositions2[i].y = 60;
+			break;
+		case 5:
+			fPositions[i].img.setPosition(1068, 60);
+			fPositions[i].x = 1068;
+			fPositions[i].y = 60;
+			fPositions2[i].img.setPosition(1068, 60);
+			fPositions2[i].x = 1068;
+			fPositions2[i].y = 60;
+			break;
+		case 6:
+			fPositions[i].img.setPosition(496, 207);
+			fPositions[i].x = 496;
+			fPositions[i].y = 207;
+			fPositions2[i].img.setPosition(496, 207);
+			fPositions2[i].x = 496;
+			fPositions2[i].y = 207;
+			break;
+		case 7:
+			fPositions[i].img.setPosition(659, 207);
+			fPositions[i].x = 659;
+			fPositions[i].y = 207;
+			fPositions2[i].img.setPosition(659, 207);
+			fPositions2[i].x = 659;
+			fPositions2[i].y = 207;
+			break;
+		case 8:
+			fPositions[i].img.setPosition(822, 207);
+			fPositions[i].x = 822;
+			fPositions[i].y = 207;
+			fPositions2[i].img.setPosition(822, 207);
+			fPositions2[i].x = 822;
+			fPositions2[i].y = 207;
+			break;
+		case 9:
+			fPositions[i].img.setPosition(985, 207);
+			fPositions[i].x = 985;
+			fPositions[i].y = 207;
+			fPositions2[i].img.setPosition(985, 207);
+			fPositions2[i].x = 985;
+			fPositions2[i].y = 207;
+			break;
+		case 10:
+			fPositions[i].img.setPosition(576, 355);
+			fPositions[i].x = 576;
+			fPositions[i].y = 355;
+			fPositions2[i].img.setPosition(576, 355);
+			fPositions2[i].x = 576;
+			fPositions2[i].y = 355;
+			break;
+		case 11:
+			fPositions[i].img.setPosition(738, 355);
+			fPositions[i].x = 738;
+			fPositions[i].y = 355;
+			fPositions2[i].img.setPosition(738, 355);
+			fPositions2[i].x = 738;
+			fPositions2[i].y = 355;
+			break;
+		case 12:
+			fPositions[i].img.setPosition(907, 355);
+			fPositions[i].x = 907;
+			fPositions[i].y = 355;
+			fPositions2[i].img.setPosition(907, 355);
+			fPositions2[i].x = 907;
+			fPositions2[i].y = 355;
+			break;
+		case 13:
+			fPositions[i].img.setPosition(660, 511);
+			fPositions[i].x = 660;
+			fPositions[i].y = 511;
+			fPositions2[i].img.setPosition(660, 511);
+			fPositions2[i].x = 660;
+			fPositions2[i].y = 511;
+			break;
+		case 14:
+			fPositions[i].img.setPosition(822, 511);
+			fPositions[i].x = 822;
+			fPositions[i].y = 511;
+			fPositions2[i].img.setPosition(822, 511);
+			fPositions2[i].x = 822;
+			fPositions2[i].y = 511;
+			break;
+		case 15:
+			fPositions[i].img.setPosition(738, 608);
+			fPositions[i].x = 738;
+			fPositions[i].y = 608;
+			fPositions2[i].img.setPosition(738, 608);
+			fPositions2[i].x = 738;
+			fPositions2[i].y = 608;
+			break;
+		case 16:
+			fPositions[i].img.setPosition(1313, 576);
+			fPositions[i].x = 1313;
+			fPositions[i].y = 576;
+			fPositions2[i].img.setPosition(1313, 576);
+			fPositions2[i].x = 1313;
+			fPositions2[i].y = 576;
+			break;
+		}
+	}
+}
+
 bool Game::checkPlacedCards(int jj)
 {
 	for (int i = 0; i < counterCards3; i++)
@@ -3958,6 +4115,7 @@ void Game::setPlay()
 					{
 						resume = 0;
 						deckI = 1;
+						counter = 1;
 						cardGet = 1;
 						counterCards = 1;
 						counterCards2 = 49;
@@ -4027,15 +4185,11 @@ void Game::setPlay()
 							fPositions[i].showPos = 0;
 							fPositions[i].cardOnIt = 0;
 							fPositions[i].pos = 0;
-							fPositions[i].x = 0;
-							fPositions[i].y = 0;
 							fPositions2[i].cardNum = 0;
 							fPositions2[i].cardValue = 0;
 							fPositions2[i].showPos = 0;
 							fPositions2[i].cardOnIt = 0;
 							fPositions2[i].pos = 0;
-							fPositions2[i].x = 0;
-							fPositions2[i].y = 0;
 						}
 						setDeck();
 						setBaseCards();
@@ -4150,161 +4304,7 @@ void Game::setPlay()
 			clock.restart();
 			firstGamemode1 = 0;
 		}
-		for (int i = 1; i < 17; i++)
-		{
-			fPositions[i].pos = i;
-			fPositions2[i].pos = i;
-			if (i == 16)
-			{
-				fPositions[i].imgTexture.loadFromFile("assets/UnderTheDeck.png");
-				fPositions[i].imgTexture.setSmooth(true);
-				fPositions[i].img.setTexture(fPositions[i].imgTexture);
-				fPositions2[i].imgTexture.loadFromFile("assets/UnderTheDeck.png");
-				fPositions2[i].imgTexture.setSmooth(true);
-				fPositions2[i].img.setTexture(fPositions[i].imgTexture);
-
-			}
-			else
-			{
-				fPositions[i].imgTexture.loadFromFile("assets/PositionsA.png");
-				fPositions[i].imgTexture.setSmooth(true);
-				fPositions[i].img.setTexture(fPositions[i].imgTexture);
-				fPositions2[i].imgTexture.loadFromFile("assets/PositionsA.png");
-				fPositions2[i].imgTexture.setSmooth(true);
-				fPositions2[i].img.setTexture(fPositions[i].imgTexture);
-			}
-			switch (fPositions[i].pos)
-			{
-			case 1:
-				fPositions[i].img.setPosition(414, 60);
-				fPositions[i].x = 414;
-				fPositions[i].y = 60;
-				fPositions2[i].img.setPosition(414, 60);
-				fPositions2[i].x = 414;
-				fPositions2[i].y = 60;
-				break;
-			case 2:
-				fPositions[i].img.setPosition(576, 60);
-				fPositions[i].x = 576;
-				fPositions[i].y = 60;
-				fPositions2[i].img.setPosition(576, 60);
-				fPositions2[i].x = 576;
-				fPositions2[i].y = 60;
-				break;
-			case 3:
-				fPositions[i].img.setPosition(738, 60);
-				fPositions[i].x = 738;
-				fPositions[i].y = 60;
-				fPositions2[i].img.setPosition(738, 60);
-				fPositions2[i].x = 738;
-				fPositions2[i].y = 60;
-				break;
-			case 4:
-				fPositions[i].img.setPosition(906, 60);
-				fPositions[i].x = 906;
-				fPositions[i].y = 60;
-				fPositions2[i].img.setPosition(906, 60);
-				fPositions2[i].x = 906;
-				fPositions2[i].y = 60;
-				break;
-			case 5:
-				fPositions[i].img.setPosition(1068, 60);
-				fPositions[i].x = 1068;
-				fPositions[i].y = 60;
-				fPositions2[i].img.setPosition(1068, 60);
-				fPositions2[i].x = 1068;
-				fPositions2[i].y = 60;
-				break;
-			case 6:
-				fPositions[i].img.setPosition(496, 207);
-				fPositions[i].x = 496;
-				fPositions[i].y = 207;
-				fPositions2[i].img.setPosition(496, 207);
-				fPositions2[i].x = 496;
-				fPositions2[i].y = 207;
-				break;
-			case 7:
-				fPositions[i].img.setPosition(659, 207);
-				fPositions[i].x = 659;
-				fPositions[i].y = 207;
-				fPositions2[i].img.setPosition(659, 207);
-				fPositions2[i].x = 659;
-				fPositions2[i].y = 207;
-				break;
-			case 8:
-				fPositions[i].img.setPosition(822, 207);
-				fPositions[i].x = 822;
-				fPositions[i].y = 207;
-				fPositions2[i].img.setPosition(822, 207);
-				fPositions2[i].x = 822;
-				fPositions2[i].y = 207;
-				break;
-			case 9:
-				fPositions[i].img.setPosition(985, 207);
-				fPositions[i].x = 985;
-				fPositions[i].y = 207;
-				fPositions2[i].img.setPosition(985, 207);
-				fPositions2[i].x = 985;
-				fPositions2[i].y = 207;
-				break;
-			case 10:
-				fPositions[i].img.setPosition(576, 355);
-				fPositions[i].x = 576;
-				fPositions[i].y = 355;
-				fPositions2[i].img.setPosition(576, 355);
-				fPositions2[i].x = 576;
-				fPositions2[i].y = 355;
-				break;
-			case 11:
-				fPositions[i].img.setPosition(738, 355);
-				fPositions[i].x = 738;
-				fPositions[i].y = 355;
-				fPositions2[i].img.setPosition(738, 355);
-				fPositions2[i].x = 738;
-				fPositions2[i].y = 355;
-				break;
-			case 12:
-				fPositions[i].img.setPosition(907, 355);
-				fPositions[i].x = 907;
-				fPositions[i].y = 355;
-				fPositions2[i].img.setPosition(907, 355);
-				fPositions2[i].x = 907;
-				fPositions2[i].y = 355;
-				break;
-			case 13:
-				fPositions[i].img.setPosition(660, 511);
-				fPositions[i].x = 660;
-				fPositions[i].y = 511;
-				fPositions2[i].img.setPosition(660, 511);
-				fPositions2[i].x = 660;
-				fPositions2[i].y = 511;
-				break;
-			case 14:
-				fPositions[i].img.setPosition(822, 511);
-				fPositions[i].x = 822;
-				fPositions[i].y = 511;
-				fPositions2[i].img.setPosition(822, 511);
-				fPositions2[i].x = 822;
-				fPositions2[i].y = 511;
-				break;
-			case 15:
-				fPositions[i].img.setPosition(738, 608);
-				fPositions[i].x = 738;
-				fPositions[i].y = 608;
-				fPositions2[i].img.setPosition(738, 608);
-				fPositions2[i].x = 738;
-				fPositions2[i].y = 608;
-				break;
-			case 16:
-				fPositions[i].img.setPosition(1313, 576);
-				fPositions[i].x = 1313;
-				fPositions[i].y = 576;
-				fPositions2[i].img.setPosition(1313, 576);
-				fPositions2[i].x = 1313;
-				fPositions2[i].y = 576;
-				break;
-			}
-		}
+		setPlacingCards();
 	}
 
 	
@@ -4497,46 +4497,22 @@ void Game::start()
 					}
 					this->window->display();
 					update(*this->window);
-					if (roundPlayed)
+					if (win == 0)
 					{
-						transitionImg.setPosition(-2200, 0);
-						sf::Time elapsed1 = clock.getElapsedTime();
-						int timeCheck = int(elapsed1.asSeconds());
-						int now = int(elapsed1.asSeconds());
-						int x = -2200;
-
-						while (now - timeCheck <= 1)
+						if (roundPlayed)
 						{
+							transitionImg.setPosition(-2200, 0);
 							sf::Time elapsed1 = clock.getElapsedTime();
-							now = int(elapsed1.asSeconds());
-							setTimer();
-							this->window->clear();
-							this->window->draw(this->backgroundSprite);
-							this->window->draw(timer);
-							this->window->draw(this->player1Text);
-							this->window->draw(baseCards[0].BaseCardImg);
-							this->window->draw(baseCards[1].BaseCardImg);
-							this->window->draw(baseCards[2].BaseCardImg);
-							this->window->draw(baseCards[3].BaseCardImg);
-							this->window->draw(baseCards[4].BaseCardImg);
-							this->window->draw(baseCards[5].BaseCardImg);
-							tableOfTruth();
-							setCardImages(cursorpos);
-							for (int i = 1; i < 16; i++)
+							int timeCheck = int(elapsed1.asSeconds());
+							int now = int(elapsed1.asSeconds());
+							int x = -2200;
+
+							while (now - timeCheck <= 1)
 							{
-								if (fPositions[i].cardOnIt == 1)
-								{
-									this->window->draw(deck[fPositions[i].cardNum].img);
-								}
-							}
-							this->window->display();
-						}
-						while (true) // Transitions
-						{
-							this->window->clear();
-							setTimer();
-							if (x <= -315)
-							{
+								sf::Time elapsed1 = clock.getElapsedTime();
+								now = int(elapsed1.asSeconds());
+								setTimer();
+								this->window->clear();
 								this->window->draw(this->backgroundSprite);
 								this->window->draw(timer);
 								this->window->draw(this->player1Text);
@@ -4555,44 +4531,71 @@ void Game::start()
 										this->window->draw(deck[fPositions[i].cardNum].img);
 									}
 								}
+								this->window->display();
 							}
-							else
+							while (true) // Transitions
 							{
-								for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
-								{
-									deck[cardGet].player = 2;
-								}
-								cardsInHand();
-								roundPlayed = 0;
-								counter = 2;
 								this->window->clear();
-								this->window->draw(this->backgroundSprite);
-								this->window->draw(timer);
-								this->window->draw(this->player2Text);
-								this->window->draw(baseCards2[0].BaseCardImg);
-								this->window->draw(baseCards2[1].BaseCardImg);
-								this->window->draw(baseCards2[2].BaseCardImg);
-								this->window->draw(baseCards2[3].BaseCardImg);
-								this->window->draw(baseCards2[4].BaseCardImg);
-								this->window->draw(baseCards2[5].BaseCardImg);
-								tableOfTruth();
-								setCardImages(cursorpos);
-								for (int i = 1; i < 16; i++)
+								setTimer();
+								if (x <= -315)
 								{
-									if (fPositions2[i].cardOnIt == 1)
+									this->window->draw(this->backgroundSprite);
+									this->window->draw(timer);
+									this->window->draw(this->player1Text);
+									this->window->draw(baseCards[0].BaseCardImg);
+									this->window->draw(baseCards[1].BaseCardImg);
+									this->window->draw(baseCards[2].BaseCardImg);
+									this->window->draw(baseCards[3].BaseCardImg);
+									this->window->draw(baseCards[4].BaseCardImg);
+									this->window->draw(baseCards[5].BaseCardImg);
+									tableOfTruth();
+									setCardImages(cursorpos);
+									for (int i = 1; i < 16; i++)
 									{
-										this->window->draw(deck[fPositions2[i].cardNum].img);
+										if (fPositions[i].cardOnIt == 1)
+										{
+											this->window->draw(deck[fPositions[i].cardNum].img);
+										}
 									}
 								}
+								else
+								{
+									for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
+									{
+										deck[cardGet].player = 2;
+									}
+									cardsInHand();
+									roundPlayed = 0;
+									counter = 2;
+									this->window->clear();
+									this->window->draw(this->backgroundSprite);
+									this->window->draw(timer);
+									this->window->draw(this->player2Text);
+									this->window->draw(baseCards2[0].BaseCardImg);
+									this->window->draw(baseCards2[1].BaseCardImg);
+									this->window->draw(baseCards2[2].BaseCardImg);
+									this->window->draw(baseCards2[3].BaseCardImg);
+									this->window->draw(baseCards2[4].BaseCardImg);
+									this->window->draw(baseCards2[5].BaseCardImg);
+									tableOfTruth();
+									setCardImages(cursorpos);
+									for (int i = 1; i < 16; i++)
+									{
+										if (fPositions2[i].cardOnIt == 1)
+										{
+											this->window->draw(deck[fPositions2[i].cardNum].img);
+										}
+									}
+								}
+								if (x >= 1545)
+								{
+									break;
+								}
+								this->window->draw(transitionImg);
+								transitionImg.setPosition(x, 0);
+								x += 45;
+								this->window->display();
 							}
-							if (x >= 1545)
-							{
-								break;
-							}
-							this->window->draw(transitionImg);
-							transitionImg.setPosition(x, 0);
-							x += 45;
-							this->window->display();
 						}
 					}
 				}
@@ -4730,7 +4733,7 @@ void Game::start()
 								this->window->clear();
 								this->window->draw(this->backgroundSprite);
 								this->window->draw(timer);
-								this->window->draw(this->player2Text);
+								this->window->draw(this->player1Text);
 								this->window->draw(baseCards[0].BaseCardImg);
 								this->window->draw(baseCards[1].BaseCardImg);
 								this->window->draw(baseCards[2].BaseCardImg);
