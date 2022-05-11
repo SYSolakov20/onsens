@@ -22,3 +22,27 @@
     font-size:rem($normalFontSize);     
     letter-spacing: $smallLetterSpacing ;
 }
+
+@media  only screen and (max-width:1790px){
+    .main-nav{
+        @include flex(row, space-between, flex-start);
+        width:600px;
+        height:100px;
+        padding-top:10px;
+        margin-left:20px;
+    }
+    .main-nav__logo{
+        @include flex(row, center, center);
+        height:100%;
+        width:180px;
+    }
+    .main-nav__menu{
+        @include flex(row, space-around, center);
+        width:67%;
+        height:90%;
+    }
+    .main-nav__menu-link{
+        font-size:rem($normalFontSize1200);     
+        letter-spacing: $smallLetterSpacing1200 ;
+    }
+}
