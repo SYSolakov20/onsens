@@ -1,8 +1,7 @@
 <h1 align="center">Logic Game Project</h1>
 
 <p align = "center">
-  <img src="Website/dist/img/Frame_2.png#gh-light-mode-only"/>
-  <img src="Website/dist/img/Frame_1.png#gh-dark-mode-only"/>
+  <img src="Website/dist/img/Frame_2.png"/>
 </p>
 
 <br>
@@ -35,9 +34,8 @@
     <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
     <img src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
     <img src="https://img.icons8.com/color/48/000000/git.png"/>
-    <img src="https://img.icons8.com/fluency/48/000000/adobe-photoshop.png"/>
-    <img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only">
-    <img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only">
+    <img src="https://img.icons8.com/fluency/48/000000/adobe-photoshop.png"/>  
+    <img src="Website/dist/img/icons8-github-48(1)"/>
   </p> 
 
 ## 💼 Documents
