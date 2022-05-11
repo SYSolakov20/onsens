@@ -153,6 +153,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window& newWindow)
 			return 1;
 		}
 		break;
+	case 11:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 114) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 82))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -3656,6 +3662,14 @@ void Game::setPlay()
 	timer.setPosition(1386, 12);
 	timer.setCharacterSize(51);
 	timer.setFillColor(sf::Color(87, 87, 87));
+	pyramid1Texture.loadFromFile("assets/PyramidGround.png");
+	this->pyramid1Texture.setSmooth(true);
+	pyramid1Img.setTexture(pyramid1Texture);
+	pyramid1Img.setPosition(0, 0);
+	pyramid2Texture.loadFromFile("assets/PyramidGround2.png");
+	this->pyramid2Texture.setSmooth(true);
+	pyramid2Img.setTexture(pyramid2Texture);
+	pyramid2Img.setPosition(0, 0);
 
 	if (gamemodeNum == 1)
 	{
@@ -3905,6 +3919,28 @@ void Game::start()
 							this->window->draw(deck[i].img);
 						}
 					}
+					if (getMousePos(1381, 82, 11, *this->window))
+					{
+						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							this->window->clear();
+							this->window->draw(pyramid1Img);
+							this->window->draw(timer);
+							this->window->draw(baseCards2[0].BaseCardImg);
+							this->window->draw(baseCards2[1].BaseCardImg);
+							this->window->draw(baseCards2[2].BaseCardImg);
+							this->window->draw(baseCards2[3].BaseCardImg);
+							this->window->draw(baseCards2[4].BaseCardImg);
+							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
+						}
+					}
 					this->window->display();
 					update(*this->window);
 					if (roundPlayed)
@@ -3951,6 +3987,28 @@ void Game::start()
 						if (deck[i].drag == 1)
 						{
 							this->window->draw(deck[i].img);
+						}
+					}
+					if (getMousePos(1381, 82, 11, *this->window))
+					{
+						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							this->window->clear();
+							this->window->draw(pyramid2Img);
+							this->window->draw(timer);
+							this->window->draw(baseCards[0].BaseCardImg);
+							this->window->draw(baseCards[1].BaseCardImg);
+							this->window->draw(baseCards[2].BaseCardImg);
+							this->window->draw(baseCards[3].BaseCardImg);
+							this->window->draw(baseCards[4].BaseCardImg);
+							this->window->draw(baseCards[5].BaseCardImg);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions[i].cardNum].img);
+								}
+							}
 						}
 					}
 					this->window->display();

@@ -96,6 +96,10 @@ private:
 	sf::Sprite TableHover;
 	sf::Texture transitionTexture;
 	sf::Sprite transitionImg;
+	sf::Texture pyramid1Texture;
+	sf::Sprite pyramid1Img;
+	sf::Texture pyramid2Texture;
+	sf::Sprite pyramid2Img;
 
 	// Base Cards
 	struct baseCard
