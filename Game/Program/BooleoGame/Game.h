@@ -63,6 +63,10 @@ private:
 	bool firstGamemode3 = 1;
 	bool firstGamemode4 = 1;
 	bool rules = 0;
+	bool pause = 0;
+	bool resume = 0;
+	bool breakResume = 0;
+	bool breakPause = 0;
 	int gamemodeNum = 0;
 	int counter = 0;
 	int tableNum = 0;
@@ -106,6 +110,8 @@ private:
 	sf::Sprite pyramid2Img;
 	sf::Texture resumeTexture;
 	sf::Sprite resumeImg;
+	sf::Texture pauseTexture;
+	sf::Sprite pauseImg;
 
 	// Base Cards
 	struct baseCard
