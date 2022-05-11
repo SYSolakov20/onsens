@@ -4033,7 +4033,88 @@ void Game::start()
 				setTimer();
 				if (win != 0)
 				{
+					deckI = 1;
+					cardGet = 1;
+					counter = 0;
+					counterCards = 1;
+					counterCards2 = 49;
+					counterCards3 = 48;
+					player1Cards = 0;
+					player2Cards = 0;
+					showA = 0;
+					showA2 = 0;
+					roundPlayed = 0;
+					card1Dragging = 0;
+					card2Dragging = 0;
+					card3Dragging = 0;
+					card4Dragging = 0;
+					card5Dragging = 0;
+					card1Dragging2 = 0;
+					card2Dragging2 = 0;
+					card3Dragging2 = 0;
+					card4Dragging2 = 0;
+					card5Dragging2 = 0;
+					player1Pos1 = 0;
+					player1Pos2 = 0;
+					player1Pos3 = 0;
+					player1Pos4 = 0;
+					player1Pos5 = 0;
+					player2Pos1 = 0;
+					player2Pos2 = 0;
+					player2Pos3 = 0;
+					player2Pos4 = 0;
+					player2Pos5 = 0;
+					for (int i = 0; i < 100; i++)
+					{
+						startDeck[i].num = 0;
+						startDeck[i].value = 0;
+						startDeck[i].type = 0;
+						startDeck[i].display1 = 0;
+						startDeck[i].display2 = 0;
+						startDeck[i].player = 0;
+						startDeck[i].secondNum = 0;
+						startDeck[i].player1pos = 0;
+						startDeck[i].player2pos = 0;
+						startDeck[i].x = 0;
+						startDeck[i].y = 0;
+						startDeck[i].drag = 0;
+						startDeck[i].placed = 0;
+					}
+					for (int i = 0; i < 150; i++)
+					{
+						deck[i].num = 0;
+						deck[i].value = 0;
+						deck[i].type = 0;
+						deck[i].display1 = 0;
+						deck[i].display2 = 0;
+						deck[i].player = 0;
+						deck[i].secondNum = 0;
+						deck[i].player1pos = 0;
+						deck[i].player2pos = 0;
+						deck[i].x = 0;
+						deck[i].y = 0;
+						deck[i].drag = 0;
+						deck[i].placed = 0;
+					}
+					for (int i = 0; i < 16; i++)
+					{
+						fPositions[i].cardNum = 0;
+						fPositions[i].cardValue = 0;
+						fPositions[i].showPos = 0;
+						fPositions[i].cardOnIt = 0;
+						fPositions[i].pos = 0;
+						fPositions[i].x = 0;
+						fPositions[i].y = 0;
+						fPositions2[i].cardNum = 0;
+						fPositions2[i].cardValue = 0;
+						fPositions2[i].showPos = 0;
+						fPositions2[i].cardOnIt = 0;
+						fPositions2[i].pos = 0;
+						fPositions2[i].x = 0;
+						fPositions2[i].y = 0;
+					}
 					ready = 0;
+					firstGamemode1 = 1;
 					gameMode = 0;
 				}
 				if (counter == 0)
