@@ -149,6 +149,26 @@
     .stats-card--up{
         margin-bottom:60px;
     }
+
+    /*Packs section*/
+    .packs-card{
+        @include flex(row, space-around, center);
+        width: 1101px;
+        height: 556px;
+        background-color: $infoCardsColor;
+        background: rgba(196, 196, 196, 0.5);
+        border-style:  solid;
+        border-width: 1px;
+        border-color: $infoCardsBorderColor;
+        border-radius: 20px;
+    }
+    .packs-card__text-wrapper{
+        @include flex(column, flex-start, flex-start);
+        padding-top: 45px;
+        padding-bottom: 45px;
+        width:60%;
+        height:100%;
+    }
 }
 @media  only screen and (max-width:1340px){
     /*Stats section*/
