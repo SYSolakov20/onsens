@@ -58,6 +58,10 @@ private:
 	// Some more game realeted stuff 
 	bool ready = 0;
 	bool gameMode = 0;
+	bool firstGamemode1 = 1;
+	bool firstGamemode2 = 1;
+	bool firstGamemode3 = 1;
+	bool firstGamemode4 = 1;
 	bool rules = 0;
 	int gamemodeNum = 0;
 	int counter = 0;
@@ -100,6 +104,8 @@ private:
 	sf::Sprite pyramid1Img;
 	sf::Texture pyramid2Texture;
 	sf::Sprite pyramid2Img;
+	sf::Texture resumeTexture;
+	sf::Sprite resumeImg;
 
 	// Base Cards
 	struct baseCard
@@ -125,7 +131,7 @@ private:
 		bool display1 = 0;
 		bool display2 = 0;
 		int player = 0; // 1 or 2
-		int secondNum = 0;;
+		int secondNum = 0;
 		bool player1pos = 0;
 		bool player2pos = 0;
 		bool x = 0;

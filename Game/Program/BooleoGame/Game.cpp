@@ -159,6 +159,12 @@ bool Game::getMousePos(float x, float y, int a, sf::Window& newWindow)
 			return 1;
 		}
 		break;
+	case 12:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 364) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 96))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -3670,10 +3676,168 @@ void Game::setPlay()
 	this->pyramid2Texture.setSmooth(true);
 	pyramid2Img.setTexture(pyramid2Texture);
 	pyramid2Img.setPosition(0, 0);
+	resumeTexture.loadFromFile("assets/ResumeScreen.png");
+	this->resumeTexture.setSmooth(true);
+	resumeImg.setTexture(resumeTexture);
+	resumeImg.setPosition(0, 0);
 
 	if (gamemodeNum == 1)
 	{
-		setBaseCards();
+		if (!(firstGamemode1))
+		{
+			while (true)
+			{
+				sf::Vector2i cursorpos = sf::Mouse::getPosition(*this->window);
+				pollEvents();
+				this->window->clear();
+				if (counter == 1)
+				{
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
+					this->window->draw(this->player1Text);
+					this->window->draw(baseCards[0].BaseCardImg);
+					this->window->draw(baseCards[1].BaseCardImg);
+					this->window->draw(baseCards[2].BaseCardImg);
+					this->window->draw(baseCards[3].BaseCardImg);
+					this->window->draw(baseCards[4].BaseCardImg);
+					this->window->draw(baseCards[5].BaseCardImg);
+					tableOfTruth();
+					setCardImages(cursorpos);
+				}
+				else if (counter == 2)
+				{
+					this->window->clear();
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
+					this->window->draw(this->player2Text);
+					this->window->draw(baseCards2[0].BaseCardImg);
+					this->window->draw(baseCards2[1].BaseCardImg);
+					this->window->draw(baseCards2[2].BaseCardImg);
+					this->window->draw(baseCards2[3].BaseCardImg);
+					this->window->draw(baseCards2[4].BaseCardImg);
+					this->window->draw(baseCards2[5].BaseCardImg);
+					tableOfTruth();
+					setCardImages(cursorpos);
+				}
+				if (getMousePos(394, 403, 12, *this->window))
+				{
+					resumeTexture.loadFromFile("assets/ResumeHover1.png");
+					resumeImg.setTexture(resumeTexture);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					{
+						break;
+					}
+				}
+				else if (getMousePos(804, 403, 12, *this->window))
+				{
+					resumeTexture.loadFromFile("assets/ResumeHover2.png");
+					resumeImg.setTexture(resumeTexture);
+					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					{
+						deckI = 1;
+						cardGet = 1;
+						counterCards = 1;
+						counterCards2 = 49;
+						counterCards3 = 48;
+						player1Cards = 0;
+						player2Cards = 0;
+						win = 0;
+						showA = 0;
+						showA2 = 0;
+						roundPlayed = 0;
+						card1Dragging = 0;
+						card2Dragging = 0;
+						card3Dragging = 0;
+						card4Dragging = 0;
+						card5Dragging = 0;
+						card1Dragging2 = 0;
+						card2Dragging2 = 0;
+						card3Dragging2 = 0;
+						card4Dragging2 = 0;
+						card5Dragging2 = 0;
+						player1Pos1 = 0;
+						player1Pos2 = 0;
+						player1Pos3 = 0;
+						player1Pos4 = 0;
+						player1Pos5 = 0;
+						player2Pos1 = 0;
+						player2Pos2 = 0;
+						player2Pos3 = 0;
+						player2Pos4 = 0;
+						player2Pos5 = 0;
+						for (int i = 0; i < 100; i++)
+						{
+							startDeck[i].num = 0;
+							startDeck[i].value = 0;
+							startDeck[i].type = 0;
+							startDeck[i].display1 = 0;
+							startDeck[i].display2 = 0;
+							startDeck[i].player = 0;
+							startDeck[i].secondNum = 0;
+							startDeck[i].player1pos = 0;
+							startDeck[i].player2pos = 0;
+							startDeck[i].x = 0;
+							startDeck[i].y = 0;
+							startDeck[i].drag = 0;
+							startDeck[i].placed = 0;
+						}
+						for (int i = 0; i < 150; i++)
+						{
+							deck[i].num = 0;
+							deck[i].value = 0;
+							deck[i].type = 0;
+							deck[i].display1 = 0;
+							deck[i].display2 = 0;
+							deck[i].player = 0;
+							deck[i].secondNum = 0;
+							deck[i].player1pos = 0;
+							deck[i].player2pos = 0;
+							deck[i].x = 0;
+							deck[i].y = 0;
+							deck[i].drag = 0;
+							deck[i].placed = 0;
+						}
+						for (int i = 0; i < 16; i++)
+						{
+							fPositions[i].cardNum = 0;
+							fPositions[i].cardValue = 0;
+							fPositions[i].showPos = 0;
+							fPositions[i].cardOnIt = 0;
+							fPositions[i].pos = 0;
+							fPositions[i].x = 0;
+							fPositions[i].y = 0;
+							fPositions2[i].cardNum = 0;
+							fPositions2[i].cardValue = 0;
+							fPositions2[i].showPos = 0;
+							fPositions2[i].cardOnIt = 0;
+							fPositions2[i].pos = 0;
+							fPositions2[i].x = 0;
+							fPositions2[i].y = 0;
+						}
+						setDeck();
+						setBaseCards();
+						sortDeck();
+						clock.restart();
+						break;
+					}
+				}
+				else
+				{
+					resumeTexture.loadFromFile("assets/ResumeScreen.png");
+					resumeImg.setTexture(resumeTexture);
+				}
+				this->window->draw(resumeImg);
+				this->window->display();
+			}
+		}
+		if (firstGamemode1)
+		{
+			setDeck();
+			setBaseCards();
+			sortDeck();
+			clock.restart();
+		}
+		firstGamemode1 = 0;
 		for (int i = 1; i < 17; i++)
 		{
 			fPositions[i].pos = i;
@@ -3831,9 +3995,7 @@ void Game::setPlay()
 		}
 	}
 
-	setDeck();
-	sortDeck();
-	clock.restart();
+	
 }
 
 void Game::setReady()
