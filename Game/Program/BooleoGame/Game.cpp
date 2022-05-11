@@ -1866,149 +1866,403 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					break;
 				}
 			}
+			else if (deck[i].value == 0 && (deck[i].num == fPositions[i].cardNum))
+			{
+				switch (specialButtonC)
+				{
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				}
+			}
 			else if (deck[i].value == 1 && !(deck[i].num == fPositions[i].cardNum))
 			{
-			switch (specialButtonC)
-			{
-			case 0:
-				if (deck[i].type == 'a')
+
+				switch (specialButtonC)
 				{
-					deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
 				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				break;
-			case 1:
-				if (deck[i].type == 'a')
-				{
-					deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				break;
-			case 2:
-				if (deck[i].type == 'a')
-				{
-					deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				break;
-			case 3:
-				if (deck[i].type == 'a')
-				{
-					deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				break;
-			case 4:
-				if (deck[i].type == 'a')
-				{
-					deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				break;
-			case 5:
-				if (deck[i].type == 'a')
-				{
-					deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				break;
 			}
+			else if (deck[i].value == 1 && (deck[i].num == fPositions[i].cardNum))
+			{
+
+				switch (specialButtonC)
+				{
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				}
 			}
 		}
 		else if (deck[i].display2 == 1 && counter == 2)
@@ -2877,6 +3131,132 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					break;
 				}
 			}
+			else if (deck[i].value == 0 && (deck[i].num == fPositions[i].cardNum))
+			{
+				switch (specialButtonC)
+				{
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				}
+			}
 			else if (deck[i].value == 1 && !(deck[i].num == fPositions[i].cardNum))
 			{
 
@@ -3018,6 +3398,133 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 						this->deck[i].imgTexture.setSmooth(true);
 						deck[i].img.setTexture(deck[i].imgTexture);
 						this->window->draw(deck[i].img);
+					}
+					break;
+				}
+			}
+			else if (deck[i].value == 1 && (deck[i].num == fPositions[i].cardNum))
+			{
+
+				switch (specialButtonC)
+				{
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
 					}
 					break;
 				}
