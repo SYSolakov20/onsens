@@ -5327,46 +5327,22 @@ void Game::firstGamemode(sf::Window& newWindow)
 		}
 		this->window->display();
 		update(*this->window);
-		if (roundPlayed)
+		if (win == 0)
 		{
-			transitionImg.setPosition(-2200, 0);
-			sf::Time elapsed1 = clock.getElapsedTime();
-			int timeCheck = int(elapsed1.asSeconds());
-			int now = int(elapsed1.asSeconds());
-			int x = -2200;
-
-			while (now - timeCheck <= 1)
+			if (roundPlayed)
 			{
+				transitionImg.setPosition(-2200, 0);
 				sf::Time elapsed1 = clock.getElapsedTime();
-				now = int(elapsed1.asSeconds());
-				setTimer();
-				this->window->clear();
-				this->window->draw(this->backgroundSprite);
-				this->window->draw(timer);
-				this->window->draw(this->player2Text);
-				this->window->draw(baseCards2[0].BaseCardImg);
-				this->window->draw(baseCards2[1].BaseCardImg);
-				this->window->draw(baseCards2[2].BaseCardImg);
-				this->window->draw(baseCards2[3].BaseCardImg);
-				this->window->draw(baseCards2[4].BaseCardImg);
-				this->window->draw(baseCards2[5].BaseCardImg);
-				tableOfTruth();
-				setCardImages(cursorpos);
-				for (int i = 1; i < 16; i++)
+				int timeCheck = int(elapsed1.asSeconds());
+				int now = int(elapsed1.asSeconds());
+				int x = -2200;
+
+				while (now - timeCheck <= 1)
 				{
-					if (fPositions2[i].cardOnIt == 1)
-					{
-						this->window->draw(deck[fPositions2[i].cardNum].img);
-					}
-				}
-				this->window->display();
-			}
-			while (true) // Transitions
-			{
-				this->window->clear();
-				setTimer();
-				if (x <= -315)
-				{
+					sf::Time elapsed1 = clock.getElapsedTime();
+					now = int(elapsed1.asSeconds());
+					setTimer();
+					this->window->clear();
 					this->window->draw(this->backgroundSprite);
 					this->window->draw(timer);
 					this->window->draw(this->player2Text);
@@ -5385,44 +5361,71 @@ void Game::firstGamemode(sf::Window& newWindow)
 							this->window->draw(deck[fPositions2[i].cardNum].img);
 						}
 					}
+					this->window->display();
 				}
-				else
+				while (true) // Transitions
 				{
-					for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
-					{
-						deck[cardGet].player = 1;
-					}
-					cardsInHand();
-					roundPlayed = 0;
-					counter = 1;
 					this->window->clear();
-					this->window->draw(this->backgroundSprite);
-					this->window->draw(timer);
-					this->window->draw(this->player1Text);
-					this->window->draw(baseCards[0].BaseCardImg);
-					this->window->draw(baseCards[1].BaseCardImg);
-					this->window->draw(baseCards[2].BaseCardImg);
-					this->window->draw(baseCards[3].BaseCardImg);
-					this->window->draw(baseCards[4].BaseCardImg);
-					this->window->draw(baseCards[5].BaseCardImg);
-					tableOfTruth();
-					setCardImages(cursorpos);
-					for (int i = 1; i < 16; i++)
+					setTimer();
+					if (x <= -315)
 					{
-						if (fPositions[i].cardOnIt == 1)
+						this->window->draw(this->backgroundSprite);
+						this->window->draw(timer);
+						this->window->draw(this->player2Text);
+						this->window->draw(baseCards2[0].BaseCardImg);
+						this->window->draw(baseCards2[1].BaseCardImg);
+						this->window->draw(baseCards2[2].BaseCardImg);
+						this->window->draw(baseCards2[3].BaseCardImg);
+						this->window->draw(baseCards2[4].BaseCardImg);
+						this->window->draw(baseCards2[5].BaseCardImg);
+						tableOfTruth();
+						setCardImages(cursorpos);
+						for (int i = 1; i < 16; i++)
 						{
-							this->window->draw(deck[fPositions[i].cardNum].img);
+							if (fPositions2[i].cardOnIt == 1)
+							{
+								this->window->draw(deck[fPositions2[i].cardNum].img);
+							}
 						}
 					}
+					else
+					{
+						for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
+						{
+							deck[cardGet].player = 1;
+						}
+						cardsInHand();
+						roundPlayed = 0;
+						counter = 1;
+						this->window->clear();
+						this->window->draw(this->backgroundSprite);
+						this->window->draw(timer);
+						this->window->draw(this->player1Text);
+						this->window->draw(baseCards[0].BaseCardImg);
+						this->window->draw(baseCards[1].BaseCardImg);
+						this->window->draw(baseCards[2].BaseCardImg);
+						this->window->draw(baseCards[3].BaseCardImg);
+						this->window->draw(baseCards[4].BaseCardImg);
+						this->window->draw(baseCards[5].BaseCardImg);
+						tableOfTruth();
+						setCardImages(cursorpos);
+						for (int i = 1; i < 16; i++)
+						{
+							if (fPositions[i].cardOnIt == 1)
+							{
+								this->window->draw(deck[fPositions[i].cardNum].img);
+							}
+						}
+					}
+					if (x >= 1545)
+					{
+						break;
+					}
+					this->window->draw(transitionImg);
+					transitionImg.setPosition(x, 0);
+					x += 45;
+					this->window->display();
 				}
-				if (x >= 1545)
-				{
-					break;
-				}
-				this->window->draw(transitionImg);
-				transitionImg.setPosition(x, 0);
-				x += 45;
-				this->window->display();
 			}
 		}
 	}
