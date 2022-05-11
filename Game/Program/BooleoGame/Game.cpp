@@ -66,6 +66,13 @@ void Game::pollEvents()
 							this->window->draw(baseCards[5].BaseCardImg);
 							tableOfTruth();
 							setCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions[i].cardNum].img);
+								}
+							}
 						}
 						else if (counter == 2)
 						{
@@ -81,6 +88,13 @@ void Game::pollEvents()
 							this->window->draw(baseCards2[5].BaseCardImg);
 							tableOfTruth();
 							setCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
 						}
 						if (getMousePos(567, 210, 13, *this->window))
 						{
@@ -244,6 +258,10 @@ void Game::pollEvents()
 				{
 					gameMode = 0;
 				}
+				else if (options)
+				{
+					options = 0;
+				}
 				else if (rules)
 				{
 					rules = 0;
@@ -378,6 +396,18 @@ bool Game::getMousePos(float x, float y, int a, sf::Window& newWindow)
 			return 1;
 		}
 		break;
+	case 14:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 427) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 87))
+		{
+			return 1;
+		}
+		break;
+	case 15:
+		if ((mousepos.x + 8 >= x && mousepos.x + 8 <= x + 620) && (mousepos.y + 8 >= y && mousepos.y + 8 <= y + 104))
+		{
+			return 1;
+		}
+		break;
 	}
 	return 0;
 }
@@ -424,8 +454,15 @@ void Game::menu(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			this->backgroundTexture.loadFromFile("assets/Options.png");
-			this->backgroundSprite.setTexture(backgroundTexture);
+			if (!pressed)
+			{
+				options = 1;
+				pressed = true;
+			}
+		}
+		else
+		{
+			pressed = false;
 		}
 	}
 	else if (getMousePos(625, 516, 1, newWindow)) // Button Rules
@@ -1687,31 +1724,153 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 			}
 			if (deck[i].value == 0 && !(deck[i].num == fPositions[i].cardNum))
 			{
-				if (deck[i].type == 'a')
+				switch (specialButtonC)
 				{
-					deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
 				}
 			}
 			else if (deck[i].value == 1 && !(deck[i].num == fPositions[i].cardNum))
 			{
-
+			switch (specialButtonC)
+			{
+			case 0:
 				if (deck[i].type == 'a')
 				{
 					deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
@@ -1733,6 +1892,123 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 					deck[i].img.setTexture(deck[i].imgTexture);
 					this->window->draw(deck[i].img);
 				}
+				break;
+			case 1:
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				break;
+			case 2:
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				break;
+			case 3:
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				break;
+			case 4:
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				break;
+			case 5:
+				if (deck[i].type == 'a')
+				{
+					deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'o')
+				{
+					deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				else if (deck[i].type == 'x')
+				{
+					deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard1.png");
+					this->deck[i].imgTexture.setSmooth(true);
+					deck[i].img.setTexture(deck[i].imgTexture);
+					this->window->draw(deck[i].img);
+				}
+				break;
+			}
 			}
 		}
 		else if (deck[i].display2 == 1 && counter == 2)
@@ -2459,51 +2735,291 @@ void Game::setCardImages(sf::Vector2i cursorpos)
 			}
 			if (deck[i].value == 0 && !(deck[i].num == fPositions[i].cardNum))
 			{
-				if (deck[i].type == 'a')
+				switch (specialButtonC)
 				{
-					deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard0.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
 				}
 			}
 			else if (deck[i].value == 1 && !(deck[i].num == fPositions[i].cardNum))
 			{
 
-				if (deck[i].type == 'a')
+				switch (specialButtonC)
 				{
-					deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'o')
-				{
-					deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
-				}
-				else if (deck[i].type == 'x')
-				{
-					deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
-					this->deck[i].imgTexture.setSmooth(true);
-					deck[i].img.setTexture(deck[i].imgTexture);
-					this->window->draw(deck[i].img);
+				case 0:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 1:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/NavyBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 2:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SunsetBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 3:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/EarthBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 4:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/SeaBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
+				case 5:
+					if (deck[i].type == 'a')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/AndCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'o')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/OrCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					else if (deck[i].type == 'x')
+					{
+						deck[i].imgTexture.loadFromFile("assets/CosmosBundle/XorCard1.png");
+						this->deck[i].imgTexture.setSmooth(true);
+						deck[i].img.setTexture(deck[i].imgTexture);
+						this->window->draw(deck[i].img);
+					}
+					break;
 				}
 			}
 		}
@@ -3928,56 +4444,484 @@ void Game::tableOfTruth()
 	{
 		if (!(getMousePos(1394, 188, 3, *this->window)))
 		{
-			TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
-			this->window->draw(this->TableHeader);
+			tableHeaderTexture.loadFromFile("assets/AndtableHover.png");
+			this->window->draw(this->tableHeader);
 		}
 		else
 		{
-			TableHoverTexture.loadFromFile("assets/AndTableHeader.png");
-			this->window->draw(this->TableHover);
+			tableHoverTexture.loadFromFile("assets/AndtableHeader.png");
+			this->window->draw(this->tableHover);
 		}
-		TruthTableTexture.loadFromFile("assets/AndTable.png");
-		this->TruthTableTexture.setSmooth(true);
-		TruthTable.setTexture(TruthTableTexture);
-		TruthTable.setPosition(1390, 240);
-		this->window->draw(this->TruthTable);
+		truthTableTexture.loadFromFile("assets/AndTable.png");
+		this->truthTableTexture.setSmooth(true);
+		truthTable.setTexture(truthTableTexture);
+		truthTable.setPosition(1390, 240);
+		this->window->draw(this->truthTable);
 		//counter++;
 	}
 	else if (tableNum == 1)
 	{
 		if (!(getMousePos(1394, 188, 3, *this->window)))
 		{
-			TableHeaderTexture.loadFromFile("assets/OrTableHover.png");
-			this->window->draw(this->TableHeader);
+			tableHeaderTexture.loadFromFile("assets/OrtableHover.png");
+			this->window->draw(this->tableHeader);
 		}
 		else
 		{
-			TableHoverTexture.loadFromFile("assets/OrTableHeader.png");
-			this->window->draw(this->TableHover);
+			tableHoverTexture.loadFromFile("assets/OrtableHeader.png");
+			this->window->draw(this->tableHover);
 		}
-		TruthTableTexture.loadFromFile("assets/OrTable.png");
-		this->TruthTableTexture.setSmooth(true);
-		TruthTable.setTexture(TruthTableTexture);
-		TruthTable.setPosition(1390, 240);
-		this->window->draw(this->TruthTable);
+		truthTableTexture.loadFromFile("assets/OrTable.png");
+		this->truthTableTexture.setSmooth(true);
+		truthTable.setTexture(truthTableTexture);
+		truthTable.setPosition(1390, 240);
+		this->window->draw(this->truthTable);
 	}
 	else if (tableNum == 2)
 	{
 		if (!(getMousePos(1394, 188, 3, *this->window)))
 		{
-			TableHeaderTexture.loadFromFile("assets/XorTableHover.png");
-			this->window->draw(this->TableHeader);
+			tableHeaderTexture.loadFromFile("assets/XortableHover.png");
+			this->window->draw(this->tableHeader);
 		}
 		else
 		{
-			TableHoverTexture.loadFromFile("assets/XorTableHeader.png");
-			this->window->draw(this->TableHover);
+			tableHoverTexture.loadFromFile("assets/XortableHeader.png");
+			this->window->draw(this->tableHover);
 		}
-		TruthTableTexture.loadFromFile("assets/XorTable.png");
-		this->TruthTableTexture.setSmooth(true);
-		TruthTable.setTexture(TruthTableTexture);
-		TruthTable.setPosition(1390, 240);
-		this->window->draw(this->TruthTable);
+		truthTableTexture.loadFromFile("assets/XorTable.png");
+		this->truthTableTexture.setSmooth(true);
+		truthTable.setTexture(truthTableTexture);
+		truthTable.setPosition(1390, 240);
+		this->window->draw(this->truthTable);
+	}
+}
+
+void Game::firstGamemode(sf::Window& newWindow)
+{
+	sf::Vector2i cursorpos = sf::Mouse::getPosition(*this->window);
+	setTimer();
+	if (win != 0)
+	{
+		deckI = 1;
+		cardGet = 1;
+		counter = 0;
+		counterCards = 1;
+		counterCards2 = 49;
+		counterCards3 = 48;
+		player1Cards = 0;
+		player2Cards = 0;
+		showA = 0;
+		showA2 = 0;
+		roundPlayed = 0;
+		card1Dragging = 0;
+		card2Dragging = 0;
+		card3Dragging = 0;
+		card4Dragging = 0;
+		card5Dragging = 0;
+		card1Dragging2 = 0;
+		card2Dragging2 = 0;
+		card3Dragging2 = 0;
+		card4Dragging2 = 0;
+		card5Dragging2 = 0;
+		player1Pos1 = 0;
+		player1Pos2 = 0;
+		player1Pos3 = 0;
+		player1Pos4 = 0;
+		player1Pos5 = 0;
+		player2Pos1 = 0;
+		player2Pos2 = 0;
+		player2Pos3 = 0;
+		player2Pos4 = 0;
+		player2Pos5 = 0;
+		for (int i = 0; i < 100; i++)
+		{
+			startDeck[i].num = 0;
+			startDeck[i].value = 0;
+			startDeck[i].type = 0;
+			startDeck[i].display1 = 0;
+			startDeck[i].display2 = 0;
+			startDeck[i].player = 0;
+			startDeck[i].secondNum = 0;
+			startDeck[i].player1pos = 0;
+			startDeck[i].player2pos = 0;
+			startDeck[i].x = 0;
+			startDeck[i].y = 0;
+			startDeck[i].drag = 0;
+			startDeck[i].placed = 0;
+		}
+		for (int i = 0; i < 150; i++)
+		{
+			deck[i].num = 0;
+			deck[i].value = 0;
+			deck[i].type = 0;
+			deck[i].display1 = 0;
+			deck[i].display2 = 0;
+			deck[i].player = 0;
+			deck[i].secondNum = 0;
+			deck[i].player1pos = 0;
+			deck[i].player2pos = 0;
+			deck[i].x = 0;
+			deck[i].y = 0;
+			deck[i].drag = 0;
+			deck[i].placed = 0;
+		}
+		for (int i = 0; i < 16; i++)
+		{
+			fPositions[i].cardNum = 0;
+			fPositions[i].cardValue = 0;
+			fPositions[i].showPos = 0;
+			fPositions[i].cardOnIt = 0;
+			fPositions[i].pos = 0;
+			fPositions[i].x = 0;
+			fPositions[i].y = 0;
+			fPositions2[i].cardNum = 0;
+			fPositions2[i].cardValue = 0;
+			fPositions2[i].showPos = 0;
+			fPositions2[i].cardOnIt = 0;
+			fPositions2[i].pos = 0;
+			fPositions2[i].x = 0;
+			fPositions2[i].y = 0;
+		}
+		ready = 0;
+		firstGamemode1 = 1;
+		gameMode = 0;
+	}
+	if (counter == 0)
+	{
+		counter++;
+	}
+	else if (counter == 1) // Player1 round
+	{
+		for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
+		{
+			deck[cardGet].player = 1;
+		}
+		cardsInHand();
+
+
+		this->window->clear();
+		this->window->draw(this->backgroundSprite);
+		this->window->draw(timer);
+		this->window->draw(this->player1Text);
+		this->window->draw(baseCards[0].BaseCardImg);
+		this->window->draw(baseCards[1].BaseCardImg);
+		this->window->draw(baseCards[2].BaseCardImg);
+		this->window->draw(baseCards[3].BaseCardImg);
+		this->window->draw(baseCards[4].BaseCardImg);
+		this->window->draw(baseCards[5].BaseCardImg);
+		tableOfTruth();
+		setCardImages(cursorpos);
+		if (showA == 1)
+		{
+			placingCardsPos();
+		}
+		for (int i = 1; i < 16; i++)
+		{
+			if (fPositions[i].cardOnIt == 1)
+			{
+				deck[fPositions[i].cardNum].img.setPosition(fPositions[i].x + 120, fPositions[i].y + 195);
+				this->window->draw(deck[fPositions[i].cardNum].img);
+			}
+		}
+		for (int i = 1; i < counterCards2; i++)
+		{
+			if (deck[i].drag == 1)
+			{
+				this->window->draw(deck[i].img);
+			}
+		}
+		if (getMousePos(1381, 82, 11, *this->window))
+		{
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+				this->window->clear();
+				this->window->draw(pyramid1Img);
+				this->window->draw(timer);
+				this->window->draw(baseCards2[0].BaseCardImg);
+				this->window->draw(baseCards2[1].BaseCardImg);
+				this->window->draw(baseCards2[2].BaseCardImg);
+				this->window->draw(baseCards2[3].BaseCardImg);
+				this->window->draw(baseCards2[4].BaseCardImg);
+				this->window->draw(baseCards2[5].BaseCardImg);
+				for (int i = 1; i < 16; i++)
+				{
+					if (fPositions2[i].cardOnIt == 1)
+					{
+						this->window->draw(deck[fPositions2[i].cardNum].img);
+					}
+				}
+			}
+		}
+		this->window->display();
+		update(*this->window);
+		if (win == 0)
+		{
+			if (roundPlayed)
+			{
+				transitionImg.setPosition(-2200, 0);
+				sf::Time elapsed1 = clock.getElapsedTime();
+				int timeCheck = int(elapsed1.asSeconds());
+				int now = int(elapsed1.asSeconds());
+				int x = -2200;
+
+				while (now - timeCheck <= 1)
+				{
+					sf::Time elapsed1 = clock.getElapsedTime();
+					now = int(elapsed1.asSeconds());
+					setTimer();
+					this->window->clear();
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
+					this->window->draw(this->player1Text);
+					this->window->draw(baseCards[0].BaseCardImg);
+					this->window->draw(baseCards[1].BaseCardImg);
+					this->window->draw(baseCards[2].BaseCardImg);
+					this->window->draw(baseCards[3].BaseCardImg);
+					this->window->draw(baseCards[4].BaseCardImg);
+					this->window->draw(baseCards[5].BaseCardImg);
+					tableOfTruth();
+					setCardImages(cursorpos);
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions[i].cardNum].img);
+						}
+					}
+					this->window->display();
+				}
+				while (true) // Transitions
+				{
+					this->window->clear();
+					setTimer();
+					if (x <= -315)
+					{
+						this->window->draw(this->backgroundSprite);
+						this->window->draw(timer);
+						this->window->draw(this->player1Text);
+						this->window->draw(baseCards[0].BaseCardImg);
+						this->window->draw(baseCards[1].BaseCardImg);
+						this->window->draw(baseCards[2].BaseCardImg);
+						this->window->draw(baseCards[3].BaseCardImg);
+						this->window->draw(baseCards[4].BaseCardImg);
+						this->window->draw(baseCards[5].BaseCardImg);
+						tableOfTruth();
+						setCardImages(cursorpos);
+						for (int i = 1; i < 16; i++)
+						{
+							if (fPositions[i].cardOnIt == 1)
+							{
+								this->window->draw(deck[fPositions[i].cardNum].img);
+							}
+						}
+					}
+					else
+					{
+						for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
+						{
+							deck[cardGet].player = 2;
+						}
+						cardsInHand();
+						roundPlayed = 0;
+						counter = 2;
+						this->window->clear();
+						this->window->draw(this->backgroundSprite);
+						this->window->draw(timer);
+						this->window->draw(this->player2Text);
+						this->window->draw(baseCards2[0].BaseCardImg);
+						this->window->draw(baseCards2[1].BaseCardImg);
+						this->window->draw(baseCards2[2].BaseCardImg);
+						this->window->draw(baseCards2[3].BaseCardImg);
+						this->window->draw(baseCards2[4].BaseCardImg);
+						this->window->draw(baseCards2[5].BaseCardImg);
+						tableOfTruth();
+						setCardImages(cursorpos);
+						for (int i = 1; i < 16; i++)
+						{
+							if (fPositions2[i].cardOnIt == 1)
+							{
+								this->window->draw(deck[fPositions2[i].cardNum].img);
+							}
+						}
+					}
+					if (x >= 1545)
+					{
+						break;
+					}
+					this->window->draw(transitionImg);
+					transitionImg.setPosition(x, 0);
+					x += 45;
+					this->window->display();
+				}
+			}
+		}
+	}
+	else if (counter == 2) // Player 2 round
+	{
+		for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
+		{
+			deck[cardGet].player = 2;
+		}
+		cardsInHand();
+
+		this->window->clear();
+		this->window->draw(this->backgroundSprite);
+		this->window->draw(timer);
+		this->window->draw(this->player2Text);
+		this->window->draw(baseCards2[0].BaseCardImg);
+		this->window->draw(baseCards2[1].BaseCardImg);
+		this->window->draw(baseCards2[2].BaseCardImg);
+		this->window->draw(baseCards2[3].BaseCardImg);
+		this->window->draw(baseCards2[4].BaseCardImg);
+		this->window->draw(baseCards2[5].BaseCardImg);
+		tableOfTruth();
+		setCardImages(cursorpos);
+		if (showA2 == 1)
+		{
+			placingCardsPos();
+		}
+		for (int i = 1; i < 16; i++)
+		{
+			if (fPositions2[i].cardOnIt == 1)
+			{
+				deck[fPositions2[i].cardNum].img.setPosition(fPositions2[i].x + 120, fPositions2[i].y + 195);
+				this->window->draw(deck[fPositions2[i].cardNum].img);
+			}
+		}
+		for (int i = 1; i < counterCards2; i++)
+		{
+			if (deck[i].drag == 1)
+			{
+				this->window->draw(deck[i].img);
+			}
+		}
+		if (getMousePos(1381, 82, 11, *this->window))
+		{
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+				this->window->clear();
+				this->window->draw(pyramid2Img);
+				this->window->draw(timer);
+				this->window->draw(baseCards[0].BaseCardImg);
+				this->window->draw(baseCards[1].BaseCardImg);
+				this->window->draw(baseCards[2].BaseCardImg);
+				this->window->draw(baseCards[3].BaseCardImg);
+				this->window->draw(baseCards[4].BaseCardImg);
+				this->window->draw(baseCards[5].BaseCardImg);
+				for (int i = 1; i < 16; i++)
+				{
+					if (fPositions[i].cardOnIt == 1)
+					{
+						this->window->draw(deck[fPositions[i].cardNum].img);
+					}
+				}
+			}
+		}
+		this->window->display();
+		update(*this->window);
+		if (roundPlayed)
+		{
+			transitionImg.setPosition(-2200, 0);
+			sf::Time elapsed1 = clock.getElapsedTime();
+			int timeCheck = int(elapsed1.asSeconds());
+			int now = int(elapsed1.asSeconds());
+			int x = -2200;
+
+			while (now - timeCheck <= 1)
+			{
+				sf::Time elapsed1 = clock.getElapsedTime();
+				now = int(elapsed1.asSeconds());
+				setTimer();
+				this->window->clear();
+				this->window->draw(this->backgroundSprite);
+				this->window->draw(timer);
+				this->window->draw(this->player2Text);
+				this->window->draw(baseCards2[0].BaseCardImg);
+				this->window->draw(baseCards2[1].BaseCardImg);
+				this->window->draw(baseCards2[2].BaseCardImg);
+				this->window->draw(baseCards2[3].BaseCardImg);
+				this->window->draw(baseCards2[4].BaseCardImg);
+				this->window->draw(baseCards2[5].BaseCardImg);
+				tableOfTruth();
+				setCardImages(cursorpos);
+				for (int i = 1; i < 16; i++)
+				{
+					if (fPositions2[i].cardOnIt == 1)
+					{
+						this->window->draw(deck[fPositions2[i].cardNum].img);
+					}
+				}
+				this->window->display();
+			}
+			while (true) // Transitions
+			{
+				this->window->clear();
+				setTimer();
+				if (x <= -315)
+				{
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
+					this->window->draw(this->player2Text);
+					this->window->draw(baseCards2[0].BaseCardImg);
+					this->window->draw(baseCards2[1].BaseCardImg);
+					this->window->draw(baseCards2[2].BaseCardImg);
+					this->window->draw(baseCards2[3].BaseCardImg);
+					this->window->draw(baseCards2[4].BaseCardImg);
+					this->window->draw(baseCards2[5].BaseCardImg);
+					tableOfTruth();
+					setCardImages(cursorpos);
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions2[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions2[i].cardNum].img);
+						}
+					}
+				}
+				else
+				{
+					for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
+					{
+						deck[cardGet].player = 1;
+					}
+					cardsInHand();
+					roundPlayed = 0;
+					counter = 1;
+					this->window->clear();
+					this->window->draw(this->backgroundSprite);
+					this->window->draw(timer);
+					this->window->draw(this->player1Text);
+					this->window->draw(baseCards[0].BaseCardImg);
+					this->window->draw(baseCards[1].BaseCardImg);
+					this->window->draw(baseCards[2].BaseCardImg);
+					this->window->draw(baseCards[3].BaseCardImg);
+					this->window->draw(baseCards[4].BaseCardImg);
+					this->window->draw(baseCards[5].BaseCardImg);
+					tableOfTruth();
+					setCardImages(cursorpos);
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions[i].cardNum].img);
+						}
+					}
+				}
+				if (x >= 1545)
+				{
+					break;
+				}
+				this->window->draw(transitionImg);
+				transitionImg.setPosition(x, 0);
+				x += 45;
+				this->window->display();
+			}
+		}
+	}
+	else
+	{
+		counter = 1;
 	}
 }
 
@@ -4005,11 +4949,6 @@ void Game::setTimer()
 	timer.setString(ss.str());
 }
 
-void Game::transition()
-{
-	// A tramsition
-}
-
 void Game::setPlay()
 {
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
@@ -4025,14 +4964,14 @@ void Game::setPlay()
 	this->buttonTable.setSize(sf::Vector2f(114, 37));
 	this->buttonTable.setPosition(1394, 191);
 	this->buttonTable.setFillColor(sf::Color(80, 255, 0));
-	TableHeaderTexture.loadFromFile("assets/AndTableHover.png");
-	this->TableHeaderTexture.setSmooth(true);
-	TableHeader.setTexture(TableHeaderTexture);
-	TableHeader.setPosition(1394, 188);
-	TableHoverTexture.loadFromFile("assets/AndTableHeader.png");
-	this->TableHoverTexture.setSmooth(true);
-	TableHover.setTexture(TableHoverTexture);
-	TableHover.setPosition(1394, 190);
+	tableHeaderTexture.loadFromFile("assets/AndtableHover.png");
+	this->tableHeaderTexture.setSmooth(true);
+	tableHeader.setTexture(tableHeaderTexture);
+	tableHeader.setPosition(1394, 188);
+	tableHoverTexture.loadFromFile("assets/AndtableHeader.png");
+	this->tableHoverTexture.setSmooth(true);
+	tableHover.setTexture(tableHoverTexture);
+	tableHover.setPosition(1394, 190);
 	transitionTexture.loadFromFile("assets/Transition.png");
 	this->transitionTexture.setSmooth(true);
 	transitionImg.setTexture(transitionTexture);
@@ -4081,6 +5020,13 @@ void Game::setPlay()
 					this->window->draw(baseCards[5].BaseCardImg);
 					tableOfTruth();
 					setCardImages(cursorpos);
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions[i].cardNum].img);
+						}
+					}
 				}
 				else if (counter == 2)
 				{
@@ -4096,6 +5042,13 @@ void Game::setPlay()
 					this->window->draw(baseCards2[5].BaseCardImg);
 					tableOfTruth();
 					setCardImages(cursorpos);
+					for (int i = 1; i < 16; i++)
+					{
+						if (fPositions2[i].cardOnIt == 1)
+						{
+							this->window->draw(deck[fPositions2[i].cardNum].img);
+						}
+					}
 				}
 				if (getMousePos(394, 403, 12, *this->window))
 				{
@@ -4313,6 +5266,10 @@ void Game::setPlay()
 void Game::setReady()
 {
 	this->window->setPosition(sf::Vector2i(190, 80));
+	specialButtonTexture.loadFromFile("assets/SpecialButton1.png");
+	specialButtonTexture.setSmooth(true);
+	specialButtonImg.setTexture(specialButtonTexture);
+	specialButtonImg.setPosition(463, 549);
 	font.loadFromFile("assets/tex-gyre-adventor.bold.otf");
 	setTheIcon();
 	customCursor();
@@ -4342,429 +5299,7 @@ void Game::start()
 		{
 			if (gamemodeNum == 1)
 			{
-				setTimer();
-				if (win != 0)
-				{
-					deckI = 1;
-					cardGet = 1;
-					counter = 0;
-					counterCards = 1;
-					counterCards2 = 49;
-					counterCards3 = 48;
-					player1Cards = 0;
-					player2Cards = 0;
-					showA = 0;
-					showA2 = 0;
-					roundPlayed = 0;
-					card1Dragging = 0;
-					card2Dragging = 0;
-					card3Dragging = 0;
-					card4Dragging = 0;
-					card5Dragging = 0;
-					card1Dragging2 = 0;
-					card2Dragging2 = 0;
-					card3Dragging2 = 0;
-					card4Dragging2 = 0;
-					card5Dragging2 = 0;
-					player1Pos1 = 0;
-					player1Pos2 = 0;
-					player1Pos3 = 0;
-					player1Pos4 = 0;
-					player1Pos5 = 0;
-					player2Pos1 = 0;
-					player2Pos2 = 0;
-					player2Pos3 = 0;
-					player2Pos4 = 0;
-					player2Pos5 = 0;
-					for (int i = 0; i < 100; i++)
-					{
-						startDeck[i].num = 0;
-						startDeck[i].value = 0;
-						startDeck[i].type = 0;
-						startDeck[i].display1 = 0;
-						startDeck[i].display2 = 0;
-						startDeck[i].player = 0;
-						startDeck[i].secondNum = 0;
-						startDeck[i].player1pos = 0;
-						startDeck[i].player2pos = 0;
-						startDeck[i].x = 0;
-						startDeck[i].y = 0;
-						startDeck[i].drag = 0;
-						startDeck[i].placed = 0;
-					}
-					for (int i = 0; i < 150; i++)
-					{
-						deck[i].num = 0;
-						deck[i].value = 0;
-						deck[i].type = 0;
-						deck[i].display1 = 0;
-						deck[i].display2 = 0;
-						deck[i].player = 0;
-						deck[i].secondNum = 0;
-						deck[i].player1pos = 0;
-						deck[i].player2pos = 0;
-						deck[i].x = 0;
-						deck[i].y = 0;
-						deck[i].drag = 0;
-						deck[i].placed = 0;
-					}
-					for (int i = 0; i < 16; i++)
-					{
-						fPositions[i].cardNum = 0;
-						fPositions[i].cardValue = 0;
-						fPositions[i].showPos = 0;
-						fPositions[i].cardOnIt = 0;
-						fPositions[i].pos = 0;
-						fPositions[i].x = 0;
-						fPositions[i].y = 0;
-						fPositions2[i].cardNum = 0;
-						fPositions2[i].cardValue = 0;
-						fPositions2[i].showPos = 0;
-						fPositions2[i].cardOnIt = 0;
-						fPositions2[i].pos = 0;
-						fPositions2[i].x = 0;
-						fPositions2[i].y = 0;
-					}
-					ready = 0;
-					firstGamemode1 = 1;
-					gameMode = 0;
-				}
-				if (counter == 0)
-				{
-					counter++;
-				}
-				else if (counter == 1) // Player1 round
-				{
-					for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
-					{
-						deck[cardGet].player = 1;
-					}
-					cardsInHand();
-
-
-					this->window->clear();
-					this->window->draw(this->backgroundSprite);
-					this->window->draw(timer);
-					this->window->draw(this->player1Text);
-					this->window->draw(baseCards[0].BaseCardImg);
-					this->window->draw(baseCards[1].BaseCardImg);
-					this->window->draw(baseCards[2].BaseCardImg);
-					this->window->draw(baseCards[3].BaseCardImg);
-					this->window->draw(baseCards[4].BaseCardImg);
-					this->window->draw(baseCards[5].BaseCardImg);
-					tableOfTruth();
-					setCardImages(cursorpos);
-					if (showA == 1)
-					{
-						placingCardsPos();
-					}
-					for (int i = 1; i < 16; i++)
-					{
-						if (fPositions[i].cardOnIt == 1)
-						{
-							deck[fPositions[i].cardNum].img.setPosition(fPositions[i].x + 120, fPositions[i].y + 195);
-							this->window->draw(deck[fPositions[i].cardNum].img);
-						}
-					}
-					for (int i = 1; i < counterCards2; i++)
-					{
-						if (deck[i].drag == 1)
-						{
-							this->window->draw(deck[i].img);
-						}
-					}
-					if (getMousePos(1381, 82, 11, *this->window))
-					{
-						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-						{
-							this->window->clear();
-							this->window->draw(pyramid1Img);
-							this->window->draw(timer);
-							this->window->draw(baseCards2[0].BaseCardImg);
-							this->window->draw(baseCards2[1].BaseCardImg);
-							this->window->draw(baseCards2[2].BaseCardImg);
-							this->window->draw(baseCards2[3].BaseCardImg);
-							this->window->draw(baseCards2[4].BaseCardImg);
-							this->window->draw(baseCards2[5].BaseCardImg);
-							for (int i = 1; i < 16; i++)
-							{
-								if (fPositions2[i].cardOnIt == 1)
-								{
-									this->window->draw(deck[fPositions2[i].cardNum].img);
-								}
-							}
-						}
-					}
-					this->window->display();
-					update(*this->window);
-					if (win == 0)
-					{
-						if (roundPlayed)
-						{
-							transitionImg.setPosition(-2200, 0);
-							sf::Time elapsed1 = clock.getElapsedTime();
-							int timeCheck = int(elapsed1.asSeconds());
-							int now = int(elapsed1.asSeconds());
-							int x = -2200;
-
-							while (now - timeCheck <= 1)
-							{
-								sf::Time elapsed1 = clock.getElapsedTime();
-								now = int(elapsed1.asSeconds());
-								setTimer();
-								this->window->clear();
-								this->window->draw(this->backgroundSprite);
-								this->window->draw(timer);
-								this->window->draw(this->player1Text);
-								this->window->draw(baseCards[0].BaseCardImg);
-								this->window->draw(baseCards[1].BaseCardImg);
-								this->window->draw(baseCards[2].BaseCardImg);
-								this->window->draw(baseCards[3].BaseCardImg);
-								this->window->draw(baseCards[4].BaseCardImg);
-								this->window->draw(baseCards[5].BaseCardImg);
-								tableOfTruth();
-								setCardImages(cursorpos);
-								for (int i = 1; i < 16; i++)
-								{
-									if (fPositions[i].cardOnIt == 1)
-									{
-										this->window->draw(deck[fPositions[i].cardNum].img);
-									}
-								}
-								this->window->display();
-							}
-							while (true) // Transitions
-							{
-								this->window->clear();
-								setTimer();
-								if (x <= -315)
-								{
-									this->window->draw(this->backgroundSprite);
-									this->window->draw(timer);
-									this->window->draw(this->player1Text);
-									this->window->draw(baseCards[0].BaseCardImg);
-									this->window->draw(baseCards[1].BaseCardImg);
-									this->window->draw(baseCards[2].BaseCardImg);
-									this->window->draw(baseCards[3].BaseCardImg);
-									this->window->draw(baseCards[4].BaseCardImg);
-									this->window->draw(baseCards[5].BaseCardImg);
-									tableOfTruth();
-									setCardImages(cursorpos);
-									for (int i = 1; i < 16; i++)
-									{
-										if (fPositions[i].cardOnIt == 1)
-										{
-											this->window->draw(deck[fPositions[i].cardNum].img);
-										}
-									}
-								}
-								else
-								{
-									for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
-									{
-										deck[cardGet].player = 2;
-									}
-									cardsInHand();
-									roundPlayed = 0;
-									counter = 2;
-									this->window->clear();
-									this->window->draw(this->backgroundSprite);
-									this->window->draw(timer);
-									this->window->draw(this->player2Text);
-									this->window->draw(baseCards2[0].BaseCardImg);
-									this->window->draw(baseCards2[1].BaseCardImg);
-									this->window->draw(baseCards2[2].BaseCardImg);
-									this->window->draw(baseCards2[3].BaseCardImg);
-									this->window->draw(baseCards2[4].BaseCardImg);
-									this->window->draw(baseCards2[5].BaseCardImg);
-									tableOfTruth();
-									setCardImages(cursorpos);
-									for (int i = 1; i < 16; i++)
-									{
-										if (fPositions2[i].cardOnIt == 1)
-										{
-											this->window->draw(deck[fPositions2[i].cardNum].img);
-										}
-									}
-								}
-								if (x >= 1545)
-								{
-									break;
-								}
-								this->window->draw(transitionImg);
-								transitionImg.setPosition(x, 0);
-								x += 45;
-								this->window->display();
-							}
-						}
-					}
-				}
-				else if (counter == 2) // Player 2 round
-				{
-					for (cardGet; player2Cards <= 5; player2Cards++, cardGet++)
-					{
-						deck[cardGet].player = 2;
-					}
-					cardsInHand();
-
-					this->window->clear();
-					this->window->draw(this->backgroundSprite);
-					this->window->draw(timer);
-					this->window->draw(this->player2Text);
-					this->window->draw(baseCards2[0].BaseCardImg);
-					this->window->draw(baseCards2[1].BaseCardImg);
-					this->window->draw(baseCards2[2].BaseCardImg);
-					this->window->draw(baseCards2[3].BaseCardImg);
-					this->window->draw(baseCards2[4].BaseCardImg);
-					this->window->draw(baseCards2[5].BaseCardImg);
-					tableOfTruth();
-					setCardImages(cursorpos);
-					if (showA2 == 1)
-					{
-						placingCardsPos();
-					}
-					for (int i = 1; i < 16; i++)
-					{
-						if (fPositions2[i].cardOnIt == 1)
-						{
-							deck[fPositions2[i].cardNum].img.setPosition(fPositions2[i].x + 120, fPositions2[i].y + 195);
-							this->window->draw(deck[fPositions2[i].cardNum].img);
-						}
-					}
-					for (int i = 1; i < counterCards2; i++)
-					{
-						if (deck[i].drag == 1)
-						{
-							this->window->draw(deck[i].img);
-						}
-					}
-					if (getMousePos(1381, 82, 11, *this->window))
-					{
-						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-						{
-							this->window->clear();
-							this->window->draw(pyramid2Img);
-							this->window->draw(timer);
-							this->window->draw(baseCards[0].BaseCardImg);
-							this->window->draw(baseCards[1].BaseCardImg);
-							this->window->draw(baseCards[2].BaseCardImg);
-							this->window->draw(baseCards[3].BaseCardImg);
-							this->window->draw(baseCards[4].BaseCardImg);
-							this->window->draw(baseCards[5].BaseCardImg);
-							for (int i = 1; i < 16; i++)
-							{
-								if (fPositions[i].cardOnIt == 1)
-								{
-									this->window->draw(deck[fPositions[i].cardNum].img);
-								}
-							}
-						}
-					}
-					this->window->display();
-					update(*this->window);
-					if (roundPlayed)
-					{
-						transitionImg.setPosition(-2200, 0);
-						sf::Time elapsed1 = clock.getElapsedTime();
-						int timeCheck = int(elapsed1.asSeconds());
-						int now = int(elapsed1.asSeconds());
-						int x = -2200;
-
-						while (now - timeCheck <= 1)
-						{
-							sf::Time elapsed1 = clock.getElapsedTime();
-							now = int(elapsed1.asSeconds());
-							setTimer();
-							this->window->clear();
-							this->window->draw(this->backgroundSprite);
-							this->window->draw(timer);
-							this->window->draw(this->player2Text);
-							this->window->draw(baseCards2[0].BaseCardImg);
-							this->window->draw(baseCards2[1].BaseCardImg);
-							this->window->draw(baseCards2[2].BaseCardImg);
-							this->window->draw(baseCards2[3].BaseCardImg);
-							this->window->draw(baseCards2[4].BaseCardImg);
-							this->window->draw(baseCards2[5].BaseCardImg);
-							tableOfTruth();
-							setCardImages(cursorpos);
-							for (int i = 1; i < 16; i++)
-							{
-								if (fPositions2[i].cardOnIt == 1)
-								{
-									this->window->draw(deck[fPositions2[i].cardNum].img);
-								}
-							}
-							this->window->display();
-						}
-						while (true) // Transitions
-						{
-							this->window->clear();
-							setTimer();
-							if (x <= -315)
-							{
-								this->window->draw(this->backgroundSprite);
-								this->window->draw(timer);
-								this->window->draw(this->player2Text);
-								this->window->draw(baseCards2[0].BaseCardImg);
-								this->window->draw(baseCards2[1].BaseCardImg);
-								this->window->draw(baseCards2[2].BaseCardImg);
-								this->window->draw(baseCards2[3].BaseCardImg);
-								this->window->draw(baseCards2[4].BaseCardImg);
-								this->window->draw(baseCards2[5].BaseCardImg);
-								tableOfTruth();
-								setCardImages(cursorpos);
-								for (int i = 1; i < 16; i++)
-								{
-									if (fPositions2[i].cardOnIt == 1)
-									{
-										this->window->draw(deck[fPositions2[i].cardNum].img);
-									}
-								}
-							}
-							else
-							{
-								for (cardGet; player1Cards <= 5; player1Cards++, cardGet++)
-								{
-									deck[cardGet].player = 1;
-								}
-								cardsInHand();
-								roundPlayed = 0;
-								counter = 1;
-								this->window->clear();
-								this->window->draw(this->backgroundSprite);
-								this->window->draw(timer);
-								this->window->draw(this->player1Text);
-								this->window->draw(baseCards[0].BaseCardImg);
-								this->window->draw(baseCards[1].BaseCardImg);
-								this->window->draw(baseCards[2].BaseCardImg);
-								this->window->draw(baseCards[3].BaseCardImg);
-								this->window->draw(baseCards[4].BaseCardImg);
-								this->window->draw(baseCards[5].BaseCardImg);
-								tableOfTruth();
-								setCardImages(cursorpos);
-								for (int i = 1; i < 16; i++)
-								{
-									if (fPositions[i].cardOnIt == 1)
-									{
-										this->window->draw(deck[fPositions[i].cardNum].img);
-									}
-								}
-							}
-							if (x >= 1545)
-							{
-								break;
-							}
-							this->window->draw(transitionImg);
-							transitionImg.setPosition(x, 0);
-							x += 45;
-							this->window->display();
-						}
-					}
-				}
-				else
-				{
-					counter = 1;
-				}
+				firstGamemode(*this->window);
 			}
 			else if (gamemodeNum == 2)
 			{
@@ -4799,6 +5334,94 @@ void Game::start()
 		{
 			pollEvents();
 			rulestab(*this->window);
+		}
+		else if (options)
+		{
+			std::string web = "start https://github.com/SYSolakov20/onsens";
+			pollEvents();
+			this->window->clear();
+			this->backgroundTexture.loadFromFile("assets/OptionsBackground.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+			
+			if (getMousePos(557, 765, 14, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						system(web.c_str()); // It was the only way.... D:
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			if (getMousePos(1405, 42, 8, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						options = 0;
+						pressed5 = true;
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			if (getMousePos(463, 549, 15, *this->window))
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					if (!pressed5)
+					{
+						specialButtonC++;
+						pressed5 = true;
+						if (specialButtonC == 6)
+						{
+							specialButtonC = 0;
+						}
+					}
+				}
+				else
+				{
+					pressed5 = false;
+				}
+			}
+			switch (specialButtonC)
+			{
+			case 0:
+				specialButtonTexture.loadFromFile("assets/SpecialButton1.png");
+				specialButtonImg.setTexture(specialButtonTexture);
+				break;
+			case 1:
+				specialButtonTexture.loadFromFile("assets/SpecialButton2.png");
+				specialButtonImg.setTexture(specialButtonTexture);
+				break;
+			case 2:
+				specialButtonTexture.loadFromFile("assets/SpecialButton3.png");
+				specialButtonImg.setTexture(specialButtonTexture);
+				break;
+			case 3:
+				specialButtonTexture.loadFromFile("assets/SpecialButton4.png");
+				specialButtonImg.setTexture(specialButtonTexture);
+				break;
+			case 4:
+				specialButtonTexture.loadFromFile("assets/SpecialButton5.png");
+				specialButtonImg.setTexture(specialButtonTexture);
+				break;
+			case 5:
+				specialButtonTexture.loadFromFile("assets/SpecialButton6.png");
+				specialButtonImg.setTexture(specialButtonTexture);
+				break;
+			}
+			this->window->draw(this->backgroundSprite);
+			this->window->draw(specialButtonImg);
+			this->window->display();
 		}
 		else if (win != 0)
 		{

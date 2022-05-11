@@ -63,6 +63,7 @@ private:
 	bool firstGamemode3 = 1;
 	bool firstGamemode4 = 1;
 	bool rules = 0;
+	bool options = 0;
 	bool pause = 0;
 	bool resume = 0;
 	bool breakResume = 0;
@@ -70,6 +71,7 @@ private:
 	int gamemodeNum = 0;
 	int counter = 0;
 	int tableNum = 0;
+	int specialButtonC = 0;
 	bool pressed = false;
 	bool pressed0 = false;
 	bool pressed1 = false;
@@ -91,17 +93,19 @@ private:
 	bool pressed24 = false;
 	bool pressed25 = false;
 	std::stringstream ss;
+
+	// in-game images
 	sf::Texture player1TextTexture;
 	sf::Sprite player1Text;
 	sf::Texture player2TextTexture;
 	sf::Sprite player2Text;
 	sf::RectangleShape buttonTable;
-	sf::Texture TruthTableTexture;
-	sf::Sprite TruthTable;
-	sf::Texture TableHeaderTexture;
-	sf::Sprite TableHeader;
-	sf::Texture TableHoverTexture;
-	sf::Sprite TableHover;
+	sf::Texture truthTableTexture;
+	sf::Sprite truthTable;
+	sf::Texture tableHeaderTexture;
+	sf::Sprite tableHeader;
+	sf::Texture tableHoverTexture;
+	sf::Sprite tableHover;
 	sf::Texture transitionTexture;
 	sf::Sprite transitionImg;
 	sf::Texture pyramid1Texture;
@@ -112,6 +116,8 @@ private:
 	sf::Sprite resumeImg;
 	sf::Texture pauseTexture;
 	sf::Sprite pauseImg;
+	sf::Texture specialButtonTexture;
+	sf::Sprite specialButtonImg;
 
 	// Base Cards
 	struct baseCard
@@ -171,16 +177,14 @@ private:
 	};
 
 
-	fieldPos fPositions[40];
-	fieldPos fPositions2[40];
-
-	card startDeck[100];
+	fieldPos fPositions[40]; // Positions for Player 1
+	fieldPos fPositions2[40]; // Positions for Player 2
+	card startDeck[100]; // The starting deck
+	card deck[150]; // The ready deck
 	int temp;
 	int randNum;
 	int deckI = 1;
 	int nextPage = -1;
-	card deck[150];
-	bool canPlace1 = 0;
 	int cardGet = 1;
 	int counterCards = 1;
 	int counterCards2 = 49;
@@ -190,7 +194,6 @@ private:
 	int win = 0;
 	bool showA = 0;
 	bool showA2 = 0;
-	bool cardAgain = 0;
 	bool roundPlayed = 0;
 	bool card1Dragging = 0;
 	bool card2Dragging = 0;
@@ -203,12 +206,12 @@ private:
 	bool card4Dragging2 = 0;
 	bool card5Dragging2 = 0;
 
+	// Cards in hand pos
 	int player1Pos1 = 0;
 	int player1Pos2 = 0;
 	int player1Pos3 = 0;
 	int player1Pos4 = 0;
 	int player1Pos5 = 0;
-
 	int player2Pos1 = 0;
 	int player2Pos2 = 0;
 	int player2Pos3 = 0;
@@ -227,6 +230,7 @@ public:
 	void menu(sf::Window& newWindow); // Setting the game menu
 	void modes(sf::Window& newWindow); // Modes menu function
 	void rulestab(sf::Window& newWindow); // Rules
+	void firstGamemode(sf::Window& newWindow); // Holds the first mode
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
 	void winScreen(sf::Window& newWindow); // Displays the victory window
@@ -236,7 +240,6 @@ public:
 	void setPlay(); // Config the game before playing
 	void setTimer(); // Setting a timer in game
 	void setBaseCards(); // Setting the positions and the type of the base cards
-	void transition(); // animations / transition for the game
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
 	void cardsInHand(); // Sets the cards that the player has
