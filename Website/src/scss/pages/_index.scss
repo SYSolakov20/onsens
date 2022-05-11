@@ -213,6 +213,13 @@ body{
         right:0;
         z-index: -1;
     }
+    .packs__img-background{
+        position: absolute;
+        left:0;
+        bottom:-400px;
+        z-index: -1;
+    }
+    
 }
 @media  only screen and (max-width:1340px){
     .stats-cards-wrapper-outer{
@@ -231,5 +238,13 @@ body{
         left:0;
         z-index: -1;
         width:450px;
+    }
+}
+@media  only screen and (max-width:1320px){
+    .packs__img-background{
+        position: absolute;
+        left:0;
+        bottom:-350px;
+        z-index: -1;
     }
 }
