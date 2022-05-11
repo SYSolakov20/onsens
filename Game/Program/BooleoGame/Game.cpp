@@ -3894,6 +3894,7 @@ void Game::start()
 					{
 						if (fPositions[i].cardOnIt == 1)
 						{
+							deck[fPositions[i].cardNum].img.setPosition(fPositions[i].x + 120, fPositions[i].y + 195);
 							this->window->draw(deck[fPositions[i].cardNum].img);
 						}
 					}
@@ -3941,6 +3942,7 @@ void Game::start()
 					{
 						if (fPositions2[i].cardOnIt == 1)
 						{
+							deck[fPositions2[i].cardNum].img.setPosition(fPositions2[i].x + 120, fPositions2[i].y + 195);
 							this->window->draw(deck[fPositions2[i].cardNum].img);
 						}
 					}
