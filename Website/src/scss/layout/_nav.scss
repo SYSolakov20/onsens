@@ -23,10 +23,11 @@
     letter-spacing: $smallLetterSpacing ;
 }
 
+/*Responsive to 1200px*/
 @media  only screen and (max-width:1790px){
     .main-nav{
         @include flex(row, space-between, flex-start);
-        width:600px;
+        width:630px;
         height:100px;
         padding-top:10px;
         margin-left:20px;
