@@ -230,7 +230,8 @@ public:
 	void menu(sf::Window& newWindow); // Setting the game menu
 	void modes(sf::Window& newWindow); // Modes menu function
 	void rulestab(sf::Window& newWindow); // Rules
-	void firstGamemode(sf::Window& newWindow); // Holds the first mode
+	void firstGamemode(sf::Window& newWindow); // Contains the first mode
+	void secondGamemode(sf::Window& newWindow); // Contains the second mode
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
 	void winScreen(sf::Window& newWindow); // Displays the victory window
@@ -247,6 +248,7 @@ public:
 	void setPlacingCards(); // Sets the default positions of the cards
 	void placingCardsPos(); // Sets the possible positions
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
+	void setCardImages2(sf::Vector2i cursorpos); // The same function but modified for the second gamemode
 	bool checkPlacedCards(int jj); // Checks if the operation is possible
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
