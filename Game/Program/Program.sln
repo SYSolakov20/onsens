@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30709.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BooleoGame", "BooleoGame\BooleoGame.vcxproj", "{8A459017-286D-42A4-853F-B5C3B10577D5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Onsens-UnitTests", "Onsens-UnitTests\Onsens-UnitTests.vcxproj", "{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Onsens-UnitTesting", "Onsens-UnitTesting\Onsens-UnitTesting.vcxproj", "{FDB09B78-3108-4D49-BF45-29A506EB87BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,22 +15,22 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8A459017-286D-42A4-853F-B5C3B10577D5}.Debug|x64.ActiveCfg = Debug|x64
-		{8A459017-286D-42A4-853F-B5C3B10577D5}.Debug|x64.Build.0 = Debug|x64
+		{8A459017-286D-42A4-853F-B5C3B10577D5}.Debug|x64.ActiveCfg = Release|x64
+		{8A459017-286D-42A4-853F-B5C3B10577D5}.Debug|x64.Build.0 = Release|x64
 		{8A459017-286D-42A4-853F-B5C3B10577D5}.Debug|x86.ActiveCfg = Debug|Win32
 		{8A459017-286D-42A4-853F-B5C3B10577D5}.Debug|x86.Build.0 = Debug|Win32
 		{8A459017-286D-42A4-853F-B5C3B10577D5}.Release|x64.ActiveCfg = Release|Win32
 		{8A459017-286D-42A4-853F-B5C3B10577D5}.Release|x64.Build.0 = Release|Win32
 		{8A459017-286D-42A4-853F-B5C3B10577D5}.Release|x86.ActiveCfg = Release|Win32
 		{8A459017-286D-42A4-853F-B5C3B10577D5}.Release|x86.Build.0 = Release|Win32
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Debug|x64.ActiveCfg = Debug|x64
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Debug|x64.Build.0 = Debug|x64
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Debug|x86.ActiveCfg = Debug|Win32
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Debug|x86.Build.0 = Debug|Win32
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Release|x64.ActiveCfg = Release|x64
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Release|x64.Build.0 = Release|x64
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Release|x86.ActiveCfg = Release|Win32
-		{CFB56684-68CB-4682-AE23-7E6B8BDD29DB}.Release|x86.Build.0 = Release|Win32
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Debug|x64.ActiveCfg = Debug|x64
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Debug|x64.Build.0 = Debug|x64
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Debug|x86.ActiveCfg = Debug|Win32
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Debug|x86.Build.0 = Debug|Win32
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Release|x64.ActiveCfg = Release|x64
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Release|x64.Build.0 = Release|x64
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Release|x86.ActiveCfg = Release|Win32
+		{FDB09B78-3108-4D49-BF45-29A506EB87BC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
