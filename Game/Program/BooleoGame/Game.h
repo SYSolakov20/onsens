@@ -179,6 +179,7 @@ private:
 
 	fieldPos fPositions[40]; // Positions for Player 1
 	fieldPos fPositions2[40]; // Positions for Player 2
+	fieldPos notCardPos[6]; // Positions for the not-card
 	card startDeck[100]; // The starting deck
 	card deck[150]; // The ready deck
 	int temp;
@@ -189,11 +190,13 @@ private:
 	int counterCards = 1;
 	int counterCards2 = 49;
 	int counterCards3 = 48;
+	int counterNotCards3 = 56;
 	int player1Cards = 0;
 	int player2Cards = 0;
 	int win = 0;
 	bool showA = 0;
 	bool showA2 = 0;
+	bool showNotA = 0;
 	bool roundPlayed = 0;
 	bool card1Dragging = 0;
 	bool card2Dragging = 0;
@@ -230,8 +233,10 @@ public:
 	void menu(sf::Window& newWindow); // Setting the game menu
 	void modes(sf::Window& newWindow); // Modes menu function
 	void rulestab(sf::Window& newWindow); // Rules
+	void optionsMenu(sf::Window& newWindow); // Options
 	void firstGamemode(sf::Window& newWindow); // Contains the first mode
 	void secondGamemode(sf::Window& newWindow); // Contains the second mode
+	void thirdGamemode(sf::Window& newWindow); // Contains the third mode
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
 	void winScreen(sf::Window& newWindow); // Displays the victory window
@@ -243,11 +248,15 @@ public:
 	void setBaseCards(); // Setting the positions and the type of the base cards
 	void setDeck(); // Setting a deck and cards
 	void sortDeck(); // Radomising the Deck cards
+	void setNotDeck(); // Setting a deck and cards for not-gamemode
+	void sortNotDeck(); // Radomising the Deck cards for not-gamemode
 	void cardsInHand(); // Sets the cards that the player has
 	void tableOfTruth(); // Helps table display
 	void setPlacingCards(); // Sets the default positions of the cards
 	void placingCardsPos(); // Sets the possible positions
+	void placingNotCardsPos(); // Sets the possible positions for the not-card
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
+	void setNotCardImages(sf::Vector2i cursorpos); // Loads cards images for the not gamemode
 	void setCardImages2(sf::Vector2i cursorpos); // The same function but modified for the second gamemode
 	bool checkPlacedCards(int jj); // Checks if the operation is possible
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
