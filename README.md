@@ -35,9 +35,12 @@
     <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
     <img src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
     <img src="https://img.icons8.com/color/48/000000/git.png"/>
-    <img src="https://img.icons8.com/fluency/48/000000/adobe-photoshop.png"/>
-    <img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only">
-    <img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only">
+    <img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/>
+    <img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
+    <img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px />
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px />
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/>
   </p> 
 
 ## 💼 Documents
