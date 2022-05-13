@@ -1,0 +1,48 @@
+@use '../base/baseForward'as *;
+@use '../utilities/utilForward'as *;
+
+main{
+    position: relative;
+    height:unset;
+    width:100%;
+}
+
+.card-Designs{
+    background-color: #D9D9D9;
+}
+
+.card-designs-wave{
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 1;
+    width:25.5%;
+}
+.card-designs-wave--second{
+    top:unset;
+    right:unset;
+    bottom:0;
+    left:0;
+    transform: rotate(180deg);
+}
+
+.cards-field-outline{
+    @include flex(row, center, center);
+    width:100%;
+    height:1900px;
+        img{
+            padding-bottom:200px;
+        }
+}
+
+@media  only screen and (max-width:1400px){
+    .cards-field-outline{
+        @include flex(row, center, center);
+        width:100%;
+        height:1600px;
+            img{
+                padding-bottom:100px;
+                transform: scale(0.9);
+            }
+    }
+}

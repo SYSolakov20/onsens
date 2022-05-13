@@ -3,7 +3,7 @@
 
 .main-nav{
     @include flex(row, space-between, flex-start);
-    width:780px;
+    width:700px;
     height:100px;
     padding-top:20px;
     margin-left:90px;
@@ -23,23 +23,30 @@
     letter-spacing: $smallLetterSpacing ;
 }
 
+/*Mini nav in cardDesign page*/
+.mini-nav{
+    @include flex(row, center, flex-end);
+    position: relative;
+    height: 100px;
+    width:100%;
+        img:nth-child(1){
+            position: absolute;
+            top:40px;
+            left:80px;
+            transform: scale(0.8);
+        }
+}
+
 /*Responsive to 1200px*/
 @media  only screen and (max-width:1790px){
     .main-nav{
-        @include flex(row, space-between, flex-start);
-        width:630px;
-        height:100px;
-        padding-top:10px;
-        margin-left:20px;
-    }
-    .main-nav__logo{
-        @include flex(row, center, center);
-        height:100%;
-        width:180px;
+        @include flex(row, space-evenly, flex-start);
+        width:650px;
+      
     }
     .main-nav__menu{
         @include flex(row, space-around, center);
-        width:67%;
+        width:400px;
         height:90%;
     }
     .main-nav__menu-link{
