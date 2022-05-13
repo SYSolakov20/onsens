@@ -6277,7 +6277,7 @@ void Game::secondGamemode(sf::Window& newWindow)
 		int timeCheck = int(elapsed1.asSeconds());
 		int now = int(elapsed1.asSeconds());
 
-		while (now - timeCheck <= 0.5)
+		while (double(now) - double(timeCheck) <= 0.5)
 		{
 			sf::Time elapsed1 = clock.getElapsedTime();
 			now = int(elapsed1.asSeconds());
@@ -6305,205 +6305,308 @@ void Game::secondGamemode(sf::Window& newWindow)
 			placingCardsPos();
 			this->window->display();
 		}
+		srand((unsigned)time(0));
 		bool succesful = 0;
-		for (int i = 1; i < 6; i++)
+		int randomNum = rand() % 10 + 1;
+		std::cout << randomNum << std::endl;
+		if (randomNum != 7 && randomNum != 4 && randomNum != 2)
 		{
-			switch (i)
+			for (int i = 1; i < 6; i++)
 			{
-			case 1:
-				succesful = 0;
-				deck[player2Pos1].drag = 1;
-				deck[player2Pos1].img.setRotation(180.f);
-				for (int j = 0; j < 16; j++)
+				switch (i)
 				{
-					if (fPositions2[j].showPos == 1)
+				case 1:
+					succesful = 0;
+					deck[player2Pos1].drag = 1;
+					deck[player2Pos1].img.setRotation(180.f);
+					for (int j = 0; j < 16; j++)
 					{
-						if (checkPlacedCards(j))
+						if (fPositions2[j].showPos == 1)
 						{
-							succesful = 1;
-							deck[player2Pos1].drag = 0;
-							deck[player2Pos1].img.setRotation(180.f);
-							deck[player2Pos1].placed = 1;
-							fPositions2[j].cardOnIt = 1;
-							fPositions2[j].cardNum = deck[player2Pos1].num;
-							fPositions2[j].cardValue = deck[player2Pos1].value;
-							deck[player2Pos1].num = 0;
-							deck[player2Pos1].x = fPositions2[j].x;
-							deck[player2Pos1].y = fPositions2[j].y;
-							deck[player2Pos1].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-							player2Pos1 = 0;
-							player2Cards--;
-							roundPlayed = 1;
-							break;
+							if (checkPlacedCards(j))
+							{
+								succesful = 1;
+								deck[player2Pos1].drag = 0;
+								deck[player2Pos1].img.setRotation(180.f);
+								deck[player2Pos1].placed = 1;
+								fPositions2[j].cardOnIt = 1;
+								fPositions2[j].cardNum = deck[player2Pos1].num;
+								fPositions2[j].cardValue = deck[player2Pos1].value;
+								deck[player2Pos1].num = 0;
+								deck[player2Pos1].x = fPositions2[j].x;
+								deck[player2Pos1].y = fPositions2[j].y;
+								deck[player2Pos1].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+								player2Pos1 = 0;
+								player2Cards--;
+								roundPlayed = 1;
+								break;
+							}
 						}
 					}
-				}
-				if (!(succesful))
-				{
-					deck[player2Pos1].drag = 0;
-					deck[player2Pos1].img.setRotation(90.f);
-				}
-				break;
-			case 2:
-				succesful = 0;
-				deck[player2Pos2].drag = 1;
-				deck[player2Pos2].img.setRotation(180.f);
-				for (int j = 0; j < 16; j++)
-				{
-					if (fPositions2[j].showPos == 1)
+					if (!(succesful))
 					{
-						if (checkPlacedCards(j))
+						deck[player2Pos1].drag = 0;
+						deck[player2Pos1].img.setRotation(90.f);
+					}
+					break;
+				case 2:
+					succesful = 0;
+					deck[player2Pos2].drag = 1;
+					deck[player2Pos2].img.setRotation(180.f);
+					for (int j = 0; j < 16; j++)
+					{
+						if (fPositions2[j].showPos == 1)
 						{
-							succesful = 1;
-							deck[player2Pos2].drag = 0;
-							deck[player2Pos2].img.setRotation(180.f);
-							deck[player2Pos2].placed = 1;
-							fPositions2[j].cardOnIt = 1;
-							fPositions2[j].cardNum = deck[player2Pos2].num;
-							fPositions2[j].cardValue = deck[player2Pos2].value;
-							deck[player2Pos2].num = 0;
-							deck[player2Pos2].x = fPositions2[j].x;
-							deck[player2Pos2].y = fPositions2[j].y;
-							deck[player2Pos2].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-							player2Pos2 = 0;
-							player2Cards--;
-							roundPlayed = 1;
-							break;
+							if (checkPlacedCards(j))
+							{
+								succesful = 1;
+								deck[player2Pos2].drag = 0;
+								deck[player2Pos2].img.setRotation(180.f);
+								deck[player2Pos2].placed = 1;
+								fPositions2[j].cardOnIt = 1;
+								fPositions2[j].cardNum = deck[player2Pos2].num;
+								fPositions2[j].cardValue = deck[player2Pos2].value;
+								deck[player2Pos2].num = 0;
+								deck[player2Pos2].x = fPositions2[j].x;
+								deck[player2Pos2].y = fPositions2[j].y;
+								deck[player2Pos2].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+								player2Pos2 = 0;
+								player2Cards--;
+								roundPlayed = 1;
+								break;
+							}
 						}
 					}
-				}
-				if (!(succesful))
-				{
-					deck[player2Pos2].drag = 0;
-					deck[player2Pos2].img.setRotation(90.f);
-				}
-				break;
-			case 3:
-				succesful = 0;
-				deck[player2Pos3].drag = 1;
-				deck[player2Pos3].img.setRotation(180.f);
-				for (int j = 0; j < 16; j++)
-				{
-					if (fPositions2[j].showPos == 1)
+					if (!(succesful))
 					{
-						if (checkPlacedCards(j))
+						deck[player2Pos2].drag = 0;
+						deck[player2Pos2].img.setRotation(90.f);
+					}
+					break;
+				case 3:
+					succesful = 0;
+					deck[player2Pos3].drag = 1;
+					deck[player2Pos3].img.setRotation(180.f);
+					for (int j = 0; j < 16; j++)
+					{
+						if (fPositions2[j].showPos == 1)
 						{
-							succesful = 1;
-							deck[player2Pos3].drag = 0;
-							deck[player2Pos3].img.setRotation(180.f);
-							deck[player2Pos3].placed = 1;
-							fPositions2[j].cardOnIt = 1;
-							fPositions2[j].cardNum = deck[player2Pos3].num;
-							fPositions2[j].cardValue = deck[player2Pos3].value;
-							deck[player2Pos3].num = 0;
-							deck[player2Pos3].x = fPositions2[j].x;
-							deck[player2Pos3].y = fPositions2[j].y;
-							deck[player2Pos3].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-							player2Pos3 = 0;
-							player2Cards--;
-							roundPlayed = 1;
-							break;
+							if (checkPlacedCards(j))
+							{
+								succesful = 1;
+								deck[player2Pos3].drag = 0;
+								deck[player2Pos3].img.setRotation(180.f);
+								deck[player2Pos3].placed = 1;
+								fPositions2[j].cardOnIt = 1;
+								fPositions2[j].cardNum = deck[player2Pos3].num;
+								fPositions2[j].cardValue = deck[player2Pos3].value;
+								deck[player2Pos3].num = 0;
+								deck[player2Pos3].x = fPositions2[j].x;
+								deck[player2Pos3].y = fPositions2[j].y;
+								deck[player2Pos3].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+								player2Pos3 = 0;
+								player2Cards--;
+								roundPlayed = 1;
+								break;
+							}
 						}
 					}
-				}
-				if (!(succesful))
-				{
-					deck[player2Pos3].drag = 0;
-					deck[player2Pos3].img.setRotation(90.f);
-				}
-				break;
-			case 4:
-				succesful = 0;
-				deck[player2Pos4].drag = 1;
-				deck[player2Pos4].img.setRotation(180.f);
-				for (int j = 0; j < 16; j++)
-				{
-					if (fPositions2[j].showPos == 1)
+					if (!(succesful))
 					{
-						if (checkPlacedCards(j))
+						deck[player2Pos3].drag = 0;
+						deck[player2Pos3].img.setRotation(90.f);
+					}
+					break;
+				case 4:
+					succesful = 0;
+					deck[player2Pos4].drag = 1;
+					deck[player2Pos4].img.setRotation(180.f);
+					for (int j = 0; j < 16; j++)
+					{
+						if (fPositions2[j].showPos == 1)
 						{
-							succesful = 1;
-							deck[player2Pos4].drag = 0;
-							deck[player2Pos4].img.setRotation(180.f);
-							deck[player2Pos4].placed = 1;
-							fPositions2[j].cardOnIt = 1;
-							fPositions2[j].cardNum = deck[player2Pos4].num;
-							fPositions2[j].cardValue = deck[player2Pos4].value;
-							deck[player2Pos4].num = 0;
-							deck[player2Pos4].x = fPositions2[j].x;
-							deck[player2Pos4].y = fPositions2[j].y;
-							deck[player2Pos4].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-							player2Pos4 = 0;
-							player2Cards--;
-							roundPlayed = 1;
-							break;
+							if (checkPlacedCards(j))
+							{
+								succesful = 1;
+								deck[player2Pos4].drag = 0;
+								deck[player2Pos4].img.setRotation(180.f);
+								deck[player2Pos4].placed = 1;
+								fPositions2[j].cardOnIt = 1;
+								fPositions2[j].cardNum = deck[player2Pos4].num;
+								fPositions2[j].cardValue = deck[player2Pos4].value;
+								deck[player2Pos4].num = 0;
+								deck[player2Pos4].x = fPositions2[j].x;
+								deck[player2Pos4].y = fPositions2[j].y;
+								deck[player2Pos4].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+								player2Pos4 = 0;
+								player2Cards--;
+								roundPlayed = 1;
+								break;
+							}
 						}
 					}
-				}
-				if (!(succesful))
-				{
-					deck[player2Pos4].drag = 0;
-					deck[player2Pos4].img.setRotation(90.f);
-				}
-				break;
-			case 5:
-				succesful = 0;
-				deck[player2Pos5].drag = 1;
-				deck[player2Pos5].img.setRotation(180.f);
-				for (int j = 0; j < 16; j++)
-				{
-					if (fPositions2[j].showPos == 1)
+					if (!(succesful))
 					{
-						if (checkPlacedCards(j))
+						deck[player2Pos4].drag = 0;
+						deck[player2Pos4].img.setRotation(90.f);
+					}
+					break;
+				case 5:
+					succesful = 0;
+					deck[player2Pos5].drag = 1;
+					deck[player2Pos5].img.setRotation(180.f);
+					for (int j = 0; j < 16; j++)
+					{
+						if (fPositions2[j].showPos == 1)
 						{
-							succesful = 1;
-							deck[player2Pos5].drag = 0;
-							deck[player2Pos5].img.setRotation(180.f);
-							deck[player2Pos5].placed = 1;
-							fPositions2[j].cardOnIt = 1;
-							fPositions2[j].cardNum = deck[player2Pos5].num;
-							fPositions2[j].cardValue = deck[player2Pos5].value;
-							deck[player2Pos5].num = 0;
-							deck[player2Pos5].x = fPositions2[j].x;
-							deck[player2Pos5].y = fPositions2[j].y;
-							deck[player2Pos5].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-							player2Pos5 = 0;
-							player2Cards--;
-							roundPlayed = 1;
-							break;
+							if (checkPlacedCards(j))
+							{
+								succesful = 1;
+								deck[player2Pos5].drag = 0;
+								deck[player2Pos5].img.setRotation(180.f);
+								deck[player2Pos5].placed = 1;
+								fPositions2[j].cardOnIt = 1;
+								fPositions2[j].cardNum = deck[player2Pos5].num;
+								fPositions2[j].cardValue = deck[player2Pos5].value;
+								deck[player2Pos5].num = 0;
+								deck[player2Pos5].x = fPositions2[j].x;
+								deck[player2Pos5].y = fPositions2[j].y;
+								deck[player2Pos5].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+								player2Pos5 = 0;
+								player2Cards--;
+								roundPlayed = 1;
+								break;
+							}
 						}
 					}
+					if (!(succesful))
+					{
+						deck[player2Pos5].drag = 0;
+						deck[player2Pos5].img.setRotation(90.f);
+					}
+					break;
 				}
-				if (!(succesful))
+				if (roundPlayed)
 				{
-					deck[player2Pos5].drag = 0;
-					deck[player2Pos5].img.setRotation(90.f);
+					break;
 				}
-				break;
 			}
-			if (roundPlayed)
+			if (roundPlayed == 0)
 			{
-				break;
+				deck[player2Pos1].drag = 0;
+				deck[player2Pos1].img.setRotation(90.f);
+				deck[player2Pos1].placed = 1;
+				deck[player2Pos1].num = 0;
+				deck[counterCards3].type = deck[player2Pos1].type;
+				deck[counterCards3].value = deck[player2Pos1].value;
+				deck[counterCards3].num = counterCards3;
+				deck[player2Pos1].type = 0;
+				deck[player2Pos1].value = 0;
+				deck[player2Pos1].player1pos = 0;
+				deck[player2Pos1].display1 = 0;
+				deck[player2Pos1].display2 = 0;
+				counterCards3++;
+				player2Pos1 = 0;
+				player2Cards--;
+				roundPlayed = 1;
 			}
 		}
-		if (roundPlayed == 0)
+		else
 		{
-			deck[player2Pos1].drag = 0;
-			deck[player2Pos1].img.setRotation(90.f);
-			deck[player2Pos1].placed = 1;
-			deck[player2Pos1].num = 0;
-			deck[counterCards3].type = deck[player2Pos1].type;
-			deck[counterCards3].value = deck[player2Pos1].value;
-			deck[counterCards3].num = counterCards3;
-			deck[player2Pos1].type = 0;
-			deck[player2Pos1].value = 0;
-			deck[player2Pos1].player1pos = 0;
-			deck[player2Pos1].display1 = 0;
-			deck[player2Pos1].display2 = 0;
-			counterCards3++;
-			player2Pos1 = 0;
-			player2Cards--;
-			roundPlayed = 1;
+		int randomCard = rand() % 5 + 1;
+			switch (randomCard)
+			{
+			case 1:
+				deck[player2Pos1].drag = 0;
+				deck[player2Pos1].img.setRotation(90.f);
+				deck[player2Pos1].placed = 1;
+				deck[player2Pos1].num = 0;
+				deck[counterCards3].type = deck[player2Pos1].type;
+				deck[counterCards3].value = deck[player2Pos1].value;
+				deck[counterCards3].num = counterCards3;
+				deck[player2Pos1].type = 0;
+				deck[player2Pos1].value = 0;
+				deck[player2Pos1].player1pos = 0;
+				deck[player2Pos1].display1 = 0;
+				deck[player2Pos1].display2 = 0;
+				counterCards3++;
+				player2Pos1 = 0;
+				player2Cards--;
+				roundPlayed = 1;
+				break;
+			case 2:
+				deck[player2Pos2].drag = 0;
+				deck[player2Pos2].img.setRotation(90.f);
+				deck[player2Pos2].placed = 1;
+				deck[player2Pos2].num = 0;
+				deck[counterCards3].type = deck[player2Pos2].type;
+				deck[counterCards3].value = deck[player2Pos2].value;
+				deck[counterCards3].num = counterCards3;
+				deck[player2Pos2].type = 0;
+				deck[player2Pos2].value = 0;
+				deck[player2Pos2].player1pos = 0;
+				deck[player2Pos2].display1 = 0;
+				deck[player2Pos2].display2 = 0;
+				counterCards3++;
+				player2Pos2 = 0;
+				player2Cards--;
+				roundPlayed = 1;
+				break;
+			case 3:
+				deck[player2Pos3].drag = 0;
+				deck[player2Pos3].img.setRotation(90.f);
+				deck[player2Pos3].placed = 1;
+				deck[player2Pos3].num = 0;
+				deck[counterCards3].type = deck[player2Pos3].type;
+				deck[counterCards3].value = deck[player2Pos3].value;
+				deck[counterCards3].num = counterCards3;
+				deck[player2Pos3].type = 0;
+				deck[player2Pos3].value = 0;
+				deck[player2Pos3].player1pos = 0;
+				deck[player2Pos3].display1 = 0;
+				deck[player2Pos3].display2 = 0;
+				counterCards3++;
+				player2Pos3 = 0;
+				player2Cards--;
+				roundPlayed = 1;
+				break;
+			case 4:
+				deck[player2Pos4].drag = 0;
+				deck[player2Pos4].img.setRotation(90.f);
+				deck[player2Pos4].placed = 1;
+				deck[player2Pos4].num = 0;
+				deck[counterCards3].type = deck[player2Pos4].type;
+				deck[counterCards3].value = deck[player2Pos4].value;
+				deck[counterCards3].num = counterCards3;
+				deck[player2Pos4].type = 0;
+				deck[player2Pos4].value = 0;
+				deck[player2Pos4].player1pos = 0;
+				deck[player2Pos4].display1 = 0;
+				deck[player2Pos4].display2 = 0;
+				counterCards3++;
+				player2Pos4 = 0;
+				player2Cards--;
+				roundPlayed = 1;
+				break;
+			case 5:
+				deck[player2Pos5].drag = 0;
+				deck[player2Pos5].img.setRotation(90.f);
+				deck[player2Pos5].placed = 1;
+				deck[player2Pos5].num = 0;
+				deck[counterCards3].type = deck[player2Pos5].type;
+				deck[counterCards3].value = deck[player2Pos5].value;
+				deck[counterCards3].num = counterCards3;
+				deck[player2Pos5].type = 0;
+				deck[player2Pos5].value = 0;
+				deck[player2Pos5].player1pos = 0;
+				deck[player2Pos5].display1 = 0;
+				deck[player2Pos5].display2 = 0;
+				counterCards3++;
+				player2Pos5 = 0;
+				player2Cards--;
+				roundPlayed = 1;
+				break;
+			}
 		}
 
 		setCardImages2(cursorpos);
