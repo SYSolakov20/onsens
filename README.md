@@ -31,16 +31,16 @@ The essence of this project was to create a C++ game based on Bool logic. In the
 
 ## 🔧 Tools 
   <p align="left"> 
-  <a src="https://visualstudio.microsoft.com/"><img src="https://img.icons8.com/fluency/48/000000/visual-studio.png" alt="Visual Studio 2019"/></a>
-  <a src="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="Visual Studio Code"/></a>
-  <a src="https://www.figma.com/"><img src="https://img.icons8.com/color/48/000000/figma--v1.png"/></a>
-  <a src="https://www.adobe.com/creativecloud.html"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
-    <a src="https://www.microsoft.com/en-ww/microsoft-365/word"><img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px /></a>
-    <a src="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
-    <a src="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/></a>
-    <a src="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
-    <a src="https://github.com/"><img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/></a>
-    <a src="https://github.com/"><img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
+  <a href="https://visualstudio.microsoft.com/"><img src="https://img.icons8.com/fluency/48/000000/visual-studio.png" alt="Visual Studio 2019"/></a>
+  <a href="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="Visual Studio Code"/></a>
+  <a href="https://www.figma.com/"><img src="https://img.icons8.com/color/48/000000/figma--v1.png"/></a>
+  <a href="https://www.adobe.com/creativecloud.html"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
+    <a href="https://www.microsoft.com/en-ww/microsoft-365/word"><img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px /></a>
+    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
+    <a href="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/></a>
+    <a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
+    <a href="https://github.com/"><img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/></a>
+    <a href="https://github.com/"><img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
   </p> 
   
 ## 💼 Documents
