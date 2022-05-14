@@ -62,7 +62,7 @@ git clone https://github.com/SYSolakov20/onsens.git
  ## 🎬 Demo of the project 
   
   <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/895221336006332427/975080734429691914/Mockup_2.png" width = "80000px" >
+  <img src="https://cdn.discordapp.com/attachments/895221336006332427/975109810997571584/Mocup_2.png" width = "80000px" >
   </p>
 
 ## ⚙ Website Access
