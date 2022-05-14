@@ -69,12 +69,12 @@ git clone https://github.com/SYSolakov20/onsens.git
 
 *You can access our website by pasting this link into your browser.*
 ```
-to be filled
+https://sysolakov20.github.io/onsens/
 ```
 
 ## 🖥 Team Members
 * **Soner Solakov** - *Scrum trainer* 
 * **Simeon Boev** - *Back-end developer* 
-* **Zhivko Spasov** - *Back-end developer* 
-* **Stanislav Tashev** - *QA Engineer* 
+* **Stanislav Tashev** - *Back-end developer* 
+* **Zhivko Spasov** - *QA Engineer* 
 
