@@ -21,11 +21,11 @@ The essence of this project was to create a C++ game based on Bool logic. In the
 
 ## 🚀 Languages 
   <p align="left"> 
-  <a src="https://www.cplusplus.com/"><img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" alt="C++"/></a>
-  <a src="https://www.sfml-dev.org/"><img src="https://cdn.discordapp.com/attachments/895221336006332427/971795038596108318/1200px-SFML_Logo_1.png" alt="SFML"/></a>
-  <a src="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"><img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML 5"/></a>
-  <a src="https://sass-lang.com/"><img src="https://img.icons8.com/color/48/000000/sass.png" alt="SASS"/></a>
-  <a src="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="JavaScript"/></a>
+  <a href="https://www.cplusplus.com/"><img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" alt="C++"/></a>
+  <a href="https://www.sfml-dev.org/"><img src="https://cdn.discordapp.com/attachments/895221336006332427/971795038596108318/1200px-SFML_Logo_1.png" alt="SFML"/></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"><img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML 5"/></a>
+  <a href="https://sass-lang.com/"><img src="https://img.icons8.com/color/48/000000/sass.png" alt="SASS"/></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="JavaScript"/></a>
  
   </p>
 
