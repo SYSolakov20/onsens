@@ -21,33 +21,33 @@ The essence of this project was to create a C++ game based on Bool logic. In the
 
 ## 🚀 Languages 
   <p align="left"> 
-    <img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"/>
-    <img src="https://cdn.discordapp.com/attachments/895221336006332427/971795038596108318/1200px-SFML_Logo_1.png"/>
-    <img src="https://img.icons8.com/color/48/000000/html-5.png"/> 
-    <img src="https://img.icons8.com/color/48/000000/sass.png"/>
-    <img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
+  <a src="https://www.cplusplus.com/"><img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" alt="C++"/></a>
+  <a src="https://www.sfml-dev.org/"><img src="https://cdn.discordapp.com/attachments/895221336006332427/971795038596108318/1200px-SFML_Logo_1.png" alt="SFML"/></a>
+  <a src="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"><img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML 5"/></a>
+  <a src="https://sass-lang.com/"><img src="https://img.icons8.com/color/48/000000/sass.png" alt="SASS"/></a>
+  <a src="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="JavaScript"/></a>
  
   </p>
 
 ## 🔧 Tools 
   <p align="left"> 
-    <img src="https://img.icons8.com/fluency/48/000000/visual-studio.png"/>
-    <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
-    <img src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
-    <img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px />
-    <img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px />
-    <img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
-    <img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/>
-    <img src="https://img.icons8.com/color/48/000000/git.png"/>
-    <img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/>
-    <img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
+  <a src="https://visualstudio.microsoft.com/"><img src="https://img.icons8.com/fluency/48/000000/visual-studio.png" alt="Visual Studio 2019"/></a>
+  <a src="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="Visual Studio Code"/></a>
+  <a src="https://www.figma.com/"><img src="https://img.icons8.com/color/48/000000/figma--v1.png"/></a>
+  <a src="https://www.adobe.com/creativecloud.html"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
+    <a src="https://www.microsoft.com/en-ww/microsoft-365/word"><img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px /></a>
+    <a src="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
+    <a src="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/></a>
+    <a src="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
+    <a src="https://github.com/"><img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/></a>
+    <a src="https://github.com/"><img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
   </p> 
   
 ## 💼 Documents
   - [Doxygen](https://smtashev20.github.io/onsens-documentation/index.html)
-  - [Documentation]()
+  - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/smtashev20_codingburgas_bg/EY1_RLRBHW9HpcPIItgth34B8O6ahVzfYTFvJLxnABLu-g?e=75FR40)
   - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/smtashev20_codingburgas_bg/EZJgDqwBizdEsS__nWfKLY8B0tvMTLdYYjmwt31oPsmuMA?e=8VSavq)
-  - [QA Unit Testing]()
+  - [QA Unit Testing](https://codingburgas-my.sharepoint.com/:x:/g/personal/smtashev20_codingburgas_bg/Ebi25gemNjBCoUS9hWusvrAB6ZYk34KQb7wtvvKlHFw_Kw?e=F0phq5)
   - [QA - Test Plan](https://codingburgas-my.sharepoint.com/:b:/g/personal/smtashev20_codingburgas_bg/EV5tnWXsHqRCizarP8p8LIkBGKeYv0Q_7rOza5dnRrPyyw?e=RkTI0I)
 
 ## 🔧 Installation
