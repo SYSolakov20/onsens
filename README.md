@@ -69,5 +69,5 @@ to be filled
 ## 🖥 Team Members
 * **Soner Solakov** - *Scrum trainer* 
 * **Simeon Boev** - *Back-end developer* 
-* **Zhivko Spasov** - *Back-end developer* 
-* **Stanislav Tashev** - *QA Engineer* 
+* **Stanislav Tashev** - *Back-end developer* 
+* **Zhivko Spasov** - *QA Engineer* 
