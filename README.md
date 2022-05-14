@@ -42,7 +42,7 @@ The essence of this project was to create a C++ game based on Bool logic. In the
     <img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/>
     <img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
   </p> 
-
+  
 ## 💼 Documents
   - [Doxygen](https://smtashev20.github.io/onsens-documentation/index.html)
   - [Documentation]()
@@ -59,6 +59,12 @@ Or by pasting the following code in your CMD:
 git clone https://github.com/SYSolakov20/onsens.git
 ```
 
+ ## 🎬 Demo of the project 
+  
+  <p align="center">
+  <img src="https://cdn.discordapp.com/attachments/895221336006332427/975080734429691914/Mockup_2.png" width = "80000px" >
+  </p>
+
 ## ⚙ Website Access
 
 *You can access our website by pasting this link into your browser.*
@@ -69,5 +75,6 @@ to be filled
 ## 🖥 Team Members
 * **Soner Solakov** - *Scrum trainer* 
 * **Simeon Boev** - *Back-end developer* 
-* **Stanislav Tashev** - *Back-end developer* 
-* **Zhivko Spasov** - *QA Engineer* 
+* **Zhivko Spasov** - *Back-end developer* 
+* **Stanislav Tashev** - *QA Engineer* 
+
