@@ -39,8 +39,8 @@ The essence of this project was to create a C++ game based on Bool logic. In the
     <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
     <a href="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/></a>
     <a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
-    <a href="https://github.com/"><img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/></a>
-    <a href="https://github.com/"><img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
+    <img src="Website/dist/img/icons8-github-48 (1).png#gh-light-mode-only"/>
+    <img src="Website/dist/img/icons8-github-48.png#gh-dark-mode-only"/>
   </p> 
   
 ## 💼 Documents
