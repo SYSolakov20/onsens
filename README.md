@@ -46,6 +46,7 @@ The essence of this project was to create a C++ game based on Bool logic. In the
 ## 💼 Documents
   - [Doxygen](https://smtashev20.github.io/onsens-documentation/index.html)
   - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/smtashev20_codingburgas_bg/EY1_RLRBHW9HpcPIItgth34B8O6ahVzfYTFvJLxnABLu-g?e=75FR40)
+  - [Design documentation](https://codingburgas-my.sharepoint.com/:b:/g/personal/smtashev20_codingburgas_bg/EVzCky06sG9HmZ4zXHWple0B_2vvSgoKkPfWTwd0NN80BA?e=B8AoFy)
   - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/smtashev20_codingburgas_bg/EZJgDqwBizdEsS__nWfKLY8B0tvMTLdYYjmwt31oPsmuMA?e=8VSavq)
   - [QA Unit Testing](https://codingburgas-my.sharepoint.com/:x:/g/personal/smtashev20_codingburgas_bg/Ebi25gemNjBCoUS9hWusvrAB6ZYk34KQb7wtvvKlHFw_Kw?e=F0phq5)
   - [QA - Test Plan](https://codingburgas-my.sharepoint.com/:b:/g/personal/smtashev20_codingburgas_bg/EV5tnWXsHqRCizarP8p8LIkBGKeYv0Q_7rOza5dnRrPyyw?e=RkTI0I)
