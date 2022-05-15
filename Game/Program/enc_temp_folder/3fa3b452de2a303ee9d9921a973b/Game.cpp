@@ -18819,7 +18819,7 @@ void Game::fourthGamemode(sf::Window& newWindow)
 			notCardPos[i].cardOnIt = 0;
 		}
 		ready = 0;
-		firstGamemode4 = 1;
+		firstGamemode3 = 1;
 		gameMode = 0;
 	}
 	if (counter == 0)
@@ -21257,8 +21257,8 @@ void Game::setPlay()
 			clock.restart();
 			firstGamemode2 = 0;
 			firstGamemode1 = 1;
+			firstGamemode2 = 1;
 			firstGamemode3 = 1;
-			firstGamemode4 = 1;
 		}
 		setPlacingCards();
 	}
