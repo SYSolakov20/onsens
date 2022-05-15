@@ -241,6 +241,7 @@ public:
 	void firstGamemode(sf::Window& newWindow); // Contains the first mode
 	void secondGamemode(sf::Window& newWindow); // Contains the second mode
 	void thirdGamemode(sf::Window& newWindow); // Contains the third mode
+	void fourthGamemode(sf::Window& newWindow); // Contains the fourth mode
 	void menuButtons(); // Setting the buttons
 	void modesButtons(); // Setting the buttons
 	void winScreen(sf::Window& newWindow); // Displays the victory window
@@ -261,8 +262,9 @@ public:
 	void placingNotCardsPos(); // Sets the possible positions for the not-card
 	void notCardLogic(int j); // Checks if not-cards were placed and can handle them
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
-	void setNotCardImages(sf::Vector2i cursorpos); // Loads cards images for the not gamemode
 	void setCardImages2(sf::Vector2i cursorpos); // The same function but modified for the second gamemode
+	void setNotCardImages(sf::Vector2i cursorpos); // Loads cards images for the not gamemode
+	void setNotCardImages2(sf::Vector2i cursorpos); // The same function but modified for the fourth gamemode
 	bool checkPlacedCards(int jj); // Checks if the operation is possible
 	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
