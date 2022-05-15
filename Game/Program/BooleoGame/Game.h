@@ -119,6 +119,8 @@ private:
 	sf::Texture specialButtonTexture;
 	sf::Sprite specialButtonImg;
 	sf::Texture changeTexture;
+	sf::Texture notCardPopTexture;
+	sf::Sprite notCardPop;
 
 	// Base Cards
 	struct baseCard
