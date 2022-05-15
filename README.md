@@ -10,7 +10,7 @@
 <p align = "center">
     <img alt="GitHub milestones" src="https://img.shields.io/github/milestones/all/SYSolakov20/onsens?style=flat-square">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SYSolakov20/onsens?style=flat-square">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/SYSolkov20/onsens?style=flat-square">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/SYSolakov20/onsens?style=flat-square">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/SYSolakov20/onsens?style=flat-square">
     <img src="https://img.shields.io/github/languages/count/SYSolakov20/onsens?style=flat-square">
 </p>
