@@ -18264,6 +18264,17 @@ void Game::thirdGamemode(sf::Window& newWindow)
 			fPositions2[i].x = 0;
 			fPositions2[i].y = 0;
 		}
+		for (int i = 0; i < 6; i++)
+		{
+			notCardPos[i].cardNum = 0;
+			notCardPos[i].cardValue = 0;
+			notCardPos[i].showPos = 0;
+			notCardPos[i].cardOnIt = 0;
+			notCardPos[i].cardNum = 0;
+			notCardPos[i].cardValue = 0;
+			notCardPos[i].showPos = 0;
+			notCardPos[i].cardOnIt = 0;
+		}
 		ready = 0;
 		firstGamemode3 = 1;
 		gameMode = 0;
@@ -18796,6 +18807,17 @@ void Game::fourthGamemode(sf::Window& newWindow)
 			fPositions2[i].x = 0;
 			fPositions2[i].y = 0;
 		}
+		for (int i = 0; i < 6; i++)
+		{
+			notCardPos[i].cardNum = 0;
+			notCardPos[i].cardValue = 0;
+			notCardPos[i].showPos = 0;
+			notCardPos[i].cardOnIt = 0;
+			notCardPos[i].cardNum = 0;
+			notCardPos[i].cardValue = 0;
+			notCardPos[i].showPos = 0;
+			notCardPos[i].cardOnIt = 0;
+		}
 		ready = 0;
 		firstGamemode3 = 1;
 		gameMode = 0;
@@ -18824,7 +18846,7 @@ void Game::fourthGamemode(sf::Window& newWindow)
 		this->window->draw(baseCards[4].BaseCardImg);
 		this->window->draw(baseCards[5].BaseCardImg);
 		tableOfTruth();
-		setNotCardImages(cursorpos);
+		setNotCardImages2(cursorpos);
 		if (showA)
 		{
 			placingCardsPos();
@@ -20161,10 +20183,12 @@ void Game::fourthGamemode(sf::Window& newWindow)
 			else
 			{
 				otherNot = 0;
+				goto notPlayingNotCard;
 			}
 		}
 		else
 		{
+			notPlayingNotCard:
 			srand((unsigned)time(0));
 			bool succesful = 0;
 			int randomNum = rand() % 10 + 1;
