@@ -1,7 +1,5 @@
-<h1 align="center">Logic Game Project</h1>
-
-<p align = "center">
-  <img src="Website/dist/img/Frame_2.png"/>
+<p>
+  <img align="center" src="https://media.discordapp.net/attachments/966759188632051792/971498206825418822/Frame_2.png"/>
 </p>
 
 <br>
@@ -16,7 +14,7 @@
 
 ## 📋 Description
   
-/Needs to be filled/
+The essence of this project was to create a C++ game based on Bool logic. In the game you can choose between four game modes, two of which have a special “NOT” card. We have created the application with a graphical interface for a more pleasant user experience. You can also enjoy various card packs on our hosted website.
 
 ## 🚀 Languages 
   <p align="left"> 
@@ -33,15 +31,20 @@
     <img src="https://img.icons8.com/fluency/48/000000/visual-studio.png"/>
     <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
     <img src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
+    <img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px />
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px />
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
+    <img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/>
     <img src="https://img.icons8.com/color/48/000000/git.png"/>
-    <img src="https://img.icons8.com/fluency/48/000000/adobe-photoshop.png"/>  
-    <img src="Website/dist/img/icons8-github-48(1)"/>
+    <img src="https://img.icons8.com/ios/50/000000/github--v1.png"/>
   </p> 
 
 ## 💼 Documents
-  - [Doxygen](https://smtashev20.github.io/geonomy_doc/)
-  - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/smtashev20_codingburgas_bg/Eb6RxmhRkqFPjjX_xYeTpGcBKGulfa7NCfsfkUiqM1LS1w?e=h2yg7g)
-  - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/smtashev20_codingburgas_bg/ER6Hd9Nt42hGibt_eDeklo4BDm4nrc6-MYHQ8KMagPX7GQ?e=aS3dg4)
+  - [Doxygen](https://onsenssdocs.netlify.app/)
+  - [Documentation]()
+  - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/smtashev20_codingburgas_bg/EZJgDqwBizdEsS__nWfKLY8B0tvMTLdYYjmwt31oPsmuMA?e=8VSavq)
+  - [QA Unit Testing]()
+  - [QA - Test Plan](https://codingburgas-my.sharepoint.com/:b:/g/personal/smtashev20_codingburgas_bg/EV5tnWXsHqRCizarP8p8LIkBGKeYv0Q_7rOza5dnRrPyyw?e=RkTI0I)
 
 ## 🔧 Installation
 
@@ -62,5 +65,5 @@ to be filled
 ## 🖥 Team Members
 * **Soner Solakov** - *Scrum trainer* 
 * **Simeon Boev** - *Back-end developer* 
-* **Stanislav Tashev** - *Back-end developer* 
-* **Zhivko Spasov** - *QA Engineer* 
+* **Zhivko Spasov** - *Back-end developer* 
+* **Stanislav Tashev** - *QA Engineer* 
