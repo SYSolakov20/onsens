@@ -180,7 +180,7 @@ private:
 
 	fieldPos fPositions[40]; // Positions for Player 1
 	fieldPos fPositions2[40]; // Positions for Player 2
-	fieldPos notCardPos[6]; // Positions for the not-card
+	fieldPos notCardPos[6]; // Positions for the not-card 
 	card startDeck[100]; // The starting deck
 	card deck[150]; // The ready deck
 	int temp;
