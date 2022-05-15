@@ -19146,22 +19146,22 @@ void Game::fourthGamemode(sf::Window& newWindow)
 				notCardsNum++;
 				notCard = 1;
 			}
-			else if (deck[player2Pos2].type == 'n')
+			if (deck[player2Pos2].type == 'n')
 			{
 				notCardsNum++;
 				notCard = 2;
 			}
-			else if (deck[player2Pos3].type == 'n')
+			if (deck[player2Pos3].type == 'n')
 			{
 				notCardsNum++;
 				notCard = 3;
 			}
-			else if (deck[player2Pos4].type == 'n')
+			if (deck[player2Pos4].type == 'n')
 			{
 				notCardsNum++;
 				notCard = 4;
 			}
-			else if (deck[player2Pos5].type == 'n')
+			if (deck[player2Pos5].type == 'n')
 			{
 				notCardsNum++;
 				notCard = 5;
@@ -19170,6 +19170,7 @@ void Game::fourthGamemode(sf::Window& newWindow)
 			int shouldPlayNot = rand() % 10 + 1;
 			if (shouldPlayNot <= 3 || notCardsNum >= 2)
 			{
+				notCardsNum = 0;
 				int randomNotUse = rand() % 6;
 				otherNot = 0;
 				switch (notCard)
