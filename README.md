@@ -76,6 +76,6 @@ https://sysolakov20.github.io/onsens/
 ## 🖥 Team Members
 * **Soner Solakov** - *Scrum trainer* 
 * **Simeon Boev** - *Back-end developer* 
-* **Stanislav Tashev** - *Back-end developer* 
-* **Zhivko Spasov** - *QA Engineer* 
+* **Zhivko Spasov** - *Back-end developer* 
+* **Stanislav Tashev** - *QA Engineer* 
 
