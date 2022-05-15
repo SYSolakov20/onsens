@@ -19076,6 +19076,15 @@ void Game::fourthGamemode(sf::Window& newWindow)
 					this->window->draw(deck[fPositions2[i].cardNum].img);
 				}
 			}
+			for (int i = 0; i < 6; i++)
+			{
+				if (notCardPos[i].cardOnIt == 1)
+				{
+					notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+					notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+					this->window->draw(notCardPos[i].img);
+				}
+			}
 			tableOfTruth();
 			placingCardsPos();
 			this->window->display();
@@ -19133,6 +19142,7 @@ void Game::fourthGamemode(sf::Window& newWindow)
 			if (shouldPlayNot <= 3)
 			{
 				int randomNotUse = rand() % 6;
+				otherNot = 0;
 				switch (notCard)
 				{
 				case 1:
