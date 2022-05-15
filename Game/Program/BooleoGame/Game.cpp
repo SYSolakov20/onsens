@@ -8284,7 +8284,7 @@ void Game::setNotCardImages(sf::Vector2i cursorpos)
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
 													card4Dragging = 0;
-													player1Pos2 = 0;
+													player1Pos4 = 0;
 													showNotA = 0;
 													player1Cards--;
 													player2Cards--;
@@ -8308,7 +8308,7 @@ void Game::setNotCardImages(sf::Vector2i cursorpos)
 													deck[i].display1 = 0;
 													deck[i].display2 = 0;
 													card4Dragging = 0;
-													player1Pos2 = 0;
+													player1Pos4 = 0;
 													showNotA = 0;
 													player1Cards--;
 													pressed = true;
