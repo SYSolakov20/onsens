@@ -1,6 +1,9 @@
 #include "game.h"
 
-int main()
+int WinMain(HINSTANCE hInstance,
+            HINSTANCE hPrevInstance,
+            LPSTR lpCmdLine,
+            int nShowCmd)
 {
     Game* game = new Game();
     game->start();

@@ -17839,7 +17839,6 @@ void Game::secondGamemode(sf::Window& newWindow)
 		srand((unsigned)time(0));
 		bool succesful = 0;
 		int randomNum = rand() % 10 + 1;
-		std::cout << randomNum << std::endl;
 		if (randomNum != 7 && randomNum != 2)
 		{
 			for (int i = 1; i < 6; i++)
@@ -22013,7 +22012,6 @@ void Game::setReady()
 	font.loadFromFile("assets/tex-gyre-adventor.bold.otf");
 	if (!buffer.loadFromFile("assets/ClickSoundEffect.wav"))
 	{
-		std::cout << "Can't load the click sound" << std::endl;
 	}
 	clickSound.setBuffer(buffer);
 	soundTexture.loadFromFile("assets/SoundIcon1.png");
