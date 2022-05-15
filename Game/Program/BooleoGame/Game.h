@@ -34,6 +34,10 @@ private:
 	sf::Texture backgroundTexture;
 	sf::Sprite backgroundSprite;
 
+	// Adding sound effects and music to the game
+	sf::SoundBuffer buffer;
+	sf::Sound clickSound;
+
 	// Initial games clock
 	sf::Clock clock;
 	sf::Time elapsed;
@@ -66,6 +70,8 @@ private:
 	bool options = 0;
 	bool pause = 0;
 	bool resume = 0;
+	bool soundOn = 1;
+	bool musicOn = 1;
 	bool breakResume = 0;
 	bool breakPause = 0;
 	int gamemodeNum = 0;
@@ -121,6 +127,10 @@ private:
 	sf::Texture changeTexture;
 	sf::Texture notCardPopTexture;
 	sf::Sprite notCardPop;
+	sf::Texture soundTexture;
+	sf::Sprite soundImg;
+	sf::Texture musicTexture;
+	sf::Sprite musicImg;
 
 	// Base Cards
 	struct baseCard

@@ -104,6 +104,7 @@ void Game::pollEvents()
 							{
 								if (!pressed0)
 								{
+									if (soundOn) clickSound.play();
 									pressed0 = true;
 									pause = 0;
 									break;
@@ -122,6 +123,7 @@ void Game::pollEvents()
 							{
 								if (!pressed3)
 								{
+									if (soundOn) clickSound.play();
 									ready = 0;
 									gameMode = 0;
 									rules = 0;
@@ -143,6 +145,7 @@ void Game::pollEvents()
 							{
 								if (!pressed0)
 								{
+									if (soundOn) clickSound.play();
 									if (gamemodeNum == 1 || gamemodeNum == 2)
 									{
 										pressed0 = true;
@@ -608,6 +611,7 @@ void Game::menu(sf::Window& newWindow)
 		{
 			if (!pressed)
 			{
+				if(soundOn) clickSound.play();
 				gameMode = 1;
 				modesButtons();
 				pressed = true;
@@ -626,6 +630,7 @@ void Game::menu(sf::Window& newWindow)
 		{
 			if (!pressed3)
 			{
+				if (soundOn) clickSound.play();
 				options = 1;
 				pressed3 = true;
 			}
@@ -643,6 +648,7 @@ void Game::menu(sf::Window& newWindow)
 		{
 			if (!pressed24)
 			{
+				if (soundOn) clickSound.play();
 				rules = 1;
 				pressed24 = true;
 			}
@@ -658,6 +664,7 @@ void Game::menu(sf::Window& newWindow)
 		this->backgroundSprite.setTexture(backgroundTexture);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
+			if (soundOn) clickSound.play();
 			window->close();
 		}
 	}
@@ -696,6 +703,7 @@ void Game::modes(sf::Window& newWindow)
 		{
 			if (!pressed)
 			{
+				if (soundOn) clickSound.play();
 				ready = 1;
 				gamemodeNum = 1;
 				setPlay();
@@ -715,6 +723,7 @@ void Game::modes(sf::Window& newWindow)
 		{
 			if (!pressed)
 			{
+				if (soundOn) clickSound.play();
 				ready = 1;
 				gamemodeNum = 2;
 				setPlay();
@@ -734,6 +743,7 @@ void Game::modes(sf::Window& newWindow)
 		{
 			if (!pressed)
 			{
+				if (soundOn) clickSound.play();
 				ready = 1;
 				gamemodeNum = 3;
 				setPlay();
@@ -753,6 +763,7 @@ void Game::modes(sf::Window& newWindow)
 		{
 			if (!pressed)
 			{
+				if (soundOn) clickSound.play();
 				ready = 1;
 				gamemodeNum = 4;
 				setPlay();
@@ -789,6 +800,7 @@ void Game::optionsMenu(sf::Window& newWindow)
 		{
 			if (!pressed5)
 			{
+				if (soundOn) clickSound.play();
 				system(web.c_str()); 
 				pressed5 = true;
 			}
@@ -804,8 +816,61 @@ void Game::optionsMenu(sf::Window& newWindow)
 		{
 			if (!pressed5)
 			{
+				if (soundOn) clickSound.play();
 				options = 0;
 				pressed5 = true;
+			}
+		}
+		else
+		{
+			pressed5 = false;
+		}
+	}
+	if (getMousePos(463, 239, 15, *this->window))
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			if (!pressed5)
+			{
+				pressed5 = true;
+				clickSound.play();
+				musicOn = !(musicOn);
+				if (musicOn == 1)
+				{
+					musicTexture.loadFromFile("assets/MusicIcon1.png");
+					musicImg.setTexture(musicTexture);
+				}
+				else
+				{
+					musicTexture.loadFromFile("assets/MusicIcon2.png");
+					musicImg.setTexture(musicTexture);
+				}
+			}
+		}
+		else
+		{
+			pressed5 = false;
+		}
+	}
+	if (getMousePos(463, 394, 15, *this->window))
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			if (!pressed5)
+			{
+				pressed5 = true;
+				soundOn = !(soundOn);
+				if (soundOn == 1)
+				{
+					clickSound.play();
+					soundTexture.loadFromFile("assets/SoundIcon1.png");
+					soundImg.setTexture(soundTexture);
+				}
+				else
+				{
+					soundTexture.loadFromFile("assets/SoundIcon2.png");
+					soundImg.setTexture(soundTexture);
+				}				
 			}
 		}
 		else
@@ -819,6 +884,7 @@ void Game::optionsMenu(sf::Window& newWindow)
 		{
 			if (!pressed5)
 			{
+				if (soundOn) clickSound.play();
 				specialButtonC++;
 				pressed5 = true;
 				if (specialButtonC == 6)
@@ -861,6 +927,8 @@ void Game::optionsMenu(sf::Window& newWindow)
 	}
 	this->window->draw(this->backgroundSprite);
 	this->window->draw(specialButtonImg);
+	this->window->draw(musicImg);
+	this->window->draw(soundImg);
 	this->window->display();
 }
 
@@ -877,6 +945,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage2.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage++;
@@ -897,6 +966,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage3.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage++;
@@ -914,6 +984,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed6)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage1.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage--;
@@ -934,6 +1005,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage4.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage++;
@@ -951,6 +1023,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed6)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage2.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage--;
@@ -971,6 +1044,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage5.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage++;
@@ -988,6 +1062,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed6)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage3.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage--;
@@ -1008,6 +1083,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage6.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage++;
@@ -1025,6 +1101,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed6)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage4.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage--;
@@ -1045,6 +1122,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage7.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage++;
@@ -1062,6 +1140,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed6)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage5.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage--;
@@ -1082,6 +1161,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed5)
 				{
+					if (soundOn) clickSound.play();
 					rules = 0;
 					nextPage = -1;
 					pressed5 = true;
@@ -1098,6 +1178,7 @@ void Game::rulestab(sf::Window& newWindow)
 			{
 				if (!pressed6)
 				{
+					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage6.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
 					nextPage--;
@@ -1148,6 +1229,7 @@ void Game::winScreen(sf::Window& newWindow)
 		{
 			if (!pressed24)
 			{
+				if (soundOn) clickSound.play();
 				win = 0;
 				gameMode = 0;
 				rules = 0;
@@ -20790,6 +20872,7 @@ void Game::setPlay()
 					resumeImg.setTexture(resumeTexture);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+						if (soundOn) clickSound.play();
 						resume = 0;
 						break;
 					}
@@ -20800,6 +20883,7 @@ void Game::setPlay()
 					resumeImg.setTexture(resumeTexture);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+						if (soundOn) clickSound.play();
 						resume = 0;
 						deckI = 1;
 						counter = 1;
@@ -21056,6 +21140,7 @@ void Game::setPlay()
 					resumeImg.setTexture(resumeTexture);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+						if (soundOn) clickSound.play();
 						resume = 0;
 						break;
 					}
@@ -21066,6 +21151,7 @@ void Game::setPlay()
 					resumeImg.setTexture(resumeTexture);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+						if (soundOn) clickSound.play();
 						resume = 0;
 						deckI = 1;
 						counter = 1;
@@ -21322,6 +21408,7 @@ void Game::setPlay()
 					resumeImg.setTexture(resumeTexture);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+						if (soundOn) clickSound.play();
 						resume = 0;
 						break;
 					}
@@ -21332,6 +21419,7 @@ void Game::setPlay()
 					resumeImg.setTexture(resumeTexture);
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
+						if (soundOn) clickSound.play();
 						resume = 0;
 						deckI = 1;
 						counter = 1;
@@ -21635,6 +21723,7 @@ void Game::setPlay()
 				resumeImg.setTexture(resumeTexture);
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
+					if (soundOn) clickSound.play();
 					resume = 0;
 					break;
 				}
@@ -21645,6 +21734,7 @@ void Game::setPlay()
 				resumeImg.setTexture(resumeTexture);
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
+					if (soundOn) clickSound.play();
 					resume = 0;
 					deckI = 1;
 					counter = 1;
@@ -21921,6 +22011,19 @@ void Game::setReady()
 	specialButtonImg.setTexture(specialButtonTexture);
 	specialButtonImg.setPosition(463, 549);
 	font.loadFromFile("assets/tex-gyre-adventor.bold.otf");
+	if (!buffer.loadFromFile("assets/ClickSoundEffect.wav"))
+	{
+		std::cout << "Can't load the click sound" << std::endl;
+	}
+	clickSound.setBuffer(buffer);
+	soundTexture.loadFromFile("assets/SoundIcon1.png");
+	soundTexture.setSmooth(true);
+	soundImg.setTexture(soundTexture);
+	soundImg.setPosition(487, 404);
+	musicTexture.loadFromFile("assets/MusicIcon1.png");
+	musicTexture.setSmooth(true);
+	musicImg.setTexture(musicTexture);
+	musicImg.setPosition(487, 251);
 	setTheIcon();
 	customCursor();
 }
