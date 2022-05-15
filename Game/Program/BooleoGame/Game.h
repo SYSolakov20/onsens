@@ -118,6 +118,7 @@ private:
 	sf::Sprite pauseImg;
 	sf::Texture specialButtonTexture;
 	sf::Sprite specialButtonImg;
+	sf::Texture changeTexture;
 
 	// Base Cards
 	struct baseCard
@@ -197,6 +198,7 @@ private:
 	bool showA = 0;
 	bool showA2 = 0;
 	bool showNotA = 0;
+	bool otherNot = 0;
 	bool roundPlayed = 0;
 	bool card1Dragging = 0;
 	bool card2Dragging = 0;
@@ -255,6 +257,7 @@ public:
 	void setPlacingCards(); // Sets the default positions of the cards
 	void placingCardsPos(); // Sets the possible positions
 	void placingNotCardsPos(); // Sets the possible positions for the not-card
+	void notCardLogic(int j); // Checks if not-cards were placed and can handle them
 	void setCardImages(sf::Vector2i cursorpos); // Loads cards images
 	void setNotCardImages(sf::Vector2i cursorpos); // Loads cards images for the not gamemode
 	void setCardImages2(sf::Vector2i cursorpos); // The same function but modified for the second gamemode

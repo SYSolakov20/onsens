@@ -4364,6 +4364,2857 @@ void Game::setCardImages2(sf::Vector2i cursorpos)
 	}
 }
 
+void Game::notCardLogic(int j)
+{
+	int collapse = 0;
+	int collapse2 = 0;
+	switch (j)
+	{
+	case 0:
+		if (fPositions[1].cardOnIt == 1)
+		{
+			if (deck[fPositions[1].cardNum].type == 'a')
+			{
+				if ((baseCards[0].value && baseCards[1].value) == fPositions[1].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[1].cardNum].type == 'o')
+			{
+				if ((baseCards[0].value || baseCards[1].value) == fPositions[1].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[1].cardNum].type == 'x')
+			{
+				if ((baseCards[0].value ^ baseCards[1].value) == fPositions[1].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[1].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[1].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[1].cardNum].placed = 1;
+				deck[fPositions[1].cardNum].display1 = 0;
+				deck[fPositions[1].cardNum].display2 = 0;
+				deck[fPositions[1].cardNum].type = 0;
+				deck[fPositions[1].cardNum].value = 0;
+				deck[fPositions[1].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[1].cardOnIt = 0;
+				fPositions[1].cardValue = 0;
+				fPositions[1].cardNum = 0;
+
+				if (fPositions[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[6].cardNum].placed = 1;
+					deck[fPositions[6].cardNum].display1 = 0;
+					deck[fPositions[6].cardNum].display2 = 0;
+					deck[fPositions[6].cardNum].type = 0;
+					deck[fPositions[6].cardNum].value = 0;
+					deck[fPositions[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[6].cardOnIt = 0;
+					fPositions[6].cardValue = 0;
+					fPositions[6].cardNum = 0;
+
+					if (fPositions[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[10].cardNum].placed = 1;
+						deck[fPositions[10].cardNum].display1 = 0;
+						deck[fPositions[10].cardNum].display2 = 0;
+						deck[fPositions[10].cardNum].type = 0;
+						deck[fPositions[10].cardNum].value = 0;
+						deck[fPositions[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[10].cardOnIt = 0;
+						fPositions[10].cardValue = 0;
+						fPositions[10].cardNum = 0;
+
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		if (fPositions2[1].cardOnIt == 1)
+		{
+			if (deck[fPositions2[1].cardNum].type == 'a')
+			{
+				if ((baseCards2[0].value && baseCards2[1].value) == fPositions2[1].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[1].cardNum].type == 'o')
+			{
+				if ((baseCards2[0].value || baseCards2[1].value) == fPositions2[1].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[1].cardNum].type == 'x')
+			{
+				if ((baseCards2[0].value ^ baseCards2[1].value) == fPositions2[1].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[1].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[1].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[1].cardNum].placed = 1;
+				deck[fPositions2[1].cardNum].display1 = 0;
+				deck[fPositions2[1].cardNum].display2 = 0;
+				deck[fPositions2[1].cardNum].type = 0;
+				deck[fPositions2[1].cardNum].value = 0;
+				deck[fPositions2[1].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[1].cardOnIt = 0;
+				fPositions2[1].cardValue = 0;
+				fPositions2[1].cardNum = 0;
+
+				if (fPositions2[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[6].cardNum].placed = 1;
+					deck[fPositions2[6].cardNum].display1 = 0;
+					deck[fPositions2[6].cardNum].display2 = 0;
+					deck[fPositions2[6].cardNum].type = 0;
+					deck[fPositions2[6].cardNum].value = 0;
+					deck[fPositions2[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[6].cardOnIt = 0;
+					fPositions2[6].cardValue = 0;
+					fPositions2[6].cardNum = 0;
+
+					if (fPositions2[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[10].cardNum].placed = 1;
+						deck[fPositions2[10].cardNum].display1 = 0;
+						deck[fPositions2[10].cardNum].display2 = 0;
+						deck[fPositions2[10].cardNum].type = 0;
+						deck[fPositions2[10].cardNum].value = 0;
+						deck[fPositions2[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[10].cardOnIt = 0;
+						fPositions2[10].cardValue = 0;
+						fPositions2[10].cardNum = 0;
+
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 1:
+		if (fPositions[2].cardOnIt == 1)
+		{
+			if (deck[fPositions[2].cardNum].type == 'a')
+			{
+				if ((baseCards[1].value && baseCards[2].value) == fPositions[2].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[2].cardNum].type == 'o')
+			{
+				if ((baseCards[1].value || baseCards[2].value) == fPositions[2].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[2].cardNum].type == 'x')
+			{
+				if ((baseCards[1].value ^ baseCards[2].value) == fPositions[2].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[2].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[2].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[2].cardNum].placed = 1;
+				deck[fPositions[2].cardNum].display1 = 0;
+				deck[fPositions[2].cardNum].display2 = 0;
+				deck[fPositions[2].cardNum].type = 0;
+				deck[fPositions[2].cardNum].value = 0;
+				deck[fPositions[2].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[2].cardOnIt = 0;
+				fPositions[2].cardValue = 0;
+				fPositions[2].cardNum = 0;
+
+				if (fPositions[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[6].cardNum].placed = 1;
+					deck[fPositions[6].cardNum].display1 = 0;
+					deck[fPositions[6].cardNum].display2 = 0;
+					deck[fPositions[6].cardNum].type = 0;
+					deck[fPositions[6].cardNum].value = 0;
+					deck[fPositions[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[6].cardOnIt = 0;
+					fPositions[6].cardValue = 0;
+					fPositions[6].cardNum = 0;
+
+					if (fPositions[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[10].cardNum].placed = 1;
+						deck[fPositions[10].cardNum].display1 = 0;
+						deck[fPositions[10].cardNum].display2 = 0;
+						deck[fPositions[10].cardNum].type = 0;
+						deck[fPositions[10].cardNum].value = 0;
+						deck[fPositions[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[10].cardOnIt = 0;
+						fPositions[10].cardValue = 0;
+						fPositions[10].cardNum = 0;
+
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+
+						}
+					}
+				}
+				if (fPositions[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[7].cardNum].placed = 1;
+					deck[fPositions[7].cardNum].display1 = 0;
+					deck[fPositions[7].cardNum].display2 = 0;
+					deck[fPositions[7].cardNum].type = 0;
+					deck[fPositions[7].cardNum].value = 0;
+					deck[fPositions[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[7].cardOnIt = 0;
+					fPositions[7].cardValue = 0;
+					fPositions[7].cardNum = 0;
+
+					if (fPositions[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[11].cardNum].placed = 1;
+						deck[fPositions[11].cardNum].display1 = 0;
+						deck[fPositions[11].cardNum].display2 = 0;
+						deck[fPositions[11].cardNum].type = 0;
+						deck[fPositions[11].cardNum].value = 0;
+						deck[fPositions[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[11].cardOnIt = 0;
+						fPositions[11].cardValue = 0;
+						fPositions[11].cardNum = 0;
+
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		if (fPositions[1].cardOnIt == 1)
+		{
+			if (deck[fPositions[1].cardNum].type == 'a')
+			{
+				if ((baseCards[0].value && baseCards[1].value) == fPositions[1].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[1].cardNum].type == 'o')
+			{
+				if ((baseCards[0].value || baseCards[1].value) == fPositions[1].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[1].cardNum].type == 'x')
+			{
+				if ((baseCards[0].value ^ baseCards[1].value) == fPositions[1].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[1].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[1].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[1].cardNum].placed = 1;
+				deck[fPositions[1].cardNum].display1 = 0;
+				deck[fPositions[1].cardNum].display2 = 0;
+				deck[fPositions[1].cardNum].type = 0;
+				deck[fPositions[1].cardNum].value = 0;
+				deck[fPositions[1].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[1].cardOnIt = 0;
+				fPositions[1].cardValue = 0;
+				fPositions[1].cardNum = 0;
+
+				if (fPositions[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[6].cardNum].placed = 1;
+					deck[fPositions[6].cardNum].display1 = 0;
+					deck[fPositions[6].cardNum].display2 = 0;
+					deck[fPositions[6].cardNum].type = 0;
+					deck[fPositions[6].cardNum].value = 0;
+					deck[fPositions[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[6].cardOnIt = 0;
+					fPositions[6].cardValue = 0;
+					fPositions[6].cardNum = 0;
+
+					if (fPositions[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[10].cardNum].placed = 1;
+						deck[fPositions[10].cardNum].display1 = 0;
+						deck[fPositions[10].cardNum].display2 = 0;
+						deck[fPositions[10].cardNum].type = 0;
+						deck[fPositions[10].cardNum].value = 0;
+						deck[fPositions[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[10].cardOnIt = 0;
+						fPositions[10].cardValue = 0;
+						fPositions[10].cardNum = 0;
+
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+
+		if (fPositions2[2].cardOnIt == 1)
+		{
+			if (deck[fPositions2[2].cardNum].type == 'a')
+			{
+				if ((baseCards2[1].value && baseCards2[2].value) == fPositions2[2].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[2].cardNum].type == 'o')
+			{
+				if ((baseCards2[1].value || baseCards2[2].value) == fPositions2[2].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[2].cardNum].type == 'x')
+			{
+				if ((baseCards2[1].value ^ baseCards2[2].value) == fPositions2[2].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[2].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[2].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[2].cardNum].placed = 1;
+				deck[fPositions2[2].cardNum].display1 = 0;
+				deck[fPositions2[2].cardNum].display2 = 0;
+				deck[fPositions2[2].cardNum].type = 0;
+				deck[fPositions2[2].cardNum].value = 0;
+				deck[fPositions2[2].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[2].cardOnIt = 0;
+				fPositions2[2].cardValue = 0;
+				fPositions2[2].cardNum = 0;
+
+				if (fPositions2[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[6].cardNum].placed = 1;
+					deck[fPositions2[6].cardNum].display1 = 0;
+					deck[fPositions2[6].cardNum].display2 = 0;
+					deck[fPositions2[6].cardNum].type = 0;
+					deck[fPositions2[6].cardNum].value = 0;
+					deck[fPositions2[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[6].cardOnIt = 0;
+					fPositions2[6].cardValue = 0;
+					fPositions2[6].cardNum = 0;
+
+					if (fPositions2[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[10].cardNum].placed = 1;
+						deck[fPositions2[10].cardNum].display1 = 0;
+						deck[fPositions2[10].cardNum].display2 = 0;
+						deck[fPositions2[10].cardNum].type = 0;
+						deck[fPositions2[10].cardNum].value = 0;
+						deck[fPositions2[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[10].cardOnIt = 0;
+						fPositions2[10].cardValue = 0;
+						fPositions2[10].cardNum = 0;
+
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+
+						}
+					}
+				}
+				if (fPositions2[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[7].cardNum].placed = 1;
+					deck[fPositions2[7].cardNum].display1 = 0;
+					deck[fPositions2[7].cardNum].display2 = 0;
+					deck[fPositions2[7].cardNum].type = 0;
+					deck[fPositions2[7].cardNum].value = 0;
+					deck[fPositions2[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[7].cardOnIt = 0;
+					fPositions2[7].cardValue = 0;
+					fPositions2[7].cardNum = 0;
+
+					if (fPositions2[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[11].cardNum].placed = 1;
+						deck[fPositions2[11].cardNum].display1 = 0;
+						deck[fPositions2[11].cardNum].display2 = 0;
+						deck[fPositions2[11].cardNum].type = 0;
+						deck[fPositions2[11].cardNum].value = 0;
+						deck[fPositions2[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[11].cardOnIt = 0;
+						fPositions2[11].cardValue = 0;
+						fPositions2[11].cardNum = 0;
+
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		if (fPositions2[1].cardOnIt == 1)
+		{
+			if (deck[fPositions2[1].cardNum].type == 'a')
+			{
+				if ((baseCards2[0].value && baseCards2[1].value) == fPositions2[1].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[1].cardNum].type == 'o')
+			{
+				if ((baseCards2[0].value || baseCards2[1].value) == fPositions2[1].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[1].cardNum].type == 'x')
+			{
+				if ((baseCards2[0].value ^ baseCards2[1].value) == fPositions2[1].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[1].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[1].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[1].cardNum].placed = 1;
+				deck[fPositions2[1].cardNum].display1 = 0;
+				deck[fPositions2[1].cardNum].display2 = 0;
+				deck[fPositions2[1].cardNum].type = 0;
+				deck[fPositions2[1].cardNum].value = 0;
+				deck[fPositions2[1].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[1].cardOnIt = 0;
+				fPositions2[1].cardValue = 0;
+				fPositions2[1].cardNum = 0;
+
+				if (fPositions2[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[6].cardNum].placed = 1;
+					deck[fPositions2[6].cardNum].display1 = 0;
+					deck[fPositions2[6].cardNum].display2 = 0;
+					deck[fPositions2[6].cardNum].type = 0;
+					deck[fPositions2[6].cardNum].value = 0;
+					deck[fPositions2[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[6].cardOnIt = 0;
+					fPositions2[6].cardValue = 0;
+					fPositions2[6].cardNum = 0;
+
+					if (fPositions2[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[10].cardNum].placed = 1;
+						deck[fPositions2[10].cardNum].display1 = 0;
+						deck[fPositions2[10].cardNum].display2 = 0;
+						deck[fPositions2[10].cardNum].type = 0;
+						deck[fPositions2[10].cardNum].value = 0;
+						deck[fPositions2[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[10].cardOnIt = 0;
+						fPositions2[10].cardValue = 0;
+						fPositions2[10].cardNum = 0;
+
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 2:
+		if (fPositions[3].cardOnIt == 1)
+		{
+			if (deck[fPositions[3].cardNum].type == 'a')
+			{
+				if ((baseCards[2].value && baseCards[3].value) == fPositions[3].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[3].cardNum].type == 'o')
+			{
+				if ((baseCards[2].value || baseCards[3].value) == fPositions[3].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[3].cardNum].type == 'x')
+			{
+				if ((baseCards[2].value ^ baseCards[3].value) == fPositions[3].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[3].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[3].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[3].cardNum].placed = 1;
+				deck[fPositions[3].cardNum].display1 = 0;
+				deck[fPositions[3].cardNum].display2 = 0;
+				deck[fPositions[3].cardNum].type = 0;
+				deck[fPositions[3].cardNum].value = 0;
+				deck[fPositions[3].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[3].cardOnIt = 0;
+				fPositions[3].cardValue = 0;
+				fPositions[3].cardNum = 0;
+
+				if (fPositions[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[8].cardNum].placed = 1;
+					deck[fPositions[8].cardNum].display1 = 0;
+					deck[fPositions[8].cardNum].display2 = 0;
+					deck[fPositions[8].cardNum].type = 0;
+					deck[fPositions[8].cardNum].value = 0;
+					deck[fPositions[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[8].cardOnIt = 0;
+					fPositions[8].cardValue = 0;
+					fPositions[8].cardNum = 0;
+
+					if (fPositions[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[12].cardNum].placed = 1;
+						deck[fPositions[12].cardNum].display1 = 0;
+						deck[fPositions[12].cardNum].display2 = 0;
+						deck[fPositions[12].cardNum].type = 0;
+						deck[fPositions[12].cardNum].value = 0;
+						deck[fPositions[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[12].cardOnIt = 0;
+						fPositions[12].cardValue = 0;
+						fPositions[12].cardNum = 0;
+					}
+				}
+				if (fPositions[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[7].cardNum].placed = 1;
+					deck[fPositions[7].cardNum].display1 = 0;
+					deck[fPositions[7].cardNum].display2 = 0;
+					deck[fPositions[7].cardNum].type = 0;
+					deck[fPositions[7].cardNum].value = 0;
+					deck[fPositions[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[7].cardOnIt = 0;
+					fPositions[7].cardValue = 0;
+					fPositions[7].cardNum = 0;
+
+					if (fPositions[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[10].cardNum].placed = 1;
+						deck[fPositions[10].cardNum].display1 = 0;
+						deck[fPositions[10].cardNum].display2 = 0;
+						deck[fPositions[10].cardNum].type = 0;
+						deck[fPositions[10].cardNum].value = 0;
+						deck[fPositions[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[10].cardOnIt = 0;
+						fPositions[10].cardValue = 0;
+						fPositions[10].cardNum = 0;
+					}
+					if (fPositions[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[11].cardNum].placed = 1;
+						deck[fPositions[11].cardNum].display1 = 0;
+						deck[fPositions[11].cardNum].display2 = 0;
+						deck[fPositions[11].cardNum].type = 0;
+						deck[fPositions[11].cardNum].value = 0;
+						deck[fPositions[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[11].cardOnIt = 0;
+						fPositions[11].cardValue = 0;
+						fPositions[11].cardNum = 0;
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+						}
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+						}
+					}
+				}
+			}
+		}
+		if (fPositions[2].cardOnIt == 1)
+		{
+			if (deck[fPositions[2].cardNum].type == 'a')
+			{
+				if ((baseCards[1].value && baseCards[2].value) == fPositions[2].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[2].cardNum].type == 'o')
+			{
+				if ((baseCards[1].value || baseCards[2].value) == fPositions[2].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[2].cardNum].type == 'x')
+			{
+				if ((baseCards[1].value ^ baseCards[2].value) == fPositions[2].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[2].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[2].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[2].cardNum].placed = 1;
+				deck[fPositions[2].cardNum].display1 = 0;
+				deck[fPositions[2].cardNum].display2 = 0;
+				deck[fPositions[2].cardNum].type = 0;
+				deck[fPositions[2].cardNum].value = 0;
+				deck[fPositions[2].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[2].cardOnIt = 0;
+				fPositions[2].cardValue = 0;
+				fPositions[2].cardNum = 0;
+
+				if (fPositions[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[7].cardNum].placed = 1;
+					deck[fPositions[7].cardNum].display1 = 0;
+					deck[fPositions[7].cardNum].display2 = 0;
+					deck[fPositions[7].cardNum].type = 0;
+					deck[fPositions[7].cardNum].value = 0;
+					deck[fPositions[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[7].cardOnIt = 0;
+					fPositions[7].cardValue = 0;
+					fPositions[7].cardNum = 0;
+
+					if (fPositions[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[11].cardNum].placed = 1;
+						deck[fPositions[11].cardNum].display1 = 0;
+						deck[fPositions[11].cardNum].display2 = 0;
+						deck[fPositions[11].cardNum].type = 0;
+						deck[fPositions[11].cardNum].value = 0;
+						deck[fPositions[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[11].cardOnIt = 0;
+						fPositions[11].cardValue = 0;
+						fPositions[11].cardNum = 0;
+
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+
+						}
+					}
+				}
+
+				if (fPositions[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[6].cardNum].placed = 1;
+					deck[fPositions[6].cardNum].display1 = 0;
+					deck[fPositions[6].cardNum].display2 = 0;
+					deck[fPositions[6].cardNum].type = 0;
+					deck[fPositions[6].cardNum].value = 0;
+					deck[fPositions[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[6].cardOnIt = 0;
+					fPositions[6].cardValue = 0;
+					fPositions[6].cardNum = 0;
+
+					if (fPositions[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[10].cardNum].placed = 1;
+						deck[fPositions[10].cardNum].display1 = 0;
+						deck[fPositions[10].cardNum].display2 = 0;
+						deck[fPositions[10].cardNum].type = 0;
+						deck[fPositions[10].cardNum].value = 0;
+						deck[fPositions[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[10].cardOnIt = 0;
+						fPositions[10].cardValue = 0;
+						fPositions[10].cardNum = 0;
+
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+
+		if (fPositions2[3].cardOnIt == 1)
+		{
+			if (deck[fPositions2[3].cardNum].type == 'a')
+			{
+				if ((baseCards2[2].value && baseCards2[3].value) == fPositions2[3].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[3].cardNum].type == 'o')
+			{
+				if ((baseCards2[2].value || baseCards2[3].value) == fPositions2[3].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[3].cardNum].type == 'x')
+			{
+				if ((baseCards2[2].value ^ baseCards2[3].value) == fPositions2[3].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[3].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[3].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[3].cardNum].placed = 1;
+				deck[fPositions2[3].cardNum].display1 = 0;
+				deck[fPositions2[3].cardNum].display2 = 0;
+				deck[fPositions2[3].cardNum].type = 0;
+				deck[fPositions2[3].cardNum].value = 0;
+				deck[fPositions2[3].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[3].cardOnIt = 0;
+				fPositions2[3].cardValue = 0;
+				fPositions2[3].cardNum = 0;
+
+				if (fPositions2[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[8].cardNum].placed = 1;
+					deck[fPositions2[8].cardNum].display1 = 0;
+					deck[fPositions2[8].cardNum].display2 = 0;
+					deck[fPositions2[8].cardNum].type = 0;
+					deck[fPositions2[8].cardNum].value = 0;
+					deck[fPositions2[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[8].cardOnIt = 0;
+					fPositions2[8].cardValue = 0;
+					fPositions2[8].cardNum = 0;
+
+					if (fPositions2[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[12].cardNum].placed = 1;
+						deck[fPositions2[12].cardNum].display1 = 0;
+						deck[fPositions2[12].cardNum].display2 = 0;
+						deck[fPositions2[12].cardNum].type = 0;
+						deck[fPositions2[12].cardNum].value = 0;
+						deck[fPositions2[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[12].cardOnIt = 0;
+						fPositions2[12].cardValue = 0;
+						fPositions2[12].cardNum = 0;
+					}
+				}
+				if (fPositions2[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[7].cardNum].placed = 1;
+					deck[fPositions2[7].cardNum].display1 = 0;
+					deck[fPositions2[7].cardNum].display2 = 0;
+					deck[fPositions2[7].cardNum].type = 0;
+					deck[fPositions2[7].cardNum].value = 0;
+					deck[fPositions2[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[7].cardOnIt = 0;
+					fPositions2[7].cardValue = 0;
+					fPositions2[7].cardNum = 0;
+
+					if (fPositions2[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[10].cardNum].placed = 1;
+						deck[fPositions2[10].cardNum].display1 = 0;
+						deck[fPositions2[10].cardNum].display2 = 0;
+						deck[fPositions2[10].cardNum].type = 0;
+						deck[fPositions2[10].cardNum].value = 0;
+						deck[fPositions2[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[10].cardOnIt = 0;
+						fPositions2[10].cardValue = 0;
+						fPositions2[10].cardNum = 0;
+					}
+					if (fPositions2[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[11].cardNum].placed = 1;
+						deck[fPositions2[11].cardNum].display1 = 0;
+						deck[fPositions2[11].cardNum].display2 = 0;
+						deck[fPositions2[11].cardNum].type = 0;
+						deck[fPositions2[11].cardNum].value = 0;
+						deck[fPositions2[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[11].cardOnIt = 0;
+						fPositions2[11].cardValue = 0;
+						fPositions2[11].cardNum = 0;
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+						}
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+						}
+					}
+				}
+			}
+		}
+		if (fPositions2[2].cardOnIt == 1)
+		{
+			if (deck[fPositions2[2].cardNum].type == 'a')
+			{
+				if ((baseCards2[1].value && baseCards2[2].value) == fPositions2[2].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[2].cardNum].type == 'o')
+			{
+				if ((baseCards2[1].value || baseCards2[2].value) == fPositions2[2].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[2].cardNum].type == 'x')
+			{
+				if ((baseCards2[1].value ^ baseCards2[2].value) == fPositions2[2].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[2].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[2].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[2].cardNum].placed = 1;
+				deck[fPositions2[2].cardNum].display1 = 0;
+				deck[fPositions2[2].cardNum].display2 = 0;
+				deck[fPositions2[2].cardNum].type = 0;
+				deck[fPositions2[2].cardNum].value = 0;
+				deck[fPositions2[2].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[2].cardOnIt = 0;
+				fPositions2[2].cardValue = 0;
+				fPositions2[2].cardNum = 0;
+
+				if (fPositions2[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[7].cardNum].placed = 1;
+					deck[fPositions2[7].cardNum].display1 = 0;
+					deck[fPositions2[7].cardNum].display2 = 0;
+					deck[fPositions2[7].cardNum].type = 0;
+					deck[fPositions2[7].cardNum].value = 0;
+					deck[fPositions2[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[7].cardOnIt = 0;
+					fPositions2[7].cardValue = 0;
+					fPositions2[7].cardNum = 0;
+
+					if (fPositions2[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[11].cardNum].placed = 1;
+						deck[fPositions2[11].cardNum].display1 = 0;
+						deck[fPositions2[11].cardNum].display2 = 0;
+						deck[fPositions2[11].cardNum].type = 0;
+						deck[fPositions2[11].cardNum].value = 0;
+						deck[fPositions2[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[11].cardOnIt = 0;
+						fPositions2[11].cardValue = 0;
+						fPositions2[11].cardNum = 0;
+
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+
+						}
+					}
+				}
+
+				if (fPositions2[6].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[6].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[6].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[6].cardNum].placed = 1;
+					deck[fPositions2[6].cardNum].display1 = 0;
+					deck[fPositions2[6].cardNum].display2 = 0;
+					deck[fPositions2[6].cardNum].type = 0;
+					deck[fPositions2[6].cardNum].value = 0;
+					deck[fPositions2[6].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[6].cardOnIt = 0;
+					fPositions2[6].cardValue = 0;
+					fPositions2[6].cardNum = 0;
+
+					if (fPositions2[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[10].cardNum].placed = 1;
+						deck[fPositions2[10].cardNum].display1 = 0;
+						deck[fPositions2[10].cardNum].display2 = 0;
+						deck[fPositions2[10].cardNum].type = 0;
+						deck[fPositions2[10].cardNum].value = 0;
+						deck[fPositions2[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[10].cardOnIt = 0;
+						fPositions2[10].cardValue = 0;
+						fPositions2[10].cardNum = 0;
+
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 3:
+		if (fPositions[3].cardOnIt == 1)
+		{
+			if (deck[fPositions[3].cardNum].type == 'a')
+			{
+				if ((baseCards[4].value && baseCards[3].value) == fPositions[3].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[3].cardNum].type == 'o')
+			{
+				if ((baseCards[4].value || baseCards[3].value) == fPositions[3].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[3].cardNum].type == 'x')
+			{
+				if ((baseCards[4].value ^ baseCards[3].value) == fPositions[3].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[3].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[3].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[3].cardNum].placed = 1;
+				deck[fPositions[3].cardNum].display1 = 0;
+				deck[fPositions[3].cardNum].display2 = 0;
+				deck[fPositions[3].cardNum].type = 0;
+				deck[fPositions[3].cardNum].value = 0;
+				deck[fPositions[3].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[3].cardOnIt = 0;
+				fPositions[3].cardValue = 0;
+				fPositions[3].cardNum = 0;
+
+				if (fPositions[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[8].cardNum].placed = 1;
+					deck[fPositions[8].cardNum].display1 = 0;
+					deck[fPositions[8].cardNum].display2 = 0;
+					deck[fPositions[8].cardNum].type = 0;
+					deck[fPositions[8].cardNum].value = 0;
+					deck[fPositions[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[8].cardOnIt = 0;
+					fPositions[8].cardValue = 0;
+					fPositions[8].cardNum = 0;
+
+					if (fPositions[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[12].cardNum].placed = 1;
+						deck[fPositions[12].cardNum].display1 = 0;
+						deck[fPositions[12].cardNum].display2 = 0;
+						deck[fPositions[12].cardNum].type = 0;
+						deck[fPositions[12].cardNum].value = 0;
+						deck[fPositions[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[12].cardOnIt = 0;
+						fPositions[12].cardValue = 0;
+						fPositions[12].cardNum = 0;
+					}
+				}
+				if (fPositions[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[7].cardNum].placed = 1;
+					deck[fPositions[7].cardNum].display1 = 0;
+					deck[fPositions[7].cardNum].display2 = 0;
+					deck[fPositions[7].cardNum].type = 0;
+					deck[fPositions[7].cardNum].value = 0;
+					deck[fPositions[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[7].cardOnIt = 0;
+					fPositions[7].cardValue = 0;
+					fPositions[7].cardNum = 0;
+
+					if (fPositions[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[10].cardNum].placed = 1;
+						deck[fPositions[10].cardNum].display1 = 0;
+						deck[fPositions[10].cardNum].display2 = 0;
+						deck[fPositions[10].cardNum].type = 0;
+						deck[fPositions[10].cardNum].value = 0;
+						deck[fPositions[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[10].cardOnIt = 0;
+						fPositions[10].cardValue = 0;
+						fPositions[10].cardNum = 0;
+					}
+					if (fPositions[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[11].cardNum].placed = 1;
+						deck[fPositions[11].cardNum].display1 = 0;
+						deck[fPositions[11].cardNum].display2 = 0;
+						deck[fPositions[11].cardNum].type = 0;
+						deck[fPositions[11].cardNum].value = 0;
+						deck[fPositions[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[11].cardOnIt = 0;
+						fPositions[11].cardValue = 0;
+						fPositions[11].cardNum = 0;
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+						}
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+						}
+					}
+				}
+			}
+		}
+		if (fPositions[4].cardOnIt == 1)
+		{
+			if (deck[fPositions[4].cardNum].type == 'a')
+			{
+				if ((baseCards[3].value && baseCards[4].value) == fPositions[4].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[4].cardNum].type == 'o')
+			{
+				if ((baseCards[3].value || baseCards[4].value) == fPositions[4].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[4].cardNum].type == 'x')
+			{
+				if ((baseCards[3].value ^ baseCards[4].value) == fPositions[4].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[4].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[4].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[4].cardNum].placed = 1;
+				deck[fPositions[4].cardNum].display1 = 0;
+				deck[fPositions[4].cardNum].display2 = 0;
+				deck[fPositions[4].cardNum].type = 0;
+				deck[fPositions[4].cardNum].value = 0;
+				deck[fPositions[4].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[4].cardOnIt = 0;
+				fPositions[4].cardValue = 0;
+				fPositions[4].cardNum = 0;
+
+				if (fPositions[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[9].cardNum].placed = 1;
+					deck[fPositions[9].cardNum].display1 = 0;
+					deck[fPositions[9].cardNum].display2 = 0;
+					deck[fPositions[9].cardNum].type = 0;
+					deck[fPositions[9].cardNum].value = 0;
+					deck[fPositions[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[9].cardOnIt = 0;
+					fPositions[9].cardValue = 0;
+					fPositions[9].cardNum = 0;
+
+					if (fPositions[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[12].cardNum].placed = 1;
+						deck[fPositions[12].cardNum].display1 = 0;
+						deck[fPositions[12].cardNum].display2 = 0;
+						deck[fPositions[12].cardNum].type = 0;
+						deck[fPositions[12].cardNum].value = 0;
+						deck[fPositions[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[12].cardOnIt = 0;
+						fPositions[12].cardValue = 0;
+						fPositions[12].cardNum = 0;
+
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+
+						}
+					}
+				}
+
+				if (fPositions[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[8].cardNum].placed = 1;
+					deck[fPositions[8].cardNum].display1 = 0;
+					deck[fPositions[8].cardNum].display2 = 0;
+					deck[fPositions[8].cardNum].type = 0;
+					deck[fPositions[8].cardNum].value = 0;
+					deck[fPositions[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[8].cardOnIt = 0;
+					fPositions[8].cardValue = 0;
+					fPositions[8].cardNum = 0;
+
+					if (fPositions[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[11].cardNum].placed = 1;
+						deck[fPositions[11].cardNum].display1 = 0;
+						deck[fPositions[11].cardNum].display2 = 0;
+						deck[fPositions[11].cardNum].type = 0;
+						deck[fPositions[11].cardNum].value = 0;
+						deck[fPositions[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[11].cardOnIt = 0;
+						fPositions[11].cardValue = 0;
+						fPositions[11].cardNum = 0;
+
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+
+
+		if (fPositions2[3].cardOnIt == 1)
+		{
+			if (deck[fPositions2[3].cardNum].type == 'a')
+			{
+				if ((baseCards2[4].value && baseCards2[3].value) == fPositions2[3].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[3].cardNum].type == 'o')
+			{
+				if ((baseCards2[4].value || baseCards2[3].value) == fPositions2[3].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[3].cardNum].type == 'x')
+			{
+				if ((baseCards2[4].value ^ baseCards2[3].value) == fPositions2[3].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[3].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[3].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[3].cardNum].placed = 1;
+				deck[fPositions2[3].cardNum].display1 = 0;
+				deck[fPositions2[3].cardNum].display2 = 0;
+				deck[fPositions2[3].cardNum].type = 0;
+				deck[fPositions2[3].cardNum].value = 0;
+				deck[fPositions2[3].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[3].cardOnIt = 0;
+				fPositions2[3].cardValue = 0;
+				fPositions2[3].cardNum = 0;
+
+				if (fPositions2[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[8].cardNum].placed = 1;
+					deck[fPositions2[8].cardNum].display1 = 0;
+					deck[fPositions2[8].cardNum].display2 = 0;
+					deck[fPositions2[8].cardNum].type = 0;
+					deck[fPositions2[8].cardNum].value = 0;
+					deck[fPositions2[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[8].cardOnIt = 0;
+					fPositions2[8].cardValue = 0;
+					fPositions2[8].cardNum = 0;
+
+					if (fPositions2[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[12].cardNum].placed = 1;
+						deck[fPositions2[12].cardNum].display1 = 0;
+						deck[fPositions2[12].cardNum].display2 = 0;
+						deck[fPositions2[12].cardNum].type = 0;
+						deck[fPositions2[12].cardNum].value = 0;
+						deck[fPositions2[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[12].cardOnIt = 0;
+						fPositions2[12].cardValue = 0;
+						fPositions2[12].cardNum = 0;
+					}
+				}
+				if (fPositions2[7].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[7].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[7].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[7].cardNum].placed = 1;
+					deck[fPositions2[7].cardNum].display1 = 0;
+					deck[fPositions2[7].cardNum].display2 = 0;
+					deck[fPositions2[7].cardNum].type = 0;
+					deck[fPositions2[7].cardNum].value = 0;
+					deck[fPositions2[7].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[7].cardOnIt = 0;
+					fPositions2[7].cardValue = 0;
+					fPositions2[7].cardNum = 0;
+
+					if (fPositions2[10].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[10].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[10].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[10].cardNum].placed = 1;
+						deck[fPositions2[10].cardNum].display1 = 0;
+						deck[fPositions2[10].cardNum].display2 = 0;
+						deck[fPositions2[10].cardNum].type = 0;
+						deck[fPositions2[10].cardNum].value = 0;
+						deck[fPositions2[10].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[10].cardOnIt = 0;
+						fPositions2[10].cardValue = 0;
+						fPositions2[10].cardNum = 0;
+					}
+					if (fPositions2[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[11].cardNum].placed = 1;
+						deck[fPositions2[11].cardNum].display1 = 0;
+						deck[fPositions2[11].cardNum].display2 = 0;
+						deck[fPositions2[11].cardNum].type = 0;
+						deck[fPositions2[11].cardNum].value = 0;
+						deck[fPositions2[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[11].cardOnIt = 0;
+						fPositions2[11].cardValue = 0;
+						fPositions2[11].cardNum = 0;
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+						}
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+						}
+					}
+				}
+			}
+		}
+		if (fPositions2[4].cardOnIt == 1)
+		{
+			if (deck[fPositions2[4].cardNum].type == 'a')
+			{
+				if ((baseCards2[3].value && baseCards2[4].value) == fPositions2[4].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[4].cardNum].type == 'o')
+			{
+				if ((baseCards2[3].value || baseCards2[4].value) == fPositions2[4].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[4].cardNum].type == 'x')
+			{
+				if ((baseCards2[3].value ^ baseCards2[4].value) == fPositions2[4].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[4].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[4].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[4].cardNum].placed = 1;
+				deck[fPositions2[4].cardNum].display1 = 0;
+				deck[fPositions2[4].cardNum].display2 = 0;
+				deck[fPositions2[4].cardNum].type = 0;
+				deck[fPositions2[4].cardNum].value = 0;
+				deck[fPositions2[4].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[4].cardOnIt = 0;
+				fPositions2[4].cardValue = 0;
+				fPositions2[4].cardNum = 0;
+
+				if (fPositions2[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[9].cardNum].placed = 1;
+					deck[fPositions2[9].cardNum].display1 = 0;
+					deck[fPositions2[9].cardNum].display2 = 0;
+					deck[fPositions2[9].cardNum].type = 0;
+					deck[fPositions2[9].cardNum].value = 0;
+					deck[fPositions2[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[9].cardOnIt = 0;
+					fPositions2[9].cardValue = 0;
+					fPositions2[9].cardNum = 0;
+
+					if (fPositions2[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[12].cardNum].placed = 1;
+						deck[fPositions2[12].cardNum].display1 = 0;
+						deck[fPositions2[12].cardNum].display2 = 0;
+						deck[fPositions2[12].cardNum].type = 0;
+						deck[fPositions2[12].cardNum].value = 0;
+						deck[fPositions2[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[12].cardOnIt = 0;
+						fPositions2[12].cardValue = 0;
+						fPositions2[12].cardNum = 0;
+
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+
+						}
+					}
+				}
+
+				if (fPositions2[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[8].cardNum].placed = 1;
+					deck[fPositions2[8].cardNum].display1 = 0;
+					deck[fPositions2[8].cardNum].display2 = 0;
+					deck[fPositions2[8].cardNum].type = 0;
+					deck[fPositions2[8].cardNum].value = 0;
+					deck[fPositions2[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[8].cardOnIt = 0;
+					fPositions2[8].cardValue = 0;
+					fPositions2[8].cardNum = 0;
+
+					if (fPositions2[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[11].cardNum].placed = 1;
+						deck[fPositions2[11].cardNum].display1 = 0;
+						deck[fPositions2[11].cardNum].display2 = 0;
+						deck[fPositions2[11].cardNum].type = 0;
+						deck[fPositions2[11].cardNum].value = 0;
+						deck[fPositions2[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[11].cardOnIt = 0;
+						fPositions2[11].cardValue = 0;
+						fPositions2[11].cardNum = 0;
+
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 4:
+		if (fPositions[4].cardOnIt == 1)
+		{
+			if (deck[fPositions[4].cardNum].type == 'a')
+			{
+				if ((baseCards[3].value && baseCards[4].value) == fPositions[4].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[4].cardNum].type == 'o')
+			{
+				if ((baseCards[3].value || baseCards[4].value) == fPositions[4].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[4].cardNum].type == 'x')
+			{
+				if ((baseCards[3].value ^ baseCards[4].value) == fPositions[4].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[4].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[4].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[4].cardNum].placed = 1;
+				deck[fPositions[4].cardNum].display1 = 0;
+				deck[fPositions[4].cardNum].display2 = 0;
+				deck[fPositions[4].cardNum].type = 0;
+				deck[fPositions[4].cardNum].value = 0;
+				deck[fPositions[4].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[4].cardOnIt = 0;
+				fPositions[4].cardValue = 0;
+				fPositions[4].cardNum = 0;
+
+				if (fPositions[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[8].cardNum].placed = 1;
+					deck[fPositions[8].cardNum].display1 = 0;
+					deck[fPositions[8].cardNum].display2 = 0;
+					deck[fPositions[8].cardNum].type = 0;
+					deck[fPositions[8].cardNum].value = 0;
+					deck[fPositions[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[8].cardOnIt = 0;
+					fPositions[8].cardValue = 0;
+					fPositions[8].cardNum = 0;
+
+					if (fPositions[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[11].cardNum].placed = 1;
+						deck[fPositions[11].cardNum].display1 = 0;
+						deck[fPositions[11].cardNum].display2 = 0;
+						deck[fPositions[11].cardNum].type = 0;
+						deck[fPositions[11].cardNum].value = 0;
+						deck[fPositions[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[11].cardOnIt = 0;
+						fPositions[11].cardValue = 0;
+						fPositions[11].cardNum = 0;
+
+						if (fPositions[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[13].cardNum].placed = 1;
+							deck[fPositions[13].cardNum].display1 = 0;
+							deck[fPositions[13].cardNum].display2 = 0;
+							deck[fPositions[13].cardNum].type = 0;
+							deck[fPositions[13].cardNum].value = 0;
+							deck[fPositions[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[13].cardOnIt = 0;
+							fPositions[13].cardValue = 0;
+							fPositions[13].cardNum = 0;
+
+						}
+					}
+				}
+				if (fPositions[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[9].cardNum].placed = 1;
+					deck[fPositions[9].cardNum].display1 = 0;
+					deck[fPositions[9].cardNum].display2 = 0;
+					deck[fPositions[9].cardNum].type = 0;
+					deck[fPositions[9].cardNum].value = 0;
+					deck[fPositions[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[9].cardOnIt = 0;
+					fPositions[9].cardValue = 0;
+					fPositions[9].cardNum = 0;
+
+					if (fPositions[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[12].cardNum].placed = 1;
+						deck[fPositions[12].cardNum].display1 = 0;
+						deck[fPositions[12].cardNum].display2 = 0;
+						deck[fPositions[12].cardNum].type = 0;
+						deck[fPositions[12].cardNum].value = 0;
+						deck[fPositions[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[12].cardOnIt = 0;
+						fPositions[12].cardValue = 0;
+						fPositions[12].cardNum = 0;
+
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		
+		if (fPositions[5].cardOnIt == 1)
+		{
+			if (deck[fPositions[5].cardNum].type == 'a')
+			{
+				if ((baseCards[4].value && baseCards[5].value) == fPositions[5].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[5].cardNum].type == 'o')
+			{
+				if ((baseCards[4].value || baseCards[5].value) == fPositions[5].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[5].cardNum].type == 'x')
+			{
+				if ((baseCards[4].value ^ baseCards[5].value) == fPositions[5].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[5].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[5].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[5].cardNum].placed = 1;
+				deck[fPositions[5].cardNum].display1 = 0;
+				deck[fPositions[5].cardNum].display2 = 0;
+				deck[fPositions[5].cardNum].type = 0;
+				deck[fPositions[5].cardNum].value = 0;
+				deck[fPositions[5].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[5].cardOnIt = 0;
+				fPositions[5].cardValue = 0;
+				fPositions[5].cardNum = 0;
+
+				if (fPositions[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[9].cardNum].placed = 1;
+					deck[fPositions[9].cardNum].display1 = 0;
+					deck[fPositions[9].cardNum].display2 = 0;
+					deck[fPositions[9].cardNum].type = 0;
+					deck[fPositions[9].cardNum].value = 0;
+					deck[fPositions[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[9].cardOnIt = 0;
+					fPositions[9].cardValue = 0;
+					fPositions[9].cardNum = 0;
+
+					if (fPositions[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[12].cardNum].placed = 1;
+						deck[fPositions[12].cardNum].display1 = 0;
+						deck[fPositions[12].cardNum].display2 = 0;
+						deck[fPositions[12].cardNum].type = 0;
+						deck[fPositions[12].cardNum].value = 0;
+						deck[fPositions[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[12].cardOnIt = 0;
+						fPositions[12].cardValue = 0;
+						fPositions[12].cardNum = 0;
+
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+
+		if (fPositions2[4].cardOnIt == 1)
+		{
+			if (deck[fPositions2[4].cardNum].type == 'a')
+			{
+				if ((baseCards2[3].value && baseCards2[4].value) == fPositions2[4].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[4].cardNum].type == 'o')
+			{
+				if ((baseCards2[3].value || baseCards2[4].value) == fPositions2[4].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[4].cardNum].type == 'x')
+			{
+				if ((baseCards2[3].value ^ baseCards2[4].value) == fPositions2[4].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[4].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[4].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[4].cardNum].placed = 1;
+				deck[fPositions2[4].cardNum].display1 = 0;
+				deck[fPositions2[4].cardNum].display2 = 0;
+				deck[fPositions2[4].cardNum].type = 0;
+				deck[fPositions2[4].cardNum].value = 0;
+				deck[fPositions2[4].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[4].cardOnIt = 0;
+				fPositions2[4].cardValue = 0;
+				fPositions2[4].cardNum = 0;
+
+				if (fPositions2[8].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[8].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[8].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[8].cardNum].placed = 1;
+					deck[fPositions2[8].cardNum].display1 = 0;
+					deck[fPositions2[8].cardNum].display2 = 0;
+					deck[fPositions2[8].cardNum].type = 0;
+					deck[fPositions2[8].cardNum].value = 0;
+					deck[fPositions2[8].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[8].cardOnIt = 0;
+					fPositions2[8].cardValue = 0;
+					fPositions2[8].cardNum = 0;
+
+					if (fPositions2[11].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[11].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[11].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[11].cardNum].placed = 1;
+						deck[fPositions2[11].cardNum].display1 = 0;
+						deck[fPositions2[11].cardNum].display2 = 0;
+						deck[fPositions2[11].cardNum].type = 0;
+						deck[fPositions2[11].cardNum].value = 0;
+						deck[fPositions2[11].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[11].cardOnIt = 0;
+						fPositions2[11].cardValue = 0;
+						fPositions2[11].cardNum = 0;
+
+						if (fPositions2[13].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[13].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[13].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[13].cardNum].placed = 1;
+							deck[fPositions2[13].cardNum].display1 = 0;
+							deck[fPositions2[13].cardNum].display2 = 0;
+							deck[fPositions2[13].cardNum].type = 0;
+							deck[fPositions2[13].cardNum].value = 0;
+							deck[fPositions2[13].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[13].cardOnIt = 0;
+							fPositions2[13].cardValue = 0;
+							fPositions2[13].cardNum = 0;
+
+						}
+					}
+				}
+				if (fPositions2[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[9].cardNum].placed = 1;
+					deck[fPositions2[9].cardNum].display1 = 0;
+					deck[fPositions2[9].cardNum].display2 = 0;
+					deck[fPositions2[9].cardNum].type = 0;
+					deck[fPositions2[9].cardNum].value = 0;
+					deck[fPositions2[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[9].cardOnIt = 0;
+					fPositions2[9].cardValue = 0;
+					fPositions2[9].cardNum = 0;
+
+					if (fPositions2[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[12].cardNum].placed = 1;
+						deck[fPositions2[12].cardNum].display1 = 0;
+						deck[fPositions2[12].cardNum].display2 = 0;
+						deck[fPositions2[12].cardNum].type = 0;
+						deck[fPositions2[12].cardNum].value = 0;
+						deck[fPositions2[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[12].cardOnIt = 0;
+						fPositions2[12].cardValue = 0;
+						fPositions2[12].cardNum = 0;
+
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+
+		if (fPositions2[5].cardOnIt == 1)
+		{
+			if (deck[fPositions2[5].cardNum].type == 'a')
+			{
+				if ((baseCards2[4].value && baseCards2[5].value) == fPositions2[5].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[5].cardNum].type == 'o')
+			{
+				if ((baseCards2[4].value || baseCards2[5].value) == fPositions2[5].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[5].cardNum].type == 'x')
+			{
+				if ((baseCards2[4].value ^ baseCards2[5].value) == fPositions2[5].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[5].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[5].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[5].cardNum].placed = 1;
+				deck[fPositions2[5].cardNum].display1 = 0;
+				deck[fPositions2[5].cardNum].display2 = 0;
+				deck[fPositions2[5].cardNum].type = 0;
+				deck[fPositions2[5].cardNum].value = 0;
+				deck[fPositions2[5].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[5].cardOnIt = 0;
+				fPositions2[5].cardValue = 0;
+				fPositions2[5].cardNum = 0;
+
+				if (fPositions2[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[9].cardNum].placed = 1;
+					deck[fPositions2[9].cardNum].display1 = 0;
+					deck[fPositions2[9].cardNum].display2 = 0;
+					deck[fPositions2[9].cardNum].type = 0;
+					deck[fPositions2[9].cardNum].value = 0;
+					deck[fPositions2[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[9].cardOnIt = 0;
+					fPositions2[9].cardValue = 0;
+					fPositions2[9].cardNum = 0;
+
+					if (fPositions2[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[12].cardNum].placed = 1;
+						deck[fPositions2[12].cardNum].display1 = 0;
+						deck[fPositions2[12].cardNum].display2 = 0;
+						deck[fPositions2[12].cardNum].type = 0;
+						deck[fPositions2[12].cardNum].value = 0;
+						deck[fPositions2[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[12].cardOnIt = 0;
+						fPositions2[12].cardValue = 0;
+						fPositions2[12].cardNum = 0;
+
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 5:
+		if (fPositions[5].cardOnIt == 1)
+		{
+			if (deck[fPositions[5].cardNum].type == 'a')
+			{
+				if ((baseCards[4].value && baseCards[5].value) == fPositions[5].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[5].cardNum].type == 'o')
+			{
+				if ((baseCards[4].value || baseCards[5].value) == fPositions[5].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			else if (deck[fPositions[5].cardNum].type == 'x')
+			{
+				if ((baseCards[4].value ^ baseCards[5].value) == fPositions[5].cardValue)
+				{
+					collapse = 0;
+					break;
+				}
+				else
+				{
+					collapse = 1;
+				}
+			}
+			if (collapse == 1)
+			{
+				collapse = 0;
+				deck[counterNotCards3].type = deck[fPositions[5].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions[5].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions[5].cardNum].placed = 1;
+				deck[fPositions[5].cardNum].display1 = 0;
+				deck[fPositions[5].cardNum].display2 = 0;
+				deck[fPositions[5].cardNum].type = 0;
+				deck[fPositions[5].cardNum].value = 0;
+				deck[fPositions[5].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions[5].cardOnIt = 0;
+				fPositions[5].cardValue = 0;
+				fPositions[5].cardNum = 0;
+
+				if (fPositions[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions[9].cardNum].placed = 1;
+					deck[fPositions[9].cardNum].display1 = 0;
+					deck[fPositions[9].cardNum].display2 = 0;
+					deck[fPositions[9].cardNum].type = 0;
+					deck[fPositions[9].cardNum].value = 0;
+					deck[fPositions[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions[9].cardOnIt = 0;
+					fPositions[9].cardValue = 0;
+					fPositions[9].cardNum = 0;
+
+					if (fPositions[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions[12].cardNum].placed = 1;
+						deck[fPositions[12].cardNum].display1 = 0;
+						deck[fPositions[12].cardNum].display2 = 0;
+						deck[fPositions[12].cardNum].type = 0;
+						deck[fPositions[12].cardNum].value = 0;
+						deck[fPositions[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions[12].cardOnIt = 0;
+						fPositions[12].cardValue = 0;
+						fPositions[12].cardNum = 0;
+
+						if (fPositions[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions[14].cardNum].placed = 1;
+							deck[fPositions[14].cardNum].display1 = 0;
+							deck[fPositions[14].cardNum].display2 = 0;
+							deck[fPositions[14].cardNum].type = 0;
+							deck[fPositions[14].cardNum].value = 0;
+							deck[fPositions[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions[14].cardOnIt = 0;
+							fPositions[14].cardValue = 0;
+							fPositions[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		if (fPositions2[5].cardOnIt == 1)
+		{
+			if (deck[fPositions2[5].cardNum].type == 'a')
+			{
+				if ((baseCards2[4].value && baseCards2[5].value) == fPositions2[5].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[5].cardNum].type == 'o')
+			{
+				if ((baseCards2[4].value || baseCards2[5].value) == fPositions2[5].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			else if (deck[fPositions2[5].cardNum].type == 'x')
+			{
+				if ((baseCards2[4].value ^ baseCards2[5].value) == fPositions2[5].cardValue)
+				{
+					collapse2 = 0;
+					break;
+				}
+				else
+				{
+					collapse2 = 1;
+				}
+			}
+			if (collapse2 == 1)
+			{
+				collapse2 = 0;
+				deck[counterNotCards3].type = deck[fPositions2[5].cardNum].type;
+				deck[counterNotCards3].value = deck[fPositions2[5].cardNum].value;
+				deck[counterNotCards3].num = counterNotCards3;
+				deck[fPositions2[5].cardNum].placed = 1;
+				deck[fPositions2[5].cardNum].display1 = 0;
+				deck[fPositions2[5].cardNum].display2 = 0;
+				deck[fPositions2[5].cardNum].type = 0;
+				deck[fPositions2[5].cardNum].value = 0;
+				deck[fPositions2[5].cardNum].num = 0;
+				counterNotCards3++;
+				fPositions2[5].cardOnIt = 0;
+				fPositions2[5].cardValue = 0;
+				fPositions2[5].cardNum = 0;
+
+				if (fPositions2[9].cardOnIt == 1)
+				{
+					deck[counterNotCards3].type = deck[fPositions2[9].cardNum].type;
+					deck[counterNotCards3].value = deck[fPositions2[9].cardNum].value;
+					deck[counterNotCards3].num = counterNotCards3;
+					deck[fPositions2[9].cardNum].placed = 1;
+					deck[fPositions2[9].cardNum].display1 = 0;
+					deck[fPositions2[9].cardNum].display2 = 0;
+					deck[fPositions2[9].cardNum].type = 0;
+					deck[fPositions2[9].cardNum].value = 0;
+					deck[fPositions2[9].cardNum].num = 0;
+					counterNotCards3++;
+					fPositions2[9].cardOnIt = 0;
+					fPositions2[9].cardValue = 0;
+					fPositions2[9].cardNum = 0;
+
+					if (fPositions2[12].cardOnIt == 1)
+					{
+						deck[counterNotCards3].type = deck[fPositions2[12].cardNum].type;
+						deck[counterNotCards3].value = deck[fPositions2[12].cardNum].value;
+						deck[counterNotCards3].num = counterNotCards3;
+						deck[fPositions2[12].cardNum].placed = 1;
+						deck[fPositions2[12].cardNum].display1 = 0;
+						deck[fPositions2[12].cardNum].display2 = 0;
+						deck[fPositions2[12].cardNum].type = 0;
+						deck[fPositions2[12].cardNum].value = 0;
+						deck[fPositions2[12].cardNum].num = 0;
+						counterNotCards3++;
+						fPositions2[12].cardOnIt = 0;
+						fPositions2[12].cardValue = 0;
+						fPositions2[12].cardNum = 0;
+
+						if (fPositions2[14].cardOnIt == 1)
+						{
+							deck[counterNotCards3].type = deck[fPositions2[14].cardNum].type;
+							deck[counterNotCards3].value = deck[fPositions2[14].cardNum].value;
+							deck[counterNotCards3].num = counterNotCards3;
+							deck[fPositions2[14].cardNum].placed = 1;
+							deck[fPositions2[14].cardNum].display1 = 0;
+							deck[fPositions2[14].cardNum].display2 = 0;
+							deck[fPositions2[14].cardNum].type = 0;
+							deck[fPositions2[14].cardNum].value = 0;
+							deck[fPositions2[14].cardNum].num = 0;
+							counterNotCards3++;
+							fPositions2[14].cardOnIt = 0;
+							fPositions2[14].cardValue = 0;
+							fPositions2[14].cardNum = 0;
+
+						}
+					}
+				}
+			}
+		}
+		break;
+	}
+}
 
 void Game::setNotCardImages(sf::Vector2i cursorpos)
 {
@@ -4428,7 +7279,57 @@ void Game::setNotCardImages(sf::Vector2i cursorpos)
 											{
 												notCardPos[j].imgTexture.loadFromFile("assets/PlacedNotCard.png");
 												notCardPos[j].img.setTexture(notCardPos[j].imgTexture);
-											pressed = true;
+												pressed = true;
+
+												if (deck[player2Pos1].type == 'n')
+												{
+													otherNot = 1;
+												}
+												else if (deck[player2Pos2].type == 'n')
+												{
+													otherNot = 1;
+												}
+												else if (deck[player2Pos3].type == 'n')
+												{
+													otherNot = 1;
+												}
+												else if (deck[player2Pos4].type == 'n')
+												{
+													otherNot = 1;
+												}
+												else if (deck[player2Pos5].type == 'n')
+												{
+													otherNot = 1;
+												}
+												
+												if(0)
+												{
+													otherNot = 0;
+												}
+												else
+												{
+													baseCards[j].value = !(baseCards[j].value);
+													baseCards2[j].value = !(baseCards2[j].value);
+													baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
+													baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
+													roundPlayed = 1;
+
+													deck[i].drag = 0;
+													deck[i].placed = 1;
+													notCardPos[j].cardOnIt = 1;
+													deck[i].num = 0;
+													deck[i].type = 0;
+													deck[i].value = 0;
+													deck[i].player1pos = 0;
+													deck[i].display1 = 0;
+													deck[i].display2 = 0;
+													card1Dragging = 0;
+													player1Pos1 = 0;
+													showNotA = 0;
+													player1Cards--;
+													pressed = true;
+													notCardLogic(j);
+												}
 											}
 										}
 										else
@@ -9903,6 +12804,15 @@ void Game::thirdGamemode(sf::Window& newWindow)
 		if (showNotA)
 		{
 			placingNotCardsPos();
+		}
+		for (int i = 0; i < 6; i++)
+		{
+			if (notCardPos[i].cardOnIt == 1)
+			{
+				notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+				notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+				this->window->draw(notCardPos[i].img);
+			}
 		}
 		for (int i = 1; i < 16; i++)
 		{
