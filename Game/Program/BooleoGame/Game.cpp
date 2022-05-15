@@ -12556,162 +12556,121 @@ void Game::setNotCardImages2(sf::Vector2i cursorpos)
 
 												if (otherNot)
 												{
+													srand((unsigned)time(0));
+													int shouldPlayNot = rand() % 10 + 1;
 													deck[i].drag = 0;
 													otherNot = 0;
-													while (true)
-													{
-														setTimer();
-														this->window->clear();
-														this->window->draw(this->backgroundSprite);
-														this->window->draw(timer);
-														this->window->draw(this->player1Text);
-														this->window->draw(baseCards[0].BaseCardImg);
-														this->window->draw(baseCards[1].BaseCardImg);
-														this->window->draw(baseCards[2].BaseCardImg);
-														this->window->draw(baseCards[3].BaseCardImg);
-														this->window->draw(baseCards[4].BaseCardImg);
-														this->window->draw(baseCards[5].BaseCardImg);
-														for (int i = 0; i < 6; i++)
-														{
-															if (notCardPos[i].cardOnIt == 1)
-															{
-																notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
-																notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
-																this->window->draw(notCardPos[i].img);
-															}
-														}
-														tableOfTruth();
-														setNotCardImages(cursorpos);
-														for (int i = 1; i < 16; i++)
-														{
-															if (fPositions[i].cardOnIt == 1)
-															{
-																this->window->draw(deck[fPositions[i].cardNum].img);
-															}
-														}
-														if (getMousePos(639, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp1.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																if (deck[player2Pos1].type == 'n')
-																{
-																	deck[player2Pos1].drag = 0;
-																	deck[player2Pos1].placed = 1;
-																	deck[player2Pos1].num = 0;
-																	deck[player2Pos1].type = 0;
-																	deck[player2Pos1].value = 0;
-																	deck[player2Pos1].player2pos = 0;
-																	deck[player2Pos1].display1 = 0;
-																	deck[player2Pos1].display2 = 0;
-																	player2Pos1 = 0;
-																}
-																else if (deck[player2Pos2].type == 'n')
-																{
-																	deck[player2Pos2].drag = 0;
-																	deck[player2Pos2].placed = 1;
-																	deck[player2Pos2].num = 0;
-																	deck[player2Pos2].type = 0;
-																	deck[player2Pos2].value = 0;
-																	deck[player2Pos2].player2pos = 0;
-																	deck[player2Pos2].display1 = 0;
-																	deck[player2Pos2].display2 = 0;
-																	player2Pos2 = 0;
-																}
-																else if (deck[player2Pos3].type == 'n')
-																{
-																	deck[player2Pos3].drag = 0;
-																	deck[player2Pos3].placed = 1;
-																	deck[player2Pos3].num = 0;
-																	deck[player2Pos3].type = 0;
-																	deck[player2Pos3].value = 0;
-																	deck[player2Pos3].player2pos = 0;
-																	deck[player2Pos3].display1 = 0;
-																	deck[player2Pos3].display2 = 0;
-																	player2Pos3 = 0;
-																}
-																else if (deck[player2Pos4].type == 'n')
-																{
-																	deck[player2Pos4].drag = 0;
-																	deck[player2Pos4].placed = 1;
-																	deck[player2Pos4].num = 0;
-																	deck[player2Pos4].type = 0;
-																	deck[player2Pos4].value = 0;
-																	deck[player2Pos4].player2pos = 0;
-																	deck[player2Pos4].display1 = 0;
-																	deck[player2Pos4].display2 = 0;
-																	player2Pos4 = 0;
-																}
-																else if (deck[player2Pos5].type == 'n')
-																{
-																	deck[player2Pos5].drag = 0;
-																	deck[player2Pos5].placed = 1;
-																	deck[player2Pos5].num = 0;
-																	deck[player2Pos5].type = 0;
-																	deck[player2Pos5].value = 0;
-																	deck[player2Pos5].player2pos = 0;
-																	deck[player2Pos5].display1 = 0;
-																	deck[player2Pos5].display2 = 0;
-																	player2Pos5 = 0;
-																}
-																roundPlayed = 1;
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 0;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card1Dragging = 0;
-																player1Pos1 = 0;
-																showNotA = 0;
-																player1Cards--;
-																player2Cards--;
-																pressed = true;
-																break;
-															}
-														}
-														else if (getMousePos(823, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp2.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																baseCards[j].value = !(baseCards[j].value);
-																baseCards2[j].value = !(baseCards2[j].value);
-																baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
-																baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
-																roundPlayed = 1;
 
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 1;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card1Dragging = 0;
-																player1Pos1 = 0;
-																showNotA = 0;
-																player1Cards--;
-																pressed = true;
-																notCardLogic(j);
-																break;
-															}
-														}
-														else
+													if (shouldPlayNot <= 6)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp.png");
-															notCardPop.setTexture(notCardPopTexture);
+															if (deck[player2Pos1].type == 'n')
+															{
+																deck[player2Pos1].drag = 0;
+																deck[player2Pos1].placed = 1;
+																deck[player2Pos1].num = 0;
+																deck[player2Pos1].type = 0;
+																deck[player2Pos1].value = 0;
+																deck[player2Pos1].player2pos = 0;
+																deck[player2Pos1].display1 = 0;
+																deck[player2Pos1].display2 = 0;
+																player2Pos1 = 0;
+															}
+															else if (deck[player2Pos2].type == 'n')
+															{
+																deck[player2Pos2].drag = 0;
+																deck[player2Pos2].placed = 1;
+																deck[player2Pos2].num = 0;
+																deck[player2Pos2].type = 0;
+																deck[player2Pos2].value = 0;
+																deck[player2Pos2].player2pos = 0;
+																deck[player2Pos2].display1 = 0;
+																deck[player2Pos2].display2 = 0;
+																player2Pos2 = 0;
+															}
+															else if (deck[player2Pos3].type == 'n')
+															{
+																deck[player2Pos3].drag = 0;
+																deck[player2Pos3].placed = 1;
+																deck[player2Pos3].num = 0;
+																deck[player2Pos3].type = 0;
+																deck[player2Pos3].value = 0;
+																deck[player2Pos3].player2pos = 0;
+																deck[player2Pos3].display1 = 0;
+																deck[player2Pos3].display2 = 0;
+																player2Pos3 = 0;
+															}
+															else if (deck[player2Pos4].type == 'n')
+															{
+																deck[player2Pos4].drag = 0;
+																deck[player2Pos4].placed = 1;
+																deck[player2Pos4].num = 0;
+																deck[player2Pos4].type = 0;
+																deck[player2Pos4].value = 0;
+																deck[player2Pos4].player2pos = 0;
+																deck[player2Pos4].display1 = 0;
+																deck[player2Pos4].display2 = 0;
+																player2Pos4 = 0;
+															}
+															else if (deck[player2Pos5].type == 'n')
+															{
+																deck[player2Pos5].drag = 0;
+																deck[player2Pos5].placed = 1;
+																deck[player2Pos5].num = 0;
+																deck[player2Pos5].type = 0;
+																deck[player2Pos5].value = 0;
+																deck[player2Pos5].player2pos = 0;
+																deck[player2Pos5].display1 = 0;
+																deck[player2Pos5].display2 = 0;
+																player2Pos5 = 0;
+															}
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 0;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card1Dragging = 0;
+															player1Pos1 = 0;
+															showNotA = 0;
+															player1Cards--;
+															player2Cards--;
+															pressed = true;
+															break;
 														}
-														this->window->draw(notCardPop);
-														this->window->display();
 													}
+												else if (shouldPlayNot >= 7)
+												{
+													if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+													{
+													baseCards[j].value = !(baseCards[j].value);
+													baseCards2[j].value = !(baseCards2[j].value);
+													baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
+													baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
+													roundPlayed = 1;
+													deck[i].drag = 0;
+													deck[i].placed = 1;
+													notCardPos[j].cardOnIt = 1;
+													deck[i].num = 0;
+													deck[i].type = 0;
+													deck[i].value = 0;
+													deck[i].player1pos = 0;
+													deck[i].display1 = 0;
+													deck[i].display2 = 0;
+													card1Dragging = 0;
+													player1Pos1 = 0;
+													showNotA = 0;
+													player1Cards--;
+													pressed = true;
+													notCardLogic(j);
+													break;
+													}
+												}		
 												}
 												else
 												{
@@ -12958,161 +12917,120 @@ void Game::setNotCardImages2(sf::Vector2i cursorpos)
 
 												if (otherNot)
 												{
+													srand((unsigned)time(0));
+													int shouldPlayNot = rand() % 10 + 1;
 													deck[i].drag = 0;
 													otherNot = 0;
-													while (true)
-													{
-														setTimer();
-														this->window->clear();
-														this->window->draw(this->backgroundSprite);
-														this->window->draw(timer);
-														this->window->draw(this->player1Text);
-														this->window->draw(baseCards[0].BaseCardImg);
-														this->window->draw(baseCards[1].BaseCardImg);
-														this->window->draw(baseCards[2].BaseCardImg);
-														this->window->draw(baseCards[3].BaseCardImg);
-														this->window->draw(baseCards[4].BaseCardImg);
-														this->window->draw(baseCards[5].BaseCardImg);
-														for (int i = 0; i < 6; i++)
-														{
-															if (notCardPos[i].cardOnIt == 1)
-															{
-																notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
-																notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
-																this->window->draw(notCardPos[i].img);
-															}
-														}
-														tableOfTruth();
-														setNotCardImages(cursorpos);
-														for (int i = 1; i < 16; i++)
-														{
-															if (fPositions[i].cardOnIt == 1)
-															{
-																this->window->draw(deck[fPositions[i].cardNum].img);
-															}
-														}
-														if (getMousePos(639, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp1.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																if (deck[player2Pos1].type == 'n')
-																{
-																	deck[player2Pos1].drag = 0;
-																	deck[player2Pos1].placed = 1;
-																	deck[player2Pos1].num = 0;
-																	deck[player2Pos1].type = 0;
-																	deck[player2Pos1].value = 0;
-																	deck[player2Pos1].player2pos = 0;
-																	deck[player2Pos1].display1 = 0;
-																	deck[player2Pos1].display2 = 0;
-																	player2Pos1 = 0;
-																}
-																else if (deck[player2Pos2].type == 'n')
-																{
-																	deck[player2Pos2].drag = 0;
-																	deck[player2Pos2].placed = 1;
-																	deck[player2Pos2].num = 0;
-																	deck[player2Pos2].type = 0;
-																	deck[player2Pos2].value = 0;
-																	deck[player2Pos2].player2pos = 0;
-																	deck[player2Pos2].display1 = 0;
-																	deck[player2Pos2].display2 = 0;
-																	player2Pos2 = 0;
-																}
-																else if (deck[player2Pos3].type == 'n')
-																{
-																	deck[player2Pos3].drag = 0;
-																	deck[player2Pos3].placed = 1;
-																	deck[player2Pos3].num = 0;
-																	deck[player2Pos3].type = 0;
-																	deck[player2Pos3].value = 0;
-																	deck[player2Pos3].player2pos = 0;
-																	deck[player2Pos3].display1 = 0;
-																	deck[player2Pos3].display2 = 0;
-																	player2Pos3 = 0;
-																}
-																else if (deck[player2Pos4].type == 'n')
-																{
-																	deck[player2Pos4].drag = 0;
-																	deck[player2Pos4].placed = 1;
-																	deck[player2Pos4].num = 0;
-																	deck[player2Pos4].type = 0;
-																	deck[player2Pos4].value = 0;
-																	deck[player2Pos4].player2pos = 0;
-																	deck[player2Pos4].display1 = 0;
-																	deck[player2Pos4].display2 = 0;
-																	player2Pos4 = 0;
-																}
-																else if (deck[player2Pos5].type == 'n')
-																{
-																	deck[player2Pos5].drag = 0;
-																	deck[player2Pos5].placed = 1;
-																	deck[player2Pos5].num = 0;
-																	deck[player2Pos5].type = 0;
-																	deck[player2Pos5].value = 0;
-																	deck[player2Pos5].player2pos = 0;
-																	deck[player2Pos5].display1 = 0;
-																	deck[player2Pos5].display2 = 0;
-																	player2Pos5 = 0;
-																}
-																roundPlayed = 1;
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 0;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card2Dragging = 0;
-																player1Pos2 = 0;
-																showNotA = 0;
-																player1Cards--;
-																player2Cards--;
-																pressed = true;
-																break;
-															}
-														}
-														else if (getMousePos(823, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp2.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																baseCards[j].value = !(baseCards[j].value);
-																baseCards2[j].value = !(baseCards2[j].value);
-																baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
-																baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
-																roundPlayed = 1;
 
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 1;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card2Dragging = 0;
-																player1Pos2 = 0;
-																showNotA = 0;
-																player1Cards--;
-																pressed = true;
-																notCardLogic(j);
-																break;
-															}
-														}
-														else
+													if (shouldPlayNot <= 6)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp.png");
-															notCardPop.setTexture(notCardPopTexture);
+															if (deck[player2Pos1].type == 'n')
+															{
+																deck[player2Pos1].drag = 0;
+																deck[player2Pos1].placed = 1;
+																deck[player2Pos1].num = 0;
+																deck[player2Pos1].type = 0;
+																deck[player2Pos1].value = 0;
+																deck[player2Pos1].player2pos = 0;
+																deck[player2Pos1].display1 = 0;
+																deck[player2Pos1].display2 = 0;
+																player2Pos1 = 0;
+															}
+															else if (deck[player2Pos2].type == 'n')
+															{
+																deck[player2Pos2].drag = 0;
+																deck[player2Pos2].placed = 1;
+																deck[player2Pos2].num = 0;
+																deck[player2Pos2].type = 0;
+																deck[player2Pos2].value = 0;
+																deck[player2Pos2].player2pos = 0;
+																deck[player2Pos2].display1 = 0;
+																deck[player2Pos2].display2 = 0;
+																player2Pos2 = 0;
+															}
+															else if (deck[player2Pos3].type == 'n')
+															{
+																deck[player2Pos3].drag = 0;
+																deck[player2Pos3].placed = 1;
+																deck[player2Pos3].num = 0;
+																deck[player2Pos3].type = 0;
+																deck[player2Pos3].value = 0;
+																deck[player2Pos3].player2pos = 0;
+																deck[player2Pos3].display1 = 0;
+																deck[player2Pos3].display2 = 0;
+																player2Pos3 = 0;
+															}
+															else if (deck[player2Pos4].type == 'n')
+															{
+																deck[player2Pos4].drag = 0;
+																deck[player2Pos4].placed = 1;
+																deck[player2Pos4].num = 0;
+																deck[player2Pos4].type = 0;
+																deck[player2Pos4].value = 0;
+																deck[player2Pos4].player2pos = 0;
+																deck[player2Pos4].display1 = 0;
+																deck[player2Pos4].display2 = 0;
+																player2Pos4 = 0;
+															}
+															else if (deck[player2Pos5].type == 'n')
+															{
+																deck[player2Pos5].drag = 0;
+																deck[player2Pos5].placed = 1;
+																deck[player2Pos5].num = 0;
+																deck[player2Pos5].type = 0;
+																deck[player2Pos5].value = 0;
+																deck[player2Pos5].player2pos = 0;
+																deck[player2Pos5].display1 = 0;
+																deck[player2Pos5].display2 = 0;
+																player2Pos5 = 0;
+															}
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 0;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card2Dragging = 0;
+															player1Pos2 = 0;
+															showNotA = 0;
+															player1Cards--;
+															player2Cards--;
+															pressed = true;
+															break;
 														}
-														this->window->draw(notCardPop);
-														this->window->display();
+													}
+													else if (shouldPlayNot >= 7)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+														{
+															baseCards[j].value = !(baseCards[j].value);
+															baseCards2[j].value = !(baseCards2[j].value);
+															baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
+															baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 1;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card2Dragging = 0;
+															player1Pos2 = 0;
+															showNotA = 0;
+															player1Cards--;
+															pressed = true;
+															notCardLogic(j);
+															break;
+														}
 													}
 												}
 												else
@@ -13358,161 +13276,120 @@ void Game::setNotCardImages2(sf::Vector2i cursorpos)
 
 												if (otherNot)
 												{
+													srand((unsigned)time(0));
+													int shouldPlayNot = rand() % 10 + 1;
 													deck[i].drag = 0;
 													otherNot = 0;
-													while (true)
-													{
-														setTimer();
-														this->window->clear();
-														this->window->draw(this->backgroundSprite);
-														this->window->draw(timer);
-														this->window->draw(this->player1Text);
-														this->window->draw(baseCards[0].BaseCardImg);
-														this->window->draw(baseCards[1].BaseCardImg);
-														this->window->draw(baseCards[2].BaseCardImg);
-														this->window->draw(baseCards[3].BaseCardImg);
-														this->window->draw(baseCards[4].BaseCardImg);
-														this->window->draw(baseCards[5].BaseCardImg);
-														for (int i = 0; i < 6; i++)
-														{
-															if (notCardPos[i].cardOnIt == 1)
-															{
-																notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
-																notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
-																this->window->draw(notCardPos[i].img);
-															}
-														}
-														tableOfTruth();
-														setNotCardImages(cursorpos);
-														for (int i = 1; i < 16; i++)
-														{
-															if (fPositions[i].cardOnIt == 1)
-															{
-																this->window->draw(deck[fPositions[i].cardNum].img);
-															}
-														}
-														if (getMousePos(639, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp1.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																if (deck[player2Pos1].type == 'n')
-																{
-																	deck[player2Pos1].drag = 0;
-																	deck[player2Pos1].placed = 1;
-																	deck[player2Pos1].num = 0;
-																	deck[player2Pos1].type = 0;
-																	deck[player2Pos1].value = 0;
-																	deck[player2Pos1].player2pos = 0;
-																	deck[player2Pos1].display1 = 0;
-																	deck[player2Pos1].display2 = 0;
-																	player2Pos1 = 0;
-																}
-																else if (deck[player2Pos2].type == 'n')
-																{
-																	deck[player2Pos2].drag = 0;
-																	deck[player2Pos2].placed = 1;
-																	deck[player2Pos2].num = 0;
-																	deck[player2Pos2].type = 0;
-																	deck[player2Pos2].value = 0;
-																	deck[player2Pos2].player2pos = 0;
-																	deck[player2Pos2].display1 = 0;
-																	deck[player2Pos2].display2 = 0;
-																	player2Pos2 = 0;
-																}
-																else if (deck[player2Pos3].type == 'n')
-																{
-																	deck[player2Pos3].drag = 0;
-																	deck[player2Pos3].placed = 1;
-																	deck[player2Pos3].num = 0;
-																	deck[player2Pos3].type = 0;
-																	deck[player2Pos3].value = 0;
-																	deck[player2Pos3].player2pos = 0;
-																	deck[player2Pos3].display1 = 0;
-																	deck[player2Pos3].display2 = 0;
-																	player2Pos3 = 0;
-																}
-																else if (deck[player2Pos4].type == 'n')
-																{
-																	deck[player2Pos4].drag = 0;
-																	deck[player2Pos4].placed = 1;
-																	deck[player2Pos4].num = 0;
-																	deck[player2Pos4].type = 0;
-																	deck[player2Pos4].value = 0;
-																	deck[player2Pos4].player2pos = 0;
-																	deck[player2Pos4].display1 = 0;
-																	deck[player2Pos4].display2 = 0;
-																	player2Pos4 = 0;
-																}
-																else if (deck[player2Pos5].type == 'n')
-																{
-																	deck[player2Pos5].drag = 0;
-																	deck[player2Pos5].placed = 1;
-																	deck[player2Pos5].num = 0;
-																	deck[player2Pos5].type = 0;
-																	deck[player2Pos5].value = 0;
-																	deck[player2Pos5].player2pos = 0;
-																	deck[player2Pos5].display1 = 0;
-																	deck[player2Pos5].display2 = 0;
-																	player2Pos5 = 0;
-																}
-																roundPlayed = 1;
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 0;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card3Dragging = 0;
-																player1Pos3 = 0;
-																showNotA = 0;
-																player1Cards--;
-																player2Cards--;
-																pressed = true;
-																break;
-															}
-														}
-														else if (getMousePos(823, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp2.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																baseCards[j].value = !(baseCards[j].value);
-																baseCards2[j].value = !(baseCards2[j].value);
-																baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
-																baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
-																roundPlayed = 1;
 
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 1;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card3Dragging = 0;
-																player1Pos3 = 0;
-																showNotA = 0;
-																player1Cards--;
-																pressed = true;
-																notCardLogic(j);
-																break;
-															}
-														}
-														else
+													if (shouldPlayNot <= 6)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp.png");
-															notCardPop.setTexture(notCardPopTexture);
+															if (deck[player2Pos1].type == 'n')
+															{
+																deck[player2Pos1].drag = 0;
+																deck[player2Pos1].placed = 1;
+																deck[player2Pos1].num = 0;
+																deck[player2Pos1].type = 0;
+																deck[player2Pos1].value = 0;
+																deck[player2Pos1].player2pos = 0;
+																deck[player2Pos1].display1 = 0;
+																deck[player2Pos1].display2 = 0;
+																player2Pos1 = 0;
+															}
+															else if (deck[player2Pos2].type == 'n')
+															{
+																deck[player2Pos2].drag = 0;
+																deck[player2Pos2].placed = 1;
+																deck[player2Pos2].num = 0;
+																deck[player2Pos2].type = 0;
+																deck[player2Pos2].value = 0;
+																deck[player2Pos2].player2pos = 0;
+																deck[player2Pos2].display1 = 0;
+																deck[player2Pos2].display2 = 0;
+																player2Pos2 = 0;
+															}
+															else if (deck[player2Pos3].type == 'n')
+															{
+																deck[player2Pos3].drag = 0;
+																deck[player2Pos3].placed = 1;
+																deck[player2Pos3].num = 0;
+																deck[player2Pos3].type = 0;
+																deck[player2Pos3].value = 0;
+																deck[player2Pos3].player2pos = 0;
+																deck[player2Pos3].display1 = 0;
+																deck[player2Pos3].display2 = 0;
+																player2Pos3 = 0;
+															}
+															else if (deck[player2Pos4].type == 'n')
+															{
+																deck[player2Pos4].drag = 0;
+																deck[player2Pos4].placed = 1;
+																deck[player2Pos4].num = 0;
+																deck[player2Pos4].type = 0;
+																deck[player2Pos4].value = 0;
+																deck[player2Pos4].player2pos = 0;
+																deck[player2Pos4].display1 = 0;
+																deck[player2Pos4].display2 = 0;
+																player2Pos4 = 0;
+															}
+															else if (deck[player2Pos5].type == 'n')
+															{
+																deck[player2Pos5].drag = 0;
+																deck[player2Pos5].placed = 1;
+																deck[player2Pos5].num = 0;
+																deck[player2Pos5].type = 0;
+																deck[player2Pos5].value = 0;
+																deck[player2Pos5].player2pos = 0;
+																deck[player2Pos5].display1 = 0;
+																deck[player2Pos5].display2 = 0;
+																player2Pos5 = 0;
+															}
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 0;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card3Dragging = 0;
+															player1Pos3 = 0;
+															showNotA = 0;
+															player1Cards--;
+															player2Cards--;
+															pressed = true;
+															break;
 														}
-														this->window->draw(notCardPop);
-														this->window->display();
+													}
+													else if (shouldPlayNot >= 7)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+														{
+															baseCards[j].value = !(baseCards[j].value);
+															baseCards2[j].value = !(baseCards2[j].value);
+															baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
+															baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 1;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card3Dragging = 0;
+															player1Pos3 = 0;
+															showNotA = 0;
+															player1Cards--;
+															pressed = true;
+															notCardLogic(j);
+															break;
+														}
 													}
 												}
 												else
@@ -13758,161 +13635,120 @@ void Game::setNotCardImages2(sf::Vector2i cursorpos)
 
 												if (otherNot)
 												{
+													srand((unsigned)time(0));
+													int shouldPlayNot = rand() % 10 + 1;
 													deck[i].drag = 0;
 													otherNot = 0;
-													while (true)
-													{
-														setTimer();
-														this->window->clear();
-														this->window->draw(this->backgroundSprite);
-														this->window->draw(timer);
-														this->window->draw(this->player1Text);
-														this->window->draw(baseCards[0].BaseCardImg);
-														this->window->draw(baseCards[1].BaseCardImg);
-														this->window->draw(baseCards[2].BaseCardImg);
-														this->window->draw(baseCards[3].BaseCardImg);
-														this->window->draw(baseCards[4].BaseCardImg);
-														this->window->draw(baseCards[5].BaseCardImg);
-														for (int i = 0; i < 6; i++)
-														{
-															if (notCardPos[i].cardOnIt == 1)
-															{
-																notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
-																notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
-																this->window->draw(notCardPos[i].img);
-															}
-														}
-														tableOfTruth();
-														setNotCardImages(cursorpos);
-														for (int i = 1; i < 16; i++)
-														{
-															if (fPositions[i].cardOnIt == 1)
-															{
-																this->window->draw(deck[fPositions[i].cardNum].img);
-															}
-														}
-														if (getMousePos(639, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp1.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																if (deck[player2Pos1].type == 'n')
-																{
-																	deck[player2Pos1].drag = 0;
-																	deck[player2Pos1].placed = 1;
-																	deck[player2Pos1].num = 0;
-																	deck[player2Pos1].type = 0;
-																	deck[player2Pos1].value = 0;
-																	deck[player2Pos1].player2pos = 0;
-																	deck[player2Pos1].display1 = 0;
-																	deck[player2Pos1].display2 = 0;
-																	player2Pos1 = 0;
-																}
-																else if (deck[player2Pos2].type == 'n')
-																{
-																	deck[player2Pos2].drag = 0;
-																	deck[player2Pos2].placed = 1;
-																	deck[player2Pos2].num = 0;
-																	deck[player2Pos2].type = 0;
-																	deck[player2Pos2].value = 0;
-																	deck[player2Pos2].player2pos = 0;
-																	deck[player2Pos2].display1 = 0;
-																	deck[player2Pos2].display2 = 0;
-																	player2Pos2 = 0;
-																}
-																else if (deck[player2Pos3].type == 'n')
-																{
-																	deck[player2Pos3].drag = 0;
-																	deck[player2Pos3].placed = 1;
-																	deck[player2Pos3].num = 0;
-																	deck[player2Pos3].type = 0;
-																	deck[player2Pos3].value = 0;
-																	deck[player2Pos3].player2pos = 0;
-																	deck[player2Pos3].display1 = 0;
-																	deck[player2Pos3].display2 = 0;
-																	player2Pos3 = 0;
-																}
-																else if (deck[player2Pos4].type == 'n')
-																{
-																	deck[player2Pos4].drag = 0;
-																	deck[player2Pos4].placed = 1;
-																	deck[player2Pos4].num = 0;
-																	deck[player2Pos4].type = 0;
-																	deck[player2Pos4].value = 0;
-																	deck[player2Pos4].player2pos = 0;
-																	deck[player2Pos4].display1 = 0;
-																	deck[player2Pos4].display2 = 0;
-																	player2Pos4 = 0;
-																}
-																else if (deck[player2Pos5].type == 'n')
-																{
-																	deck[player2Pos5].drag = 0;
-																	deck[player2Pos5].placed = 1;
-																	deck[player2Pos5].num = 0;
-																	deck[player2Pos5].type = 0;
-																	deck[player2Pos5].value = 0;
-																	deck[player2Pos5].player2pos = 0;
-																	deck[player2Pos5].display1 = 0;
-																	deck[player2Pos5].display2 = 0;
-																	player2Pos5 = 0;
-																}
-																roundPlayed = 1;
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 0;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card4Dragging = 0;
-																player1Pos4 = 0;
-																showNotA = 0;
-																player1Cards--;
-																player2Cards--;
-																pressed = true;
-																break;
-															}
-														}
-														else if (getMousePos(823, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp2.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																baseCards[j].value = !(baseCards[j].value);
-																baseCards2[j].value = !(baseCards2[j].value);
-																baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
-																baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
-																roundPlayed = 1;
 
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 1;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card4Dragging = 0;
-																player1Pos4 = 0;
-																showNotA = 0;
-																player1Cards--;
-																pressed = true;
-																notCardLogic(j);
-																break;
-															}
-														}
-														else
+													if (shouldPlayNot <= 6)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp.png");
-															notCardPop.setTexture(notCardPopTexture);
+															if (deck[player2Pos1].type == 'n')
+															{
+																deck[player2Pos1].drag = 0;
+																deck[player2Pos1].placed = 1;
+																deck[player2Pos1].num = 0;
+																deck[player2Pos1].type = 0;
+																deck[player2Pos1].value = 0;
+																deck[player2Pos1].player2pos = 0;
+																deck[player2Pos1].display1 = 0;
+																deck[player2Pos1].display2 = 0;
+																player2Pos1 = 0;
+															}
+															else if (deck[player2Pos2].type == 'n')
+															{
+																deck[player2Pos2].drag = 0;
+																deck[player2Pos2].placed = 1;
+																deck[player2Pos2].num = 0;
+																deck[player2Pos2].type = 0;
+																deck[player2Pos2].value = 0;
+																deck[player2Pos2].player2pos = 0;
+																deck[player2Pos2].display1 = 0;
+																deck[player2Pos2].display2 = 0;
+																player2Pos2 = 0;
+															}
+															else if (deck[player2Pos3].type == 'n')
+															{
+																deck[player2Pos3].drag = 0;
+																deck[player2Pos3].placed = 1;
+																deck[player2Pos3].num = 0;
+																deck[player2Pos3].type = 0;
+																deck[player2Pos3].value = 0;
+																deck[player2Pos3].player2pos = 0;
+																deck[player2Pos3].display1 = 0;
+																deck[player2Pos3].display2 = 0;
+																player2Pos3 = 0;
+															}
+															else if (deck[player2Pos4].type == 'n')
+															{
+																deck[player2Pos4].drag = 0;
+																deck[player2Pos4].placed = 1;
+																deck[player2Pos4].num = 0;
+																deck[player2Pos4].type = 0;
+																deck[player2Pos4].value = 0;
+																deck[player2Pos4].player2pos = 0;
+																deck[player2Pos4].display1 = 0;
+																deck[player2Pos4].display2 = 0;
+																player2Pos4 = 0;
+															}
+															else if (deck[player2Pos5].type == 'n')
+															{
+																deck[player2Pos5].drag = 0;
+																deck[player2Pos5].placed = 1;
+																deck[player2Pos5].num = 0;
+																deck[player2Pos5].type = 0;
+																deck[player2Pos5].value = 0;
+																deck[player2Pos5].player2pos = 0;
+																deck[player2Pos5].display1 = 0;
+																deck[player2Pos5].display2 = 0;
+																player2Pos5 = 0;
+															}
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 0;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card4Dragging = 0;
+															player1Pos4 = 0;
+															showNotA = 0;
+															player1Cards--;
+															player2Cards--;
+															pressed = true;
+															break;
 														}
-														this->window->draw(notCardPop);
-														this->window->display();
+													}
+													else if (shouldPlayNot >= 7)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+														{
+															baseCards[j].value = !(baseCards[j].value);
+															baseCards2[j].value = !(baseCards2[j].value);
+															baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
+															baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 1;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card4Dragging = 0;
+															player1Pos4 = 0;
+															showNotA = 0;
+															player1Cards--;
+															pressed = true;
+															notCardLogic(j);
+															break;
+														}
 													}
 												}
 												else
@@ -14158,161 +13994,120 @@ void Game::setNotCardImages2(sf::Vector2i cursorpos)
 
 												if (otherNot)
 												{
+													srand((unsigned)time(0));
+													int shouldPlayNot = rand() % 10 + 1;
 													deck[i].drag = 0;
 													otherNot = 0;
-													while (true)
-													{
-														setTimer();
-														this->window->clear();
-														this->window->draw(this->backgroundSprite);
-														this->window->draw(timer);
-														this->window->draw(this->player1Text);
-														this->window->draw(baseCards[0].BaseCardImg);
-														this->window->draw(baseCards[1].BaseCardImg);
-														this->window->draw(baseCards[2].BaseCardImg);
-														this->window->draw(baseCards[3].BaseCardImg);
-														this->window->draw(baseCards[4].BaseCardImg);
-														this->window->draw(baseCards[5].BaseCardImg);
-														for (int i = 0; i < 6; i++)
-														{
-															if (notCardPos[i].cardOnIt == 1)
-															{
-																notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
-																notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
-																this->window->draw(notCardPos[i].img);
-															}
-														}
-														tableOfTruth();
-														setNotCardImages(cursorpos);
-														for (int i = 1; i < 16; i++)
-														{
-															if (fPositions[i].cardOnIt == 1)
-															{
-																this->window->draw(deck[fPositions[i].cardNum].img);
-															}
-														}
-														if (getMousePos(639, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp1.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																if (deck[player2Pos1].type == 'n')
-																{
-																	deck[player2Pos1].drag = 0;
-																	deck[player2Pos1].placed = 1;
-																	deck[player2Pos1].num = 0;
-																	deck[player2Pos1].type = 0;
-																	deck[player2Pos1].value = 0;
-																	deck[player2Pos1].player2pos = 0;
-																	deck[player2Pos1].display1 = 0;
-																	deck[player2Pos1].display2 = 0;
-																	player2Pos1 = 0;
-																}
-																else if (deck[player2Pos2].type == 'n')
-																{
-																	deck[player2Pos2].drag = 0;
-																	deck[player2Pos2].placed = 1;
-																	deck[player2Pos2].num = 0;
-																	deck[player2Pos2].type = 0;
-																	deck[player2Pos2].value = 0;
-																	deck[player2Pos2].player2pos = 0;
-																	deck[player2Pos2].display1 = 0;
-																	deck[player2Pos2].display2 = 0;
-																	player2Pos2 = 0;
-																}
-																else if (deck[player2Pos3].type == 'n')
-																{
-																	deck[player2Pos3].drag = 0;
-																	deck[player2Pos3].placed = 1;
-																	deck[player2Pos3].num = 0;
-																	deck[player2Pos3].type = 0;
-																	deck[player2Pos3].value = 0;
-																	deck[player2Pos3].player2pos = 0;
-																	deck[player2Pos3].display1 = 0;
-																	deck[player2Pos3].display2 = 0;
-																	player2Pos3 = 0;
-																}
-																else if (deck[player2Pos4].type == 'n')
-																{
-																	deck[player2Pos4].drag = 0;
-																	deck[player2Pos4].placed = 1;
-																	deck[player2Pos4].num = 0;
-																	deck[player2Pos4].type = 0;
-																	deck[player2Pos4].value = 0;
-																	deck[player2Pos4].player2pos = 0;
-																	deck[player2Pos4].display1 = 0;
-																	deck[player2Pos4].display2 = 0;
-																	player2Pos4 = 0;
-																}
-																else if (deck[player2Pos5].type == 'n')
-																{
-																	deck[player2Pos5].drag = 0;
-																	deck[player2Pos5].placed = 1;
-																	deck[player2Pos5].num = 0;
-																	deck[player2Pos5].type = 0;
-																	deck[player2Pos5].value = 0;
-																	deck[player2Pos5].player2pos = 0;
-																	deck[player2Pos5].display1 = 0;
-																	deck[player2Pos5].display2 = 0;
-																	player2Pos5 = 0;
-																}
-																roundPlayed = 1;
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 0;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card5Dragging = 0;
-																player1Pos5 = 0;
-																showNotA = 0;
-																player1Cards--;
-																player2Cards--;
-																pressed = true;
-																break;
-															}
-														}
-														else if (getMousePos(823, 530, 17, *this->window))
-														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp2.png");
-															notCardPop.setTexture(notCardPopTexture);
-															if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-															{
-																baseCards[j].value = !(baseCards[j].value);
-																baseCards2[j].value = !(baseCards2[j].value);
-																baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
-																baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
-																roundPlayed = 1;
 
-																deck[i].drag = 0;
-																deck[i].placed = 1;
-																notCardPos[j].cardOnIt = 1;
-																deck[i].num = 0;
-																deck[i].type = 0;
-																deck[i].value = 0;
-																deck[i].player1pos = 0;
-																deck[i].display1 = 0;
-																deck[i].display2 = 0;
-																card5Dragging = 0;
-																player1Pos5 = 0;
-																showNotA = 0;
-																player1Cards--;
-																pressed = true;
-																notCardLogic(j);
-																break;
-															}
-														}
-														else
+													if (shouldPlayNot <= 6)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 														{
-															notCardPopTexture.loadFromFile("assets/NotCardPopUp.png");
-															notCardPop.setTexture(notCardPopTexture);
+															if (deck[player2Pos1].type == 'n')
+															{
+																deck[player2Pos1].drag = 0;
+																deck[player2Pos1].placed = 1;
+																deck[player2Pos1].num = 0;
+																deck[player2Pos1].type = 0;
+																deck[player2Pos1].value = 0;
+																deck[player2Pos1].player2pos = 0;
+																deck[player2Pos1].display1 = 0;
+																deck[player2Pos1].display2 = 0;
+																player2Pos1 = 0;
+															}
+															else if (deck[player2Pos2].type == 'n')
+															{
+																deck[player2Pos2].drag = 0;
+																deck[player2Pos2].placed = 1;
+																deck[player2Pos2].num = 0;
+																deck[player2Pos2].type = 0;
+																deck[player2Pos2].value = 0;
+																deck[player2Pos2].player2pos = 0;
+																deck[player2Pos2].display1 = 0;
+																deck[player2Pos2].display2 = 0;
+																player2Pos2 = 0;
+															}
+															else if (deck[player2Pos3].type == 'n')
+															{
+																deck[player2Pos3].drag = 0;
+																deck[player2Pos3].placed = 1;
+																deck[player2Pos3].num = 0;
+																deck[player2Pos3].type = 0;
+																deck[player2Pos3].value = 0;
+																deck[player2Pos3].player2pos = 0;
+																deck[player2Pos3].display1 = 0;
+																deck[player2Pos3].display2 = 0;
+																player2Pos3 = 0;
+															}
+															else if (deck[player2Pos4].type == 'n')
+															{
+																deck[player2Pos4].drag = 0;
+																deck[player2Pos4].placed = 1;
+																deck[player2Pos4].num = 0;
+																deck[player2Pos4].type = 0;
+																deck[player2Pos4].value = 0;
+																deck[player2Pos4].player2pos = 0;
+																deck[player2Pos4].display1 = 0;
+																deck[player2Pos4].display2 = 0;
+																player2Pos4 = 0;
+															}
+															else if (deck[player2Pos5].type == 'n')
+															{
+																deck[player2Pos5].drag = 0;
+																deck[player2Pos5].placed = 1;
+																deck[player2Pos5].num = 0;
+																deck[player2Pos5].type = 0;
+																deck[player2Pos5].value = 0;
+																deck[player2Pos5].player2pos = 0;
+																deck[player2Pos5].display1 = 0;
+																deck[player2Pos5].display2 = 0;
+																player2Pos5 = 0;
+															}
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 0;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card5Dragging = 0;
+															player1Pos5 = 0;
+															showNotA = 0;
+															player1Cards--;
+															player2Cards--;
+															pressed = true;
+															break;
 														}
-														this->window->draw(notCardPop);
-														this->window->display();
+													}
+													else if (shouldPlayNot >= 7)
+													{
+														if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+														{
+															baseCards[j].value = !(baseCards[j].value);
+															baseCards2[j].value = !(baseCards2[j].value);
+															baseCards[j].BaseCardImg.setTexture(baseCards2[j].BaseCardImgTexture);
+															baseCards2[j].BaseCardImg.setTexture(baseCards[j].BaseCardImgTexture);
+															roundPlayed = 1;
+															deck[i].drag = 0;
+															deck[i].placed = 1;
+															notCardPos[j].cardOnIt = 1;
+															deck[i].num = 0;
+															deck[i].type = 0;
+															deck[i].value = 0;
+															deck[i].player1pos = 0;
+															deck[i].display1 = 0;
+															deck[i].display2 = 0;
+															card5Dragging = 0;
+															player1Pos5 = 0;
+															showNotA = 0;
+															player1Cards--;
+															pressed = true;
+															notCardLogic(j);
+															break;
+														}
 													}
 												}
 												else
@@ -19285,307 +19080,1385 @@ void Game::fourthGamemode(sf::Window& newWindow)
 			placingCardsPos();
 			this->window->display();
 		}
-		srand((unsigned)time(0));
-		bool succesful = 0;
-		int randomNum = rand() % 10 + 1;
-		std::cout << randomNum << std::endl;
-		if (randomNum != 7 && randomNum != 2)
+		int notCard;
+		if (deck[player2Pos1].type == 'n')
 		{
-			for (int i = 1; i < 6; i++)
+			otherNot = 1;
+		}
+		else if (deck[player2Pos2].type == 'n')
+		{
+			otherNot = 1;
+		}
+		else if (deck[player2Pos3].type == 'n')
+		{
+			otherNot = 1;
+		}
+		else if (deck[player2Pos4].type == 'n')
+		{
+			otherNot = 1;
+		}
+		else if (deck[player2Pos5].type == 'n')
+		{
+			otherNot = 1;
+		}
+		else
+		{
+			notCard = 0;
+		}
+
+		if (otherNot == 1)
+		{
+			if (deck[player2Pos1].type == 'n')
 			{
-				switch (i)
+				notCard = 1;
+			}
+			else if (deck[player2Pos2].type == 'n')
+			{
+				notCard = 2;
+			}
+			else if (deck[player2Pos3].type == 'n')
+			{
+				notCard = 3;
+			}
+			else if (deck[player2Pos4].type == 'n')
+			{
+				notCard = 4;
+			}
+			else if (deck[player2Pos5].type == 'n')
+			{
+				notCard = 5;
+			}
+			srand((unsigned)time(0));
+			int shouldPlayNot = rand() % 10 + 1;
+			if (shouldPlayNot <= 3)
+			{
+				int randomNotUse = rand() % 6;
+				switch (notCard)
 				{
 				case 1:
-					succesful = 0;
-					deck[player2Pos1].drag = 1;
-					deck[player2Pos1].img.setRotation(180.f);
-					for (int j = 0; j < 16; j++)
+					if (deck[player1Pos1].type == 'n')
 					{
-						if (fPositions2[j].showPos == 1)
+						otherNot = 1;
+					}
+					else if (deck[player1Pos2].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos3].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos4].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos5].type == 'n')
+					{
+						otherNot = 1;
+					}
+
+					if (otherNot)
+					{
+						otherNot = 0;
+						while (true)
 						{
-							if (checkPlacedCards(j))
+							setTimer();
+							this->window->clear();
+							this->window->draw(this->backgroundSprite);
+							this->window->draw(timer);
+							this->window->draw(this->player2Text);
+							this->window->draw(baseCards2[0].BaseCardImg);
+							this->window->draw(baseCards2[1].BaseCardImg);
+							this->window->draw(baseCards2[2].BaseCardImg);
+							this->window->draw(baseCards2[3].BaseCardImg);
+							this->window->draw(baseCards2[4].BaseCardImg);
+							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 0; i < 6; i++)
 							{
-								succesful = 1;
-								deck[player2Pos1].drag = 0;
-								deck[player2Pos1].img.setRotation(180.f);
-								deck[player2Pos1].placed = 1;
-								fPositions2[j].cardOnIt = 1;
-								fPositions2[j].cardNum = deck[player2Pos1].num;
-								fPositions2[j].cardValue = deck[player2Pos1].value;
-								deck[player2Pos1].num = 0;
-								deck[player2Pos1].x = fPositions2[j].x;
-								deck[player2Pos1].y = fPositions2[j].y;
-								deck[player2Pos1].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-								player2Pos1 = 0;
-								player2Cards--;
-								roundPlayed = 1;
-								break;
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
 							}
+							tableOfTruth();
+							setNotCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
+							if (getMousePos(639, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp1.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (deck[player1Pos1].type == 'n')
+									{
+										deck[player1Pos1].drag = 0;
+										deck[player1Pos1].placed = 1;
+										deck[player1Pos1].num = 0;
+										deck[player1Pos1].type = 0;
+										deck[player1Pos1].value = 0;
+										deck[player1Pos1].player1pos = 0;
+										deck[player1Pos1].display1 = 0;
+										deck[player1Pos1].display2 = 0;
+										player1Pos1 = 0;
+									}
+									else if (deck[player1Pos2].type == 'n')
+									{
+										deck[player1Pos2].drag = 0;
+										deck[player1Pos2].placed = 1;
+										deck[player1Pos2].num = 0;
+										deck[player1Pos2].type = 0;
+										deck[player1Pos2].value = 0;
+										deck[player1Pos2].player1pos = 0;
+										deck[player1Pos2].display1 = 0;
+										deck[player1Pos2].display2 = 0;
+										player1Pos2 = 0;
+									}
+									else if (deck[player1Pos3].type == 'n')
+									{
+										deck[player1Pos3].drag = 0;
+										deck[player1Pos3].placed = 1;
+										deck[player1Pos3].num = 0;
+										deck[player1Pos3].type = 0;
+										deck[player1Pos3].value = 0;
+										deck[player1Pos3].player1pos = 0;
+										deck[player1Pos3].display1 = 0;
+										deck[player1Pos3].display2 = 0;
+										player1Pos3 = 0;
+									}
+									else if (deck[player1Pos4].type == 'n')
+									{
+										deck[player1Pos4].drag = 0;
+										deck[player1Pos4].placed = 1;
+										deck[player1Pos4].num = 0;
+										deck[player1Pos4].type = 0;
+										deck[player1Pos4].value = 0;
+										deck[player1Pos4].player1pos = 0;
+										deck[player1Pos4].display1 = 0;
+										deck[player1Pos4].display2 = 0;
+										player1Pos4 = 0;
+									}
+									else if (deck[player1Pos5].type == 'n')
+									{
+										deck[player1Pos5].drag = 0;
+										deck[player1Pos5].placed = 1;
+										deck[player1Pos5].num = 0;
+										deck[player1Pos5].type = 0;
+										deck[player1Pos5].value = 0;
+										deck[player1Pos5].player1pos = 0;
+										deck[player1Pos5].display1 = 0;
+										deck[player1Pos5].display2 = 0;
+										player1Pos5 = 0;
+									}
+									roundPlayed = 1;
+									deck[player2Pos1].drag = 0;
+									deck[player2Pos1].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 0;
+									deck[player2Pos1].num = 0;
+									deck[player2Pos1].type = 0;
+									deck[player2Pos1].value = 0;
+									deck[player2Pos1].player2pos = 0;
+									deck[player2Pos1].display1 = 0;
+									deck[player2Pos1].display2 = 0;
+									player2Pos1 = 0;
+									showNotA = 0;
+									player1Cards--;
+									player2Cards--;
+									pressed = true;
+									break;
+								}
+							}
+							else if (getMousePos(823, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp2.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+									baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+									baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+									baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+									roundPlayed = 1;
+
+									deck[player2Pos1].drag = 0;
+									deck[player2Pos1].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 1;
+									deck[player2Pos1].num = 0;
+									deck[player2Pos1].type = 0;
+									deck[player2Pos1].value = 0;
+									deck[player2Pos1].player2pos = 0;
+									deck[player2Pos1].display1 = 0;
+									deck[player2Pos1].display2 = 0;
+									player2Pos1 = 0;
+									showNotA = 0;
+									player2Cards--;
+									pressed = true;
+									notCardLogic(randomNotUse);
+									break;
+								}
+							}
+							else
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp.png");
+								notCardPop.setTexture(notCardPopTexture);
+							}
+							this->window->draw(notCardPop);
+							this->window->display();
 						}
 					}
-					if (!(succesful))
+					else
 					{
+						baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+						baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+						baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+						baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+						roundPlayed = 1;
+
 						deck[player2Pos1].drag = 0;
-						deck[player2Pos1].img.setRotation(90.f);
+						deck[player2Pos1].placed = 1;
+						notCardPos[randomNotUse].cardOnIt = 1;
+						deck[player2Pos1].num = 0;
+						deck[player2Pos1].type = 0;
+						deck[player2Pos1].value = 0;
+						deck[player2Pos1].player2pos = 0;
+						deck[player2Pos1].display1 = 0;
+						deck[player2Pos1].display2 = 0;
+						card1Dragging2 = 0;
+						player2Pos1 = 0;
+						showNotA = 0;
+						player2Cards--;
+						pressed = true;
+						notCardLogic(randomNotUse);
 					}
 					break;
 				case 2:
-					succesful = 0;
-					deck[player2Pos2].drag = 1;
-					deck[player2Pos2].img.setRotation(180.f);
-					for (int j = 0; j < 16; j++)
+					if (deck[player1Pos1].type == 'n')
 					{
-						if (fPositions2[j].showPos == 1)
+						otherNot = 1;
+					}
+					else if (deck[player1Pos2].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos3].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos4].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos5].type == 'n')
+					{
+						otherNot = 1;
+					}
+
+					if (otherNot)
+					{
+						otherNot = 0;
+						while (true)
 						{
-							if (checkPlacedCards(j))
+							setTimer();
+							this->window->clear();
+							this->window->draw(this->backgroundSprite);
+							this->window->draw(timer);
+							this->window->draw(this->player2Text);
+							this->window->draw(baseCards2[0].BaseCardImg);
+							this->window->draw(baseCards2[1].BaseCardImg);
+							this->window->draw(baseCards2[2].BaseCardImg);
+							this->window->draw(baseCards2[3].BaseCardImg);
+							this->window->draw(baseCards2[4].BaseCardImg);
+							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 0; i < 6; i++)
 							{
-								succesful = 1;
-								deck[player2Pos2].drag = 0;
-								deck[player2Pos2].img.setRotation(180.f);
-								deck[player2Pos2].placed = 1;
-								fPositions2[j].cardOnIt = 1;
-								fPositions2[j].cardNum = deck[player2Pos2].num;
-								fPositions2[j].cardValue = deck[player2Pos2].value;
-								deck[player2Pos2].num = 0;
-								deck[player2Pos2].x = fPositions2[j].x;
-								deck[player2Pos2].y = fPositions2[j].y;
-								deck[player2Pos2].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-								player2Pos2 = 0;
-								player2Cards--;
-								roundPlayed = 1;
-								break;
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
 							}
+							tableOfTruth();
+							setNotCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
+							if (getMousePos(639, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp1.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (deck[player1Pos1].type == 'n')
+									{
+										deck[player1Pos1].drag = 0;
+										deck[player1Pos1].placed = 1;
+										deck[player1Pos1].num = 0;
+										deck[player1Pos1].type = 0;
+										deck[player1Pos1].value = 0;
+										deck[player1Pos1].player1pos = 0;
+										deck[player1Pos1].display1 = 0;
+										deck[player1Pos1].display2 = 0;
+										player1Pos1 = 0;
+									}
+									else if (deck[player1Pos2].type == 'n')
+									{
+										deck[player1Pos2].drag = 0;
+										deck[player1Pos2].placed = 1;
+										deck[player1Pos2].num = 0;
+										deck[player1Pos2].type = 0;
+										deck[player1Pos2].value = 0;
+										deck[player1Pos2].player1pos = 0;
+										deck[player1Pos2].display1 = 0;
+										deck[player1Pos2].display2 = 0;
+										player1Pos2 = 0;
+									}
+									else if (deck[player1Pos3].type == 'n')
+									{
+										deck[player1Pos3].drag = 0;
+										deck[player1Pos3].placed = 1;
+										deck[player1Pos3].num = 0;
+										deck[player1Pos3].type = 0;
+										deck[player1Pos3].value = 0;
+										deck[player1Pos3].player1pos = 0;
+										deck[player1Pos3].display1 = 0;
+										deck[player1Pos3].display2 = 0;
+										player1Pos3 = 0;
+									}
+									else if (deck[player1Pos4].type == 'n')
+									{
+										deck[player1Pos4].drag = 0;
+										deck[player1Pos4].placed = 1;
+										deck[player1Pos4].num = 0;
+										deck[player1Pos4].type = 0;
+										deck[player1Pos4].value = 0;
+										deck[player1Pos4].player1pos = 0;
+										deck[player1Pos4].display1 = 0;
+										deck[player1Pos4].display2 = 0;
+										player1Pos4 = 0;
+									}
+									else if (deck[player1Pos5].type == 'n')
+									{
+										deck[player1Pos5].drag = 0;
+										deck[player1Pos5].placed = 1;
+										deck[player1Pos5].num = 0;
+										deck[player1Pos5].type = 0;
+										deck[player1Pos5].value = 0;
+										deck[player1Pos5].player1pos = 0;
+										deck[player1Pos5].display1 = 0;
+										deck[player1Pos5].display2 = 0;
+										player1Pos5 = 0;
+									}
+									roundPlayed = 1;
+									deck[player2Pos2].drag = 0;
+									deck[player2Pos2].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 0;
+									deck[player2Pos2].num = 0;
+									deck[player2Pos2].type = 0;
+									deck[player2Pos2].value = 0;
+									deck[player2Pos2].player2pos = 0;
+									deck[player2Pos2].display1 = 0;
+									deck[player2Pos2].display2 = 0;
+									player2Pos2 = 0;
+									showNotA = 0;
+									player1Cards--;
+									player2Cards--;
+									pressed = true;
+									break;
+								}
+							}
+							else if (getMousePos(823, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp2.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+									baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+									baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+									baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+									roundPlayed = 1;
+
+									deck[player2Pos2].drag = 0;
+									deck[player2Pos2].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 1;
+									deck[player2Pos2].num = 0;
+									deck[player2Pos2].type = 0;
+									deck[player2Pos2].value = 0;
+									deck[player2Pos2].player2pos = 0;
+									deck[player2Pos2].display1 = 0;
+									deck[player2Pos2].display2 = 0;
+									player2Pos2 = 0;
+									showNotA = 0;
+									player2Cards--;
+									pressed = true;
+									notCardLogic(randomNotUse);
+									break;
+								}
+							}
+							else
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp.png");
+								notCardPop.setTexture(notCardPopTexture);
+							}
+							this->window->draw(notCardPop);
+							this->window->display();
 						}
 					}
-					if (!(succesful))
+					else
 					{
+						baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+						baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+						baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+						baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+						roundPlayed = 1;
+
 						deck[player2Pos2].drag = 0;
-						deck[player2Pos2].img.setRotation(90.f);
+						deck[player2Pos2].placed = 1;
+						notCardPos[randomNotUse].cardOnIt = 1;
+						deck[player2Pos2].num = 0;
+						deck[player2Pos2].type = 0;
+						deck[player2Pos2].value = 0;
+						deck[player2Pos2].player2pos = 0;
+						deck[player2Pos2].display1 = 0;
+						deck[player2Pos2].display2 = 0;
+						player2Pos2 = 0;
+						showNotA = 0;
+						player2Cards--;
+						pressed = true;
+						notCardLogic(randomNotUse);
 					}
 					break;
 				case 3:
-					succesful = 0;
-					deck[player2Pos3].drag = 1;
-					deck[player2Pos3].img.setRotation(180.f);
-					for (int j = 0; j < 16; j++)
+					if (deck[player1Pos1].type == 'n')
 					{
-						if (fPositions2[j].showPos == 1)
+						otherNot = 1;
+					}
+					else if (deck[player1Pos2].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos3].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos4].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos5].type == 'n')
+					{
+						otherNot = 1;
+					}
+
+					if (otherNot)
+					{
+						otherNot = 0;
+						while (true)
 						{
-							if (checkPlacedCards(j))
+							setTimer();
+							this->window->clear();
+							this->window->draw(this->backgroundSprite);
+							this->window->draw(timer);
+							this->window->draw(this->player2Text);
+							this->window->draw(baseCards2[0].BaseCardImg);
+							this->window->draw(baseCards2[1].BaseCardImg);
+							this->window->draw(baseCards2[2].BaseCardImg);
+							this->window->draw(baseCards2[3].BaseCardImg);
+							this->window->draw(baseCards2[4].BaseCardImg);
+							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 0; i < 6; i++)
 							{
-								succesful = 1;
-								deck[player2Pos3].drag = 0;
-								deck[player2Pos3].img.setRotation(180.f);
-								deck[player2Pos3].placed = 1;
-								fPositions2[j].cardOnIt = 1;
-								fPositions2[j].cardNum = deck[player2Pos3].num;
-								fPositions2[j].cardValue = deck[player2Pos3].value;
-								deck[player2Pos3].num = 0;
-								deck[player2Pos3].x = fPositions2[j].x;
-								deck[player2Pos3].y = fPositions2[j].y;
-								deck[player2Pos3].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-								player2Pos3 = 0;
-								player2Cards--;
-								roundPlayed = 1;
-								break;
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
 							}
+							tableOfTruth();
+							setNotCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
+							if (getMousePos(639, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp1.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (deck[player1Pos1].type == 'n')
+									{
+										deck[player1Pos1].drag = 0;
+										deck[player1Pos1].placed = 1;
+										deck[player1Pos1].num = 0;
+										deck[player1Pos1].type = 0;
+										deck[player1Pos1].value = 0;
+										deck[player1Pos1].player1pos = 0;
+										deck[player1Pos1].display1 = 0;
+										deck[player1Pos1].display2 = 0;
+										player1Pos1 = 0;
+									}
+									else if (deck[player1Pos2].type == 'n')
+									{
+										deck[player1Pos2].drag = 0;
+										deck[player1Pos2].placed = 1;
+										deck[player1Pos2].num = 0;
+										deck[player1Pos2].type = 0;
+										deck[player1Pos2].value = 0;
+										deck[player1Pos2].player1pos = 0;
+										deck[player1Pos2].display1 = 0;
+										deck[player1Pos2].display2 = 0;
+										player1Pos2 = 0;
+									}
+									else if (deck[player1Pos3].type == 'n')
+									{
+										deck[player1Pos3].drag = 0;
+										deck[player1Pos3].placed = 1;
+										deck[player1Pos3].num = 0;
+										deck[player1Pos3].type = 0;
+										deck[player1Pos3].value = 0;
+										deck[player1Pos3].player1pos = 0;
+										deck[player1Pos3].display1 = 0;
+										deck[player1Pos3].display2 = 0;
+										player1Pos3 = 0;
+									}
+									else if (deck[player1Pos4].type == 'n')
+									{
+										deck[player1Pos4].drag = 0;
+										deck[player1Pos4].placed = 1;
+										deck[player1Pos4].num = 0;
+										deck[player1Pos4].type = 0;
+										deck[player1Pos4].value = 0;
+										deck[player1Pos4].player1pos = 0;
+										deck[player1Pos4].display1 = 0;
+										deck[player1Pos4].display2 = 0;
+										player1Pos4 = 0;
+									}
+									else if (deck[player1Pos5].type == 'n')
+									{
+										deck[player1Pos5].drag = 0;
+										deck[player1Pos5].placed = 1;
+										deck[player1Pos5].num = 0;
+										deck[player1Pos5].type = 0;
+										deck[player1Pos5].value = 0;
+										deck[player1Pos5].player1pos = 0;
+										deck[player1Pos5].display1 = 0;
+										deck[player1Pos5].display2 = 0;
+										player1Pos5 = 0;
+									}
+									roundPlayed = 1;
+									deck[player2Pos3].drag = 0;
+									deck[player2Pos3].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 0;
+									deck[player2Pos3].num = 0;
+									deck[player2Pos3].type = 0;
+									deck[player2Pos3].value = 0;
+									deck[player2Pos3].player2pos = 0;
+									deck[player2Pos3].display1 = 0;
+									deck[player2Pos3].display2 = 0;
+									player2Pos3 = 0;
+									showNotA = 0;
+									player1Cards--;
+									player2Cards--;
+									pressed = true;
+									break;
+								}
+							}
+							else if (getMousePos(823, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp2.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+									baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+									baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+									baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+									roundPlayed = 1;
+
+									deck[player2Pos3].drag = 0;
+									deck[player2Pos3].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 1;
+									deck[player2Pos3].num = 0;
+									deck[player2Pos3].type = 0;
+									deck[player2Pos3].value = 0;
+									deck[player2Pos3].player2pos = 0;
+									deck[player2Pos3].display1 = 0;
+									deck[player2Pos3].display2 = 0;
+									player2Pos3 = 0;
+									showNotA = 0;
+									player2Cards--;
+									pressed = true;
+									notCardLogic(randomNotUse);
+									break;
+								}
+							}
+							else
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp.png");
+								notCardPop.setTexture(notCardPopTexture);
+							}
+							this->window->draw(notCardPop);
+							this->window->display();
 						}
 					}
-					if (!(succesful))
+					else
 					{
+						baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+						baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+						baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+						baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+						roundPlayed = 1;
+
 						deck[player2Pos3].drag = 0;
-						deck[player2Pos3].img.setRotation(90.f);
+						deck[player2Pos3].placed = 1;
+						notCardPos[randomNotUse].cardOnIt = 1;
+						deck[player2Pos3].num = 0;
+						deck[player2Pos3].type = 0;
+						deck[player2Pos3].value = 0;
+						deck[player2Pos3].player2pos = 0;
+						deck[player2Pos3].display1 = 0;
+						deck[player2Pos3].display2 = 0;
+						player2Pos3 = 0;
+						showNotA = 0;
+						player2Cards--;
+						pressed = true;
+						notCardLogic(randomNotUse);
 					}
 					break;
 				case 4:
-					succesful = 0;
-					deck[player2Pos4].drag = 1;
-					deck[player2Pos4].img.setRotation(180.f);
-					for (int j = 0; j < 16; j++)
+					if (deck[player1Pos1].type == 'n')
 					{
-						if (fPositions2[j].showPos == 1)
+						otherNot = 1;
+					}
+					else if (deck[player1Pos2].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos3].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos4].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos5].type == 'n')
+					{
+						otherNot = 1;
+					}
+
+					if (otherNot)
+					{
+						otherNot = 0;
+						while (true)
 						{
-							if (checkPlacedCards(j))
+							setTimer();
+							this->window->clear();
+							this->window->draw(this->backgroundSprite);
+							this->window->draw(timer);
+							this->window->draw(this->player2Text);
+							this->window->draw(baseCards2[0].BaseCardImg);
+							this->window->draw(baseCards2[1].BaseCardImg);
+							this->window->draw(baseCards2[2].BaseCardImg);
+							this->window->draw(baseCards2[3].BaseCardImg);
+							this->window->draw(baseCards2[4].BaseCardImg);
+							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 0; i < 6; i++)
 							{
-								succesful = 1;
-								deck[player2Pos4].drag = 0;
-								deck[player2Pos4].img.setRotation(180.f);
-								deck[player2Pos4].placed = 1;
-								fPositions2[j].cardOnIt = 1;
-								fPositions2[j].cardNum = deck[player2Pos4].num;
-								fPositions2[j].cardValue = deck[player2Pos4].value;
-								deck[player2Pos4].num = 0;
-								deck[player2Pos4].x = fPositions2[j].x;
-								deck[player2Pos4].y = fPositions2[j].y;
-								deck[player2Pos4].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-								player2Pos4 = 0;
-								player2Cards--;
-								roundPlayed = 1;
-								break;
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
 							}
+							tableOfTruth();
+							setNotCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
+							if (getMousePos(639, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp1.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (deck[player1Pos1].type == 'n')
+									{
+										deck[player1Pos1].drag = 0;
+										deck[player1Pos1].placed = 1;
+										deck[player1Pos1].num = 0;
+										deck[player1Pos1].type = 0;
+										deck[player1Pos1].value = 0;
+										deck[player1Pos1].player1pos = 0;
+										deck[player1Pos1].display1 = 0;
+										deck[player1Pos1].display2 = 0;
+										player1Pos1 = 0;
+									}
+									else if (deck[player1Pos2].type == 'n')
+									{
+										deck[player1Pos2].drag = 0;
+										deck[player1Pos2].placed = 1;
+										deck[player1Pos2].num = 0;
+										deck[player1Pos2].type = 0;
+										deck[player1Pos2].value = 0;
+										deck[player1Pos2].player1pos = 0;
+										deck[player1Pos2].display1 = 0;
+										deck[player1Pos2].display2 = 0;
+										player1Pos2 = 0;
+									}
+									else if (deck[player1Pos3].type == 'n')
+									{
+										deck[player1Pos3].drag = 0;
+										deck[player1Pos3].placed = 1;
+										deck[player1Pos3].num = 0;
+										deck[player1Pos3].type = 0;
+										deck[player1Pos3].value = 0;
+										deck[player1Pos3].player1pos = 0;
+										deck[player1Pos3].display1 = 0;
+										deck[player1Pos3].display2 = 0;
+										player1Pos3 = 0;
+									}
+									else if (deck[player1Pos4].type == 'n')
+									{
+										deck[player1Pos4].drag = 0;
+										deck[player1Pos4].placed = 1;
+										deck[player1Pos4].num = 0;
+										deck[player1Pos4].type = 0;
+										deck[player1Pos4].value = 0;
+										deck[player1Pos4].player1pos = 0;
+										deck[player1Pos4].display1 = 0;
+										deck[player1Pos4].display2 = 0;
+										player1Pos4 = 0;
+									}
+									else if (deck[player1Pos5].type == 'n')
+									{
+										deck[player1Pos5].drag = 0;
+										deck[player1Pos5].placed = 1;
+										deck[player1Pos5].num = 0;
+										deck[player1Pos5].type = 0;
+										deck[player1Pos5].value = 0;
+										deck[player1Pos5].player1pos = 0;
+										deck[player1Pos5].display1 = 0;
+										deck[player1Pos5].display2 = 0;
+										player1Pos5 = 0;
+									}
+									roundPlayed = 1;
+									deck[player2Pos4].drag = 0;
+									deck[player2Pos4].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 0;
+									deck[player2Pos4].num = 0;
+									deck[player2Pos4].type = 0;
+									deck[player2Pos4].value = 0;
+									deck[player2Pos4].player2pos = 0;
+									deck[player2Pos4].display1 = 0;
+									deck[player2Pos4].display2 = 0;
+									player2Pos4 = 0;
+									showNotA = 0;
+									player1Cards--;
+									player2Cards--;
+									pressed = true;
+									break;
+								}
+							}
+							else if (getMousePos(823, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp2.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+									baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+									baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+									baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+									roundPlayed = 1;
+
+									deck[player2Pos4].drag = 0;
+									deck[player2Pos4].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 1;
+									deck[player2Pos4].num = 0;
+									deck[player2Pos4].type = 0;
+									deck[player2Pos4].value = 0;
+									deck[player2Pos4].player2pos = 0;
+									deck[player2Pos4].display1 = 0;
+									deck[player2Pos4].display2 = 0;
+									player2Pos4 = 0;
+									showNotA = 0;
+									player2Cards--;
+									pressed = true;
+									notCardLogic(randomNotUse);
+									break;
+								}
+							}
+							else
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp.png");
+								notCardPop.setTexture(notCardPopTexture);
+							}
+							this->window->draw(notCardPop);
+							this->window->display();
 						}
 					}
-					if (!(succesful))
+					else
 					{
+						baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+						baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+						baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+						baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+						roundPlayed = 1;
+
 						deck[player2Pos4].drag = 0;
-						deck[player2Pos4].img.setRotation(90.f);
+						deck[player2Pos4].placed = 1;
+						notCardPos[randomNotUse].cardOnIt = 1;
+						deck[player2Pos4].num = 0;
+						deck[player2Pos4].type = 0;
+						deck[player2Pos4].value = 0;
+						deck[player2Pos4].player2pos = 0;
+						deck[player2Pos4].display1 = 0;
+						deck[player2Pos4].display2 = 0;
+						player2Pos4 = 0;
+						showNotA = 0;
+						player2Cards--;
+						pressed = true;
+						notCardLogic(randomNotUse);
 					}
 					break;
 				case 5:
-					succesful = 0;
-					deck[player2Pos5].drag = 1;
-					deck[player2Pos5].img.setRotation(180.f);
-					for (int j = 0; j < 16; j++)
+					if (deck[player1Pos1].type == 'n')
 					{
-						if (fPositions2[j].showPos == 1)
+						otherNot = 1;
+					}
+					else if (deck[player1Pos2].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos3].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos4].type == 'n')
+					{
+						otherNot = 1;
+					}
+					else if (deck[player1Pos5].type == 'n')
+					{
+						otherNot = 1;
+					}
+
+					if (otherNot)
+					{
+						otherNot = 0;
+						while (true)
 						{
-							if (checkPlacedCards(j))
+							setTimer();
+							this->window->clear();
+							this->window->draw(this->backgroundSprite);
+							this->window->draw(timer);
+							this->window->draw(this->player2Text);
+							this->window->draw(baseCards2[0].BaseCardImg);
+							this->window->draw(baseCards2[1].BaseCardImg);
+							this->window->draw(baseCards2[2].BaseCardImg);
+							this->window->draw(baseCards2[3].BaseCardImg);
+							this->window->draw(baseCards2[4].BaseCardImg);
+							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 0; i < 6; i++)
 							{
-								succesful = 1;
-								deck[player2Pos5].drag = 0;
-								deck[player2Pos5].img.setRotation(180.f);
-								deck[player2Pos5].placed = 1;
-								fPositions2[j].cardOnIt = 1;
-								fPositions2[j].cardNum = deck[player2Pos5].num;
-								fPositions2[j].cardValue = deck[player2Pos5].value;
-								deck[player2Pos5].num = 0;
-								deck[player2Pos5].x = fPositions2[j].x;
-								deck[player2Pos5].y = fPositions2[j].y;
-								deck[player2Pos5].img.setPosition(fPositions2[j].x, fPositions2[j].y);
-								player2Pos5 = 0;
-								player2Cards--;
-								roundPlayed = 1;
-								break;
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
 							}
+							tableOfTruth();
+							setNotCardImages(cursorpos);
+							for (int i = 1; i < 16; i++)
+							{
+								if (fPositions2[i].cardOnIt == 1)
+								{
+									this->window->draw(deck[fPositions2[i].cardNum].img);
+								}
+							}
+							if (getMousePos(639, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp1.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									if (deck[player1Pos1].type == 'n')
+									{
+										deck[player1Pos1].drag = 0;
+										deck[player1Pos1].placed = 1;
+										deck[player1Pos1].num = 0;
+										deck[player1Pos1].type = 0;
+										deck[player1Pos1].value = 0;
+										deck[player1Pos1].player1pos = 0;
+										deck[player1Pos1].display1 = 0;
+										deck[player1Pos1].display2 = 0;
+										player1Pos1 = 0;
+									}
+									else if (deck[player1Pos2].type == 'n')
+									{
+										deck[player1Pos2].drag = 0;
+										deck[player1Pos2].placed = 1;
+										deck[player1Pos2].num = 0;
+										deck[player1Pos2].type = 0;
+										deck[player1Pos2].value = 0;
+										deck[player1Pos2].player1pos = 0;
+										deck[player1Pos2].display1 = 0;
+										deck[player1Pos2].display2 = 0;
+										player1Pos2 = 0;
+									}
+									else if (deck[player1Pos3].type == 'n')
+									{
+										deck[player1Pos3].drag = 0;
+										deck[player1Pos3].placed = 1;
+										deck[player1Pos3].num = 0;
+										deck[player1Pos3].type = 0;
+										deck[player1Pos3].value = 0;
+										deck[player1Pos3].player1pos = 0;
+										deck[player1Pos3].display1 = 0;
+										deck[player1Pos3].display2 = 0;
+										player1Pos3 = 0;
+									}
+									else if (deck[player1Pos4].type == 'n')
+									{
+										deck[player1Pos4].drag = 0;
+										deck[player1Pos4].placed = 1;
+										deck[player1Pos4].num = 0;
+										deck[player1Pos4].type = 0;
+										deck[player1Pos4].value = 0;
+										deck[player1Pos4].player1pos = 0;
+										deck[player1Pos4].display1 = 0;
+										deck[player1Pos4].display2 = 0;
+										player1Pos4 = 0;
+									}
+									else if (deck[player1Pos5].type == 'n')
+									{
+										deck[player1Pos5].drag = 0;
+										deck[player1Pos5].placed = 1;
+										deck[player1Pos5].num = 0;
+										deck[player1Pos5].type = 0;
+										deck[player1Pos5].value = 0;
+										deck[player1Pos5].player1pos = 0;
+										deck[player1Pos5].display1 = 0;
+										deck[player1Pos5].display2 = 0;
+										player1Pos5 = 0;
+									}
+									roundPlayed = 1;
+									deck[player2Pos5].drag = 0;
+									deck[player2Pos5].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 0;
+									deck[player2Pos5].num = 0;
+									deck[player2Pos5].type = 0;
+									deck[player2Pos5].value = 0;
+									deck[player2Pos5].player2pos = 0;
+									deck[player2Pos5].display1 = 0;
+									deck[player2Pos5].display2 = 0;
+									player2Pos5 = 0;
+									showNotA = 0;
+									player1Cards--;
+									player2Cards--;
+									pressed = true;
+									break;
+								}
+							}
+							else if (getMousePos(823, 530, 17, *this->window))
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp2.png");
+								notCardPop.setTexture(notCardPopTexture);
+								if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								{
+									baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+									baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+									baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+									baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+									roundPlayed = 1;
+
+									deck[player2Pos5].drag = 0;
+									deck[player2Pos5].placed = 1;
+									notCardPos[randomNotUse].cardOnIt = 1;
+									deck[player2Pos5].num = 0;
+									deck[player2Pos5].type = 0;
+									deck[player2Pos5].value = 0;
+									deck[player2Pos5].player2pos = 0;
+									deck[player2Pos5].display1 = 0;
+									deck[player2Pos5].display2 = 0;
+									player2Pos5 = 0;
+									showNotA = 0;
+									player2Cards--;
+									pressed = true;
+									notCardLogic(randomNotUse);
+									break;
+								}
+							}
+							else
+							{
+								notCardPopTexture.loadFromFile("assets/NotCard2PopUp.png");
+								notCardPop.setTexture(notCardPopTexture);
+							}
+							this->window->draw(notCardPop);
+							this->window->display();
 						}
 					}
-					if (!(succesful))
+					else
 					{
+						baseCards[randomNotUse].value = !(baseCards[randomNotUse].value);
+						baseCards2[randomNotUse].value = !(baseCards2[randomNotUse].value);
+						baseCards[randomNotUse].BaseCardImg.setTexture(baseCards2[randomNotUse].BaseCardImgTexture);
+						baseCards2[randomNotUse].BaseCardImg.setTexture(baseCards[randomNotUse].BaseCardImgTexture);
+						roundPlayed = 1;
+
 						deck[player2Pos5].drag = 0;
-						deck[player2Pos5].img.setRotation(90.f);
+						deck[player2Pos5].placed = 1;
+						notCardPos[randomNotUse].cardOnIt = 1;
+						deck[player2Pos5].num = 0;
+						deck[player2Pos5].type = 0;
+						deck[player2Pos5].value = 0;
+						deck[player2Pos5].player2pos = 0;
+						deck[player2Pos5].display1 = 0;
+						deck[player2Pos5].display2 = 0;
+						player2Pos5 = 0;
+						showNotA = 0;
+						player2Cards--;
+						pressed = true;
+						notCardLogic(randomNotUse);
 					}
-					break;
-				}
-				if (roundPlayed)
-				{
 					break;
 				}
 			}
-			if (roundPlayed == 0)
+			else
 			{
-				deck[player2Pos1].drag = 0;
-				deck[player2Pos1].img.setRotation(90.f);
-				deck[player2Pos1].placed = 1;
-				deck[player2Pos1].num = 0;
-				deck[counterCards3].type = deck[player2Pos1].type;
-				deck[counterCards3].value = deck[player2Pos1].value;
-				deck[counterCards3].num = counterCards3;
-				deck[player2Pos1].type = 0;
-				deck[player2Pos1].value = 0;
-				deck[player2Pos1].player1pos = 0;
-				deck[player2Pos1].display1 = 0;
-				deck[player2Pos1].display2 = 0;
-				counterCards3++;
-				player2Pos1 = 0;
-				player2Cards--;
-				roundPlayed = 1;
+				otherNot = 0;
 			}
 		}
 		else
 		{
-			int randomCard = rand() % 5 + 1;
-			switch (randomCard)
+			srand((unsigned)time(0));
+			bool succesful = 0;
+			int randomNum = rand() % 10 + 1;
+			if (randomNum != 7 && randomNum != 2)
 			{
-			case 1:
-				deck[player2Pos1].drag = 0;
-				deck[player2Pos1].img.setRotation(90.f);
-				deck[player2Pos1].placed = 1;
-				deck[player2Pos1].num = 0;
-				deck[counterCards3].type = deck[player2Pos1].type;
-				deck[counterCards3].value = deck[player2Pos1].value;
-				deck[counterCards3].num = counterCards3;
-				deck[player2Pos1].type = 0;
-				deck[player2Pos1].value = 0;
-				deck[player2Pos1].player1pos = 0;
-				deck[player2Pos1].display1 = 0;
-				deck[player2Pos1].display2 = 0;
-				counterCards3++;
-				player2Pos1 = 0;
-				player2Cards--;
-				roundPlayed = 1;
-				break;
-			case 2:
-				deck[player2Pos2].drag = 0;
-				deck[player2Pos2].img.setRotation(90.f);
-				deck[player2Pos2].placed = 1;
-				deck[player2Pos2].num = 0;
-				deck[counterCards3].type = deck[player2Pos2].type;
-				deck[counterCards3].value = deck[player2Pos2].value;
-				deck[counterCards3].num = counterCards3;
-				deck[player2Pos2].type = 0;
-				deck[player2Pos2].value = 0;
-				deck[player2Pos2].player1pos = 0;
-				deck[player2Pos2].display1 = 0;
-				deck[player2Pos2].display2 = 0;
-				counterCards3++;
-				player2Pos2 = 0;
-				player2Cards--;
-				roundPlayed = 1;
-				break;
-			case 3:
-				deck[player2Pos3].drag = 0;
-				deck[player2Pos3].img.setRotation(90.f);
-				deck[player2Pos3].placed = 1;
-				deck[player2Pos3].num = 0;
-				deck[counterCards3].type = deck[player2Pos3].type;
-				deck[counterCards3].value = deck[player2Pos3].value;
-				deck[counterCards3].num = counterCards3;
-				deck[player2Pos3].type = 0;
-				deck[player2Pos3].value = 0;
-				deck[player2Pos3].player1pos = 0;
-				deck[player2Pos3].display1 = 0;
-				deck[player2Pos3].display2 = 0;
-				counterCards3++;
-				player2Pos3 = 0;
-				player2Cards--;
-				roundPlayed = 1;
-				break;
-			case 4:
-				deck[player2Pos4].drag = 0;
-				deck[player2Pos4].img.setRotation(90.f);
-				deck[player2Pos4].placed = 1;
-				deck[player2Pos4].num = 0;
-				deck[counterCards3].type = deck[player2Pos4].type;
-				deck[counterCards3].value = deck[player2Pos4].value;
-				deck[counterCards3].num = counterCards3;
-				deck[player2Pos4].type = 0;
-				deck[player2Pos4].value = 0;
-				deck[player2Pos4].player1pos = 0;
-				deck[player2Pos4].display1 = 0;
-				deck[player2Pos4].display2 = 0;
-				counterCards3++;
-				player2Pos4 = 0;
-				player2Cards--;
-				roundPlayed = 1;
-				break;
-			case 5:
-				deck[player2Pos5].drag = 0;
-				deck[player2Pos5].img.setRotation(90.f);
-				deck[player2Pos5].placed = 1;
-				deck[player2Pos5].num = 0;
-				deck[counterCards3].type = deck[player2Pos5].type;
-				deck[counterCards3].value = deck[player2Pos5].value;
-				deck[counterCards3].num = counterCards3;
-				deck[player2Pos5].type = 0;
-				deck[player2Pos5].value = 0;
-				deck[player2Pos5].player1pos = 0;
-				deck[player2Pos5].display1 = 0;
-				deck[player2Pos5].display2 = 0;
-				counterCards3++;
-				player2Pos5 = 0;
-				player2Cards--;
-				roundPlayed = 1;
-				break;
+				for (int i = 1; i < 6; i++)
+				{
+					if (i != notCard)
+					{
+						switch (i)
+						{
+						case 1:
+							succesful = 0;
+							deck[player2Pos1].drag = 1;
+							deck[player2Pos1].img.setRotation(180.f);
+							for (int j = 0; j < 16; j++)
+							{
+								if (fPositions2[j].showPos == 1)
+								{
+									if (checkPlacedCards(j))
+									{
+										succesful = 1;
+										deck[player2Pos1].drag = 0;
+										deck[player2Pos1].img.setRotation(180.f);
+										deck[player2Pos1].placed = 1;
+										fPositions2[j].cardOnIt = 1;
+										fPositions2[j].cardNum = deck[player2Pos1].num;
+										fPositions2[j].cardValue = deck[player2Pos1].value;
+										deck[player2Pos1].num = 0;
+										deck[player2Pos1].x = fPositions2[j].x;
+										deck[player2Pos1].y = fPositions2[j].y;
+										deck[player2Pos1].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+										player2Pos1 = 0;
+										player2Cards--;
+										roundPlayed = 1;
+										break;
+									}
+								}
+							}
+							if (!(succesful))
+							{
+								deck[player2Pos1].drag = 0;
+								deck[player2Pos1].img.setRotation(90.f);
+							}
+							break;
+						case 2:
+							succesful = 0;
+							deck[player2Pos2].drag = 1;
+							deck[player2Pos2].img.setRotation(180.f);
+							for (int j = 0; j < 16; j++)
+							{
+								if (fPositions2[j].showPos == 1)
+								{
+									if (checkPlacedCards(j))
+									{
+										succesful = 1;
+										deck[player2Pos2].drag = 0;
+										deck[player2Pos2].img.setRotation(180.f);
+										deck[player2Pos2].placed = 1;
+										fPositions2[j].cardOnIt = 1;
+										fPositions2[j].cardNum = deck[player2Pos2].num;
+										fPositions2[j].cardValue = deck[player2Pos2].value;
+										deck[player2Pos2].num = 0;
+										deck[player2Pos2].x = fPositions2[j].x;
+										deck[player2Pos2].y = fPositions2[j].y;
+										deck[player2Pos2].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+										player2Pos2 = 0;
+										player2Cards--;
+										roundPlayed = 1;
+										break;
+									}
+								}
+							}
+							if (!(succesful))
+							{
+								deck[player2Pos2].drag = 0;
+								deck[player2Pos2].img.setRotation(90.f);
+							}
+							break;
+						case 3:
+							succesful = 0;
+							deck[player2Pos3].drag = 1;
+							deck[player2Pos3].img.setRotation(180.f);
+							for (int j = 0; j < 16; j++)
+							{
+								if (fPositions2[j].showPos == 1)
+								{
+									if (checkPlacedCards(j))
+									{
+										succesful = 1;
+										deck[player2Pos3].drag = 0;
+										deck[player2Pos3].img.setRotation(180.f);
+										deck[player2Pos3].placed = 1;
+										fPositions2[j].cardOnIt = 1;
+										fPositions2[j].cardNum = deck[player2Pos3].num;
+										fPositions2[j].cardValue = deck[player2Pos3].value;
+										deck[player2Pos3].num = 0;
+										deck[player2Pos3].x = fPositions2[j].x;
+										deck[player2Pos3].y = fPositions2[j].y;
+										deck[player2Pos3].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+										player2Pos3 = 0;
+										player2Cards--;
+										roundPlayed = 1;
+										break;
+									}
+								}
+							}
+							if (!(succesful))
+							{
+								deck[player2Pos3].drag = 0;
+								deck[player2Pos3].img.setRotation(90.f);
+							}
+							break;
+						case 4:
+							succesful = 0;
+							deck[player2Pos4].drag = 1;
+							deck[player2Pos4].img.setRotation(180.f);
+							for (int j = 0; j < 16; j++)
+							{
+								if (fPositions2[j].showPos == 1)
+								{
+									if (checkPlacedCards(j))
+									{
+										succesful = 1;
+										deck[player2Pos4].drag = 0;
+										deck[player2Pos4].img.setRotation(180.f);
+										deck[player2Pos4].placed = 1;
+										fPositions2[j].cardOnIt = 1;
+										fPositions2[j].cardNum = deck[player2Pos4].num;
+										fPositions2[j].cardValue = deck[player2Pos4].value;
+										deck[player2Pos4].num = 0;
+										deck[player2Pos4].x = fPositions2[j].x;
+										deck[player2Pos4].y = fPositions2[j].y;
+										deck[player2Pos4].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+										player2Pos4 = 0;
+										player2Cards--;
+										roundPlayed = 1;
+										break;
+									}
+								}
+							}
+							if (!(succesful))
+							{
+								deck[player2Pos4].drag = 0;
+								deck[player2Pos4].img.setRotation(90.f);
+							}
+							break;
+						case 5:
+							succesful = 0;
+							deck[player2Pos5].drag = 1;
+							deck[player2Pos5].img.setRotation(180.f);
+							for (int j = 0; j < 16; j++)
+							{
+								if (fPositions2[j].showPos == 1)
+								{
+									if (checkPlacedCards(j))
+									{
+										succesful = 1;
+										deck[player2Pos5].drag = 0;
+										deck[player2Pos5].img.setRotation(180.f);
+										deck[player2Pos5].placed = 1;
+										fPositions2[j].cardOnIt = 1;
+										fPositions2[j].cardNum = deck[player2Pos5].num;
+										fPositions2[j].cardValue = deck[player2Pos5].value;
+										deck[player2Pos5].num = 0;
+										deck[player2Pos5].x = fPositions2[j].x;
+										deck[player2Pos5].y = fPositions2[j].y;
+										deck[player2Pos5].img.setPosition(fPositions2[j].x, fPositions2[j].y);
+										player2Pos5 = 0;
+										player2Cards--;
+										roundPlayed = 1;
+										break;
+									}
+								}
+							}
+							if (!(succesful))
+							{
+								deck[player2Pos5].drag = 0;
+								deck[player2Pos5].img.setRotation(90.f);
+							}
+							break;
+						}
+						if (roundPlayed)
+						{
+							break;
+						}
+					}
+				}
+				if (roundPlayed == 0)
+				{
+					deck[player2Pos1].drag = 0;
+					deck[player2Pos1].img.setRotation(90.f);
+					deck[player2Pos1].placed = 1;
+					deck[player2Pos1].num = 0;
+					deck[counterCards3].type = deck[player2Pos1].type;
+					deck[counterCards3].value = deck[player2Pos1].value;
+					deck[counterCards3].num = counterCards3;
+					deck[player2Pos1].type = 0;
+					deck[player2Pos1].value = 0;
+					deck[player2Pos1].player1pos = 0;
+					deck[player2Pos1].display1 = 0;
+					deck[player2Pos1].display2 = 0;
+					counterCards3++;
+					player2Pos1 = 0;
+					player2Cards--;
+					roundPlayed = 1;
+				}
+			}
+			else
+			{
+				int randomCard = rand() % 5 + 1;
+				switch (randomCard)
+				{
+				case 1:
+					deck[player2Pos1].drag = 0;
+					deck[player2Pos1].img.setRotation(90.f);
+					deck[player2Pos1].placed = 1;
+					deck[player2Pos1].num = 0;
+					deck[counterCards3].type = deck[player2Pos1].type;
+					deck[counterCards3].value = deck[player2Pos1].value;
+					deck[counterCards3].num = counterCards3;
+					deck[player2Pos1].type = 0;
+					deck[player2Pos1].value = 0;
+					deck[player2Pos1].player1pos = 0;
+					deck[player2Pos1].display1 = 0;
+					deck[player2Pos1].display2 = 0;
+					counterCards3++;
+					player2Pos1 = 0;
+					player2Cards--;
+					roundPlayed = 1;
+					break;
+				case 2:
+					deck[player2Pos2].drag = 0;
+					deck[player2Pos2].img.setRotation(90.f);
+					deck[player2Pos2].placed = 1;
+					deck[player2Pos2].num = 0;
+					deck[counterCards3].type = deck[player2Pos2].type;
+					deck[counterCards3].value = deck[player2Pos2].value;
+					deck[counterCards3].num = counterCards3;
+					deck[player2Pos2].type = 0;
+					deck[player2Pos2].value = 0;
+					deck[player2Pos2].player1pos = 0;
+					deck[player2Pos2].display1 = 0;
+					deck[player2Pos2].display2 = 0;
+					counterCards3++;
+					player2Pos2 = 0;
+					player2Cards--;
+					roundPlayed = 1;
+					break;
+				case 3:
+					deck[player2Pos3].drag = 0;
+					deck[player2Pos3].img.setRotation(90.f);
+					deck[player2Pos3].placed = 1;
+					deck[player2Pos3].num = 0;
+					deck[counterCards3].type = deck[player2Pos3].type;
+					deck[counterCards3].value = deck[player2Pos3].value;
+					deck[counterCards3].num = counterCards3;
+					deck[player2Pos3].type = 0;
+					deck[player2Pos3].value = 0;
+					deck[player2Pos3].player1pos = 0;
+					deck[player2Pos3].display1 = 0;
+					deck[player2Pos3].display2 = 0;
+					counterCards3++;
+					player2Pos3 = 0;
+					player2Cards--;
+					roundPlayed = 1;
+					break;
+				case 4:
+					deck[player2Pos4].drag = 0;
+					deck[player2Pos4].img.setRotation(90.f);
+					deck[player2Pos4].placed = 1;
+					deck[player2Pos4].num = 0;
+					deck[counterCards3].type = deck[player2Pos4].type;
+					deck[counterCards3].value = deck[player2Pos4].value;
+					deck[counterCards3].num = counterCards3;
+					deck[player2Pos4].type = 0;
+					deck[player2Pos4].value = 0;
+					deck[player2Pos4].player1pos = 0;
+					deck[player2Pos4].display1 = 0;
+					deck[player2Pos4].display2 = 0;
+					counterCards3++;
+					player2Pos4 = 0;
+					player2Cards--;
+					roundPlayed = 1;
+					break;
+				case 5:
+					deck[player2Pos5].drag = 0;
+					deck[player2Pos5].img.setRotation(90.f);
+					deck[player2Pos5].placed = 1;
+					deck[player2Pos5].num = 0;
+					deck[counterCards3].type = deck[player2Pos5].type;
+					deck[counterCards3].value = deck[player2Pos5].value;
+					deck[counterCards3].num = counterCards3;
+					deck[player2Pos5].type = 0;
+					deck[player2Pos5].value = 0;
+					deck[player2Pos5].player1pos = 0;
+					deck[player2Pos5].display1 = 0;
+					deck[player2Pos5].display2 = 0;
+					counterCards3++;
+					player2Pos5 = 0;
+					player2Cards--;
+					roundPlayed = 1;
+					break;
+				}
 			}
 		}
 		for (int i = 1; i < 16; i++)
