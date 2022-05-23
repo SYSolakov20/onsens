@@ -14,7 +14,7 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-
+#include <fstream>
 
 class Game
 {
@@ -244,6 +244,8 @@ public:
 	void pollEvents(); // Function for getting events
 	bool running(); // Function to check whether game is running
 	void start(); // Function to start game
+	void localOut(); // Saves the game properties on a file
+	void localIn(); // Reads the game properties from a file
 	void menu(sf::Window& newWindow); // Setting the game menu
 	void modes(sf::Window& newWindow); // Modes menu function
 	void rulestab(sf::Window& newWindow); // Rules

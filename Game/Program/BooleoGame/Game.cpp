@@ -19,6 +19,7 @@ void Game::pollEvents()
 		switch (this->sfmlEvent.type)
 		{
 		case sf::Event::Closed:
+			localOut();
 			this->window->close();
 			break;
 
@@ -35,6 +36,7 @@ void Game::pollEvents()
 							switch (this->sfmlEvent.type)
 							{
 							case sf::Event::Closed:
+								localOut();
 								this->window->close();
 								break;
 
@@ -665,6 +667,7 @@ void Game::menu(sf::Window& newWindow)
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (soundOn) clickSound.play();
+			localOut();
 			window->close();
 		}
 	}
@@ -833,8 +836,8 @@ void Game::optionsMenu(sf::Window& newWindow)
 			if (!pressed5)
 			{
 				pressed5 = true;
-				clickSound.play();
-				musicOn = !(musicOn);
+				if (soundOn == 1) clickSound.play();
+				musicOn = !musicOn;
 				if (musicOn == 1)
 				{
 					musicTexture.loadFromFile("assets/MusicIcon1.png");
@@ -856,10 +859,10 @@ void Game::optionsMenu(sf::Window& newWindow)
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			if (!pressed5)
+			if (!pressed3)
 			{
-				pressed5 = true;
-				soundOn = !(soundOn);
+				pressed3 = true;
+				soundOn = !soundOn;
 				if (soundOn == 1)
 				{
 					clickSound.play();
@@ -870,12 +873,12 @@ void Game::optionsMenu(sf::Window& newWindow)
 				{
 					soundTexture.loadFromFile("assets/SoundIcon2.png");
 					soundImg.setTexture(soundTexture);
-				}				
+				}	
 			}
 		}
 		else
 		{
-			pressed5 = false;
+			pressed3 = false;
 		}
 	}
 	if (getMousePos(463, 549, 15, *this->window))
@@ -22026,22 +22029,82 @@ void Game::setReady()
 	customCursor();
 }
 
+void Game::localIn()
+{
+	std::string text;
+	int counter = 0;
+
+	std::ifstream storageFileIn;
+	storageFileIn.open("localStorage.txt");
+	while (getline(storageFileIn, text))
+	{
+		switch (counter)
+		{
+		case 0:
+			std::istringstream(text) >> soundOn;
+			break;
+		case 1:
+			std::istringstream(text) >> musicOn;
+			break;
+		case 2:
+			specialButtonC = stoi(text);
+		}
+		counter++;
+	}
+
+	storageFileIn.close();
+}
+
+void Game::localOut()
+{
+	std::ofstream storageFileOut;
+	storageFileOut.open("localStorage.txt");
+
+	storageFileOut << soundOn << std::endl;
+	storageFileOut << musicOn << std::endl;
+	storageFileOut << specialButtonC << std::endl;
+
+	storageFileOut.close();
+}
+
 Game::Game()
 {
 	init_window();
 	setBackground();
 	setReady();
 	this->backgroundSprite.setScale(window_w / backgroundSprite.getGlobalBounds().width, window_h / backgroundSprite.getGlobalBounds().height);
-
 }
 
 Game::~Game()
 {
+	
 	delete this->window;
 }
 
 void Game::start()
 {
+	localIn();
+	if (soundOn)
+	{
+		soundTexture.loadFromFile("assets/SoundIcon1.png");
+		soundImg.setTexture(soundTexture);
+	}
+	else
+	{
+		soundTexture.loadFromFile("assets/SoundIcon2.png");
+		soundImg.setTexture(soundTexture);
+	}
+	if (musicOn)
+	{
+		musicTexture.loadFromFile("assets/MusicIcon1.png");
+		musicImg.setTexture(musicTexture);
+	}
+	else
+	{
+		musicTexture.loadFromFile("assets/MusicIcon2.png");
+		musicImg.setTexture(musicTexture);
+	}
+
 	while (running())
 	{
 		sf::Vector2i cursorpos = sf::Mouse::getPosition(*this->window);
