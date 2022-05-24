@@ -232,4 +232,67 @@
     .stats-card--up{
         margin-bottom:60px;
     }
+
+    .packs-card{
+        @include flex(row, space-around, center);
+        width: 850px;
+        height: 470px;
+        background-color: $infoCardsColor;
+        background: rgba(196, 196, 196, 0.5);
+        border-style:  solid;
+        border-width: 1px;
+        border-color: $infoCardsBorderColor;
+        border-radius: 20px;
+        margin-top: -200px;
+    }
+    .packs-card__text-wrapper{
+        @include flex(column, flex-start, flex-start);
+        padding-top: 45px;
+        padding-bottom: 45px;
+        width:60%;
+        height:100%;
+    }
+    .packs-card__top-text{
+        font-size: rem($miniFontSize993);
+        letter-spacing: $normalLetterSpacing ;
+       
+    }
+    .packs-card__heading{
+        font-size: rem($normalFontSize993 + 8);
+        letter-spacing: $normalLetterSpacing - 0.08;
+        line-height: 2.4em;
+    }
+    .packs-card__text{
+        padding-top: 30px;
+        font-size: rem($miniFontSize993 + 3);
+        letter-spacing: $normalLetterSpacing ;
+        width:400px;
+        line-height: 204.84%;
+    }
+
+    .drawing-img-card{
+        position: relative;
+        width: 280px;
+        height: 390px; 
+        border: 2px solid #A4A4A4;
+        border-radius: 21px;
+
+            img{
+                width:100%;
+                height:100%;
+            }
+    }
+    .drawing-img-card:after{
+        content: '';
+        width:100%;
+        height: 390px; 
+        z-index: 100;
+        position: absolute;
+        top:0;
+        left:0;
+        background: linear-gradient(153.24deg, rgba(64, 140, 134, 0.609) 2.29%, rgba(49, 111, 106, 0.28) 99%);
+        border: 2px solid #A4A4A4;
+        border-radius: 21px;
+    }
+    
 }

@@ -133,3 +133,52 @@
         height:100%;
     }  
 }
+
+//Responsive from 1200px to 993px
+@media  only screen and (max-width:1200px){
+    .footer{
+        @include flex(row, center, center);
+        width:100%;
+        height:200px;
+    }
+    .footer--index-page{
+        position: absolute;
+        bottom:-110px;
+        left:0;
+        width:100%;
+        height:150px;
+    }   
+    .footer__content-wrapper{
+        position: relative;
+        @include flex(row, space-between, center);
+        width:900px;
+        height:100%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .footer__line{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:1px;
+        background-color: $lineColor;
+    }
+    .footer__left-side{
+        @include flex(column, space-between, flex-start);
+        height:100px;
+        width:unset;
+    }
+    .footer__text{
+        font-size: rem($miniFontSize993 + 7);
+        letter-spacing: $smallLetterSpacing;
+    }
+    .footer__right-side{
+        @include flex(row, space-around, flex-end);
+        width:200px;
+        height:100%;
+            img{
+                transform: scale(0.9);
+            }
+    }  
+}
