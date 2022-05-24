@@ -54,3 +54,28 @@
         letter-spacing: $smallLetterSpacing1200 ;
     }
 }
+
+//Responsive from 1200px to 993px
+@media  only screen and (max-width:1200px){
+    .main-nav{
+        @include flex(row, space-between, flex-start);
+        width:600px;
+        height:100px;
+        padding-top:20px;
+        margin-left:60px;
+    }
+    .main-nav__logo{
+        @include flex(row, center, center);
+        height:100%;
+        width:200px;
+    }
+    .main-nav__menu{
+        @include flex(row, space-around, center);
+        width:67%;
+        height:90%;
+    }
+    .main-nav__menu-link{
+        font-size:rem($normalFontSize993);     
+        letter-spacing: $smallLetterSpacing ;
+    }
+}

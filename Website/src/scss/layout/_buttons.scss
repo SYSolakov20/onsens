@@ -69,3 +69,30 @@
         padding: 20px;
     }
 }
+
+//Responsive from 1200px to 993px
+@media  only screen and (max-width:1200px){
+    .button{
+        width: 230px;
+        height: 70px;
+        border-style: none;
+        border-radius: 25px;
+        cursor:pointer;
+    }
+    .button__text{
+        font-size:rem($smallFontSize993);
+        letter-spacing: $smallLetterSpacing;
+    }
+    .button--download{
+        @include flex(row, space-evenly, center);
+        background-image: $accentGradientColor;
+    }
+    .button__text--download{
+        color:white;
+    }
+    .button--in-progress{
+        @include flex(row, center, center);
+        border-style:solid;
+        border-width:1px;
+    }
+}

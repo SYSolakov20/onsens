@@ -248,3 +248,42 @@ body{
         z-index: -1;
     }
 }
+
+//Responsive from 1200px to 993px
+@media  only screen and (max-width:1200px){
+    .home-menu-wrapper{
+        @include flex(row, flex-end, flex-end);
+        width: 660px;
+        height: 400px;
+    }
+    .home-menu{
+        @include flex(column, space-between, flex-start);
+        width: unset;
+        height: 330px;
+    }
+    .home-menu__heading {
+        font-size: rem($bigTitleFontSize993);
+        letter-spacing: $normalLetterSpacing1200;
+        line-height: 0.7;
+        width: 593px;
+    }
+    .home-menu__text {
+        font-size: rem($normalFontSize993);
+        margin-left: 10px;
+        line-height: 1.2;
+        letter-spacing: $smallLetterSpacing1200;
+        width: 500  px;
+    }
+    .home-menu-button-wrapper{
+        @include flex(row, space-between, center);
+        width:500px;
+        height:unset;
+    }
+    .home__wave-img{
+        width:50%;
+        position: absolute;
+        top:0;
+        right:0;
+        z-index: -1;
+    }
+}
