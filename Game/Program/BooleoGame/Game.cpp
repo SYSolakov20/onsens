@@ -67,6 +67,15 @@ void Game::pollEvents()
 							this->window->draw(baseCards[4].BaseCardImg);
 							this->window->draw(baseCards[5].BaseCardImg);
 							tableOfTruth();
+							for (int i = 0; i < 6; i++)
+							{
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
+							}
 							setNotCardImages(cursorpos);
 							for (int i = 1; i < 16; i++)
 							{
@@ -88,6 +97,15 @@ void Game::pollEvents()
 							this->window->draw(baseCards2[3].BaseCardImg);
 							this->window->draw(baseCards2[4].BaseCardImg);
 							this->window->draw(baseCards2[5].BaseCardImg);
+							for (int i = 0; i < 6; i++)
+							{
+								if (notCardPos[i].cardOnIt == 1)
+								{
+									notCardPos[i].imgTexture.loadFromFile("assets/PlacedNotCard.png");
+									notCardPos[i].img.setTexture(notCardPos[i].imgTexture);
+									this->window->draw(notCardPos[i].img);
+								}
+							}
 							tableOfTruth();
 							setNotCardImages(cursorpos);
 							for (int i = 1; i < 16; i++)
@@ -329,10 +347,6 @@ void Game::pollEvents()
 										}
 										for (int i = 0; i < 6; i++)
 										{
-											notCardPos[i].cardNum = 0;
-											notCardPos[i].cardValue = 0;
-											notCardPos[i].showPos = 0;
-											notCardPos[i].cardOnIt = 0;
 											notCardPos[i].cardNum = 0;
 											notCardPos[i].cardValue = 0;
 											notCardPos[i].showPos = 0;
@@ -888,11 +902,11 @@ void Game::optionsMenu(sf::Window& newWindow)
 			if (!pressed5)
 			{
 				if (soundOn) clickSound.play();
-				specialButtonC++;
+				specialCounter++;
 				pressed5 = true;
-				if (specialButtonC == 6)
+				if (specialCounter == 6)
 				{
-					specialButtonC = 0;
+					specialCounter = 0;
 				}
 			}
 		}
@@ -901,31 +915,87 @@ void Game::optionsMenu(sf::Window& newWindow)
 			pressed5 = false;
 		}
 	}
-	switch (specialButtonC)
+	switch (specialCounter)
 	{
 	case 0:
+		specialButtonC = 0;
 		specialButtonTexture.loadFromFile("assets/SpecialButton1.png");
 		specialButtonImg.setTexture(specialButtonTexture);
 		break;
 	case 1:
-		specialButtonTexture.loadFromFile("assets/SpecialButton2.png");
-		specialButtonImg.setTexture(specialButtonTexture);
+		if (winGamemode1 != 0)
+		{
+			specialButtonC = 1;
+			specialButtonTexture.loadFromFile("assets/SpecialButton2.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
+		else
+		{
+
+			specialButtonC = 0;
+			specialButtonTexture.loadFromFile("assets/SpecialButtonN1.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
 		break;
 	case 2:
-		specialButtonTexture.loadFromFile("assets/SpecialButton3.png");
-		specialButtonImg.setTexture(specialButtonTexture);
+		if (winGamemode2 != 0)
+		{
+			specialButtonC = 2;
+			specialButtonTexture.loadFromFile("assets/SpecialButton3.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
+		else
+		{
+
+			specialButtonC = 0;
+			specialButtonTexture.loadFromFile("assets/SpecialButtonN2.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
 		break;
 	case 3:
-		specialButtonTexture.loadFromFile("assets/SpecialButton4.png");
-		specialButtonImg.setTexture(specialButtonTexture);
+		if (winGamemode3 != 0)
+		{
+			specialButtonC = 3;
+			specialButtonTexture.loadFromFile("assets/SpecialButton4.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
+		else
+		{
+
+			specialButtonC = 0;
+			specialButtonTexture.loadFromFile("assets/SpecialButtonN3.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
 		break;
 	case 4:
-		specialButtonTexture.loadFromFile("assets/SpecialButton5.png");
-		specialButtonImg.setTexture(specialButtonTexture);
+		if (winGamemode4 != 0)
+		{
+			specialButtonC = 4;
+			specialButtonTexture.loadFromFile("assets/SpecialButton5.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
+		else
+		{
+
+			specialButtonC = 0;
+			specialButtonTexture.loadFromFile("assets/SpecialButtonN4.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
 		break;
 	case 5:
-		specialButtonTexture.loadFromFile("assets/SpecialButton6.png");
-		specialButtonImg.setTexture(specialButtonTexture);
+		if (winGamemode1 != 0 && winGamemode2 != 0 && winGamemode3 != 0 && winGamemode4 != 0)
+		{
+			specialButtonC = 5;
+			specialButtonTexture.loadFromFile("assets/SpecialButton6.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
+		else
+		{
+
+			specialButtonC = 0;
+			specialButtonTexture.loadFromFile("assets/SpecialButtonN5.png");
+			specialButtonImg.setTexture(specialButtonTexture);
+		}
 		break;
 	}
 	this->window->draw(this->backgroundSprite);
@@ -16630,18 +16700,6 @@ void Game::setBaseCards()
 			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
 		}
 	}
-	baseCards[0].BaseCardImg.setPosition(334, -98);
-	baseCards[1].BaseCardImg.setPosition(497, -98);
-	baseCards[2].BaseCardImg.setPosition(660, -98);
-	baseCards[3].BaseCardImg.setPosition(823, -98);
-	baseCards[4].BaseCardImg.setPosition(986, -98);
-	baseCards[5].BaseCardImg.setPosition(1149, -98);
-	baseCards2[0].BaseCardImg.setPosition(334, -98);
-	baseCards2[1].BaseCardImg.setPosition(497, -98);
-	baseCards2[2].BaseCardImg.setPosition(660, -98);
-	baseCards2[3].BaseCardImg.setPosition(823, -98);
-	baseCards2[4].BaseCardImg.setPosition(986, -98);
-	baseCards2[5].BaseCardImg.setPosition(1149, -98);
 }
 
 void Game::cardsInHand()
@@ -17101,6 +17159,7 @@ void Game::firstGamemode(sf::Window& newWindow)
 	setTimer();
 	if (win != 0)
 	{
+		winGamemode1++;
 		deckI = 1;
 		cardGet = 1;
 		counter = 0;
@@ -17533,6 +17592,10 @@ void Game::secondGamemode(sf::Window& newWindow)
 	setTimer();
 	if (win != 0)
 	{
+		if (win == 1)
+		{
+			winGamemode2++;
+		}
 		deckI = 1;
 		cardGet = 1;
 		counter = 0;
@@ -18268,6 +18331,7 @@ void Game::thirdGamemode(sf::Window& newWindow)
 	setTimer();
 	if (win != 0)
 	{
+		winGamemode3++;
 		deckI = 1;
 		cardGet = 1;
 		counter = 0;
@@ -18350,10 +18414,6 @@ void Game::thirdGamemode(sf::Window& newWindow)
 		}
 		for (int i = 0; i < 6; i++)
 		{
-			notCardPos[i].cardNum = 0;
-			notCardPos[i].cardValue = 0;
-			notCardPos[i].showPos = 0;
-			notCardPos[i].cardOnIt = 0;
 			notCardPos[i].cardNum = 0;
 			notCardPos[i].cardValue = 0;
 			notCardPos[i].showPos = 0;
@@ -18811,6 +18871,10 @@ void Game::fourthGamemode(sf::Window& newWindow)
 	setTimer();
 	if (win != 0)
 	{
+		if (win == 1)
+		{
+			winGamemode4++;
+		}
 		deckI = 1;
 		cardGet = 1;
 		counter = 0;
@@ -18893,10 +18957,6 @@ void Game::fourthGamemode(sf::Window& newWindow)
 		}
 		for (int i = 0; i < 6; i++)
 		{
-			notCardPos[i].cardNum = 0;
-			notCardPos[i].cardValue = 0;
-			notCardPos[i].showPos = 0;
-			notCardPos[i].cardOnIt = 0;
 			notCardPos[i].cardNum = 0;
 			notCardPos[i].cardValue = 0;
 			notCardPos[i].showPos = 0;
@@ -21507,11 +21567,7 @@ void Game::setPlay()
 							notCardPos[i].showPos = 0;
 							notCardPos[i].cardOnIt = 0;
 							notCardPos[i].pos = 0;
-							notCardPos[i].cardNum = 0;
-							notCardPos[i].cardValue = 0;
-							notCardPos[i].showPos = 0;
-							notCardPos[i].cardOnIt = 0;
-							notCardPos[i].pos = 0;
+
 						}
 						setNotDeck();
 						setBaseCards();
@@ -21623,11 +21679,6 @@ void Game::setPlay()
 			}
 			for (int i = 0; i < 6; i++)
 			{
-				notCardPos[i].cardNum = 0;
-				notCardPos[i].cardValue = 0;
-				notCardPos[i].showPos = 0;
-				notCardPos[i].cardOnIt = 0;
-				notCardPos[i].pos = 0;
 				notCardPos[i].cardNum = 0;
 				notCardPos[i].cardValue = 0;
 				notCardPos[i].showPos = 0;
@@ -21822,11 +21873,6 @@ void Game::setPlay()
 						notCardPos[i].showPos = 0;
 						notCardPos[i].cardOnIt = 0;
 						notCardPos[i].pos = 0;
-						notCardPos[i].cardNum = 0;
-						notCardPos[i].cardValue = 0;
-						notCardPos[i].showPos = 0;
-						notCardPos[i].cardOnIt = 0;
-						notCardPos[i].pos = 0;
 					}
 					setNotDeck();
 					setBaseCards();
@@ -21943,11 +21989,6 @@ void Game::setPlay()
 			notCardPos[i].showPos = 0;
 			notCardPos[i].cardOnIt = 0;
 			notCardPos[i].pos = 0;
-			notCardPos[i].cardNum = 0;
-			notCardPos[i].cardValue = 0;
-			notCardPos[i].showPos = 0;
-			notCardPos[i].cardOnIt = 0;
-			notCardPos[i].pos = 0;
 		}
 		setBaseCards();
 		setNotDeck();
@@ -22003,6 +22044,42 @@ void Game::setPlay()
 		}
 	}
 	}
+
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (baseCards[i].value == 0)
+		{
+			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
+			baseCards[i].BaseCardImgTexture.setSmooth(true);
+			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			baseCards2[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
+			baseCards2[i].BaseCardImgTexture.setSmooth(true);
+			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
+		}
+		else
+		{
+			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
+			baseCards[i].BaseCardImgTexture.setSmooth(true);
+			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			baseCards2[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
+			baseCards2[i].BaseCardImgTexture.setSmooth(true);
+			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
+		}
+	}
+	baseCards[0].BaseCardImg.setPosition(334, -98);
+	baseCards[1].BaseCardImg.setPosition(497, -98);
+	baseCards[2].BaseCardImg.setPosition(660, -98);
+	baseCards[3].BaseCardImg.setPosition(823, -98);
+	baseCards[4].BaseCardImg.setPosition(986, -98);
+	baseCards[5].BaseCardImg.setPosition(1149, -98);
+	baseCards2[0].BaseCardImg.setPosition(334, -98);
+	baseCards2[1].BaseCardImg.setPosition(497, -98);
+	baseCards2[2].BaseCardImg.setPosition(660, -98);
+	baseCards2[3].BaseCardImg.setPosition(823, -98);
+	baseCards2[4].BaseCardImg.setPosition(986, -98);
+	baseCards2[5].BaseCardImg.setPosition(1149, -98);
+
 }
 
 void Game::setReady()
@@ -22031,14 +22108,15 @@ void Game::setReady()
 
 void Game::localIn()
 {
+	// Local storage reading:
 	std::string text;
-	int counter = 0;
+	int scounter = 0;
 
 	std::ifstream storageFileIn;
 	storageFileIn.open("localStorage.txt");
 	while (getline(storageFileIn, text))
 	{
-		switch (counter)
+		switch (scounter)
 		{
 		case 0:
 			std::istringstream(text) >> soundOn;
@@ -22048,11 +22126,48 @@ void Game::localIn()
 			break;
 		case 2:
 			specialButtonC = stoi(text);
+			break;
+		case 3:
+			tableNum = stoi(text);
+			break;
+		case 4:
+			winGamemode1 = stoi(text);
+			break;
+		case 5:
+			winGamemode2 = stoi(text);
+			break;
+		case 6:
+			winGamemode3 = stoi(text);
+			break;
+		case 7:
+			winGamemode4 = stoi(text);
+			break;
 		}
-		counter++;
+		scounter++;
 	}
 
 	storageFileIn.close();
+
+	if (soundOn)
+	{
+		soundTexture.loadFromFile("assets/SoundIcon1.png");
+		soundImg.setTexture(soundTexture);
+	}
+	else
+	{
+		soundTexture.loadFromFile("assets/SoundIcon2.png");
+		soundImg.setTexture(soundTexture);
+	}
+	if (musicOn)
+	{
+		musicTexture.loadFromFile("assets/MusicIcon1.png");
+		musicImg.setTexture(musicTexture);
+	}
+	else
+	{
+		musicTexture.loadFromFile("assets/MusicIcon2.png");
+		musicImg.setTexture(musicTexture);
+	}
 }
 
 void Game::localOut()
@@ -22063,6 +22178,11 @@ void Game::localOut()
 	storageFileOut << soundOn << std::endl;
 	storageFileOut << musicOn << std::endl;
 	storageFileOut << specialButtonC << std::endl;
+	storageFileOut << tableNum << std::endl;
+	storageFileOut << winGamemode1 << std::endl;
+	storageFileOut << winGamemode2 << std::endl;
+	storageFileOut << winGamemode3 << std::endl;
+	storageFileOut << winGamemode4 << std::endl;
 
 	storageFileOut.close();
 }
@@ -22084,26 +22204,6 @@ Game::~Game()
 void Game::start()
 {
 	localIn();
-	if (soundOn)
-	{
-		soundTexture.loadFromFile("assets/SoundIcon1.png");
-		soundImg.setTexture(soundTexture);
-	}
-	else
-	{
-		soundTexture.loadFromFile("assets/SoundIcon2.png");
-		soundImg.setTexture(soundTexture);
-	}
-	if (musicOn)
-	{
-		musicTexture.loadFromFile("assets/MusicIcon1.png");
-		musicImg.setTexture(musicTexture);
-	}
-	else
-	{
-		musicTexture.loadFromFile("assets/MusicIcon2.png");
-		musicImg.setTexture(musicTexture);
-	}
 
 	while (running())
 	{

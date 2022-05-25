@@ -66,6 +66,10 @@ private:
 	bool firstGamemode2 = 1;
 	bool firstGamemode3 = 1;
 	bool firstGamemode4 = 1;
+	int winGamemode1 = 0;
+	int winGamemode2 = 0;
+	int winGamemode3 = 0;
+	int winGamemode4 = 0;
 	bool rules = 0;
 	bool options = 0;
 	bool pause = 0;
@@ -78,6 +82,7 @@ private:
 	int counter = 0;
 	int tableNum = 0;
 	int specialButtonC = 0;
+	int specialCounter = 0;
 	bool pressed = false;
 	bool pressed0 = false;
 	bool pressed1 = false;
@@ -159,8 +164,8 @@ private:
 		int secondNum = 0;
 		bool player1pos = 0;
 		bool player2pos = 0;
-		bool x = 0;
-		bool y = 0;
+		int x = 0;
+		int y = 0;
 		bool drag = 0;
 		bool placed = 0;
 
