@@ -22,7 +22,9 @@
     font-size:rem($normalFontSize);     
     letter-spacing: $smallLetterSpacing ;
 }
-
+.responsive-nav-background{
+    display: none;
+}
 /*Mini nav in cardDesign page*/
 .mini-nav{
     @include flex(row, center, flex-end);
@@ -63,6 +65,31 @@
         height:100px;
         padding-top:20px;
         margin-left:60px;
+    }
+    .main-nav__logo{
+        @include flex(row, center, center);
+        height:100%;
+        width:200px;
+    }
+    .main-nav__menu{
+        @include flex(row, space-around, center);
+        width:67%;
+        height:90%;
+    }
+    .main-nav__menu-link{
+        font-size:rem($normalFontSize993);     
+        letter-spacing: $smallLetterSpacing ;
+    }
+}
+
+//Responsive from 992px to 768px
+@media  only screen and (max-width:900px){
+    .main-nav{
+        @include flex(row, space-between, flex-start);
+        width:500px;
+        height:100px;
+        padding-top:0px;
+        margin-left:40px;
     }
     .main-nav__logo{
         @include flex(row, center, center);
