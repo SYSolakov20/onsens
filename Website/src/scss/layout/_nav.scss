@@ -25,6 +25,9 @@
 .responsive-nav-background{
     display: none;
 }
+.onsens-logo-white{
+    display: none;
+}
 /*Mini nav in cardDesign page*/
 .mini-nav{
     @include flex(row, center, flex-end);
@@ -104,5 +107,45 @@
     .main-nav__menu-link{
         font-size:rem($normalFontSize993);     
         letter-spacing: $smallLetterSpacing ;
+    }
+}
+
+//Responsive from 767px to 576px
+@media  only screen and (max-width:767px){
+    .main-nav{
+        @include flex(column, space-between, flex-start);
+        width:400px;
+        height:100px;
+        padding-top:0px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .main-nav__logo{
+        @include flex(row, center, center);
+        height:100%;
+        width:100%;
+    }
+    .main-nav__menu{
+        @include flex(row, space-around, center);
+        width:100%;
+        height:90%;
+    }
+    .main-nav__menu-link{
+        font-size:rem($normalFontSize993);     
+        letter-spacing: $smallLetterSpacing ;
+        color: white;
+    }
+    .responsive-nav-background{
+        display: unset;
+        position: absolute;
+        top:0;
+        z-index: -1;
+        height: 220px;
+    }
+    .onsens-logo-black{
+        display: none;
+    }
+    .onsens-logo-white{
+        display: unset;
     }
 }
