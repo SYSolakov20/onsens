@@ -83,6 +83,7 @@ private:
 	int tableNum = 0;
 	int specialButtonC = 0;
 	int specialCounter = 0;
+	bool cosmosTheme = 0;
 	bool pressed = false;
 	bool pressed0 = false;
 	bool pressed1 = false;

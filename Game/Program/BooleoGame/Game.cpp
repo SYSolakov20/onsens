@@ -455,6 +455,11 @@ void Game::setBackground()
 	this->backgroundTexture.loadFromFile("assets/menu.png");
 	backgroundTexture.setSmooth(true);
 	this->backgroundSprite.setTexture(backgroundTexture);
+	if (cosmosTheme)
+	{
+		this->backgroundTexture.loadFromFile("assets/cosmos/Menu.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+	}
 }
 
 
@@ -623,6 +628,11 @@ void Game::menu(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverPlay.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverPlay.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed)
@@ -642,6 +652,11 @@ void Game::menu(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverOptions.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverOptions.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed3)
@@ -660,6 +675,11 @@ void Game::menu(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverRules.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverRules.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed24)
@@ -678,6 +698,11 @@ void Game::menu(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverQuit.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverQuit.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (soundOn) clickSound.play();
@@ -716,6 +741,11 @@ void Game::modes(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode1.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverMode1.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed)
@@ -736,6 +766,11 @@ void Game::modes(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode2.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverMode2.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed)
@@ -756,6 +791,11 @@ void Game::modes(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode3.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverMode3.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed)
@@ -776,6 +816,11 @@ void Game::modes(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/HoverMode4.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/HoverMode4.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			if (!pressed)
@@ -796,6 +841,11 @@ void Game::modes(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/GameMode.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/GameMode.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 	}
 
 
@@ -810,6 +860,11 @@ void Game::optionsMenu(sf::Window& newWindow)
 	this->window->clear();
 	this->backgroundTexture.loadFromFile("assets/OptionsBackground.png");
 	this->backgroundSprite.setTexture(backgroundTexture);
+	if (cosmosTheme)
+	{
+		this->backgroundTexture.loadFromFile("assets/cosmos/OptionsBackground.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+	}
 
 	if (getMousePos(557, 765, 14, *this->window))
 	{
@@ -918,11 +973,13 @@ void Game::optionsMenu(sf::Window& newWindow)
 	switch (specialCounter)
 	{
 	case 0:
+		cosmosTheme = 0;
 		specialButtonC = 0;
 		specialButtonTexture.loadFromFile("assets/SpecialButton1.png");
 		specialButtonImg.setTexture(specialButtonTexture);
 		break;
 	case 1:
+		cosmosTheme = 0;
 		if (winGamemode1 != 0)
 		{
 			specialButtonC = 1;
@@ -938,6 +995,7 @@ void Game::optionsMenu(sf::Window& newWindow)
 		}
 		break;
 	case 2:
+		cosmosTheme = 0;
 		if (winGamemode2 != 0)
 		{
 			specialButtonC = 2;
@@ -953,6 +1011,7 @@ void Game::optionsMenu(sf::Window& newWindow)
 		}
 		break;
 	case 3:
+		cosmosTheme = 0;
 		if (winGamemode3 != 0)
 		{
 			specialButtonC = 3;
@@ -968,6 +1027,7 @@ void Game::optionsMenu(sf::Window& newWindow)
 		}
 		break;
 	case 4:
+		cosmosTheme = 0;
 		if (winGamemode4 != 0)
 		{
 			specialButtonC = 4;
@@ -986,12 +1046,13 @@ void Game::optionsMenu(sf::Window& newWindow)
 		if (winGamemode1 != 0 && winGamemode2 != 0 && winGamemode3 != 0 && winGamemode4 != 0)
 		{
 			specialButtonC = 5;
+			cosmosTheme = 1;
 			specialButtonTexture.loadFromFile("assets/SpecialButton6.png");
 			specialButtonImg.setTexture(specialButtonTexture);
 		}
 		else
 		{
-
+			cosmosTheme = 0;
 			specialButtonC = 0;
 			specialButtonTexture.loadFromFile("assets/SpecialButtonN5.png");
 			specialButtonImg.setTexture(specialButtonTexture);
@@ -1012,6 +1073,11 @@ void Game::rulestab(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/RulesPage1.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage1.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (getMousePos(1419, 371, 8, *this->window))
 		{
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -1021,6 +1087,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage2.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage2.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage++;
 					pressed5 = true;
 				}
@@ -1042,6 +1113,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage3.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage3.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage++;
 					pressed5 = true;
 				}
@@ -1060,6 +1136,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage1.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage1.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage--;
 					pressed6 = true;
 				}
@@ -1081,6 +1162,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage4.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage4.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage++;
 					pressed5 = true;
 				}
@@ -1099,6 +1185,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage2.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage2.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage--;
 					pressed6 = true;
 				}
@@ -1120,6 +1211,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage5.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage5.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage++;
 					pressed5 = true;
 				}
@@ -1138,6 +1234,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage3.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage3.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage--;
 					pressed6 = true;
 				}
@@ -1159,6 +1260,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage6.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage6.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage++;
 					pressed5 = true;
 				}
@@ -1177,6 +1283,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage4.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage4.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage--;
 					pressed6 = true;
 				}
@@ -1198,6 +1309,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage7.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage7.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage++;
 					pressed5 = true;
 				}
@@ -1216,6 +1332,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage5.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage5.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage--;
 					pressed6 = true;
 				}
@@ -1254,6 +1375,11 @@ void Game::rulestab(sf::Window& newWindow)
 					if (soundOn) clickSound.play();
 					this->backgroundTexture.loadFromFile("assets/RulesPage6.png");
 					this->backgroundSprite.setTexture(backgroundTexture);
+					if (cosmosTheme)
+					{
+						this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage6.png");
+						this->backgroundSprite.setTexture(backgroundTexture);
+					}
 					nextPage--;
 					pressed6 = true;
 				}
@@ -1268,6 +1394,11 @@ void Game::rulestab(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/RulesPage1.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/RulesPage1.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 	}
 	this->window->draw(this->backgroundSprite);
 	this->window->display();
@@ -22128,18 +22259,24 @@ void Game::localIn()
 			specialButtonC = stoi(text);
 			break;
 		case 3:
-			tableNum = stoi(text);
+			specialCounter = stoi(text);
 			break;
 		case 4:
-			winGamemode1 = stoi(text);
+			tableNum = stoi(text);
 			break;
 		case 5:
-			winGamemode2 = stoi(text);
+			std::istringstream(text) >> cosmosTheme;
 			break;
 		case 6:
-			winGamemode3 = stoi(text);
+			winGamemode1 = stoi(text);
 			break;
 		case 7:
+			winGamemode2 = stoi(text);
+			break;
+		case 8:
+			winGamemode3 = stoi(text);
+			break;
+		case 9:
 			winGamemode4 = stoi(text);
 			break;
 		}
@@ -22178,7 +22315,9 @@ void Game::localOut()
 	storageFileOut << soundOn << std::endl;
 	storageFileOut << musicOn << std::endl;
 	storageFileOut << specialButtonC << std::endl;
+	storageFileOut << specialCounter << std::endl;
 	storageFileOut << tableNum << std::endl;
+	storageFileOut << cosmosTheme << std::endl;
 	storageFileOut << winGamemode1 << std::endl;
 	storageFileOut << winGamemode2 << std::endl;
 	storageFileOut << winGamemode3 << std::endl;
