@@ -120,6 +120,11 @@ void Game::pollEvents()
 						{
 							pauseTexture.loadFromFile("assets/PauseHover1.png");
 							pauseImg.setTexture(pauseTexture);
+							if (cosmosTheme)
+							{
+								pauseTexture.loadFromFile("assets/cosmos/PauseHover1.png");
+								pauseImg.setTexture(pauseTexture);
+							}
 							if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 							{
 								if (!pressed0)
@@ -139,6 +144,11 @@ void Game::pollEvents()
 						{
 							pauseTexture.loadFromFile("assets/PauseHover2.png");
 							pauseImg.setTexture(pauseTexture);
+							if (cosmosTheme)
+							{
+								pauseTexture.loadFromFile("assets/cosmos/PauseHover2.png");
+								pauseImg.setTexture(pauseTexture);
+							}
 							if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 							{
 								if (!pressed3)
@@ -161,6 +171,11 @@ void Game::pollEvents()
 						{
 							pauseTexture.loadFromFile("assets/PauseHover3.png");
 							pauseImg.setTexture(pauseTexture);
+							if (cosmosTheme)
+							{
+								pauseTexture.loadFromFile("assets/cosmos/PauseHover3.png");
+								pauseImg.setTexture(pauseTexture);
+							}
 							if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 							{
 								if (!pressed0)
@@ -419,6 +434,11 @@ void Game::pollEvents()
 						{
 							pauseTexture.loadFromFile("assets/PauseScreen.png");
 							pauseImg.setTexture(pauseTexture);
+							if (cosmosTheme)
+							{
+								pauseTexture.loadFromFile("assets/cosmos/PauseScreen.png");
+								pauseImg.setTexture(pauseTexture);
+							}
 						}
 						this->window->draw(pauseImg);
 						this->window->display();
@@ -1411,8 +1431,18 @@ void Game::winScreen(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/Player1WinScreen.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/Player1WinScreen.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (getMousePos(598, 506, 9, *this->window))
 		{
+			if (cosmosTheme)
+			{
+				this->backgroundTexture.loadFromFile("assets/cosmos/Player1WinScreenHover.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+			}
 			this->backgroundTexture.loadFromFile("assets/Player1WinScreenHover.png");
 			this->backgroundSprite.setTexture(backgroundTexture);
 		}
@@ -1421,10 +1451,20 @@ void Game::winScreen(sf::Window& newWindow)
 	{
 		this->backgroundTexture.loadFromFile("assets/Player2WinScreen.png");
 		this->backgroundSprite.setTexture(backgroundTexture);
+		if (cosmosTheme)
+		{
+			this->backgroundTexture.loadFromFile("assets/cosmos/Player2WinScreen.png");
+			this->backgroundSprite.setTexture(backgroundTexture);
+		}
 		if (getMousePos(598, 506, 9, *this->window))
 		{
 			this->backgroundTexture.loadFromFile("assets/Player2WinScreenHover.png");
 			this->backgroundSprite.setTexture(backgroundTexture);
+			if (cosmosTheme)
+			{
+				this->backgroundTexture.loadFromFile("assets/cosmos/Player2WinScreenHover.png");
+				this->backgroundSprite.setTexture(backgroundTexture);
+			}
 		}
 	}
 	if (getMousePos(598, 506, 9, *this->window))
@@ -20957,14 +20997,29 @@ void Game::setPlay()
 	// Loading and setting all the images
 	this->backgroundTexture.loadFromFile("assets/GameField.png");
 	this->backgroundSprite.setTexture(backgroundTexture);
+	if (cosmosTheme)
+	{
+		this->backgroundTexture.loadFromFile("assets/cosmos/GameField.png");
+		this->backgroundSprite.setTexture(backgroundTexture);
+	}
 	player1TextTexture.loadFromFile("assets/Player1Text.png");
 	this->player1TextTexture.setSmooth(true);
 	player1Text.setTexture(player1TextTexture);
 	player1Text.setPosition(15, 12);
+	if (cosmosTheme)
+	{
+		player1TextTexture.loadFromFile("assets/cosmos/Player1Text.png");
+		player1Text.setTexture(player1TextTexture);
+	}
 	player2TextTexture.loadFromFile("assets/Player2Text.png");
 	this->player2TextTexture.setSmooth(true);
 	player2Text.setTexture(player2TextTexture);
 	player2Text.setPosition(15, 12);
+	if (cosmosTheme)
+	{
+		player2TextTexture.loadFromFile("assets/cosmos/Player2Text.png");
+		player2Text.setTexture(player2TextTexture);
+	}
 	this->buttonTable.setSize(sf::Vector2f(114, 37));
 	this->buttonTable.setPosition(1394, 191);
 	this->buttonTable.setFillColor(sf::Color(80, 255, 0));
@@ -20972,26 +21027,55 @@ void Game::setPlay()
 	this->tableHeaderTexture.setSmooth(true);
 	tableHeader.setTexture(tableHeaderTexture);
 	tableHeader.setPosition(1394, 188);
+	if (cosmosTheme)
+	{
+		tableHeaderTexture.loadFromFile("assets/cosmos/AndtableHover.png");
+		tableHeader.setTexture(tableHeaderTexture);
+	}
 	tableHoverTexture.loadFromFile("assets/AndtableHeader.png");
 	this->tableHoverTexture.setSmooth(true);
 	tableHover.setTexture(tableHoverTexture);
 	tableHover.setPosition(1394, 190);
+	if (cosmosTheme)
+	{
+		tableHoverTexture.loadFromFile("assets/cosmos/AndtableHeader.png");
+		tableHover.setTexture(tableHoverTexture);
+	}
 	transitionTexture.loadFromFile("assets/Transition.png");
 	this->transitionTexture.setSmooth(true);
 	transitionImg.setTexture(transitionTexture);
 	transitionImg.setPosition(-2200, 0);
+	if (cosmosTheme)
+	{
+		transitionTexture.loadFromFile("assets/cosmos/Transition.png");
+		transitionImg.setTexture(transitionTexture);
+	}
 	timer.setFont(font);
 	timer.setPosition(1386, 12);
 	timer.setCharacterSize(51);
 	timer.setFillColor(sf::Color(87, 87, 87));
+	if (cosmosTheme)
+	{
+		timer.setFillColor(sf::Color(255, 255, 255));
+	}
 	pyramid1Texture.loadFromFile("assets/PyramidGround.png");
 	this->pyramid1Texture.setSmooth(true);
 	pyramid1Img.setTexture(pyramid1Texture);
 	pyramid1Img.setPosition(0, 0);
+	if (cosmosTheme)
+	{
+		pyramid1Texture.loadFromFile("assets/cosmos/PyramidGround.png");
+		pyramid1Img.setTexture(pyramid1Texture);
+	}
 	pyramid2Texture.loadFromFile("assets/PyramidGround2.png");
 	this->pyramid2Texture.setSmooth(true);
 	pyramid2Img.setTexture(pyramid2Texture);
 	pyramid2Img.setPosition(0, 0);
+	if (cosmosTheme)
+	{
+		pyramid2Texture.loadFromFile("assets/cosmos/PyramidGround2.png");
+		pyramid2Img.setTexture(pyramid2Texture);
+	}
 	resumeTexture.loadFromFile("assets/ResumeScreen.png");
 	this->resumeTexture.setSmooth(true);
 	resumeImg.setTexture(resumeTexture);
@@ -21063,6 +21147,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeHover1.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeHover1.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
 						if (soundOn) clickSound.play();
@@ -21074,6 +21163,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeHover2.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeHover2.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
 						if (soundOn) clickSound.play();
@@ -21169,6 +21263,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeScreen.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeScreen.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 				}
 				this->window->draw(resumeImg);
 				this->window->display();
@@ -21331,6 +21430,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeHover1.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeHover1.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
 						if (soundOn) clickSound.play();
@@ -21342,6 +21446,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeHover2.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						pauseTexture.loadFromFile("assets/cosmos/ResumeHover2.png");
+						pauseImg.setTexture(pauseTexture);
+					}
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
 						if (soundOn) clickSound.play();
@@ -21437,6 +21546,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeScreen.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeScreen.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 				}
 				this->window->draw(resumeImg);
 				this->window->display();
@@ -21599,6 +21713,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeHover1.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeHover1.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
 						if (soundOn) clickSound.play();
@@ -21610,6 +21729,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeHover2.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeHover2.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 					{
 						if (soundOn) clickSound.play();
@@ -21714,6 +21838,11 @@ void Game::setPlay()
 				{
 					resumeTexture.loadFromFile("assets/ResumeScreen.png");
 					resumeImg.setTexture(resumeTexture);
+					if (cosmosTheme)
+					{
+						resumeTexture.loadFromFile("assets/cosmos/ResumeScreen.png");
+						resumeImg.setTexture(resumeTexture);
+					}
 				}
 				this->window->draw(resumeImg);
 				this->window->display();
@@ -21905,6 +22034,11 @@ void Game::setPlay()
 			{
 				resumeTexture.loadFromFile("assets/ResumeHover1.png");
 				resumeImg.setTexture(resumeTexture);
+				if (cosmosTheme)
+				{
+					resumeTexture.loadFromFile("assets/cosmos/ResumeHover1.png");
+					resumeImg.setTexture(resumeTexture);
+				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
 					if (soundOn) clickSound.play();
@@ -21916,6 +22050,11 @@ void Game::setPlay()
 			{
 				resumeTexture.loadFromFile("assets/ResumeHover2.png");
 				resumeImg.setTexture(resumeTexture);
+				if (cosmosTheme)
+				{
+					resumeTexture.loadFromFile("assets/cosmos/ResumeHover2.png");
+					resumeImg.setTexture(resumeTexture);
+				}
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
 					if (soundOn) clickSound.play();
@@ -22019,6 +22158,11 @@ void Game::setPlay()
 			{
 				resumeTexture.loadFromFile("assets/ResumeScreen.png");
 				resumeImg.setTexture(resumeTexture);
+				if (cosmosTheme)
+				{
+					resumeTexture.loadFromFile("assets/cosmos/ResumeScreen.png");
+					resumeImg.setTexture(resumeTexture);
+				}
 			}
 			this->window->draw(resumeImg);
 			this->window->display();
@@ -22184,18 +22328,38 @@ void Game::setPlay()
 			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
 			baseCards[i].BaseCardImgTexture.setSmooth(true);
 			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			if (cosmosTheme)
+			{
+				baseCards[i].BaseCardImgTexture.loadFromFile("assets/cosmos/BaseCard0.png");
+				baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			}
 			baseCards2[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
 			baseCards2[i].BaseCardImgTexture.setSmooth(true);
 			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
+			if (cosmosTheme)
+			{
+				baseCards2[i].BaseCardImgTexture.loadFromFile("assets/cosmos/BaseCard1.png");
+				baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
+			}
 		}
 		else
 		{
 			baseCards[i].BaseCardImgTexture.loadFromFile("assets/BaseCard1.png");
 			baseCards[i].BaseCardImgTexture.setSmooth(true);
 			baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			if (cosmosTheme)
+			{
+				baseCards[i].BaseCardImgTexture.loadFromFile("assets/cosmos/BaseCard1.png");
+				baseCards[i].BaseCardImg.setTexture(baseCards[i].BaseCardImgTexture);
+			}
 			baseCards2[i].BaseCardImgTexture.loadFromFile("assets/BaseCard0.png");
 			baseCards2[i].BaseCardImgTexture.setSmooth(true);
 			baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
+			if (cosmosTheme)
+			{
+				baseCards2[i].BaseCardImgTexture.loadFromFile("assets/cosmos/BaseCard0.png");
+				baseCards2[i].BaseCardImg.setTexture(baseCards2[i].BaseCardImgTexture);
+			}
 		}
 	}
 	baseCards[0].BaseCardImg.setPosition(334, -98);
