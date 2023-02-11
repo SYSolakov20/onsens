@@ -186,8 +186,8 @@ private:
 		bool showPos = 0;
 		bool cardOnIt = 0;
 		int pos = 0; // 1 to 15
-		int x = 0;
-		int y = 0;
+		float x = 0;
+		float y = 0;
 
 
 		// image
@@ -284,7 +284,7 @@ public:
 	void setNotCardImages(sf::Vector2i cursorpos); // Loads cards images for the not gamemode
 	void setNotCardImages2(sf::Vector2i cursorpos); // The same function but modified for the fourth gamemode
 	bool checkPlacedCards(int jj); // Checks if the operation is possible
-	bool getMousePos(float x, float y, int a, sf::Window& newWindow); // Getting the mouse position
+	bool getMousePos(int x, int y, int a, sf::Window& newWindow); // Getting the mouse position
 	void update(sf::Window& newWindow); // Main function to change values every iteration
 	void render(); // Main function to render objects every iteration
 	void setBackground(); // Function to display background
